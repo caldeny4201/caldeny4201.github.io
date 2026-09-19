@@ -1,8 +1,5 @@
 # Callum Denysschen — Portfolio
 
-AWS Certified Solutions Architect · CompTIA Security+ · ISC2 CC · ITIL 4
-
-Cloud support and security-focused portfolio. Front-end builder.
 
 ## Live Projects
 
