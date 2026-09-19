@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LexPilot Dashboard – Complete Invoicer (January 01, 2026)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f7fa;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 900;
+        }
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        .header-right {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        .notification-badge {
+            position: relative;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+        .badge-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .search-box {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            width: 250px;
+            background: rgba(255,255,255,0.9);
+        }
+        select {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .top-bar {
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .top-bar-section {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #2980b9;
+        }
+        .btn-danger {
+            background: #e74c3c;
+            color: white;
+        }
+        .date-display {
+            font-weight: 600;
+            color: #7f8c8d;
+            font-size: 0.95rem;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .metric-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .metric-label {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .metric-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        .progress-bar {
+            height: 8px;
+            background: #ecf0f1;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: #3498db;
+            transition: width 0.3s;
+        }
+        .progress-fill.green {
+            background: #27ae60;
+        }
+        .progress-text {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            margin-top: 0.3rem;
+        }
+        .alert-section, .quick-actions-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .alert-item {
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .alert-item.warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+        }
+        .alert-item.danger {
+            background: #f8d7da;
+            border-left: 4px solid #e74c3c;
+        }
+        .btn-small {
+            padding: 0.3rem 0.8rem;
+            font-size: 0.8rem;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .btn-info { background: #3498db; color: white; }
+        .btn-warning { background: #f39c12; color: white; }
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+        .action-btn {
+            padding: 1.2rem;
+            background: white;
+            border: 2px solid #3498db;
+            color: #3498db;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        .action-btn:hover {
+            background: #3498db;
+            color: white;
+        }
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal {
+            background: white;
+            width: 100%;
+            max-width: 1000px;
+            max-height: 95vh;
+            overflow-y: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+            font-size: 1.4rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8f9fa;
+        }
+        .modal-close {
+            cursor: pointer;
+            font-size: 1.8rem;
+            color: #7f8c8d;
+        }
+        .modal-body {
+            padding: 1.5rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        input[type="text"], input[type="number"], input[type="email"], input[type="tel"], input[type="date"], select, textarea {
+            width: 100%;
+            padding: 0.6rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        th, td {
+            padding: 0.9rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+        .amount-right {
+            text-align: right;
+        }
+        .summary-line {
+            font-size: 1.05rem;
+            padding: 0.6rem 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .summary-line strong {
+            font-weight: 700;
+        }
+        .total-due {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #27ae60;
+            padding: 1rem 0;
+            border-top: 3px double #333;
+            display: flex;
+            justify-content: space-between;
+        }
+        .trust-warning {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .trust-shortfall-banner {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: bold;
+            border-left: 5px solid #e74c3c;
+        }
+        .modal-actions {
+            padding: 1.5rem;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            background: #f8f9fa;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+        .checkbox-group input {
+            width: auto;
+        }
+        .service-item {
+            position: relative;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: #f9f9f9;
+        }
+        .service-delete {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            cursor: pointer;
+            color: #e74c3c;
+            font-size: 1.2rem;
+        }
+        .service-edit {
+            padding: 0.4rem 0.8rem;
+            background: #f39c12;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-left: 0.5rem;
+        }
+        .conditional {
+            display: none;
+            margin-left: 1rem;
+            padding: 0.8rem;
+            background: #f8f9fa;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+        }
+        .payfast-link-box {
+            background: #e8f5e9;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            word-break: break-all;
+        }
+        .copy-btn {
+            background: #28a745;
+            color: white;
+            margin-top: 0.5rem;
+        }
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .quick-actions {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>LexPilot Dashboard</h1>
+        <div class="header-right">
+            <select id="calendarSelect">
+                <option>Cal ▼</option>
+                <option>Today</option>
+                <option>This Week</option>
+                <option>This Month</option>
+            </select>
+            <div class="notification-badge">
+                🔔
+                <span class="badge-count">3</span>
+            </div>
+            <input type="text" class="search-box" placeholder="Search Client/Case/Invoice">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="top-bar">
+            <div class="top-bar-section">
+                <label>Clients:</label>
+                <select id="clientSelect" onchange="updateDashboard()">
+                    <option value="john_smith">John Smith ▼</option>
+                    <option value="jane_dlamini">Jane Dlamini</option>
+                    <option value="mike_jones">Mike Jones</option>
+                </select>
+                <button class="btn btn-primary" onclick="openModal('addClientModal')">+ Add Client</button>
+            </div>
+            <div class="date-display">TODAY – January 01, 2026</div>
+            <div class="top-bar-section">
+                <label>Cases:</label>
+                <select id="caseSelect" onchange="updateDashboard()">
+                    <option value="smith_v_raf">Smith v RAF ▼</option>
+                    <option value="dlamini_case">Dlamini Case</option>
+                    <option value="jones_v_roadcorp">Jones v RoadCorp</option>
+                </select>
+                <button class="btn btn-primary" onclick="openModal('addCaseModal')">+ Add Case</button>
+            </div>
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">Unbilled Time</div>
+                <div class="metric-value" id="unbilledTime">R 42,300</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 70%"></div>
+                </div>
+                <div class="progress-text">70% of monthly target</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Outstanding Invoices</div>
+                <div class="metric-value" id="outstandingInvoices">R 96,200</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%"></div>
+                </div>
+                <div class="progress-text">60% collection rate</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Trust Available</div>
+                <div class="metric-value" id="trustAvailable">R 310,450</div>
+                <div class="progress-bar">
+                    <div class="progress-fill green" style="width: 100%"></div>
+                </div>
+                <div class="progress-text">Healthy balance</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Billable Hours This Month</div>
+                <div class="metric-value" id="billableHours">150 / 200</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 75%"></div>
+                </div>
+                <div class="progress-text">75% of target</div>
+            </div>
+        </div>
+
+        <div class="alert-section">
+            <div class="section-title">
+                <span>⚠️ ATTENTION (Firm-wide alerts)</span>
+                <div>
+                    <button class="btn-small btn-info">Mark All Read</button>
+                    <button class="btn-small btn-warning">Snooze 1 Day</button>
+                </div>
+            </div>
+            <div class="alert-item danger" id="trustLowAlert">
+                <span>Trust Low: Smith v RAF (R5,000 shortfall)</span>
+                <div>
+                    <button class="btn-small btn-primary" onclick="openModal('depositModal')">Deposit</button>
+                </div>
+            </div>
+            <div class="alert-item warning" id="invoiceOverdueAlert">
+                <span>Invoice Overdue: Dlamini (7 days late)</span>
+                <div>
+                    <button class="btn-small btn-info" onclick="openModal('invoiceModal')">View Invoice</button>
+                    <button class="btn-small btn-warning">Remind</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="quick-actions-section">
+            <div class="section-title">⚡ Quick Actions</div>
+            <div class="quick-actions">
+                <button class="action-btn" onclick="openModal('timeEntryModal')">+ Time Entry</button>
+                <button class="action-btn" onclick="openModal('invoiceModal')">+ Invoice</button>
+                <button class="action-btn" onclick="openModal('depositModal')">+ Deposit</button>
+                <button class="action-btn" onclick="openModal('reportsModal')">Reports</button>
+                <button class="action-btn" onclick="openModal('settingsModal')">Settings</button>
+                <button class="action-btn" onclick="navigateToAdmin()">Admin Dashboard</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Client Modal -->
+    <div class="modal-overlay" id="addClientModal">
+        <div class="modal" style="max-width: 700px;">
+            <div class="modal-header">
+                <span>+ Add New Client</span>
+                <span class="modal-close" onclick="closeModal('addClientModal')">×</span>
+            </div>
+            <div class="modal-body">
+                <h3>Required Fields</h3>
+                <div class="form-group">
+                    <label>Client Name <span style="color:red">*</span></label>
+                    <input type="text" id="newClientName" placeholder="John Smith">
+                </div>
+                <div class="form-group">
+                    <label>Client Type <span style="color:red">*</span></label>
+                    <select id="newClientType" onchange="toggleClientIdField()">
+                        <option>Individual</option>
+                        <option>Entity</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Email <span style="color:red">*</span></label>
+                    <input type="email" id="newClientEmail" placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Mobile Number <span style="color:red">*</span></label>
+                    <input type="tel" id="newClientPhone" placeholder="+27 123 456 789">
+                </div>
+                <h3>Optional Fields</h3>
+                <div class="form-group conditional" id="clientIdGroup">
+                    <label>ID Number / Registration Number</label>
+                    <input type="text" id="newClientId" placeholder="ID Number or Company Reg Number">
+                </div>
+                <div class="form-group">
+                    <label>Address (Physical / Postal)</label>
+                    <textarea id="newClientAddress" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>VAT Registered?</label>
+                    <select id="newClientVatRegistered" onchange="toggleVatField()">
+                        <option>No</option>
+                        <option>Yes</option>
+                    </select>
+                </div>
+                <div class="form-group conditional" id="vatNumberGroup" style="display:none;">
+                    <label>VAT Number</label>
+                    <input type="text" id="newClientVatNumber">
+                </div>
+                <div class="form-group">
+                    <label>Referral Source</label>
+                    <input type="text" id="newClientReferral" placeholder="e.g., Website, Referral from Client X">
+                </div>
+                <div class="form-group">
+                    <label>Notes</label>
+                    <textarea id="newClientNotes" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn" onclick="closeModal('addClientModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveNewClient()">Save Client</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Case Modal -->
+    <div class="modal-overlay" id="addCaseModal">
+        <div class="modal" style="max-width: 700px;">
+            <div class="modal-header">
+                <span>+ Add Case / Matter</span>
+                <span class="modal-close" onclick="closeModal('addCaseModal')">×</span>
+            </div>
+            <div class="modal-body">
+                <h3>Required Fields</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Client <span style="color:red">*</span></label>
+                        <select id="newCaseClient">
+                            <option value="john_smith">John Smith</option>
+                            <option value="jane_dlamini">Jane Dlamini</option>
+                            <option value="mike_jones">Mike Jones</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" onclick="openModal('addClientModal')">+ Add Client</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Case / Matter Name <span style="color:red">*</span></label>
+                    <input type="text" id="newCaseName" placeholder="Smith v RAF">
+                </div>
+                <div class="form-group">
+                    <label>Case Type / Practice Area <span style="color:red">*</span></label>
+                    <select id="newCaseType">
+                        <option>Civil</option>
+                        <option>Criminal</option>
+                        <option>Family</option>
+                        <option>Commercial</option>
+                        <option>Labor</option>
+                        <option>Personal Injury</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Billing Type <span style="color:red">*</span></label>
+                    <select id="newCaseBillingType" onchange="toggleBillingFields()">
+                        <option>Hourly</option>
+                        <option>Fixed</option>
+                        <option>Retainer</option>
+                        <option>Contingency</option>
+                    </select>
+                </div>
+                <div id="hourlyFields" class="conditional">
+                    <div class="form-group">
+                        <label>Hourly Rate</label>
+                        <input type="text" id="newCaseHourlyRate" placeholder="R2000">
+                    </div>
+                    <div class="form-group">
+                        <label>Time Unit (e.g., per hour)</label>
+                        <input type="text" id="newCaseTimeUnit" value="per hour">
+                    </div>
+                </div>
+                <div id="fixedFields" class="conditional" style="display:none;">
+                    <div class="form-group">
+                        <label>Fixed Fee Amount</label>
+                        <input type="text" id="newCaseFixedAmount" placeholder="R15,000">
+                    </div>
+                </div>
+                <div id="retainerFields" class="conditional" style="display:none;">
+                    <div class="form-group">
+                        <label>Retainer Amount</label>
+                        <input type="text" id="newCaseRetainerAmount" placeholder="R10,000">
+                    </div>
+                </div>
+                <div id="contingencyFields" class="conditional" style="display:none;">
+                    <div class="form-group">
+                        <label>Contingency Percentage</label>
+                        <input type="number" id="newCaseContingencyPercent" placeholder="30">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Responsible Attorney <span style="color:red">*</span></label>
+                    <select id="newCaseAttorney">
+                        <option>You</option>
+                        <option>Lawyer 2</option>
+                        <option>Lawyer 3</option>
+                    </select>
+                </div>
+                <h3>Optional Fields</h3>
+                <div class="form-group">
+                    <label>Matter Reference (auto-generated, editable)</label>
+                    <input type="text" id="newCaseRef" placeholder="MAT-2026-0001">
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="newCaseStatus">
+                        <option>Open</option>
+                        <option>Pending</option>
+                        <option>Closed</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Opposing Party</label>
+                    <input type="text" id="newCaseOpposing" placeholder="e.g., Road Accident Fund">
+                </div>
+                <div class="form-group">
+                    <label>Court / Jurisdiction</label>
+                    <input type="text" id="newCaseCourt" placeholder="e.g., High Court Johannesburg">
+                </div>
+                <div class="form-group">
+                    <label>Opening Date</label>
+                    <input type="date" id="newCaseOpenDate">
+                </div>
+                <div class="form-group">
+                    <label>Statute of Limitations Date</label>
+                    <input type="date" id="newCaseStatuteDate">
+                </div>
+                <div class="form-group">
+                    <label>Description / Notes</label>
+                    <textarea id="newCaseDescription" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn" onclick="closeModal('addCaseModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveNewCase()">Save Case</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Time Entry Modal -->
+    <div class="modal-overlay" id="timeEntryModal">
+        <div class="modal">
+            <div class="modal-header">
+                <span id="timeEntryTitle">+ TIME ENTRY – Smith v RAF</span>
+                <span class="modal-close" onclick="closeModal('timeEntryModal')">×</span>
+            </div>
+            <div class="modal-body">
+                <div id="trustShortfallBanner" class="trust-shortfall-banner" style="display:none;">
+                    ⚠️ TRUST SHORTFALL: Requested amount exceeds available trust balance
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Client</label>
+                        <select id="timeEntryClient" onchange="updateTimeEntryCaseOptions()">
+                            <option value="john_smith" selected>John Smith</option>
+                            <option value="jane_dlamini">Jane Dlamini</option>
+                            <option value="mike_jones">Mike Jones</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" onclick="openModal('addClientModal')">+ Add Client</button>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Case</label>
+                        <select id="timeEntryCase">
+                            <option value="smith_v_raf" selected>Smith v RAF</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" onclick="openModal('addCaseModal')">+ Add Case</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Lawyer</label>
+                    <select id="timeEntryLawyer" multiple>
+                        <option selected>You</option>
+                        <option>Lawyer 2</option>
+                        <option>Lawyer 3</option>
+                    </select>
+                    <small>Hold Ctrl/Cmd to select multiple – % split will be prompted on save</small>
+                </div>
+                <h3 style="margin: 1.5rem 0 1rem;">Services (One timer per service – only one running at a time)</h3>
+                <div id="servicesContainer"></div>
+                <button class="btn btn-primary" onclick="openModal('serviceModal')">+ Add Service to This Session</button>
+                <h3 style="margin: 2rem 0 1rem;">Current Session Total</h3>
+                <table id="sessionTotalTable">
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>Hours</th>
+                            <th>Rate</th>
+                            <th>Amount</th>
+                            <th>Lawyer</th>
+                            <th>Timer Status</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <div class="subtotal" id="sessionSubtotal">Subtotal: R0</div>
+                <div class="summary-line" id="trustAmount"><span>Trust Amount:</span> <strong>R0</strong></div>
+                <div class="summary-line" id="nonTrustAmount"><span>Non-Trust Amount:</span> <strong>R0</strong></div>
+                <div class="summary-line" id="trustAvailable"><span>Trust Available:</span> <strong>R18,500</strong></div>
+                <div class="total-due" id="sessionTotalDue"><span>Total Due:</span> <strong>R0</strong></div>
+                <h3 style="margin: 2rem 0 1rem;">Disbursements (Whole Session)</h3>
+                <table id="disbursementsTable">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Use Trust?</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <button class="btn btn-primary" onclick="openModal('addDisbursementModal')">+ Add Disbursement</button>
+                <div class="form-group" style="margin-top: 2rem;">
+                    <label>Notes</label>
+                    <textarea id="timeEntryNotes" rows="3" placeholder="Optional"></textarea>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn" onclick="closeModal('timeEntryModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveTimeEntry()">Save All Entries</button>
+                <button class="btn btn-primary" onclick="saveAndCreateInvoice()">Save All & Create Invoice</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Invoice Modal -->
+    <div class="modal-overlay" id="invoiceModal">
+        <div class="modal">
+            <div class="modal-header">
+                <span id="invoiceTitle">INVOICE – John Smith – Smith v RAF</span>
+                <span class="modal-close" onclick="closeModal('invoiceModal')">×</span>
+            </div>
+            <div class="modal-body">
+                <div id="invoiceTrustShortfallBanner" class="trust-shortfall-banner" style="display:none;">
+                    ⚠️ TRUST SHORTFALL: Requested amount exceeds available trust balance
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Client</label>
+                        <select id="invoiceClient" onchange="updateInvoiceCaseOptions()">
+                            <option value="john_smith" selected>John Smith</option>
+                            <option value="jane_dlamini">Jane Dlamini</option>
+                            <option value="mike_jones">Mike Jones</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" onclick="openModal('addClientModal')">+ Add Client</button>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Case</label>
+                        <select id="invoiceCase">
+                            <option value="smith_v_raf" selected>Smith v RAF</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" onclick="openModal('addCaseModal')">+ Add Case</button>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" id="invoiceDate" value="2026-01-01">
+                    </div>
+                    <div class="form-group">
+                        <label>Due</label>
+                        <input type="date" id="invoiceDue" value="2026-01-15">
+                    </div>
+                </div>
+                <h3 style="margin: 2rem 0 1rem;">Unbilled Items (Auto-Pulled)</h3>
+                <table id="unbilledItemsTable">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Hours</th>
+                            <th>Rate</th>
+                            <th class="amount-right">Amount</th>
+                            <th>Use Trust?</th>
+                            <th>Lawyer</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <div style="margin: 1rem 0;">
+                    <button class="btn btn-primary" onclick="openModal('addManualItemModal')">+ Add Manual Item</button>
+                    <button class="btn btn-primary" style="margin-left: 0.5rem;" onclick="openModal('addDisbursementModal')">+ Add Disbursement</button>
+                    <button class="btn btn-primary" style="margin-left: 0.5rem;" onclick="openModal('serviceModal')">+ Add Service</button>
+                </div>
+                <div style="text-align: right; margin-top: 2rem;">
+                    <div class="summary-line" id="invoiceSubtotal"><span>Subtotal (excl. VAT):</span> <strong>R3,850</strong></div>
+                    <div class="summary-line" id="invoiceVat"><span>VAT @ 15%:</span> <strong>R577.50</strong></div>
+                    <div class="summary-line" id="invoiceTotalBeforeTrust"><span>Total Before Trust:</span> <strong>R4,427.50</strong></div>
+                    <div class="summary-line" id="invoiceTrustAvailable"><span>Trust Available:</span> <strong class="trust-warning">R1,200</strong></div>
+                    <div class="summary-line" id="invoiceTrustDeducted"><span>Trust Deducted:</span> <strong>-R1,200 (capped to available)</strong></div>
+                    <div class="total-due" id="invoiceTotalDue"><span>Total Due:</span> <strong>R3,227.50</strong></div>
+                </div>
+                <h3 style="margin: 2rem 0 1rem;">Payment Options</h3>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="invoicePayfast" checked>
+                    <label for="invoicePayfast">Generate Payfast Link</label>
+                </div>
+                <div id="payfastLinkBox" class="payfast-link-box" style="display:block;">
+                    <strong>Payfast Payment Link:</strong><br>
+                    <span id="payfastUrl">https://payfast.co.za/eng/process?merchant_id=12345&amount=3227.50&item_name=LexPilot+Invoice+INV-001</span>
+                    <button class="btn copy-btn btn-small" onclick="copyPayfastLink()">Copy Link</button>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="invoiceBankDetails">
+                    <label for="invoiceBankDetails">Include Bank Details in Email</label>
+                </div>
+                <div class="form-group">
+                    <label>Firm VAT Number</label>
+                    <input type="text" value="4123456789" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Firm Details</label>
+                    <textarea readonly>LexPilot Law Firm
+Address: 123 Legal St, Johannesburg
+Phone: +27 11 123 4567</textarea>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn btn-danger" onclick="openModal('voidInvoiceModal')">Void / Refund Trust</button>
+                <button class="btn" onclick="closeModal('invoiceModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveInvoiceDraft()">Save Draft</button>
+                <button class="btn btn-primary" onclick="previewInvoicePDF()">Preview PDF</button>
+                <button class="btn btn-primary" onclick="sendInvoice()">Send Invoice</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deposit Modal -->
+    <div class="modal-overlay" id="depositModal">
+        <div class="modal" style="max-width: 700px;">
+            <div class="modal-header">
+                <span>+ TRUST DEPOSIT</span>
+                <span class="modal-close" onclick="closeModal('depositModal')">×</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Client <span style="color: red;">*</span></label>
+                        <select id="depositClient" onchange="updateDepositCaseOptions()">
+                            <option value="john_smith" selected>John Smith</option>
+                            <option value="jane_dlamini">Jane Dlamini</option>
+                            <option value="mike_jones">Mike Jones</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" onclick="openModal('addClientModal')">+ Add Client</button>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Case (Optional)</label>
+                        <select id="depositCase">
+                            <option value="general">General / No Specific Case</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" onclick="openModal('addCaseModal')">+ Add Case</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Amount to Deposit</label>
+                    <input type="text" id="depositAmount" placeholder="R0.00">
+                </div>
+                <div style="margin: 2rem 0;">
+                    <strong>Payment Method</strong>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="depositPayfastLink">
+                    <label for="depositPayfastLink">Generate Payfast Link</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="depositManual">
+                    <label for="depositManual">Manual (Bank Details emailed)</label>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn" onclick="closeModal('depositModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="recordDeposit()">Generate Link / Record Deposit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Modal -->
+    <div class="modal-overlay" id="serviceModal">
+        <div class="modal" style="max-width: 700px;">
+            <div class="modal-header">
+                <span id="serviceModalTitle">+ ADD SERVICE</span>
+                <span class="modal-close" onclick="closeModal('serviceModal')">×</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Use Preset</label>
+                    <select onchange="loadServicePreset(this.value)">
+                        <option value="">Custom</option>
+                        <option value="consultation">Consultation (R2000/hr)</option>
+                        <option value="draft">Draft Letter (R2000/hr)</option>
+                        <option value="court">Court Appearance (R3000/hr)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Service Name <span style="color:red">*</span></label>
+                    <input type="text" id="serviceName" placeholder="e.g., Consultation">
+                </div>
+                <div class="form-group">
+                    <label>Description <span style="color:red">*</span></label>
+                    <textarea id="serviceDescription" rows="3" placeholder="Detailed description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Billing Type <span style="color:red">*</span></label>
+                    <select id="billingType">
+                        <option>Hourly</option>
+                        <option>Fixed</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Rate / Fixed Amount <span style="color:red">*</span></label>
+                    <input type="text" id="rateAmount" placeholder="R2000">
+                </div>
+                <div class="form-group">
+                    <label>Lawyer</label>
+                    <select id="serviceLawyer">
+                        <option>You</option>
+                        <option>Lawyer 2</option>
+                        <option>Lawyer 3</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Use Trust? <span style="color:red">*</span></label>
+                    <select id="useTrust">
+                        <option>No</option>
+                        <option>Yes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Estimated / Manual Hours</label>
+                    <input type="number" step="0.1" id="estimatedHours" value="1.0">
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="savePreset">
+                    <label for="savePreset">Save as preset for future use</label>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn" onclick="closeModal('serviceModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveService()">Save Service</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Disbursement Modal -->
+    <div class="modal-overlay" id="addDisbursementModal">
+        <div class="modal" style="max-width: 700px;">
+            <div class="modal-header">
+                <span>+ Add Disbursement</span>
+                <span class="modal-close" onclick="closeModal('addDisbursementModal')">×</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" id="disbursementDesc" placeholder="Sheriff Service">
+                </div>
+                <div class="form-group">
+                    <label>Amount</label>
+                    <input type="text" id="disbursementAmount" placeholder="R850">
+                </div>
+                <div class="form-group">
+                    <label>Use Trust?</label>
+                    <select id="disbursementTrust">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn" onclick="closeModal('addDisbursementModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveDisbursement()">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Manual Item Modal -->
+    <div class="modal-overlay" id="addManualItemModal">
+        <div class="modal" style="max-width: 700px;">
+            <div class="modal-header">
+                <span>+ Add Manual Item</span>
+                <span class="modal-close" onclick="closeModal('addManualItemModal')">×</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Item</label>
+                    <input type="text" id="manualItemName" placeholder="Item Name">
+                </div>
+                <div class="form-group">
+                    <label>Hours</label>
+                    <input type="number" step="0.1" id="manualItemHours">
+                </div>
+                <div class="form-group">
+                    <label>Rate</label>
+                    <input type="text" id="manualItemRate" placeholder="R2000">
+                </div>
+                <div class="form-group">
+                    <label>Amount</label>
+                    <input type="text" id="manualItemAmount" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Use Trust?</label>
+                    <select id="manualItemTrust">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Lawyer</label>
+                    <select id="manualItemLawyer">
+                        <option>You</option>
+                        <option>Lawyer 2</option>
+                        <option>Lawyer 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn" onclick="closeModal('addManualItemModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveManualItem()">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reports Modal -->
+    <div class="modal-overlay" id="reportsModal">
+        <div class="modal">
+            <div class="modal-header">
+                <span>Reports</span>
+                <span class="modal-close" onclick="closeModal('reportsModal')">×</span>
+            </div>
+            <div class="modal-body">
+                <h3>Invoices for Selected Client/Case</h3>
+                <table id="reportsTable">
+                    <thead>
+                        <tr>
+                            <th>Invoice ID</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="modal-actions">
+                <button class="btn" onclick="closeModal('reportsModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal-overlay" id="settingsModal">
+        <div class="modal" style="max-width: 700px;">
+            <div class="modal-header">
+                <span>Settings</span>
+                <span class="modal-close" onclick="closeModal('settingsModal')">×</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Default Hourly Rate</label>
+                    <input type="text" value="R2000">
+                </div>
+                <div class="form-group">
+                    <label>VAT Rate</label>
+                    <input type="number" step="0.1" value="15">
+                </div>
+                <div class="form-group">
+                    <label>Firm Name</label>
+                    <input type="text" value="LexPilot Law Firm">
+                </div>
+                <div class="form-group">
+                    <label>Bank Details</label>
+                    <textarea rows="3">Bank: Standard Bank
+Account: 123456789
+Branch: 012345</textarea>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn" onclick="closeModal('settingsModal')">Cancel</button>
+                <button class="btn btn-primary">Save Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Void / Refund Modal -->
+    <div class="modal-overlay" id="voidInvoiceModal">
+        <div class="modal" style="max-width: 700px;">
+            <div class="modal-header">
+                <span>Void / Refund Invoice</span>
+                <span class="modal-close" onclick="closeModal('voidInvoiceModal')">×</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Reason for Void <span style="color:red">*</span></label>
+                    <select>
+                        <option>Error in billing</option>
+                        <option>Client dispute</option>
+                        <option>Duplicate</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="refundTrust" checked>
+                    <label for="refundTrust">Auto-refund deducted trust amount to client trust balance</label>
+                </div>
+                <div class="form-group">
+                    <label>Notes</label>
+                    <textarea rows="3"></textarea>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn" onclick="closeModal('voidInvoiceModal')">Cancel</button>
+                <button class="btn btn-danger" onclick="voidInvoice()">Void & Refund Trust</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="invoice.js"></script>
+</body>
+</html>

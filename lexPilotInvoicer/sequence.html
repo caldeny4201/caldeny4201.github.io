@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimized Bulk Email Sender (BCC) with Afrihost SMTP</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 900px; margin: 20px auto; padding: 20px; background: #f9f9f9; }
+        h1 { text-align: center; }
+        form { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        label { display: block; margin-top: 20px; font-weight: bold; }
+        input[type="text"], input[type="password"], textarea { width: 100%; padding: 12px; margin-top: 8px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        textarea { height: 250px; font-family: monospace; }
+        button { margin-top: 30px; padding: 12px 30px; background: #28a745; color: white; font-size: 16px; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #218838; }
+        #status { margin-top: 20px; padding: 15px; border-radius: 5px; font-weight: bold; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecff; color: #0c5460; }
+        small { color: #666; font-style: italic; }
+    </style>
+    <!-- Include smtp.js from CDN (Encrypts credentials in transit) -->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+</head>
+<body>
+    <h1>Bulk Email Sender via Afrihost SMTP (BCC Mode)</h1>
+    <p><strong>Optimized & Secure:</strong> Uses direct SMTP via smtp.js (no third-party like EmailJS). Sends one email with many BCC recipients (privacy protected). Optionally adds emails to your database first.</p>
+    <p><strong>Afrihost SMTP Settings:</strong> Server: <code>mail.yourdomain.co.za</code> | Port: 465 | SSL Encryption | Authentication required (full email + password).</p>
+
+    <form id="emailForm">
+        <label for="smtpHost">SMTP Host (Afrihost):</label>
+        <input type="text" id="smtpHost" value="mail.yourdomain.co.za" required placeholder="mail.yourdomain.co.za">
+
+        <label for="smtpUser">SMTP Username (your full Afrihost email):</label>
+        <input type="text" id="smtpUser" required placeholder="you@yourdomain.co.za">
+
+        <label for="smtpPass">SMTP Password:</label>
+        <input type="password" id="smtpPass" required placeholder="Your email password">
+
+        <label for="from">From Email & Name (shown to recipients):</label>
+        <input type="text" id="from" required placeholder="Your Name <you@yourdomain.co.za>">
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" required placeholder="Important Update">
+
+        <label for="bcc">BCC Recipients (comma-separated or one per line):</label>
+        <textarea id="bcc" required placeholder="recipient1@example.com, recipient2@example.com&#10;recipient3@example.com"></textarea>
+        <small>Max ~100-200 per send recommended (Afrihost limits to prevent spam).</small>
+
+        <label for="body">Email Body (Full HTML supported):</label>
+        <textarea id="body" required placeholder="&lt;h2&gt;Hello!&lt;/h2&gt;&lt;p&gt;This is your personalized email content.&lt;/p&gt;&lt;p&gt;Best regards,&lt;br&gt;Your Name&lt;/p&gt;"></textarea>
+
+        <label for="apiEndpoint">Database API Endpoint (optional - POST {emails: [...]}) :</label>
+        <input type="text" id="apiEndpoint" placeholder="https://your-site.com/api/add-emails">
+
+        <button type="submit">Add to Database & Send Bulk BCC Email</button>
+    </form>
+
+    <div id="status"></div>
+
+    <script>
+        document.getElementById('emailForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const status = document.getElementById('status');
+            status.className = 'info';
+            status.textContent = 'Processing... Please wait.';
+
+            // Get form values
+            const host = document.getElementById('smtpHost').value.trim();
+            const user = document.getElementById('smtpUser').value.trim();
+            const pass = document.getElementById('smtpPass').value;
+            const from = document.getElementById('from').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const bccRaw = document.getElementById('bcc').value.trim();
+            const body = document.getElementById('body').value.trim();
+            const apiEndpoint = document.getElementById('apiEndpoint').value.trim();
+
+            // Parse BCC emails
+            const bccArray = bccRaw.split(/[\n,]+/).map(email => email.trim()).filter(email => email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
+
+            if (bccArray.length === 0) {
+                status.className = 'error';
+                status.textContent = 'Error: No valid BCC email addresses found.';
+                return;
+            }
+
+            if (bccArray.length > 200) {
+                if (!confirm(`You are sending to ${bccArray.length} recipients. Afrihost may limit/throttle large sends. Continue?`)) return;
+            }
+
+            try {
+                // Optional: Add to database first
+                if (apiEndpoint) {
+                    status.textContent = 'Adding emails to database...';
+                    const dbRes = await fetch(apiEndpoint, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ emails: bccArray })
+                    });
+                    if (!dbRes.ok) throw new Error(`Database API error: ${dbRes.status}`);
+                }
+
+                // Send email via smtp.js (single call with BCC list)
+                status.textContent = 'Sending email via Afrihost SMTP...';
+                await Email.send({
+                    SecureToken: "", // Not needed for standard SMTP
+                    Host: host,
+                    Username: user,
+                    Password: pass,
+                    To: "", // Leave empty - we use BCC only
+                    From: from,
+                    Subject: subject,
+                    Body: body,
+                    BCC: bccArray.join(',')
+                });
+
+                status.className = 'success';
+                status.textContent = `Success! Email sent to ${bccArray.length} recipients via BCC.${apiEndpoint ? ' Addresses added to database.' : ''}`;
+
+            } catch (err) {
+                status.className = 'error';
+                status.textContent = 'Error: ' + (err.message || err);
+                console.error(err);
+            }
+        });
+    </script>
+</body>
+</html>

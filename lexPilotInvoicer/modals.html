@@ -1,0 +1,459 @@
+
+    <!-- Invoice Modal -->
+    <div class="modal-overlay" id="invoiceModal">
+        <div class="modal">
+            <div class="modal-header">
+                <span id="invoiceTitle">INVOICE – John Smith – Smith v RAF</span>
+                <span class="modal-close" onclick="closeModal('invoiceModal')">×</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-row">
+                    <div>
+                        <label>Client</label>
+                        <select id="invoiceClient">
+                            <option value="john_smith" selected>John Smith</option>
+                            <option value="jane_dlamini">Jane Dlamini</option>
+                            <option value="mike_jones">Mike Jones</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" onclick="openAddClientModalFromInvoice()">+ Add</button>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div>
+                        <label>Case</label>
+                        <select id="invoiceCase">
+                            <option value="smith_v_raf" selected>Smith v RAF</option>
+                            <option value="dlamini_case">Dlamini Case</option>
+                            <option value="jones_v_roadcorp">Jones v RoadCorp</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" onclick="openAddCaseModalFromInvoice()">+ Add</button>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div>
+                        <label>Date</label>
+                        <input type="date" id="invoiceDate" value="2025-12-29">
+                    </div>
+                    <div>
+                        <label>Due</label>
+                        <input type="date" id="invoiceDue" value="2026-01-12">
+                    </div>
+                </div>
+
+                <h3 style="margin: 2rem 0 1rem;">Unbilled Items (Auto-Pulled – All Unbilled for Client/Case)</h3>
+                <table id="unbilledItemsTable">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Hours</th>
+                            <th>Rate</th>
+                            <th class="amount-right">Amount</th>
+                            <th>Use Trust?</th>
+                            <th>Lawyer</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dynamic unbilled items -->
+                    </tbody>
+                </table>
+
+                <div style="margin: 1rem 0;">
+                    <button class="btn btn-primary" onclick="openAddManualItemModal()">+ Add Manual Item</button>
+                    <button class="btn btn-primary" style="margin-left: 0.5rem;" onclick="openAddDisbursementModal('invoice')">+ Add Disbursement</button>
+                </div>
+
+                <div style="text-align: right; margin-top: 2rem;">
+                    <div class="summary-line" id="invoiceSubtotal"><span>Subtotal (excl. VAT):</span> <strong>R3,850</strong></div>
+                    <div class="summary-line" id="invoiceVat"><span>VAT @ 15%:</span> <strong>R577.50</strong></div>
+                    <div class="summary-line" id="invoiceTotalBeforeTrust"><span>Total Before Trust:</span> <strong>R4,427.50</strong></div>
+                    <div class="summary-line" id="invoiceTrustAvailable"><span>Trust Available:</span> <strong class="trust-warning">R1,200</strong></div>
+                    <div class="summary-line" id="invoiceTrustDeducted"><span>Trust Deducted:</span> <strong>-R1,200 (capped to available)</strong></div>
+                    <div class="total-due" id="invoiceTotalDue"><span>Total Due:</span> <strong>R3,227.50</strong></div>
+                </div>
+
+                <h3 style="margin: 2rem 0 1rem;">Payment Options</h3>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="invoicePayfast">
+                    <label for="invoicePayfast">Generate Payfast Link for R3,227.50</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="invoiceBankDetails">
+                    <label for="invoiceBankDetails">Include Bank Details in Email</label>
+                </div>
+                <div class="form-group">
+                    <label>Firm VAT Number</label>
+                    <input type="text" value="4123456789" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Firm Details</label>
+                    <textarea readonly>LexPilot Law Firm
+Address: 123 Legal St, Johannesburg
+Phone: +27 11 123 4567</textarea>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn" onclick="closeModal('invoiceModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveInvoiceDraft()">Save Draft</button>
+                <button class="btn btn-primary" onclick="previewInvoicePDF()">Preview PDF</button>
+                <button class="btn btn-primary" onclick="sendInvoice()">Send Invoice</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deposit Modal -->
+    <div class="modal-overlay" id="depositModal">
+        <div class="modal" style="max-width: 700px;">
+            <div class="modal-header">
+                <span>+ TRUST DEPOSIT</span>
+                <span class="modal-close" onclick="closeModal('depositModal')">×</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Client <span style="color: red;">*</span></label>
+                    <select id="depositClient">
+                        <option value="john_smith" selected>John Smith</option>
+                        <option value="jane_dlamini">Jane Dlamini</option>
+                        <option value="mike_jones">Mike Jones</option>
+                    </select>
+                    <button class="btn btn-primary" style="margin-top: 0.5rem; width: 100%;" onclick="openAddClientModalFromDeposit()">+ Add New Client</button>
+                </div>
+
+                <div class="form-group">
+                    <label>Case (Optional)</label>
+                    <select id="depositCase">
+                        <option value="smith_v_raf" selected>Smith v RAF</option>
+                        <option value="general">General / No Specific Case</option>
+                        <option value="dlamini_case">Dlamini Case</option>
+                        <option value="jones_v_roadcorp">Jones v RoadCorp</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Amount to Deposit</label>
+                    <input type="text" id="depositAmount" value="R5,000" placeholder="R0.00">
+                </div>
+
+                <div style="margin: 2rem 0;">
+                    <strong>Payment Method</strong>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="depositPayfastLink">
+                    <label for="depositPayfastLink">Generate Payfast Link</label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="depositManual">
+                    <label for="depositManual">Manual (Bank Details emailed)</label>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn" onclick="closeModal('depositModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="recordDeposit()">Generate Link / Record Deposit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Client Modal -->
+    <div class="modal-overlay" id="addClientModal">
+        <div class="modal" style="max-width: 700px;">
+            <div class="modal-header">
+                <span>+ Add New Client</span>
+                <span class="modal-close" onclick="closeModal('addClientModal')">×</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Full Name <span style="color: red;">*</span></label>
+                    <input type="text" id="newClientName" placeholder="John Smith">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="newClientEmail" placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" id="newClientPhone" placeholder="+27 123 456 789">
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <textarea id="newClientAddress" rows="3" placeholder="123 Street, City, Country"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>ID Number</label>
+                    <input type="text" id="newClientID" placeholder="ID/Passport Number">
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn" onclick="closeModal('addClientModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveNewClient()">Save Client</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Case Modal -->
+    <div class="modal-overlay" id="addCaseModal">
+        <div class="modal" style="max-width: 700px;">
+            <div class="modal-header">
+                <span>+ Add New Case</span>
+                <span class="modal-close" onclick="closeModal('addCaseModal')">×</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Client <span style="color: red;">*</span></label>
+                    <select id="newCaseClient">
+                        <option value="john_smith" selected>John Smith</option>
+                        <option value="jane_dlamini">Jane Dlamini</option>
+                        <option value="mike_jones">Mike Jones</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Case Name <span style="color: red;">*</span></label>
+                    <input type="text" id="newCaseName" placeholder="Smith v RAF">
+                </div>
+                <div class="form-group">
+                    <label>Case Number</label>
+                    <input type="text" id="newCaseNumber" placeholder="Case Number">
+                </div>
+                <div class="form-group">
+                    <label>Court</label>
+                    <input type="text" id="newCaseCourt" placeholder="High Court Johannesburg">
+                </div>
+                <div class="form-group">
+                    <label>Type</label>
+                    <select id="newCaseType">
+                        <option>Civil</option>
+                        <option>Criminal</option>
+                        <option>Family</option>
+                        <option>Commercial</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="newCaseStatus">
+                        <option>Active</option>
+                        <option>Pending</option>
+                        <option>Closed</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Opposing Party</label>
+                    <input type="text" id="newCaseOpposing" placeholder="Opposing Party Name">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="newCaseDescription" rows="3" placeholder="Case description"></textarea>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn" onclick="closeModal('addCaseModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveNewCase()">Save Case</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Modal (Add/Edit) -->
+    <div class="modal-overlay" id="serviceModal">
+        <div class="modal" style="max-width: 700px;">
+            <div class="modal-header">
+                <span id="serviceModalTitle">+ EDIT SERVICE FOR THIS SESSION</span>
+                <span class="modal-close" onclick="closeModal('serviceModal')">×</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Service Name</label>
+                    <select id="serviceName">
+                        <option>Draft Letter</option>
+                        <option>Consultation</option>
+                        <option>Telephone Call</option>
+                        <option>Court Appearance</option>
+                        <option>Research</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Billing Type</label>
+                    <select id="billingType">
+                        <option>Hourly</option>
+                        <option>Fixed</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Hourly Rate / Fixed Amount</label>
+                    <input type="text" id="rateAmount" value="R2000">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" id="serviceDescription" value="Auto-filled – fully editable">
+                </div>
+                <div class="form-group">
+                    <label>Use Trust?</label>
+                    <select id="useTrust">
+                        <option>No</option>
+                        <option>Yes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Estimated Hours (optional)</label>
+                    <input type="number" step="0.1" id="estimatedHours" value="2.0">
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="savePreset">
+                    <label for="savePreset">Save as New Preset (updates global presets)</label>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn" onclick="closeModal('serviceModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveService()">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Disbursement Modal -->
+    <div class="modal-overlay" id="addDisbursementModal">
+        <div class="modal" style="max-width: 700px;">
+            <div class="modal-header">
+                <span>+ Add Disbursement</span>
+                <span class="modal-close" onclick="closeModal('addDisbursementModal')">×</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" id="disbursementDesc" placeholder="Sheriff Service">
+                </div>
+                <div class="form-group">
+                    <label>Amount</label>
+                    <input type="text" id="disbursementAmount" placeholder="R850">
+                </div>
+                <div class="form-group">
+                    <label>Use Trust?</label>
+                    <select id="disbursementTrust">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn" onclick="closeModal('addDisbursementModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveDisbursement()">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Manual Item Modal -->
+    <div class="modal-overlay" id="addManualItemModal">
+        <div class="modal" style="max-width: 700px;">
+            <div class="modal-header">
+                <span>+ Add Manual Item</span>
+                <span class="modal-close" onclick="closeModal('addManualItemModal')">×</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Item</label>
+                    <input type="text" id="manualItemName" placeholder="Item Name">
+                </div>
+                <div class="form-group">
+                    <label>Hours</label>
+                    <input type="number" step="0.1" id="manualItemHours">
+                </div>
+                <div class="form-group">
+                    <label>Rate</label>
+                    <input type="text" id="manualItemRate" placeholder="R2000">
+                </div>
+                <div class="form-group">
+                    <label>Amount</label>
+                    <input type="text" id="manualItemAmount" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Use Trust?</label>
+                    <select id="manualItemTrust">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Lawyer</label>
+                    <select id="manualItemLawyer">
+                        <option>You</option>
+                        <option>Lawyer 2</option>
+                        <option>Lawyer 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn" onclick="closeModal('addManualItemModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveManualItem()">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reports Modal -->
+    <div class="modal-overlay" id="reportsModal">
+        <div class="modal">
+            <div class="modal-header">
+                <span>Reports</span>
+                <span class="modal-close" onclick="closeModal('reportsModal')">×</span>
+            </div>
+            <div class="modal-body">
+                <h3>Invoices for Selected Client/Case</h3>
+                <table id="reportsTable">
+                    <thead>
+                        <tr>
+                            <th>Invoice ID</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dynamic reports -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-actions">
+                <button class="btn" onclick="closeModal('reportsModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal-overlay" id="settingsModal">
+        <div class="modal" style="max-width: 700px;">
+            <div class="modal-header">
+                <span>Settings</span>
+                <span class="modal-close" onclick="closeModal('settingsModal')">×</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Default Hourly Rate</label>
+                    <input type="text" value="R2000">
+                </div>
+                <div class="form-group">
+                    <label>VAT Rate</label>
+                    <input type="number" step="0.1" value="15">
+                </div>
+                <div class="form-group">
+                    <label>Firm Name</label>
+                    <input type="text" value="LexPilot Law Firm">
+                </div>
+                <div class="form-group">
+                    <label>Bank Details</label>
+                    <textarea rows="3">Bank: Standard Bank
+Account: 123456789
+Branch: 012345</textarea>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn" onclick="closeModal('settingsModal')">Cancel</button>
+                <button class="btn btn-primary">Save Settings</button>
+            </div>
+        </div>
+    </div>
