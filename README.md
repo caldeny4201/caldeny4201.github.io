@@ -48,25 +48,60 @@ Currently building. Each lab will be published as its own repo with a README and
 
 ---
 
-## Certifications (Building Toward)
+## Skills I Have
 
-- **AWS Certified Cloud Practitioner** — next, exam targeted
-- **AWS Certified Solutions Architect – Associate** — after Practitioner
-- **CompTIA A+** — IT support fundamentals
-- **CompTIA Security+** — security foundations
-- **ITIL 4 Foundation** — service management
+**Front-End:**
+- HTML5, CSS3 (responsive, mobile-first, design systems)
+- JavaScript (vanilla — no frameworks, DOM manipulation, state management)
+- Hash routing, data-driven rendering, SPA architecture
+
+**Cloud & Infra:**
+- AWS (EC2, S3, VPC, IAM basics, CloudWatch)
+- Linux (Ubuntu/Debian CLI, log analysis)
+- Prometheus, Grafana, Node Exporter (monitoring lab)
+
+**Tools & Practices:**
+- Git, GitHub, GitHub Pages
+- VS Code
+- Chart.js, FullCalendar (integration)
+- REST API integration (fetch, stubs)
+
+**Business & Product:**
+- Product positioning and copywriting
+- Pricing tier design and conversion funnels
+- Domain modelling (legal, electrical, education)
+
+**Support & Communication:**
+- Customer-facing experience (5+ years)
+- Documentation and process adherence
+- Remote-ready setup (fibre, LTE failover, inverter)
 
 ---
 
-## Skills
+## Skills I'm Building Toward
 
-- **Cloud:** AWS (EC2, S3, VPC, IAM, CloudWatch, GuardDuty)
-- **Monitoring:** Prometheus, Grafana, Node Exporter
-- **OS:** Linux (Ubuntu/Debian CLI, log analysis), Windows Server
-- **Networking:** TCP/IP, DNS, DHCP, Subnetting, VPN, Firewalls
-- **Scripting:** Bash, Python (basic), JavaScript
-- **Support Tools:** osTicket, Jira Service Management, SSH, RDP
-- **Front-End:** HTML, CSS, JavaScript (vanilla), state management
+**Certifications:**
+- AWS Certified Cloud Practitioner
+- AWS Certified Solutions Architect – Associate
+- CompTIA A+
+- CompTIA Security+
+- ITIL 4 Foundation
+
+**Technical:**
+- Backend development (Node.js or Python + Postgres)
+- Terraform / Infrastructure as Code
+- SIEM (Splunk, ELK Stack)
+- Incident response (NIST SP 800-61)
+- Vulnerability assessment (Nessus, OpenVAS)
+- Hybrid Active Directory (Windows Server + Linux)
+- Docker / containerisation
+- CI/CD pipelines
+
+**Cloud & Security:**
+- AWS GuardDuty, CloudTrail, VPC Flow Logs
+- IAM least-privilege design
+- SOC analyst workflows
+- Cloud support troubleshooting
 
 ---
 
