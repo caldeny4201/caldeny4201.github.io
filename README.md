@@ -12,12 +12,6 @@ Cloud support and security-focused portfolio. Front-end builder.
 - **[Voltguard Electrical](https://caldeny4201.github.io/voltguard/)**  
   Fixed-price electrical services site with service directory, rate cards, and membership tiers.
 
-## Certifications
-
-- AWS Certified Solutions Architect – Associate
-- CompTIA Security+
-- ISC2 Certified in Cybersecurity (CC)
-- ITIL 4 Foundation
 
 ## Contact
 
