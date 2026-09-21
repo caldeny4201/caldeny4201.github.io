@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callum Denysschen | Portfolio</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #e2e8f0;
+            --accent: #38bdf8;
+            --muted: #94a3b8;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, -apple-system, sans-serif; }
+        body { background: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem; }
+        
+        .container { max-width: 800px; margin: 0 auto; }
+        
+        header { text-align: center; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid #334155; }
+        h1 { font-size: 2.5rem; color: white; margin-bottom: 0.5rem; }
+        .subtitle { color: var(--accent); font-weight: 600; font-size: 1.1rem; margin-bottom: 1rem; }
+        .contact { color: var(--muted); font-size: 0.95rem; }
+        .contact a { color: var(--accent); text-decoration: none; }
+        .contact a:hover { text-decoration: underline; }
+
+        h2 { color: white; font-size: 1.4rem; margin: 2rem 0 1rem; border-left: 4px solid var(--accent); padding-left: 0.75rem; }
+        
+        .card { background: var(--card); padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; border: 1px solid #334155; }
+        .card h3 { color: white; font-size: 1.1rem; margin-bottom: 0.25rem; }
+        .card .meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 0.75rem; }
+        .card ul { padding-left: 1.25rem; color: var(--muted); }
+        .card ul li { margin-bottom: 0.25rem; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+        .skill-tag { background: #334155; color: var(--text); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; text-align: center; }
+        
+        .btn { display: inline-block; background: var(--accent); color: #0f172a; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 600; margin-top: 0.5rem; transition: opacity 0.2s; }
+        .btn:hover { opacity: 0.9; }
+        
+        footer { text-align: center; margin-top: 4rem; color: var(--muted); font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Callum Denysschen</h1>
+            <p class="subtitle">Remote Customer Service Rep · Web Developer</p>
+            <p class="contact">
+                Sandton, South Africa · <a href="mailto:denyssschen.callum43@gmail.com">Email</a> · 
+                <a href="https://linkedin.com/in/callumdenyssschen" target="_blank">LinkedIn</a> · 
+                <a href="Callum_Denysschen_CV.pdf" target="_blank">Download CV</a>
+            </p>
+        </header>
+
+        <section>
+            <h2>About Me</h2>
+            <p>Customer-focused professional seeking remote BPO roles (UK/EU accounts). Strong communication, problem-solving, and documentation skills. Fully remote-ready with redundant power, fibre, and LTE failover. Available across UK/EU/US time zones.</p>
+        </section>
+
+        <section>
+            <h2>Projects & Portfolio</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Voltguard Electrical</h3>
+                    <p class="meta">Client-facing service site</p>
+                    <a href="voltguard/index.html" class="btn">View Project</a>
+                </div>
+                <div class="card">
+                    <h3>LexPilot Invoicer</h3>
+                    <p class="meta">Billing/Invoicing prototype</p>
+                    <a href="lexPilotInvoicer/index.html" class="btn">View Project</a>
+                </div>
+                <div class="card">
+                    <h3>Collateral</h3>
+                    <p class="meta">Documents & Brochures</p>
+                    <a href="collateral/" class="btn">View Files</a>
+                </div>
+                <div class="card">
+                    <h3>Fathom</h3>
+                    <p class="meta">Web Experiment</p>
+                    <a href="fathom/index.html" class="btn">View Project</a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Core Skills</h2>
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
+                <span class="skill-tag">Customer Service</span>
+                <span class="skill-tag">Issue Resolution</span>
+                <span class="skill-tag">CRM (osTicket, Jira)</span>
+                <span class="skill-tag">Zoom / Slack / Teams</span>
+                <span class="skill-tag">Conflict Resolution</span>
+                <span class="skill-tag">English (C2)</span>
+                <span class="skill-tag">Data Entry</span>
+                <span class="skill-tag">Time Management</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Experience</h2>
+            <div class="card">
+                <h3>Conference Assistant (Part-Time)</h3>
+                <p class="meta">The Travel Link · Aug 2019 – Jun 2020</p>
+                <ul>
+                    <li>Coordinated logistics for individuals and events under pressure.</li>
+                    <li>Resolved issues in real time while maintaining clear communication.</li>
+                    <li>Managed multiple concurrent requirements (travel, dietary, seating).</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Sales Representative</h3>
+                <p class="meta">DN Agencies · Jan 2019 – Jul 2019</p>
+                <ul>
+                    <li>Contacted prospective and current customers to increase sales.</li>
+                    <li>Determined customer requirements and proposed solutions.</li>
+                    <li>Managed documentation from quotation through payment reconciliation.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Remote Readiness</h2>
+            <div class="card">
+                <ul>
+                    <li>Redundant power: inverter + LTE failover (load-shedding ready)</li>
+                    <li>Fibre internet, quiet home office</li>
+                    <li>Available across UK/EU/US time zones</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Callum Denysschen. Hosted on GitHub Pages.</p>
+        </footer>
+    </div>
+</body>
+</html>
