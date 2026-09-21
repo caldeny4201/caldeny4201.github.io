@@ -1,64 +1,112 @@
-# Callum Denysschen — Portfolio & Projects
+# Callum Denysschen
 
-Welcome to my GitHub Pages repository! This space serves as my digital portfolio, showcasing my self-taught web development projects, professional collateral, and my CV.
+**Technical Customer Support Specialist · Web Developer · C2 English**
 
-🌐 **Live Portfolio:** [caldeny4201.github.io](https://caldeny4201.github.io)
-
----
-
-## 👋 About Me
-
-I am a Customer-focused professional seeking remote BPO roles (UK/EU accounts). I bring strong communication, problem-solving, and documentation skills from prior sales and event coordination roles. 
-
-I am fully remote-ready with redundant power, fibre, and LTE failover, and I am available across UK/EU/US time zones. In my spare time, I am a self-taught web builder.
+Sandton, Gauteng, South Africa
+📞 +27 76 431 2871 · ✉️ [denysschen.callum43@gmail.com](mailto:denysschen.callum43@gmail.com)
+🔗 [LinkedIn](https://linkedin.com/in/callumdenysschen) · 🌐 [Portfolio](https://caldeny4201.github.io) · 📄 [Download CV](https://caldeny4201.github.io/Callum_Denysschen_CV.pdf)
 
 ---
 
-## 🛠️ Core Skills
+## About
 
-*   **Customer Service:** Issue resolution, conflict resolution, and de-escalation.
-*   **Communication:** Clear written and verbal communication (English C2).
-*   **Tools:** Ticketing systems and CRM (osTicket, Jira), Remote collaboration (Zoom, Slack, Microsoft Teams).
-*   **Technical:** Data entry, documentation, and self-taught web development (HTML/CSS).
+Technical Customer Support and Web Development professional with a strong background in client-facing service. I combine C2 English communication with hands-on experience building and deploying responsive web applications and client-facing documentation. I'm fully remote-ready with redundant power (inverter + LTE failover), fibre internet, and a quiet home office — available across UK/EU/US time zones.
 
 ---
 
-## 📁 Repository Contents
+## Projects
 
-Here is a breakdown of the projects and files available in this repository:
+### ⚡ Voltguard Electrical — Full Business Website & Collateral
+A 5-page, mobile-responsive website for a South African electrical contractor. Features dynamic pricing tables, WhatsApp booking integration, and local SEO schema markup.
 
-| Folder / File | Description |
-| :--- | :--- |
-| **`/voltguard`** | A client-facing service website designed and deployed for Voltguard Electrical. |
-| **`/lexPilotInvoicer`** | A billing and invoicing prototype application (LexPilot). |
-| **`/collateral`** | Professional documents, brochures, and spec sheets (e.g., Voltguard Web Agency Brochure). |
-| **`/fathom`** | A web experiment/project. |
-| **`Callum_Denysschen_CV.pdf`** | My most up-to-date Curriculum Vitae. |
-| **`index.html`** | The main landing page for this GitHub Pages site. |
+- **Live demo:** [caldeny4201.github.io/voltguard](https://caldeny4201.github.io/voltguard)
+- **Code:** [`/voltguard`](https://github.com/caldeny4201/caldeny4201.github.io/tree/main/voltguard)
+- **Stack:** HTML5 · CSS3 · GitHub Pages
+- **Documents:** 8 PDFs authored and integrated (see below)
 
----
+### 📄 LexPilot — Invoicing Prototype
+A front-end billing and invoicing prototype built for legal professionals to generate and track invoices.
 
-## 💼 Professional Experience
+- **Live demo:** [caldeny4201.github.io/lexpilot](https://caldeny4201.github.io/lexpilot)
+- **Code:** [`/lexpilot`](https://github.com/caldeny4201/caldeny4201.github.io/tree/main/lexpilot)
+- **Stack:** HTML5 · CSS3 · JavaScript
 
-**Conference Assistant (Part-Time) | The Travel Link** *(Aug 2019 - Jun 2020)*
-*   Coordinated logistics for individuals and events under pressure.
-*   Resolved issues in real time while maintaining clear communication.
-*   Managed multiple concurrent requirements (travel, dietary, seating).
+### 📚 Fathom — Computer Science Learning Platform
+A static site structure for a CS educational platform, organizing 70+ topics across 9 South African universities. Each topic maps to multiple module codes for easy navigation.
 
-**Sales Representative | DN Agencies** *(Jan 2019 - Jul 2019)*
-*   Contacted prospective and current customers to increase sales.
-*   Determined customer requirements and proposed solutions.
-*   Managed documentation from quotation through payment reconciliation.
+- **Live demo:** [caldeny4201.github.io/fathom](https://caldeny4201.github.io/fathom)
+- **Code:** [`/fathom`](https://github.com/caldeny4201/caldeny4201.github.io/tree/main/fathom)
+- **Stack:** HTML5 · CSS3 · JavaScript
 
 ---
 
-## 📫 Contact Me
+## Client Documents
 
-*   **Location:** Sandton, Gauteng, South Africa
-*   **Phone:** +27 76 431 2871
-*   **Email:** [denyssschen.callum43@gmail.com](mailto:denyssschen.callum43@gmail.com)
-*   **LinkedIn:** [linkedin.com/in/callumdenyssschen](https://linkedin.com/in/callumdenyssschen)
-*   **Portfolio:** [caldeny4201.github.io](https://caldeny4201.github.io)
+All documents are print-ready A4 PDFs, live and downloadable.
+
+| Document | Link |
+|---|---|
+| Web Agency Brochure | [View PDF](https://caldeny4201.github.io/collateral/Voltguard_Web_Agency_Brochure.pdf) |
+| Web Example Quote | [View PDF](https://caldeny4201.github.io/collateral/Voltguard_Web_Example_Quote.pdf) |
+| Web Spec Sheet | [View PDF](https://caldeny4201.github.io/collateral/Voltguard_Web_Spec_Sheet.pdf) |
+| Brochure 1 — Homeowners | [View PDF](https://caldeny4201.github.io/collateral/Voltguard_Brochure_1_Homeowners.pdf) |
+| Brochure 2 — Estate Agents | [View PDF](https://caldeny4201.github.io/collateral/Voltguard_Brochure_2_Estate_Agents.pdf) |
+| Brochure 3 — Commercial | [View PDF](https://caldeny4201.github.io/collateral/Voltguard_Brochure_3_Commercial.pdf) |
+| Brochure 4 — Builders & Developers | [View PDF](https://caldeny4201.github.io/collateral/Voltguard_Brochure_4_Builders_Developers.pdf) |
+| Brochure 5 — Landlords | [View PDF](https://caldeny4201.github.io/collateral/Voltguard_Brochure_5_Landlords.pdf) |
 
 ---
-*Built with GitHub Pages.*
+
+## Skills
+
+**Customer Service & Support**
+- Issue resolution · conflict de-escalation
+- Clear written & verbal communication
+- Ticketing systems (osTicket, Jira)
+- CRM workflows
+
+**Web Development & Technical**
+- HTML5 · CSS3 · Responsive design
+- Static site deployment (GitHub Pages)
+- SEO schema markup
+- Technical documentation
+
+**Remote Tools**
+- Zoom · Slack · Microsoft Teams · Google Workspace
+
+---
+
+## Experience
+
+**Conference Assistant** — The Travel Link
+*Aug 2019 – Jun 2020*
+- Coordinated logistics for individuals and events under pressure.
+- Resolved issues in real time while maintaining clear communication with stakeholders.
+- Managed multiple concurrent requirements and distributed documentation efficiently.
+
+**Sales Representative** — DN Agencies
+*Jan 2019 – Jul 2019*
+- Contacted prospective and current customers to increase sales.
+- Determined customer requirements and proposed tailored solutions.
+- Managed documentation from quotation through payment reconciliation.
+
+---
+
+## Remote Readiness
+
+- ✅ Redundant power (inverter + LTE failover — load-shedding ready)
+- ✅ Fibre internet, quiet home office
+- ✅ Available across UK/EU/US time zones
+- ✅ Proficient in Zoom, Slack, Microsoft Teams
+
+---
+
+## Education & Languages
+
+**National Senior Certificate** — Treverton
+**English** — Fluent (C2 certified)
+
+---
+
+## Repository Structure
+
