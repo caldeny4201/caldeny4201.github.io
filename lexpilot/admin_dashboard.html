@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LexPilot Admin Dashboard – Ultimate Full Prototype (January 01, 2026)</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f7fa;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+        .header {
+            background: #2c5282;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-left h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        .header-right {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        .search-box {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            width: 300px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .overview-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .overview-section h2 {
+            margin-bottom: 1.5rem;
+            color: #2c5282;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .metric-card {
+            padding: 1rem;
+            border-left: 4px solid #4299e1;
+            background: #f7fafc;
+            border-radius: 4px;
+        }
+        .metric-label {
+            font-size: 0.875rem;
+            color: #718096;
+            margin-bottom: 0.5rem;
+        }
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2d3748;
+        }
+        .metric-sub {
+            font-size: 0.75rem;
+            color: #a0aec0;
+            margin-top: 0.25rem;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+        .progress-fill {
+            height: 100%;
+            background: #4299e1;
+            transition: width 0.3s;
+        }
+        .chart-container {
+            height: 300px;
+            margin-bottom: 2rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            margin-top: 1rem;
+        }
+        th {
+            background: #edf2f7;
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: #4a5568;
+            border-bottom: 2px solid #cbd5e0;
+        }
+        td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 0.875rem;
+        }
+        tr:hover {
+            background: #f7fafc;
+        }
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-primary {
+            background: #4299e1;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #3182ce;
+        }
+        .btn-secondary {
+            background: #718096;
+            color: white;
+        }
+        .btn-secondary:hover {
+            background: #4a5568;
+        }
+        .btn-success {
+            background: #48bb78;
+            color: white;
+        }
+        .btn-success:hover {
+            background: #38a169;
+        }
+        .btn-danger {
+            background: #f56565;
+            color: white;
+        }
+        .btn-danger:hover {
+            background: #e53e3e;
+        }
+        .btn-small {
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            margin: 0 0.25rem;
+        }
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .status-open {
+            background: #bee3f8;
+            color: #2c5282;
+        }
+        .status-overdue {
+            background: #fed7d7;
+            color: #c53030;
+        }
+        .status-paid {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+        .alert {
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .alert-warning {
+            background: #fef5e7;
+            border-left: 4px solid #f6ad55;
+            color: #7c2d12;
+        }
+        .alert-danger {
+            background: #fee;
+            border-left: 4px solid #fc8181;
+            color: #742a2a;
+        }
+        .quick-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+        .modal.active {
+            display: flex;
+        }
+        .modal-content {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .modal-header h3 {
+            color: #2c5282;
+            font-size: 1.25rem;
+        }
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #718096;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .close-btn:hover {
+            color: #2d3748;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #4a5568;
+            font-size: 0.875rem;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 4px;
+            font-size: 0.875rem;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4299e1;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+        }
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        .info-box {
+            background: #ebf8ff;
+            border-left: 4px solid #4299e1;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+        .trust-indicator {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .trust-high {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+        .trust-low {
+            background: #fed7d7;
+            color: #c53030;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .calendar-container {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .search-box {
+                width: 100%;
+            }
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            table {
+                font-size: 0.75rem;
+            }
+            td, th {
+                padding: 0.5rem;
+            }
+            .chart-container {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <h1>LexPilot Admin Dashboard</h1>
+        </div>
+        <div class="header-right">
+            <input type="text" class="search-box" placeholder="Search Client/Case/Invoice/Lawyer...">
+            <span>🔔 Notifications</span>
+            <span>Admin User ▼</span>
+        </div>
+    </div>
+    <div class="container">
+        <!-- Firm Overview with Charts -->
+        <div class="overview-section">
+            <h2>Firm Overview (Today – January 01, 2026)</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Total Unbilled Time</div>
+                    <div class="metric-value">R 68,450</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%"></div>
+                    </div>
+                    <div class="metric-sub">75% progress</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Total Outstanding</div>
+                    <div class="metric-value">R 145,700</div>
+                    <div class="metric-sub">30d: R60k | 60d: R50k | 90d: R35k</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Total Trust Balance</div>
+                    <div class="metric-value">R 1,250,300</div>
+                    <div class="metric-sub" style="color: #38a169;">● Healthy</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Invoices Issued This Month</div>
+                    <div class="metric-value">R 320,000</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Collected This Month</div>
+                    <div class="metric-value">R 280,000</div>
+                    <div class="metric-sub">87% collection rate</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Active Matters</div>
+                    <div class="metric-value">47</div>
+                    <div class="metric-sub">12 new this month</div>
+                </div>
+            </div>
+            <!-- Visual Charts -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="chart-container">
+                    <canvas id="collectionsChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="overdueChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calendar Section -->
+        <div class="overview-section calendar-container">
+            <div class="section-header">
+                <h2>Firm Calendar & Deadlines</h2>
+                <div>
+                    <button class="btn btn-primary" onclick="openModal('addEventModal')">+ Add Event / Deadline</button>
+                </div>
+            </div>
+            <div id="calendar"></div>
+        </div>
+
+        <!-- Unbilled Work -->
+        <div class="overview-section">
+            <div class="section-header">
+                <h2>Unbilled Work</h2>
+                <div>
+                    <button class="btn btn-primary" onclick="openModal('bulkAssignModal')">Bulk Assign to Invoice</button>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Lawyer</th>
+                        <th>Client</th>
+                        <th>Case</th>
+                        <th>Unbilled Amount</th>
+                        <th>Last Entry Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>You</td>
+                        <td>John Smith</td>
+                        <td>Smith v RAF</td>
+                        <td>R 12,300</td>
+                        <td>Today</td>
+                        <td class="action-buttons">
+                            <button class="btn btn-primary btn-small" onclick="openModal('editUnbilledModal')">Edit</button>
+                            <button class="btn btn-success btn-small" onclick="openModal('bulkAssignModal')">Assign to Invoice</button>
+                            <button class="btn btn-danger btn-small">Write-Off</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Jane Doe</td>
+                        <td>Dlamini</td>
+                        <td>Dlamini v ABC</td>
+                        <td>R 8,900</td>
+                        <td>3 days ago</td>
+                        <td class="action-buttons">
+                            <button class="btn btn-primary btn-small" onclick="openModal('editUnbilledModal')">Edit</button>
+                            <button class="btn btn-success btn-small" onclick="openModal('bulkAssignModal')">Assign to Invoice</button>
+                            <button class="btn btn-danger btn-small">Write-Off</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Unpaid/Overdue Invoices -->
+        <div class="overview-section">
+            <div class="section-header">
+                <h2>Unpaid / Overdue Invoices</h2>
+                <div>
+                    <button class="btn btn-primary">Send Bulk Reminders</button>
+                    <button class="btn btn-primary" onclick="openModal('agedDebtorsModal')">Generate Aged Debtors Report</button>
+                    <button class="btn btn-danger">Bulk Void</button>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Invoice #</th>
+                        <th>Client</th>
+                        <th>Case</th>
+                        <th>Amount Due</th>
+                        <th>Due Date</th>
+                        <th>Days Overdue</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>INV-001</td>
+                        <td>John Smith</td>
+                        <td>Smith v RAF</td>
+                        <td>R 3,227.50</td>
+                        <td>14 days</td>
+                        <td>7 days</td>
+                        <td><span class="status-badge status-open">Open</span></td>
+                        <td class="action-buttons">
+                            <button class="btn btn-success btn-small" onclick="openModal('recordPaymentModal')">Record Payment</button>
+                            <button class="btn btn-primary btn-small">Remind</button>
+                            <button class="btn btn-danger btn-small" onclick="openModal('voidInvoiceModal')">Void</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>INV-002</td>
+                        <td>Dlamini</td>
+                        <td>Dlamini v ABC</td>
+                        <td>R 45,000</td>
+                        <td>30 days</td>
+                        <td>45 days</td>
+                        <td><span class="status-badge status-overdue">Overdue</span></td>
+                        <td class="action-buttons">
+                            <button class="btn btn-success btn-small" onclick="openModal('recordPaymentModal')">Record Payment</button>
+                            <button class="btn btn-danger btn-small">Escalate</button>
+                            <button class="btn btn-danger btn-small" onclick="openModal('voidInvoiceModal')">Void</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Trust Account Overview -->
+        <div class="overview-section">
+            <div class="section-header">
+                <h2>Trust Account Overview</h2>
+                <div>
+                    <button class="btn btn-primary" onclick="openModal('importBankStatementModal')">Import Bank Statement</button>
+                    <button class="btn btn-primary">Reconcile Trust</button>
+                    <button class="btn btn-secondary">Generate Full Trust Report</button>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Client</th>
+                        <th>Case</th>
+                        <th>Trust Balance</th>
+                        <th>Low Alert?</th>
+                        <th>Last Deposit</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Smith</td>
+                        <td>Smith v RAF</td>
+                        <td>R 18,500</td>
+                        <td><span class="trust-indicator trust-low">Yes (low)</span></td>
+                        <td>5 days ago</td>
+                        <td class="action-buttons">
+                            <button class="btn btn-primary btn-small" onclick="openModal('requestDepositModal')">Request Deposit</button>
+                            <button class="btn btn-secondary btn-small" onclick="openModal('trustLedgerModal')">Ledger</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Dlamini</td>
+                        <td>Dlamini v ABC</td>
+                        <td>R 92,000</td>
+                        <td><span class="trust-indicator trust-high">No</span></td>
+                        <td>Today</td>
+                        <td class="action-buttons">
+                            <button class="btn btn-primary btn-small" onclick="openModal('requestDepositModal')">Request Deposit</button>
+                            <button class="btn btn-secondary btn-small" onclick="openModal('trustLedgerModal')">Ledger</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Compliance & Alerts -->
+        <div class="overview-section">
+            <h2>Compliance & Alerts (Firm-Wide)</h2>
+            <div class="alert alert-warning">
+                • 3 Invoices Overdue >30 days
+            </div>
+            <div class="alert alert-warning">
+                • 2 Trust Accounts Below R10,000
+            </div>
+            <div class="alert alert-danger">
+                • 1 Time Entry Missing Lawyer Assignment
+            </div>
+            <div class="alert alert-warning">
+                • Monthly Trust Reconciliation Due
+            </div>
+            <div class="quick-actions">
+                <button class="btn btn-success">Mark Resolved</button>
+                <button class="btn btn-secondary">View Audit Log</button>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="overview-section">
+            <h2>Quick Actions (Admin Only)</h2>
+            <div class="quick-actions">
+                <button class="btn btn-primary" onclick="openModal('bulkAssignModal')">+ Create Bulk Invoice</button>
+                <button class="btn btn-primary" onclick="openModal('recordPaymentModal')">+ Record Manual Payment</button>
+                <button class="btn btn-secondary" onclick="openModal('lawyerPerformanceModal')">View Lawyer Performance</button>
+                <button class="btn btn-secondary">Export All Data</button>
+                <button class="btn btn-secondary" onclick="openModal('servicePresetsModal')">Manage Service Presets</button>
+                <button class="btn btn-secondary">Manage Users & Permissions</button>
+                <button class="btn btn-secondary">Generate LPC/Fidelity Fund Report</button>
+                <button class="btn btn-danger" onclick="openModal('voidInvoiceModal')">Void/Refund Invoice</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calendar Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                events: [
+                    { title: 'Court Hearing - Smith v RAF', date: '2026-01-15', color: '#f56565' },
+                    { title: 'Prescription Deadline - Dlamini v ABC', date: '2026-01-20', color: '#f6ad55' },
+                    { title: 'Client Consultation', date: '2026-01-10' },
+                    { title: 'Monthly Trust Recon Due', date: '2026-01-31', color: '#4299e1' }
+                ],
+                eventClick: function(info) {
+                    alert('Event: ' + info.event.title + '\nDate: ' + info.event.start.toLocaleDateString());
+                }
+            });
+            calendar.render();
+        });
+    </script>
+
+    <!-- Charts Script -->
+    <script>
+        const collectionsCtx = document.getElementById('collectionsChart').getContext('2d');
+        new Chart(collectionsCtx, {
+            type: 'line',
+            data: {
+                labels: ['Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan 2026'],
+                datasets: [{
+                    label: 'Issued',
+                    data: [250000, 280000, 300000, 310000, 320000, 340000],
+                    borderColor: '#4299e1',
+                    backgroundColor: 'rgba(66,153,225,0.1)',
+                    tension: 0.3
+                }, {
+                    label: 'Collected',
+                    data: [220000, 240000, 260000, 270000, 280000, 300000],
+                    borderColor: '#48bb78',
+                    backgroundColor: 'rgba(72,187,120,0.1)',
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { position: 'top' } },
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+
+        const overdueCtx = document.getElementById('overdueChart').getContext('2d');
+        new Chart(overdueCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Current', '1-30 Days', '31-60 Days', '61-90 Days', '>90 Days'],
+                datasets: [{
+                    data: [50000, 35000, 30000, 20000, 10700],
+                    backgroundColor: ['#48bb78', '#4299e1', '#fbbf24', '#f59e0b', '#f56565']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { position: 'right' } }
+            }
+        });
+    </script>
+
+    <!-- All Modals (Full List – Nothing Left Out) -->
+    <!-- Import Bank Statement Modal -->
+    <div id="importBankStatementModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Import Bank Statement for Trust Reconciliation</h3>
+                <button class="close-btn" onclick="closeModal('importBankStatementModal')">&times;</button>
+            </div>
+            <form>
+                <div class="form-group">
+                    <label>Upload Statement File (CSV / OFX / PDF):</label>
+                    <input type="file" accept=".csv,.ofx,.pdf" required>
+                    <small>Supported: FNB, Absa, Standard Bank, Nedbank formats</small>
+                </div>
+                <div class="info-box">
+                    <strong>Auto-matching will flag discrepancies</strong><br>
+                    Manual overrides available after import
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('importBankStatementModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Import & Begin Reconciliation</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Calendar Event Modal -->
+    <div id="addEventModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Event / Deadline</h3>
+                <button class="close-btn" onclick="closeModal('addEventModal')">&times;</button>
+            </div>
+            <form>
+                <div class="form-group">
+                    <label>Title:</label>
+                    <input type="text" placeholder="e.g., Court Hearing - Smith v RAF">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Date:</label>
+                        <input type="date">
+                    </div>
+                    <div class="form-group">
+                        <label>Time (optional):</label>
+                        <input type="time">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Client / Matter (optional):</label>
+                    <select>
+                        <option>John Smith – Smith v RAF</option>
+                        <option>Dlamini – Dlamini v ABC</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Type:</label>
+                    <select>
+                        <option>Court Hearing</option>
+                        <option>Consultation</option>
+                        <option>Deadline</option>
+                        <option>Prescription</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Reminder:</label>
+                    <select>
+                        <option>1 day before</option>
+                        <option>3 days before</option>
+                        <option>1 week before</option>
+                        <option>None</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('addEventModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add Event</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Aged Debtors Modal -->
+    <div id="agedDebtorsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Aged Debtors Report – January 01, 2026</h3>
+                <button class="close-btn" onclick="closeModal('agedDebtorsModal')">&times;</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Client / Matter</th>
+                        <th>Current</th>
+                        <th>1-30 Days</th>
+                        <th>31-60 Days</th>
+                        <th>61-90 Days</th>
+                        <th>>90 Days</th>
+                        <th>Total Owed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Smith – Smith v RAF</td>
+                        <td>R0</td>
+                        <td>R3,227.50</td>
+                        <td>R0</td>
+                        <td>R0</td>
+                        <td>R0</td>
+                        <td>R3,227.50</td>
+                    </tr>
+                    <tr>
+                        <td>Dlamini – Dlamini v ABC</td>
+                        <td>R0</td>
+                        <td>R0</td>
+                        <td>R10,000</td>
+                        <td>R20,000</td>
+                        <td>R15,000</td>
+                        <td>R45,000</td>
+                    </tr>
+                    <tr style="font-weight: bold; background: #edf2f7;">
+                        <td>TOTALS</td>
+                        <td>R0</td>
+                        <td>R3,227.50</td>
+                        <td>R10,000</td>
+                        <td>R20,000</td>
+                        <td>R15,000</td>
+                        <td>R48,227.50</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="modal-footer">
+                <button class="btn btn-secondary">Export CSV</button>
+                <button class="btn btn-secondary">Export PDF</button>
+                <button class="btn btn-secondary" onclick="closeModal('agedDebtorsModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lawyer Performance Modal -->
+    <div id="lawyerPerformanceModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Lawyer Performance Overview</h3>
+                <button class="close-btn" onclick="closeModal('lawyerPerformanceModal')">&times;</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Lawyer</th>
+                        <th>Billable Hours (Month)</th>
+                        <th>Unbilled Amount</th>
+                        <th>Realization Rate</th>
+                        <th>Collected</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>You</td>
+                        <td>142 hrs</td>
+                        <td>R 42,300</td>
+                        <td>88%</td>
+                        <td>R 180,000</td>
+                    </tr>
+                    <tr>
+                        <td>Jane Doe</td>
+                        <td>118 hrs</td>
+                        <td>R 26,150</td>
+                        <td>82%</td>
+                        <td>R 100,000</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('lawyerPerformanceModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Record Payment Modal, Edit Unbilled, Void Invoice, Trust Ledger, Bulk Assign, Service Presets, Request Deposit -->
+    <!-- (All previous modals from last version are included here – full code, no shortcuts) -->
+    <!-- Record Payment Modal -->
+    <div id="recordPaymentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Record Payment</h3>
+                <button class="close-btn" onclick="closeModal('recordPaymentModal')">&times;</button>
+            </div>
+            <form>
+                <div class="form-group">
+                    <label>Client: <span style="color: red;">*</span></label>
+                    <select required onchange="updateCaseDropdown(this.value)">
+                        <option value="">Select Client</option>
+                        <option value="john">John Smith</option>
+                        <option value="dlamini">Dlamini</option>
+                    </select>
+                    <button type="button" class="btn btn-secondary btn-small" style="margin-top: 0.5rem;">+ Add New Client</button>
+                </div>
+                <div class="form-group">
+                    <label>Case:</label>
+                    <select id="caseDropdown">
+                        <option value="">General / No Specific Case</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Invoice Ref:</label>
+                    <select>
+                        <option value="">No Invoice / General Payment</option>
+                        <option value="inv001">INV-001 - R3,227.50</option>
+                        <option value="inv002">INV-002 - R45,000</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Amount Paid: <span style="color: red;">*</span></label>
+                        <input type="number" value="3227.50" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Payment Date:</label>
+                        <input type="date" value="2026-01-01">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Payment Method:</label>
+                    <select>
+                        <option value="payfast">Payfast</option>
+                        <option value="eft">EFT</option>
+                        <option value="cash">Cash</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Payment Type:</label>
+                    <div class="checkbox-group">
+                        <input type="radio" name="paymentType" id="invoicePayment" value="invoice" checked>
+                        <label for="invoicePayment" style="margin: 0;">Invoice Payment (operating account)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="radio" name="paymentType" id="trustDeposit" value="trust">
+                        <label for="trustDeposit" style="margin: 0;">Trust Deposit (client/case trust)</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Reference/Notes:</label>
+                    <textarea rows="3" placeholder="Optional payment notes..."></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('recordPaymentModal')">Cancel</button>
+                    <button type="submit" class="btn btn-success">Apply Payment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Unbilled Entry Modal -->
+    <div id="editUnbilledModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Unbilled Entry – Consultation</h3>
+                <button class="close-btn" onclick="closeModal('editUnbilledModal')">&times;</button>
+            </div>
+            <form>
+                <div class="info-box">
+                    <strong>Client:</strong> John Smith<br>
+                    <strong>Case:</strong> Smith v RAF
+                </div>
+                <div class="form-group">
+                    <label>Lawyer:</label>
+                    <select>
+                        <option value="you">You</option>
+                        <option value="jane">Jane Doe</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Service:</label>
+                    <input type="text" value="Consultation">
+                </div>
+                <div class="form-group">
+                    <label>Description:</label>
+                    <textarea rows="3">Initial consultation regarding RAF claim</textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Hours:</label>
+                        <input type="number" value="0.5" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label>Rate:</label>
+                        <input type="number" value="2000" step="100">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Amount:</label>
+                    <input type="number" value="1000" readonly style="background: #f7fafc;">
+                    <small style="color: #718096;">Auto-calculated</small>
+                </div>
+                <div class="form-group">
+                    <label>Use Trust?</label>
+                    <select>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Disbursements:</label>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Amount</th>
+                                <th>Use Trust?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sheriff Service</td>
+                                <td>R 850</td>
+                                <td>Yes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" class="btn btn-secondary btn-small" style="margin-top: 0.5rem;">+ Add / Edit Disbursement</button>
+                </div>
+                <div class="form-group">
+                    <label>Notes:</label>
+                    <textarea rows="2" placeholder="Optional notes..."></textarea>
+                </div>
+                <div class="info-box">
+                    <strong>Trust Available:</strong> <span style="color: #38a169;">R 18,500 ✓</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger">Write-Off</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('editUnbilledModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Void / Refund Invoice Modal -->
+    <div id="voidInvoiceModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Void / Refund Invoice – INV-001</h3>
+                <button class="close-btn" onclick="closeModal('voidInvoiceModal')">&times;</button>
+            </div>
+            <form>
+                <div class="info-box">
+                    <strong>Client:</strong> John Smith – Smith v RAF<br>
+                    <strong>Invoice Total:</strong> R 3,227.50<br>
+                    <strong>Trust Deducted:</strong> R 1,200
+                </div>
+                <div class="form-group">
+                    <label>Reason for Void: <span style="color: red;">*</span></label>
+                    <select required>
+                        <option value="">Select reason</option>
+                        <option value="error">Error</option>
+                        <option value="dispute">Client Dispute</option>
+                        <option value="duplicate">Duplicate</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Refund to Trust?</label>
+                    <div class="checkbox-group">
+                        <input type="radio" name="refund" id="refundYes" value="yes" checked>
+                        <label for="refundYes" style="margin: 0;">Yes (auto-refund deducted trust)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="radio" name="refund" id="refundNo" value="no">
+                        <label for="refundNo" style="margin: 0;">No</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('voidInvoiceModal')">Cancel</button>
+                    <button type="submit" class="btn btn-danger">Void & Refund</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Trust Ledger Modal -->
+    <div id="trustLedgerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>TRUST LEDGER – John Smith – Smith v RAF</h3>
+                <button class="close-btn" onclick="closeModal('trustLedgerModal')">&times;</button>
+            </div>
+            <p class="mb-4 text-green-400 font-bold">Current Balance: R18,500</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Deposit</th>
+                        <th>Withdrawal</th>
+                        <th>Balance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2026-01-10</td>
+                        <td>Invoice Payment (INV-001)</td>
+                        <td class="text-green-600">R5,000</td>
+                        <td></td>
+                        <td>R23,500</td>
+                    </tr>
+                    <tr>
+                        <td>2026-01-15</td>
+                        <td>Sheriff Service</td>
+                        <td></td>
+                        <td class="text-red-600">-R850</td>
+                        <td>R22,650</td>
+                    </tr>
+                    <tr>
+                        <td>2026-01-18</td>
+                        <td>Trust Deduction (INV-001)</td>
+                        <td></td>
+                        <td class="text-red-600">-R1,200</td>
+                        <td>R18,500</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="modal-footer">
+                <button class="btn btn-secondary">Export Ledger</button>
+                <button class="btn btn-primary">Reconcile</button>
+                <button class="btn btn-secondary" onclick="closeModal('trustLedgerModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bulk Assign to Invoice Modal -->
+    <div id="bulkAssignModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Bulk Assign Unbilled to Invoice</h3>
+                <button class="close-btn" onclick="closeModal('bulkAssignModal')">&times;</button>
+            </div>
+            <form>
+                <div class="form-group">
+                    <label>Select Invoice:</label>
+                    <select>
+                        <option>New Invoice</option>
+                        <option>Existing Draft INV-003</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Selected Unbilled Items:</label>
+                    <ul class="bg-gray-100 p-4 rounded">
+                        <li>John Smith – Smith v RAF: R12,300</li>
+                        <li>Dlamini – Dlamini v ABC: R8,900</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('bulkAssignModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create/Assign</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Manage Service Presets Modal -->
+    <div id="servicePresetsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Manage Service Presets</h3>
+                <button class="close-btn" onclick="closeModal('servicePresetsModal')">&times;</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Service Name</th>
+                        <th>Rate</th>
+                        <th>Billing Type</th>
+                        <th>Default Use Trust?</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Consultation</td>
+                        <td>R2000</td>
+                        <td>Hourly</td>
+                        <td>No</td>
+                        <td class="action-buttons">
+                            <button class="btn btn-primary btn-small">Edit</button>
+                            <button class="btn btn-danger btn-small">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Draft Letter</td>
+                        <td>R2000</td>
+                        <td>Hourly</td>
+                        <td>No</td>
+                        <td class="action-buttons">
+                            <button class="btn btn-primary btn-small">Edit</button>
+                            <button class="btn btn-danger btn-small">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="modal-footer">
+                <button class="btn btn-primary">+ Add New Preset</button>
+                <button class="btn btn-secondary" onclick="closeModal('servicePresetsModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Request Deposit Modal -->
+    <div id="requestDepositModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Request Trust Deposit – John Smith – Smith v RAF</h3>
+                <button class="close-btn" onclick="closeModal('requestDepositModal')">&times;</button>
+            </div>
+            <form>
+                <div class="info-box">
+                    <strong>Current Trust Balance:</strong> R18,500 (Low – R5,000 shortfall)<br>
+                    <strong>Suggested Amount:</strong> R5,000 (editable below)
+                </div>
+                <div class="form-group">
+                    <label>Amount to Request: <span style="color: red;">*</span></label>
+                    <input type="number" value="5000" step="100" required>
+                </div>
+                <div class="form-group">
+                    <label>Message to Client:</label>
+                    <textarea rows="4">Dear Client, Please top up your trust account for ongoing work...</textarea>
+                </div>
+                <div class="form-group">
+                    <label>Send Method:</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" checked>
+                        <label style="margin: 0;">Email with Payfast Link</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox">
+                        <label style="margin: 0;">SMS with Bank Details</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox">
+                        <label style="margin: 0;">Manual (Print Letter)</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('requestDepositModal')">Cancel</button>
+                    <button type="submit" class="btn btn-success">Send Request</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript for Modals -->
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+        }
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+        function updateCaseDropdown(clientValue) {
+            const caseDropdown = document.getElementById('caseDropdown');
+            caseDropdown.innerHTML = '<option value="">General / No Specific Case</option>';
+            if (clientValue === 'john') {
+                caseDropdown.innerHTML += '<option value="smith_raf">Smith v RAF</option>';
+            } else if (clientValue === 'dlamini') {
+                caseDropdown.innerHTML += '<option value="dlamini_abc">Dlamini v ABC</option>';
+            }
+        }
+    </script>
+</body>
+</html>
