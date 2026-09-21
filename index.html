@@ -3,150 +3,275 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Callum Denysschen — Portfolio</title>
-<meta name="description" content="Technical Customer Support Specialist · Web Developer. Projects, client documents, and CV.">
+<title>Callum Denysschen — Technical Support & Web Development</title>
+<meta name="description" content="Technical Customer Support Specialist and Web Developer. C2 English. Remote-ready. Portfolio, client documents, and CV.">
+<meta name="author" content="Callum Denysschen">
+<meta property="og:title" content="Callum Denysschen — Technical Support & Web Development">
+<meta property="og:description" content="Technical Customer Support Specialist · Web Developer · C2 English. Remote-ready across UK/EU/US time zones.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://caldeny4201.github.io/">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#FAFAF8; --card:#FFFFFF; --text:#1A1A1A; --text-soft:#555;
-    --text-mute:#888; --accent:#4F46E5; --accent-dark:#4338CA;
-    --accent-soft:#EEF2FF; --border:#E5E4DE; --max:1000px;
+    --bg:#FAFAF8;
+    --bg-alt:#F2F1EC;
+    --card:#FFFFFF;
+    --text:#1A1A1A;
+    --text-soft:#555555;
+    --text-mute:#888888;
+    --accent:#4F46E5;
+    --accent-dark:#4338CA;
+    --accent-soft:#EEF2FF;
+    --green:#059669;
+    --green-soft:#D1FAE5;
+    --border:#E5E4DE;
+    --max:1040px;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
   body{
-    font-family:'Inter',sans-serif; background:var(--bg); color:var(--text);
-    font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    font-size:16px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
   }
   a{color:inherit;}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
 
+  /* HEADER */
   header{
-    position:sticky; top:0; z-index:100; height:60px;
+    position:sticky;top:0;left:0;right:0;
     background:rgba(250,250,248,0.94);
     backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
     border-bottom:1px solid var(--border);
+    z-index:100;height:60px;
   }
   .header-inner{
-    max-width:1200px; margin:0 auto; padding:0 24px;
-    height:100%; display:flex; align-items:center; justify-content:space-between; gap:16px;
+    max-width:1200px;margin:0 auto;padding:0 24px;
+    height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;
   }
   .logo{
-    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px;
-    text-decoration:none; display:flex; align-items:center; gap:8px;
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;
+    text-decoration:none;display:flex;align-items:center;gap:8px;color:var(--text);
   }
-  .logo::before{content:""; width:10px; height:10px; background:var(--accent); border-radius:2px;}
-  nav.top-nav{display:none; gap:22px; font-size:14px;}
-  @media(min-width:720px){nav.top-nav{display:flex;}}
-  nav.top-nav a{text-decoration:none; color:var(--text-soft); font-weight:500; transition:color .15s;}
+  .logo::before{content:"";width:10px;height:10px;background:var(--accent);border-radius:2px;}
+  nav.top-nav{display:none;gap:24px;font-size:14px;}
+  @media(min-width:760px){nav.top-nav{display:flex;}}
+  nav.top-nav a{
+    text-decoration:none;color:var(--text-soft);font-weight:500;
+    transition:color .15s;
+  }
   nav.top-nav a:hover{color:var(--accent);}
   .cta-btn{
-    font-size:13px; font-weight:600; padding:9px 16px; border-radius:8px;
-    background:var(--accent); color:#fff; text-decoration:none; transition:background .15s;
-    white-space:nowrap;
+    font-size:13px;font-weight:600;padding:9px 16px;border-radius:8px;
+    background:var(--accent);color:#fff;text-decoration:none;
+    transition:background .15s;white-space:nowrap;
   }
   .cta-btn:hover{background:var(--accent-dark);}
 
-  .hero{padding:72px 0 56px; border-bottom:1px solid var(--border);}
+  /* HERO */
+  .hero{padding:72px 0 56px;border-bottom:1px solid var(--border);}
   .hero-eyebrow{
-    font-size:11.5px; font-weight:600; text-transform:uppercase; letter-spacing:.12em;
-    color:var(--accent); margin-bottom:20px; display:flex; align-items:center; gap:10px;
+    font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;
+    color:var(--accent);margin-bottom:20px;
+    display:flex;align-items:center;gap:10px;
   }
-  .hero-eyebrow::before{content:""; width:20px; height:1px; background:var(--accent);}
+  .hero-eyebrow::before{content:"";width:20px;height:1px;background:var(--accent);}
   .hero h1{
     font-family:'Space Grotesk',sans-serif;
-    font-size:clamp(36px,6vw,54px); line-height:1.04; letter-spacing:-.038em;
-    font-weight:700; margin-bottom:22px; max-width:18ch;
+    font-size:clamp(36px,6vw,54px);
+    line-height:1.04;letter-spacing:-.038em;font-weight:700;
+    margin-bottom:22px;max-width:18ch;
   }
-  .hero .sub{font-size:18px; line-height:1.6; color:var(--text-soft); max-width:620px; margin-bottom:28px;}
-  .hero-actions{display:flex; gap:12px; flex-wrap:wrap;}
+  .hero .sub{
+    font-size:18px;line-height:1.6;color:var(--text-soft);
+    max-width:620px;margin-bottom:28px;
+  }
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
   .btn{
-    font-size:14px; font-weight:600; padding:12px 20px; border-radius:9px;
-    text-decoration:none; display:inline-flex; align-items:center; gap:8px;
-    transition:all .15s; border:1px solid transparent;
+    font-family:inherit;font-size:14px;font-weight:600;
+    padding:12px 20px;border-radius:9px;text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:all .15s;border:1px solid transparent;
   }
-  .btn-primary{background:var(--accent); color:#fff;}
+  .btn-primary{background:var(--accent);color:#fff;}
   .btn-primary:hover{background:var(--accent-dark);}
-  .btn-ghost{background:transparent; color:var(--text); border-color:var(--border);}
-  .btn-ghost:hover{border-color:var(--accent); color:var(--accent);}
+  .btn-ghost{background:transparent;color:var(--text);border-color:var(--border);}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
 
   .hero-stats{
-    display:flex; gap:36px; flex-wrap:wrap; margin-top:40px;
-    padding-top:32px; border-top:1px solid var(--border);
+    display:flex;gap:40px;flex-wrap:wrap;margin-top:44px;
+    padding-top:32px;border-top:1px solid var(--border);
   }
-  .hero-stat{display:flex; flex-direction:column; gap:3px;}
-  .hero-stat .num{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:26px; letter-spacing:-.03em;}
-  .hero-stat .label{font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--text-mute); font-weight:600;}
+  .hero-stat{display:flex;flex-direction:column;gap:3px;}
+  .hero-stat .num{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;
+    letter-spacing:-.03em;color:var(--text);
+  }
+  .hero-stat .label{
+    font-size:11px;text-transform:uppercase;letter-spacing:.08em;
+    color:var(--text-mute);font-weight:600;
+  }
 
-  section{padding:56px 0; border-bottom:1px solid var(--border);}
+  /* SECTIONS */
+  section{padding:60px 0;border-bottom:1px solid var(--border);}
   section:last-of-type{border-bottom:none;}
-  .section-header{display:flex; align-items:baseline; gap:14px; margin-bottom:32px; flex-wrap:wrap;}
-  .section-title{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:26px; letter-spacing:-.025em;}
-  .section-sub{font-size:14px; color:var(--text-mute); font-weight:500;}
-  .section-count{margin-left:auto; font-size:12px; color:var(--text-mute); font-family:'JetBrains Mono',monospace;}
+  .section-header{
+    display:flex;align-items:baseline;gap:14px;
+    margin-bottom:32px;flex-wrap:wrap;
+  }
+  .section-title{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;
+    letter-spacing:-.025em;
+  }
+  .section-sub{font-size:14px;color:var(--text-mute);font-weight:500;}
+  .section-count{
+    margin-left:auto;font-size:12px;color:var(--text-mute);
+    font-family:'JetBrains Mono',monospace;
+  }
 
-  .project-grid{display:grid; grid-template-columns:1fr; gap:14px;}
+  /* PROJECTS */
+  .project-grid{display:grid;grid-template-columns:1fr;gap:14px;}
   @media(min-width:720px){.project-grid{grid-template-columns:1fr 1fr;}}
   .project-card{
-    background:var(--card); border:1px solid var(--border); border-radius:14px;
-    padding:26px 28px; text-decoration:none; color:var(--text);
-    display:flex; flex-direction:column; gap:12px; transition:all .18s;
+    background:var(--card);border:1px solid var(--border);border-radius:14px;
+    padding:26px 28px;text-decoration:none;color:var(--text);
+    display:flex;flex-direction:column;gap:12px;
+    transition:all .18s;
   }
   .project-card:hover{
-    border-color:var(--accent); transform:translateY(-2px);
+    border-color:var(--accent);transform:translateY(-2px);
     box-shadow:0 12px 28px rgba(79,70,229,.10);
   }
   .project-card.featured{grid-column:1 / -1;}
-  .project-top{display:flex; align-items:flex-start; justify-content:space-between; gap:14px;}
-  .project-name{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:19px; letter-spacing:-.02em; line-height:1.25;}
+  .project-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;}
+  .project-name{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;
+    letter-spacing:-.02em;line-height:1.25;
+  }
   .project-year{
-    font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600;
-    color:var(--text-mute); padding:3px 8px; border-radius:5px;
-    background:#F2F1EC; flex-shrink:0;
+    font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;
+    color:var(--text-mute);padding:3px 8px;border-radius:5px;background:var(--bg-alt);
+    flex-shrink:0;
   }
-  .project-desc{font-size:14.5px; color:var(--text-soft); line-height:1.6;}
+  .project-desc{font-size:14.5px;color:var(--text-soft);line-height:1.6;}
   .project-meta{
-    display:flex; gap:16px; flex-wrap:wrap; font-size:12px;
-    font-family:'JetBrains Mono',monospace; color:var(--text-mute);
-    padding-top:12px; border-top:1px solid var(--border); margin-top:auto;
+    display:flex;gap:16px;flex-wrap:wrap;font-size:12px;
+    font-family:'JetBrains Mono',monospace;color:var(--text-mute);
+    padding-top:12px;border-top:1px solid var(--border);margin-top:auto;
   }
-  .project-meta strong{color:var(--text-soft); font-weight:600;}
-  .project-links{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;}
+  .project-meta strong{color:var(--text-soft);font-weight:600;}
+  .project-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;}
   .project-links a{
-    font-size:13px; font-weight:600; color:var(--accent); text-decoration:none;
-    padding:6px 12px; border-radius:7px; background:var(--accent-soft); transition:all .15s;
+    font-size:13px;font-weight:600;color:var(--accent);text-decoration:none;
+    padding:6px 12px;border-radius:7px;background:var(--accent-soft);
+    transition:all .15s;
   }
-  .project-links a:hover{background:var(--accent); color:#fff;}
+  .project-links a:hover{background:var(--accent);color:#fff;}
 
-  .doc-table{width:100%; border-collapse:collapse; background:var(--card); border-radius:12px; overflow:hidden; border:1px solid var(--border);}
+  /* DOCUMENTS */
+  .doc-table{
+    width:100%;border-collapse:collapse;background:var(--card);
+    border-radius:12px;overflow:hidden;border:1px solid var(--border);
+  }
   .doc-table tr{border-bottom:1px solid var(--border);}
   .doc-table tr:last-child{border-bottom:none;}
-  .doc-table td{padding:14px 20px; font-size:14.5px; vertical-align:middle;}
-  .doc-table td:last-child{text-align:right; width:100px;}
-  .doc-table a{text-decoration:none; color:var(--text); font-weight:500; transition:color .15s;}
-  .doc-table a:hover{color:var(--accent);}
-  .doc-tag{font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:600; color:var(--text-mute); text-transform:uppercase; letter-spacing:.05em;}
-
-  .info-grid{display:grid; grid-template-columns:1fr; gap:28px;}
-  @media(min-width:720px){.info-grid{grid-template-columns:1fr 1fr;}}
-  .info-block h3{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15px; margin-bottom:12px;}
-  .info-block ul{list-style:none;}
-  .info-block li{font-size:14px; color:var(--text-soft); padding:7px 0; border-bottom:1px dashed var(--border); line-height:1.5;}
-  .info-block li:last-child{border-bottom:none;}
-  .info-block li strong{color:var(--text); font-weight:600;}
-
-  footer{padding:48px 0 36px; background:#F2F1EC; border-top:1px solid var(--border);}
-  .footer-inner{
-    max-width:var(--max); margin:0 auto; padding:0 24px;
-    display:flex; flex-wrap:wrap; justify-content:space-between; gap:16px; align-items:center;
+  .doc-table td{padding:14px 20px;font-size:14.5px;vertical-align:middle;}
+  .doc-table td:last-child{text-align:right;width:100px;}
+  .doc-table a{
+    text-decoration:none;color:var(--text);font-weight:500;
+    transition:color .15s;
   }
-  .footer-brand{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15px; display:flex; align-items:center; gap:8px;}
-  .footer-brand::before{content:""; width:9px; height:9px; background:var(--accent); border-radius:2px;}
-  .footer-links{display:flex; gap:20px; font-size:13.5px; flex-wrap:wrap;}
-  .footer-links a{color:var(--text-soft); text-decoration:none; transition:color .15s;}
+  .doc-table a:hover{color:var(--accent);}
+  .doc-tag{
+    font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:600;
+    color:var(--text-mute);text-transform:uppercase;letter-spacing:.05em;
+  }
+
+  /* SKILLS / EXPERIENCE */
+  .info-grid{display:grid;grid-template-columns:1fr;gap:28px;}
+  @media(min-width:720px){.info-grid{grid-template-columns:1fr 1fr;}}
+  .info-block h3{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;
+    margin-bottom:12px;color:var(--text);
+  }
+  .info-block ul{list-style:none;}
+  .info-block li{
+    font-size:14px;color:var(--text-soft);padding:7px 0;
+    border-bottom:1px dashed var(--border);line-height:1.5;
+  }
+  .info-block li:last-child{border-bottom:none;}
+  .info-block li strong{color:var(--text);font-weight:600;}
+
+  /* WHY WORK WITH ME */
+  .why-grid{
+    display:grid;grid-template-columns:1fr;gap:14px;
+  }
+  @media(min-width:720px){.why-grid{grid-template-columns:repeat(3,1fr);}}
+  .why-card{
+    background:var(--card);border:1px solid var(--border);border-radius:14px;
+    padding:26px 24px;
+  }
+  .why-icon{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;
+    color:var(--accent);margin-bottom:14px;letter-spacing:-.02em;
+  }
+  .why-card h3{
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;
+    letter-spacing:-.01em;margin-bottom:8px;
+  }
+  .why-card p{font-size:14px;color:var(--text-soft);line-height:1.6;}
+
+  /* CTA */
+  .cta-section{
+    background:var(--accent);color:#fff;border-radius:16px;
+    padding:44px 40px;margin:0 auto;
+    display:flex;flex-wrap:wrap;justify-content:space-between;
+    align-items:center;gap:24px;
+  }
+  .cta-section h2{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;
+    font-size:clamp(22px,3vw,30px);letter-spacing:-.025em;
+    color:#fff;margin-bottom:8px;max-width:20ch;
+  }
+  .cta-section p{
+    font-size:15px;color:rgba(255,255,255,.85);max-width:44ch;
+  }
+  .cta-section .btn-light{
+    background:#fff;color:var(--accent);font-weight:600;
+    padding:14px 24px;border-radius:10px;text-decoration:none;
+    font-size:14.5px;transition:transform .15s;white-space:nowrap;
+  }
+  .cta-section .btn-light:hover{transform:scale(1.03);}
+
+  /* FOOTER */
+  footer{
+    padding:48px 0 36px;background:var(--bg-alt);
+    border-top:1px solid var(--border);
+  }
+  .footer-inner{
+    max-width:var(--max);margin:0 auto;padding:0 24px;
+    display:flex;flex-wrap:wrap;justify-content:space-between;
+    gap:20px;align-items:center;
+  }
+  .footer-brand{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .footer-brand::before{content:"";width:9px;height:9px;background:var(--accent);border-radius:2px;}
+  .footer-links{display:flex;gap:20px;font-size:13.5px;flex-wrap:wrap;}
+  .footer-links a{color:var(--text-soft);text-decoration:none;transition:color .15s;}
   .footer-links a:hover{color:var(--accent);}
-  .footer-copy{width:100%; font-size:12px; color:var(--text-mute); padding-top:20px; margin-top:12px; border-top:1px solid var(--border);}
+  .footer-copy{
+    width:100%;font-size:12px;color:var(--text-mute);
+    padding-top:20px;margin-top:12px;border-top:1px solid var(--border);
+  }
 </style>
 </head>
 <body>
@@ -157,12 +282,14 @@
     <nav class="top-nav">
       <a href="#projects">Projects</a>
       <a href="#documents">Documents</a>
-      <a href="#skills">Skills</a>
+      <a href="#why">Why me</a>
+      <a href="#contact">Contact</a>
     </nav>
     <a class="cta-btn" href="/Callum_Denysschen_CV.pdf" target="_blank">Download CV</a>
   </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
   <div class="wrap">
     <div class="hero-eyebrow">Technical Support · Web Development</div>
@@ -175,31 +302,35 @@
       <a class="btn btn-ghost" href="#projects">View projects</a>
       <a class="btn btn-ghost" href="mailto:denysschen.callum43@gmail.com">Email me</a>
     </div>
+
     <div class="hero-stats">
-      <div class="hero-stat"><span class="num">3</span><span class="label">Projects</span></div>
-      <div class="hero-stat"><span class="num">8</span><span class="label">Documents</span></div>
-      <div class="hero-stat"><span class="num">70+</span><span class="label">CS Topics</span></div>
+      <div class="hero-stat"><span class="num">3</span><span class="label">Projects Shipped</span></div>
+      <div class="hero-stat"><span class="num">8</span><span class="label">Client Documents</span></div>
+      <div class="hero-stat"><span class="num">3</span><span class="label">Live Sites</span></div>
       <div class="hero-stat"><span class="num">C2</span><span class="label">English</span></div>
     </div>
   </div>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects">
   <div class="wrap">
     <div class="section-header">
       <span class="section-title">Projects</span>
-      <span class="section-sub">Built &amp; deployed</span>
+      <span class="section-sub">Built & deployed</span>
       <span class="section-count">3 total</span>
     </div>
+
     <div class="project-grid">
 
+      <!-- Featured -->
       <div class="project-card featured">
         <div class="project-top">
-          <div class="project-name">Voltguard Electrical — Full Business Website &amp; Collateral</div>
+          <div class="project-name">Voltguard Electrical — Full Business Website & Collateral</div>
           <span class="project-year">2026</span>
         </div>
         <p class="project-desc">
-          Designed and deployed a 5-page, mobile-responsive website for a South African electrical contractor. Implemented dynamic pricing tables, WhatsApp booking integration, and local SEO schema markup. Authored and integrated 8 PDF documents into the site structure.
+          Designed and deployed a 5-page, mobile-responsive website for a South African electrical contractor. Implemented dynamic pricing tables, WhatsApp booking integration, and local SEO schema markup. Authored and integrated 8 PDF documents into the site structure — including service brochures, a formal quote, and a technical spec sheet.
         </p>
         <div class="project-meta">
           <span><strong>Stack:</strong> HTML · CSS · GitHub Pages</span>
@@ -213,13 +344,14 @@
         </div>
       </div>
 
+      <!-- LexPilot -->
       <div class="project-card">
         <div class="project-top">
           <div class="project-name">LexPilot — Invoicing Prototype</div>
           <span class="project-year">2026</span>
         </div>
         <p class="project-desc">
-          Front-end billing and invoicing prototype built with HTML, CSS, and JavaScript. Explores a clean workflow for legal professionals to generate and track invoices.
+          Front-end billing and invoicing prototype built with HTML, CSS, and JavaScript. Explores a clean workflow for legal professionals to generate, track, and manage invoices with trust-account awareness.
         </p>
         <div class="project-meta">
           <span><strong>Stack:</strong> HTML · CSS · JS</span>
@@ -231,13 +363,14 @@
         </div>
       </div>
 
+      <!-- Fathom -->
       <div class="project-card">
         <div class="project-top">
           <div class="project-name">Fathom — Computer Science Learning Platform</div>
           <span class="project-year">2026</span>
         </div>
         <p class="project-desc">
-          A static site structure for a CS educational platform, organizing 70+ topics across 9 South African universities. Each topic maps to multiple module codes for easy navigation.
+          A static site structure for a CS educational platform, organizing 70+ topics across 9 South African universities. Each topic maps to multiple module codes for easy navigation between course content and concept libraries.
         </p>
         <div class="project-meta">
           <span><strong>Stack:</strong> HTML · CSS · JS</span>
@@ -253,6 +386,7 @@
   </div>
 </section>
 
+<!-- DOCUMENTS -->
 <section id="documents">
   <div class="wrap">
     <div class="section-header">
@@ -260,26 +394,82 @@
       <span class="section-sub">PDF · print-ready A4</span>
       <span class="section-count">8 files</span>
     </div>
+
     <table class="doc-table">
-      <tr><td><a href="/collateral/Voltguard_Web_Agency_Brochure.pdf" target="_blank">Web Agency Brochure</a></td><td><span class="doc-tag">PDF</span></td></tr>
-      <tr><td><a href="/collateral/Voltguard_Web_Example_Quote.pdf" target="_blank">Web Example Quote</a></td><td><span class="doc-tag">PDF</span></td></tr>
-      <tr><td><a href="/collateral/Voltguard_Web_Spec_Sheet.pdf" target="_blank">Web Spec Sheet</a></td><td><span class="doc-tag">PDF</span></td></tr>
-      <tr><td><a href="/collateral/Voltguard_Brochure_1_Homeowners.pdf" target="_blank">Brochure 1 — Homeowners</a></td><td><span class="doc-tag">PDF</span></td></tr>
-      <tr><td><a href="/collateral/Voltguard_Brochure_2_Estate_Agents.pdf" target="_blank">Brochure 2 — Estate Agents</a></td><td><span class="doc-tag">PDF</span></td></tr>
-      <tr><td><a href="/collateral/Voltguard_Brochure_3_Commercial.pdf" target="_blank">Brochure 3 — Commercial</a></td><td><span class="doc-tag">PDF</span></td></tr>
-      <tr><td><a href="/collateral/Voltguard_Brochure_4_Builders_Developers.pdf" target="_blank">Brochure 4 — Builders &amp; Developers</a></td><td><span class="doc-tag">PDF</span></td></tr>
-      <tr><td><a href="/collateral/Voltguard_Brochure_5_Landlords.pdf" target="_blank">Brochure 5 — Landlords</a></td><td><span class="doc-tag">PDF</span></td></tr>
+      <tr>
+        <td><a href="/collateral/Voltguard_Web_Agency_Brochure.pdf" target="_blank">Web Agency Brochure</a></td>
+        <td><span class="doc-tag">PDF</span></td>
+      </tr>
+      <tr>
+        <td><a href="/collateral/Voltguard_Web_Example_Quote.pdf" target="_blank">Web Example Quote</a></td>
+        <td><span class="doc-tag">PDF</span></td>
+      </tr>
+      <tr>
+        <td><a href="/collateral/Voltguard_Web_Spec_Sheet.pdf" target="_blank">Web Spec Sheet</a></td>
+        <td><span class="doc-tag">PDF</span></td>
+      </tr>
+      <tr>
+        <td><a href="/collateral/Voltguard_Brochure_1_Homeowners.pdf" target="_blank">Brochure 1 — Homeowners</a></td>
+        <td><span class="doc-tag">PDF</span></td>
+      </tr>
+      <tr>
+        <td><a href="/collateral/Voltguard_Brochure_2_Estate_Agents.pdf" target="_blank">Brochure 2 — Estate Agents</a></td>
+        <td><span class="doc-tag">PDF</span></td>
+      </tr>
+      <tr>
+        <td><a href="/collateral/Voltguard_Brochure_3_Commercial.pdf" target="_blank">Brochure 3 — Commercial</a></td>
+        <td><span class="doc-tag">PDF</span></td>
+      </tr>
+      <tr>
+        <td><a href="/collateral/Voltguard_Brochure_4_Builders_Developers.pdf" target="_blank">Brochure 4 — Builders &amp; Developers</a></td>
+        <td><span class="doc-tag">PDF</span></td>
+      </tr>
+      <tr>
+        <td><a href="/collateral/Voltguard_Brochure_5_Landlords.pdf" target="_blank">Brochure 5 — Landlords</a></td>
+        <td><span class="doc-tag">PDF</span></td>
+      </tr>
     </table>
   </div>
 </section>
 
-<section id="skills">
+<!-- WHY WORK WITH ME -->
+<section id="why">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="section-title">Why work with me</span>
+      <span class="section-sub">What you get</span>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">01</div>
+        <h3>I ship, not just talk</h3>
+        <p>Three live projects, eight client documents, and a deployed portfolio. Everything on this page is a link you can click and verify — not a claim.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">02</div>
+        <h3>Clear communication</h3>
+        <p>C2 English. Written and verbal. I write client documents, run support conversations, and translate technical detail into plain language.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">03</div>
+        <h3>Remote-ready, no excuses</h3>
+        <p>Inverter + LTE failover for load-shedding. Fibre internet. Quiet home office. Available across UK/EU/US time zones.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS + EXPERIENCE -->
+<section>
   <div class="wrap">
     <div class="section-header">
       <span class="section-title">Skills &amp; Experience</span>
       <span class="section-sub">Quick overview</span>
     </div>
+
     <div class="info-grid">
+
       <div class="info-block">
         <h3>Customer Service &amp; Support</h3>
         <ul>
@@ -289,6 +479,7 @@
           <li>CRM workflows</li>
         </ul>
       </div>
+
       <div class="info-block">
         <h3>Web Development &amp; Technical</h3>
         <ul>
@@ -298,6 +489,7 @@
           <li>Technical documentation</li>
         </ul>
       </div>
+
       <div class="info-block">
         <h3>Experience</h3>
         <ul>
@@ -305,6 +497,7 @@
           <li><strong>Sales Representative</strong> · DN Agencies <br><span style="color:var(--text-mute);font-size:13px;">Jan 2019 – Jul 2019</span></li>
         </ul>
       </div>
+
       <div class="info-block">
         <h3>Remote Readiness</h3>
         <ul>
@@ -314,6 +507,20 @@
           <li>Zoom · Slack · Microsoft Teams</li>
         </ul>
       </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact">
+  <div class="wrap">
+    <div class="cta-section">
+      <div>
+        <h2>Looking for support, or a build?</h2>
+        <p>I'm open to remote technical support roles, customer service, and web development work. Send me a message — I reply fast.</p>
+      </div>
+      <a class="btn-light" href="mailto:denysschen.callum43@gmail.com">Get in touch →</a>
     </div>
   </div>
 </section>
