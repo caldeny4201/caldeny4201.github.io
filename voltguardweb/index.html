@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Voltguard Web — Websites for SA Electricians</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy-950:#0a1220;
+  --navy-800:#122540;
+  --navy-700:#1a3155;
+  --navy-600:#24406b;
+  --gold-500:#f0a828;
+  --gold-300:#f6c766;
+  --paper:#eef1f5;
+  --slate-400:#8fa0b8;
+  --slate-200:#c9d3e0;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);}
+html,body{height:100%;}
+body{
+  background:var(--navy-950);
+  color:var(--paper);
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:'Archivo',system-ui,sans-serif;font-weight:800;line-height:1.08;letter-spacing:-0.01em;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;}
+
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(10,18,32,.92);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.06);}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;padding-top:env(safe-area-inset-top,0px);}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Archivo';font-weight:800;font-size:1.05rem;}
+.bolt{color:var(--gold-500);font-size:1.3rem;}
+.brand small{display:block;font-family:'Inter';font-weight:500;color:var(--slate-400);font-size:.62rem;letter-spacing:.02em;}
+nav a{font-size:.9rem;color:var(--slate-200);margin-left:26px;}
+nav a:hover{color:var(--gold-300);}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:8px;font-weight:600;font-size:.95rem;}
+.btn-gold{background:var(--gold-500);color:var(--navy-950);}
+.btn-gold:hover{background:var(--gold-300);}
+.btn-ghost{border:1px solid rgba(255,255,255,.25);color:var(--paper);}
+.btn-ghost:hover{border-color:var(--gold-500);}
+.nav-cta{margin-left:26px;padding:9px 16px;font-size:.85rem;}
+
+/* hero */
+.hero{padding:76px 0 64px;position:relative;overflow:hidden;}
+.hero .wrap{display:grid;grid-template-columns:1.15fr 0.85fr;gap:48px;align-items:center;}
+.eyebrow{color:var(--gold-300);font-weight:600;font-size:.85rem;margin-bottom:14px;}
+.hero h1{font-size:clamp(2.1rem,4.6vw,3.4rem);}
+.hero h1 .hl{color:var(--gold-500);}
+.hero p.lead{margin-top:20px;color:var(--slate-200);font-size:1.08rem;max-width:46ch;}
+.hero .actions{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;}
+.stats{margin-top:40px;display:flex;gap:32px;flex-wrap:wrap;}
+.stat b{display:block;font-family:'Archivo';font-size:1.4rem;color:var(--gold-300);}
+.stat span{color:var(--slate-400);font-size:.82rem;}
+
+.circuit{width:100%;height:auto;}
+.circuit line, .circuit path{stroke:var(--navy-600);stroke-width:2;fill:none;}
+.circuit circle{fill:var(--gold-500);}
+.circuit .dim{stroke:rgba(143,160,184,.35);}
+
+/* problem/fix */
+.section{padding:70px 0;}
+.section-head{max-width:60ch;margin-bottom:40px;}
+.section-head h2{font-size:clamp(1.6rem,3vw,2.2rem);}
+.section-head p{color:var(--slate-400);margin-top:12px;font-size:1.02rem;}
+.pf-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.08);border-radius:14px;overflow:hidden;}
+.pf-card{background:var(--navy-800);padding:28px;}
+.pf-card h3{font-size:1.08rem;font-weight:700;margin-bottom:8px;}
+.pf-card p{color:var(--slate-400);font-size:.92rem;}
+.fix{margin-top:16px;background:var(--navy-950);border-left:3px solid var(--gold-500);padding:10px 14px;font-size:.88rem;color:var(--slate-200);border-radius:0 6px 6px 0;}
+.fix b{color:var(--gold-300);}
+
+/* packages */
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.pkg{background:var(--navy-800);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:30px 26px;display:flex;flex-direction:column;}
+.pkg.rec{border-color:var(--gold-500);background:linear-gradient(180deg,var(--navy-700),var(--navy-800));position:relative;}
+.pkg.rec::before{content:"Recommended";position:absolute;top:-13px;left:26px;background:var(--gold-500);color:var(--navy-950);font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:5px;}
+.pkg h3{font-size:1.15rem;}
+.pkg .price{font-family:'Archivo';font-size:2.1rem;color:var(--gold-300);margin:12px 0 2px;}
+.pkg .price span{font-family:'Inter';font-size:.85rem;color:var(--slate-400);}
+.pkg .tag{color:var(--slate-400);font-size:.9rem;margin-bottom:18px;}
+.pkg ul{list-style:none;font-size:.9rem;color:var(--slate-200);flex:1;}
+.pkg li{padding:7px 0;border-top:1px solid rgba(255,255,255,.06);}
+.pkg li:first-child{border-top:none;}
+.pkg .btn{margin-top:20px;justify-content:center;}
+
+/* how it works */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.step{background:var(--navy-800);border-radius:12px;padding:24px 20px;}
+.step .n{font-family:'Archivo';font-size:1.6rem;color:var(--gold-500);margin-bottom:10px;}
+.step h3{font-size:1.02rem;margin-bottom:6px;}
+.step p{color:var(--slate-400);font-size:.88rem;}
+
+/* demo + brochures */
+.demo-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:18px;}
+.demo-card,.broch-card{background:var(--navy-800);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:30px 28px;}
+.demo-card h3,.broch-card h3{font-size:1.15rem;margin-bottom:10px;}
+.demo-card p,.broch-card p{color:var(--slate-400);font-size:.92rem;margin-bottom:20px;}
+.broch-list{list-style:none;display:flex;flex-direction:column;gap:2px;}
+.broch-list a{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-radius:8px;font-size:.9rem;color:var(--slate-200);}
+.broch-list a:hover{background:var(--navy-950);color:var(--gold-300);}
+.broch-list span{color:var(--slate-400);font-size:.75rem;letter-spacing:.03em;}
+
+/* policy sections */
+.policy{max-width:760px;}
+.policy .updated{color:var(--slate-400);font-size:.85rem;margin-bottom:10px;}
+.policy h3{font-family:'Archivo';font-size:1.1rem;color:var(--gold-300);margin:28px 0 8px;font-weight:700;}
+.policy p{color:var(--slate-200);font-size:.94rem;margin-bottom:4px;}
+.policy ul{list-style:none;padding:0;margin:8px 0;}
+.policy li{color:var(--slate-200);font-size:.94rem;padding:4px 0 4px 18px;position:relative;}
+.policy li::before{content:"—";position:absolute;left:0;color:var(--slate-400);}
+.policy .note{background:var(--navy-800);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:16px 20px;margin-top:26px;font-size:.86rem;color:var(--slate-400);}
+.policy-divider{border-top:1px solid rgba(255,255,255,.08);margin:56px 0 0;}
+
+/* cta */
+.cta-band{background:linear-gradient(120deg,var(--gold-500),var(--gold-300));color:var(--navy-950);border-radius:18px;padding:44px 40px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;}
+.cta-band h2{font-size:1.7rem;}
+.cta-band p{margin-top:6px;font-weight:500;max-width:48ch;}
+.cta-band .btn-ghost{border-color:var(--navy-950);color:var(--navy-950);}
+
+footer{padding:36px 0 40px;border-top:1px solid rgba(255,255,255,.08);color:var(--slate-400);font-size:.85rem;}
+footer .wrap{display:flex;flex-direction:column;gap:14px;}
+footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+footer .policies button{background:none;border:none;color:var(--slate-400);margin-right:18px;font-size:.8rem;font-family:inherit;cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:3px;}
+footer .policies button:hover{color:var(--gold-300);}
+
+/* legal modal */
+.modal-backdrop{display:none;position:fixed;inset:0;background:rgba(5,9,16,.72);z-index:100;padding:24px;overflow-y:auto;}
+.modal-backdrop.open{display:block;}
+.modal-box{background:var(--navy-800);border:1px solid rgba(255,255,255,.1);border-radius:16px;max-width:720px;margin:20px auto 60px;padding:30px 28px 34px;position:relative;}
+.modal-close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.08);border:none;color:var(--paper);width:32px;height:32px;border-radius:8px;font-size:1.1rem;cursor:pointer;line-height:1;}
+.modal-close:hover{background:var(--gold-500);color:var(--navy-950);}
+.modal-box h2{font-size:1.4rem;padding-right:40px;}
+.modal-box .updated{color:var(--slate-400);font-size:.82rem;margin:6px 0 18px;}
+.modal-box h3{font-family:'Archivo';font-size:.98rem;color:var(--gold-300);margin:22px 0 6px;font-weight:700;}
+.modal-box h3:first-of-type{margin-top:0;}
+.modal-box p{color:var(--slate-200);font-size:.88rem;margin-bottom:4px;}
+.modal-box ul{list-style:none;padding:0;margin:6px 0;}
+.modal-box li{color:var(--slate-200);font-size:.88rem;padding:3px 0 3px 16px;position:relative;}
+.modal-box li::before{content:"—";position:absolute;left:0;color:var(--slate-400);}
+.modal-box .note{background:var(--navy-950);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:14px 16px;margin-top:22px;font-size:.82rem;color:var(--slate-400);}
+body.modal-locked{overflow:hidden;}
+
+@media (max-width:820px){
+  nav{display:none;}
+  .hero .wrap{grid-template-columns:1fr;}
+  .pf-grid{grid-template-columns:1fr;}
+  .pkg-grid{grid-template-columns:1fr;}
+  .demo-grid{grid-template-columns:1fr;}
+  .steps{grid-template-columns:1fr 1fr;}
+  .cta-band{flex-direction:column;text-align:left;}
+}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){
+    --navy-950:#0a1220;--navy-800:#122540;--navy-700:#1a3155;--paper:#eef1f5;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="https://caldeny4201.github.io/voltguardweb/"><span class="bolt">⚡</span><div>VOLTGUARD WEB<small>WEBSITES FOR SA ELECTRICIANS</small></div></a>
+    <nav>
+      <a href="#why">Why it works</a>
+      <a href="#packages">Packages</a>
+      <a href="#demo">Live example</a>
+      <a href="#how">How it works</a>
+      <a href="https://wa.me/27764312871?text=Hi%20Voltguard%20Web%2C%20I%27d%20like%20to%20find%20out%20more%20about%20a%20website%20for%20my%20electrical%20business." class="btn btn-gold nav-cta">WhatsApp us</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Free website audit · R0</div>
+      <h1>A website that brings you <span class="hl">jobs.</span></h1>
+      <p class="lead">High-converting websites built exclusively for South African electricians. Productized, WhatsApp-first, live in 5 days.</p>
+      <div class="actions">
+        <a href="https://wa.me/27764312871?text=Hi%20Voltguard%20Web%2C%20I%27d%20like%20my%20free%20website%20audit." class="btn btn-gold">Get my free audit</a>
+        <a href="#packages" class="btn btn-ghost">See packages</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>From R6,500</b><span>once-off, fixed price</span></div>
+        <div class="stat"><b>5 days</b><span>deposit to live site</span></div>
+        <div class="stat"><b>WhatsApp-first</b><span>bookings land on your phone</span></div>
+      </div>
+    </div>
+    <svg class="circuit" viewBox="0 0 340 300" xmlns="http://www.w3.org/2000/svg">
+      <path class="dim" d="M20 260 H120 V180 H220"/>
+      <path class="dim" d="M300 40 V110 H180 V200"/>
+      <path d="M40 40 H140 V90 H260 V150"/>
+      <path d="M60 260 V210 H150 V150 H300"/>
+      <circle cx="40" cy="40" r="5"/>
+      <circle cx="260" cy="150" r="5"/>
+      <circle cx="300" cy="150" r="5"/>
+      <circle cx="60" cy="260" r="5"/>
+      <circle cx="150" cy="150" r="5"/>
+      <text x="150" y="115" fill="#f0a828" font-family="Archivo" font-weight="800" font-size="26">⚡</text>
+    </svg>
+  </div>
+</section>
+
+<section class="section" id="why">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Most electrician sites are a logo and a phone number.</h2>
+      <p>Your next customer is comparing three electricians on their phone. The one that answers their question first gets the call.</p>
+    </div>
+    <div class="pf-grid">
+      <div class="pf-card">
+        <h3>One message for everyone</h3>
+        <p>A homeowner with a tripping DB, an agent chasing a CoC and a body corporate all want different things.</p>
+        <div class="fix"><b>The fix:</b> a page written for each customer type.</div>
+      </div>
+      <div class="pf-card">
+        <h3>"Call for a quote"</h3>
+        <p>Visitors don't want to phone just to learn the ballpark. Many leave and try the next electrician.</p>
+        <div class="fix"><b>The fix:</b> selected pricing shown on every page.</div>
+      </div>
+      <div class="pf-card">
+        <h3>Trust has to be asked for</h3>
+        <p>Is he licensed? Insured? How fast will he come? Most sites bury it or skip it.</p>
+        <div class="fix"><b>The fix:</b> your licence, cover and guarantees up front.</div>
+      </div>
+      <div class="pf-card">
+        <h3>Too many steps to book</h3>
+        <p>Contact forms and hidden numbers cost you the impatient, urgent jobs.</p>
+        <div class="fix"><b>The fix:</b> WhatsApp and call buttons on every page.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="packages">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Pick your package. Fixed price. Once-off.</h2>
+      <p>50% deposit to start, balance on go-live. Every package includes Solar &amp; Backup Power pricing. And your template stays exclusive — we never sell the same visual design to two electricians in the same suburb.</p>
+    </div>
+    <div class="pkg-grid">
+      <div class="pkg">
+        <h3>Launch</h3>
+        <div class="price">R6,500<span> once-off</span></div>
+        <div class="tag">Best for solo electricians</div>
+        <ul>
+          <li>3 audience pages of your choice</li>
+          <li>WhatsApp booking + quote form</li>
+          <li>Basic local SEO</li>
+          <li>Google Business Profile setup</li>
+          <li>Domain + 3 months hosting</li>
+        </ul>
+        <a href="https://wa.me/27764312871?text=Hi%20Voltguard%20Web%2C%20I%27d%20like%20to%20get%20started%20with%20the%20Launch%20package%20%28R6%2C500%29." class="btn btn-ghost">Start with Launch</a>
+      </div>
+      <div class="pkg rec">
+        <h3>Growth</h3>
+        <div class="price">R12,500<span> once-off</span></div>
+        <div class="tag">Best for established electricians</div>
+        <ul>
+          <li>All 5 audience pages</li>
+          <li>Membership &amp; plan cards</li>
+          <li>Emergency Call-Out banner</li>
+          <li>Gallery + full SEO &amp; schema</li>
+          <li>12 months hosting</li>
+        </ul>
+        <a href="https://wa.me/27764312871?text=Hi%20Voltguard%20Web%2C%20I%27d%20like%20to%20get%20started%20with%20the%20Growth%20package%20%28R12%2C500%29." class="btn btn-gold">Start with Growth</a>
+      </div>
+      <div class="pkg">
+        <h3>Dominate</h3>
+        <div class="price">R19,500<span> once-off</span></div>
+        <div class="tag">Best for multi-van &amp; commercial</div>
+        <ul>
+          <li>Suburb-specific pages</li>
+          <li>Unlimited gallery, categorised</li>
+          <li>Itemised quote builder</li>
+          <li>2 months post-launch tweaks</li>
+          <li>1 free brochure pack</li>
+        </ul>
+        <a href="https://wa.me/27764312871?text=Hi%20Voltguard%20Web%2C%20I%27d%20like%20to%20get%20started%20with%20the%20Dominate%20package%20%28R19%2C500%29." class="btn btn-ghost">Start with Dominate</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>From first message to live site in five days.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Free audit</h3><p>We review your online presence and show where you're losing jobs.</p></div>
+      <div class="step"><div class="n">2</div><h3>Pick a package</h3><p>Launch, Growth or Dominate. 50% deposit to start.</p></div>
+      <div class="step"><div class="n">3</div><h3>Live in 5 days</h3><p>We build, you approve, your site goes live. Balance due on go-live.</p></div>
+      <div class="step"><div class="n">4</div><h3>Keep growing</h3><p>Add hosting care, ads, reviews and brochures whenever you're ready.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="demo">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>See it before you buy it.</h2>
+      <p>A complete electrician website with audience pages, pricing tables and WhatsApp booking, plus five matching brochures.</p>
+    </div>
+    <div class="demo-grid">
+      <div class="demo-card">
+        <h3>Live example: Voltguard Electrical</h3>
+        <p>Tap through a full site built with Voltguard Web — homeowner, agent, commercial, builder and landlord pages, all with WhatsApp booking one tap away.</p>
+        <a href="https://caldeny4201.github.io/voltguard/" class="btn btn-gold">View live example</a>
+      </div>
+      <div class="broch-card">
+        <h3>Brochure samples</h3>
+        <p>Print-ready PDFs you can send on WhatsApp or email. Yours would carry your services, prices and guarantees.</p>
+        <ul class="broch-list">
+          <li><a href="https://caldeny4201.github.io/collateral/Voltguard_Web_Agency_Brochure.pdf">Web Agency Brochure <span>PDF</span></a></li>
+          <li><a href="https://caldeny4201.github.io/collateral/Voltguard_Web_Spec_Sheet.pdf">Web Spec Sheet <span>PDF</span></a></li>
+          <li><a href="https://caldeny4201.github.io/collateral/Voltguard_Brochure_1_Homeowners.pdf">Brochure — Homeowners <span>PDF</span></a></li>
+          <li><a href="https://caldeny4201.github.io/collateral/Voltguard_Brochure_2_Estate_Agents.pdf">Brochure — Estate Agents <span>PDF</span></a></li>
+          <li><a href="https://caldeny4201.github.io/collateral/Voltguard_Brochure_3_Commercial.pdf">Brochure — Commercial <span>PDF</span></a></li>
+          <li><a href="https://caldeny4201.github.io/collateral/Voltguard_Brochure_4_Builders_Developers.pdf">Brochure — Builders &amp; Developers <span>PDF</span></a></li>
+          <li><a href="https://caldeny4201.github.io/collateral/Voltguard_Brochure_5_Landlords.pdf">Brochure — Landlords <span>PDF</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <h2>Free website audit. R0.</h2>
+        <p>We check your Google Maps presence, mobile speed and WhatsApp booking against 2 local competitors. No pressure, no obligation.</p>
+      </div>
+      <a href="https://wa.me/27764312871?text=Hi%20Voltguard%20Web%2C%20I%27d%20like%20my%20free%20website%20audit." class="btn btn-ghost">WhatsApp +27 76 431 2871</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <div><a href="https://caldeny4201.github.io/voltguardweb/">Voltguard Web</a> — websites for SA electricians</div>
+      <div>Callum Denysschen · +27 76 431 2871 · denysschen.callum43@gmail.com</div>
+    </div>
+    <div class="policies">
+      <button type="button" data-open-modal="terms-modal">Terms &amp; Conditions</button>
+      <button type="button" data-open-modal="privacy-modal">Privacy Policy</button>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-backdrop" id="terms-modal" data-modal>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="terms-title">
+    <button class="modal-close" type="button" data-close-modal aria-label="Close">✕</button>
+    <h2 id="terms-title">Master Terms of Service</h2>
+    <div class="updated">Last updated: September 2026</div>
+
+    <h3>1. Scope &amp; acceptance</h3>
+    <p>These terms govern all design, development, web deployment, digital collateral, hosting and technical maintenance services provided by Voltguard Web. By paying a 50% project deposit, executing an invoice, or issuing a go-ahead via WhatsApp or email, the client agrees to be bound by these terms in full.</p>
+
+    <h3>2. Pricing &amp; payment</h3>
+    <ul>
+      <li>Website packages (Launch, Growth, Dominate) are fixed, once-off fees. A 50% deposit is required before any technical or design work commences; the remaining 50% is due immediately on go-live.</li>
+      <li>Standalone digital brochure packs and marketing collateral are billed 100% upfront, prior to final file delivery.</li>
+      <li>Once the complimentary hosting period expires (3 months for Launch, 12 months for Growth), hosting, security maintenance and domain upkeep move to a recurring monthly fee billed in advance.</li>
+      <li>All figures are in South African Rand (ZAR).</li>
+    </ul>
+
+    <h3>3. Timelines &amp; client responsibilities</h3>
+    <p>Website deployment is completed within 5 business days, calculated from the moment we receive both the 50% deposit and your complete asset package (business name, logo, rate cards, trade licensing details, public liability insurance figures, and service areas). If assets or approvals are delayed, the timeline is extended without penalty to Voltguard Web.</p>
+
+    <h3>4. Intellectual property &amp; ownership</h3>
+    <ul>
+      <li>All logos, photographs, copy and trade credentials you supply remain your property at all times; we claim no ownership over client-supplied assets.</li>
+      <li>Source code, wireframes, visual templates and database configurations remain the exclusive property of Voltguard Web.</li>
+      <li>You receive a continuous, non-exclusive licence to use the built site and PDF brochures for the duration of your active hosting agreement. On cancellation or migration, you have a strict 30-day window to export your files before the installation is decommissioned.</li>
+      <li>Standalone PDF brochures and digital flyers become your outright property once paid in full.</li>
+    </ul>
+
+    <h3>5. Geographic exclusivity</h3>
+    <p>We will not deploy the exact same visual website template to two competing electrical contractors operating within the same primary suburb.</p>
+
+    <h3>6. Exclusions</h3>
+    <p>Standard packages exclude e-commerce checkouts, native mobile app development, programmatic email marketing, social media management, paid ad management (Google/Meta), logo design and professional videography. These can be quoted separately.</p>
+
+    <h3>7. Cancellations, default &amp; refunds</h3>
+    <ul>
+      <li>Deposits are non-refundable once work has officially commenced.</li>
+      <li>Recurring hosting or maintenance plans may be cancelled with 30 days' written notice via WhatsApp or email.</li>
+    </ul>
+
+    <h3>8. Referral programme</h3>
+    <p>Referral rewards (R500–R1,000 depending on package) are disbursed only after the referred client's 50% deposit has cleared and their build has officially commenced.</p>
+
+    <div class="note">Questions about these terms? WhatsApp +27 76 431 2871 or email denysschen.callum43@gmail.com. This isn't a substitute for formal legal advice.</div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="privacy-modal" data-modal>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="privacy-title">
+    <button class="modal-close" type="button" data-close-modal aria-label="Close">✕</button>
+    <h2 id="privacy-title">POPIA Privacy Policy</h2>
+    <div class="updated">Last updated: September 2026</div>
+    <p>Voltguard Web respects your privacy and safeguards personal and commercial information in alignment with South Africa's Protection of Personal Information Act (POPIA).</p>
+
+    <h3>Information we collect</h3>
+    <ul>
+      <li>Identity &amp; contact data: full names, business names, phone numbers, WhatsApp numbers and email addresses</li>
+      <li>Operational data: trade licence numbers, insurance policy details, service areas, pricing rate cards and brand logos</li>
+      <li>Communication history: transcripts and logs from WhatsApp Business, email or contact forms</li>
+    </ul>
+
+    <h3>Why we process it</h3>
+    <ul>
+      <li>Service delivery: free website audits, proposals, and building, hosting &amp; maintaining sites and brochures</li>
+      <li>Administration: project workflows, payment tracking, routine communications and referral incentives</li>
+    </ul>
+
+    <h3>Security &amp; sharing</h3>
+    <p>We do not sell, trade, rent or lease personal client data to unauthorized third parties. Records are stored behind secure authorization protocols. WhatsApp Business communications are governed by WhatsApp's own encryption and privacy standards.</p>
+
+    <h3>Your rights under POPIA</h3>
+    <ul>
+      <li>Access — request confirmation of what personal information we hold about you</li>
+      <li>Correction — request an update or amendment of inaccurate information</li>
+      <li>Deletion — request destruction of records, subject to statutory tax and accounting retention requirements</li>
+    </ul>
+
+    <h3>Information officer</h3>
+    <p>Voltguard Web acts as the Responsible Party for data collected via its digital properties. For privacy requests or notices, contact us via WhatsApp at +27 76 431 2871 or email denysschen.callum43@gmail.com.</p>
+
+    <div class="note">This isn't a substitute for formal legal advice.</div>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('[data-open-modal]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var modal = document.getElementById(btn.getAttribute('data-open-modal'));
+    if(modal){ modal.classList.add('open'); document.body.classList.add('modal-locked'); }
+  });
+});
+document.querySelectorAll('[data-modal]').forEach(function(modal){
+  modal.addEventListener('click', function(e){
+    if(e.target === modal){ modal.classList.remove('open'); document.body.classList.remove('modal-locked'); }
+  });
+  modal.querySelectorAll('[data-close-modal]').forEach(function(btn){
+    btn.addEventListener('click', function(){ modal.classList.remove('open'); document.body.classList.remove('modal-locked'); });
+  });
+});
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape'){
+    document.querySelectorAll('.modal-backdrop.open').forEach(function(m){ m.classList.remove('open'); });
+    document.body.classList.remove('modal-locked');
+  }
+});
+</script>
+
+</body>
+</html>
