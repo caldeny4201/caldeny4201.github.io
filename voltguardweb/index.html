@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Voltguard Web — Websites for SA Electricians</title>
+<meta name="description" content="Fixed-price, WhatsApp-first websites for South African electricians. Live in 5 days or R500 off. Smart Tools for CoC and solar quotes, care plans and clear guarantees. Free website audit.">
+<meta property="og:title" content="Voltguard Web — Websites for SA Electricians">
+<meta property="og:description" content="Fixed price from R6,500. Live in 5 days or R500 off. WhatsApp bookings land on your phone.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_ZA">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -23,57 +28,89 @@
   padding-bottom:env(safe-area-inset-bottom,0px);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-padding-top:env(safe-area-inset-top,0px);}
-html,body{height:100%;}
-body{
-  background:var(--navy-950);
-  color:var(--paper);
-  font-family:'Inter',system-ui,-apple-system,sans-serif;
-  line-height:1.5;
-  -webkit-font-smoothing:antialiased;
-}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px);scroll-behavior:smooth;}
+html,body{min-height:100%;}
+body{background:var(--navy-950);color:var(--paper);font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{animation:none!important;transition:none!important;}}
 h1,h2,h3{font-family:'Archivo',system-ui,sans-serif;font-weight:800;line-height:1.08;letter-spacing:-0.01em;}
 .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
 a{color:inherit;text-decoration:none;}
-img{max-width:100%;}
+button{font-family:inherit;}
+:focus-visible{outline:3px solid var(--gold-500);outline-offset:2px;}
 
 /* header */
-header{position:sticky;top:0;z-index:20;background:rgba(10,18,32,.92);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.06);}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;padding-top:env(safe-area-inset-top,0px);}
+header{position:sticky;top:0;z-index:20;background:rgba(10,18,32,.94);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.06);}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;}
 .brand{display:flex;align-items:center;gap:10px;font-family:'Archivo';font-weight:800;font-size:1.05rem;}
 .bolt{color:var(--gold-500);font-size:1.3rem;}
 .brand small{display:block;font-family:'Inter';font-weight:500;color:var(--slate-400);font-size:.62rem;letter-spacing:.02em;}
-nav a{font-size:.9rem;color:var(--slate-200);margin-left:26px;}
-nav a:hover{color:var(--gold-300);}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:8px;font-weight:600;font-size:.95rem;}
+nav.main a{font-size:.88rem;color:var(--slate-200);margin-left:22px;}
+nav.main a:hover{color:var(--gold-300);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:8px;font-weight:600;font-size:.95rem;border:1px solid transparent;cursor:pointer;text-align:center;}
 .btn-gold{background:var(--gold-500);color:var(--navy-950);}
 .btn-gold:hover{background:var(--gold-300);}
-.btn-ghost{border:1px solid rgba(255,255,255,.25);color:var(--paper);}
+.btn-ghost{border-color:rgba(255,255,255,.25);color:var(--paper);background:transparent;}
 .btn-ghost:hover{border-color:var(--gold-500);}
-.nav-cta{margin-left:26px;padding:9px 16px;font-size:.85rem;}
+.nav-cta{margin-left:22px;padding:9px 16px;font-size:.85rem;}
+.quick-menu{display:none;gap:8px;overflow-x:auto;padding:8px 16px 10px;border-top:1px solid rgba(255,255,255,.06);scrollbar-width:none;}
+.quick-menu::-webkit-scrollbar{display:none;}
+.quick-menu a{flex:0 0 auto;font-size:.78rem;font-weight:500;color:var(--slate-200);padding:7px 14px;border:1px solid rgba(255,255,255,.14);border-radius:999px;}
+.quick-menu a.lead{background:var(--gold-500);border-color:var(--gold-500);color:var(--navy-950);font-weight:600;}
+.fab{display:none;position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;background:var(--gold-500);color:var(--navy-950);font-weight:700;font-size:.9rem;padding:13px 18px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.45);}
 
 /* hero */
-.hero{padding:76px 0 64px;position:relative;overflow:hidden;}
+.hero{padding:72px 0 56px;overflow:hidden;}
 .hero .wrap{display:grid;grid-template-columns:1.15fr 0.85fr;gap:48px;align-items:center;}
 .eyebrow{color:var(--gold-300);font-weight:600;font-size:.85rem;margin-bottom:14px;}
 .hero h1{font-size:clamp(2.1rem,4.6vw,3.4rem);}
 .hero h1 .hl{color:var(--gold-500);}
 .hero p.lead{margin-top:20px;color:var(--slate-200);font-size:1.08rem;max-width:46ch;}
 .hero .actions{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;}
-.stats{margin-top:40px;display:flex;gap:32px;flex-wrap:wrap;}
-.stat b{display:block;font-family:'Archivo';font-size:1.4rem;color:var(--gold-300);}
+.hero .micro{margin-top:12px;color:var(--slate-400);font-size:.82rem;}
+.stats{margin-top:34px;display:flex;gap:30px;flex-wrap:wrap;}
+.stat b{display:block;font-family:'Archivo';font-size:1.3rem;color:var(--gold-300);}
 .stat span{color:var(--slate-400);font-size:.82rem;}
-
 .circuit{width:100%;height:auto;}
-.circuit line, .circuit path{stroke:var(--navy-600);stroke-width:2;fill:none;}
+.circuit path{stroke:var(--navy-600);stroke-width:2;fill:none;}
 .circuit circle{fill:var(--gold-500);}
 .circuit .dim{stroke:rgba(143,160,184,.35);}
 
-/* problem/fix */
+/* strip */
+.strip{border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);background:var(--navy-800);}
+.strip ul{list-style:none;display:grid;grid-template-columns:repeat(5,auto);gap:10px 26px;justify-content:space-between;padding:14px 0;font-size:.85rem;color:var(--slate-200);}
+.strip li::before{content:"✓ ";color:var(--gold-500);font-weight:700;}
+
+/* sections */
 .section{padding:70px 0;}
-.section-head{max-width:60ch;margin-bottom:40px;}
+.section.alt{background:rgba(18,37,64,.45);}
+.section-head{max-width:62ch;margin-bottom:34px;}
 .section-head h2{font-size:clamp(1.6rem,3vw,2.2rem);}
 .section-head p{color:var(--slate-400);margin-top:12px;font-size:1.02rem;}
+.small-note{color:var(--slate-400);font-size:.82rem;margin-top:16px;max-width:80ch;}
+.linkbtn{background:none;border:0;padding:0;font:inherit;color:var(--gold-300);text-decoration:underline;text-underline-offset:3px;cursor:pointer;text-align:left;}
+
+/* audience picker */
+.pick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.pick{text-align:left;background:var(--navy-800);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:20px 20px 18px;color:var(--paper);cursor:pointer;}
+.pick:hover{border-color:rgba(240,168,40,.6);}
+.pick[aria-pressed="true"]{border-color:var(--gold-500);background:linear-gradient(180deg,var(--navy-700),var(--navy-800));}
+.pick strong{display:block;font-family:'Archivo';font-weight:800;font-size:1.08rem;}
+.pick span{display:block;color:var(--slate-400);font-size:.86rem;margin-top:4px;}
+.match-panel{margin-top:16px;background:var(--navy-800);border:1px solid rgba(255,255,255,.1);border-left:3px solid var(--gold-500);border-radius:12px;padding:26px;}
+.match-empty{color:var(--slate-400);font-size:.92rem;}
+.mp-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;}
+.match-panel h3{font-size:1.4rem;margin-bottom:8px;}
+.match-panel p{color:var(--slate-200);font-size:.95rem;margin-bottom:12px;}
+.mp-rows{list-style:none;}
+.mp-rows li{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-top:1px solid rgba(255,255,255,.08);font-size:.88rem;color:var(--slate-200);}
+.mp-rows li:first-child{border-top:none;}
+.mp-rows li span:first-child{color:var(--slate-400);flex-shrink:0;}
+.mp-rows li span:last-child{text-align:right;}
+.mp-rows a{color:var(--gold-300);text-decoration:underline;text-underline-offset:3px;}
+.field{width:100%;max-width:340px;padding:11px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:var(--navy-950);color:var(--paper);font:1rem 'Inter',sans-serif;margin-bottom:14px;}
+.lbl{display:block;font-size:.8rem;font-weight:600;color:var(--slate-200);margin:0 0 6px;}
+
+/* problems */
 .pf-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.08);border-radius:14px;overflow:hidden;}
 .pf-card{background:var(--navy-800);padding:28px;}
 .pf-card h3{font-size:1.08rem;font-weight:700;margin-bottom:8px;}
@@ -83,89 +120,189 @@ nav a:hover{color:var(--gold-300);}
 
 /* packages */
 .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-.pkg{background:var(--navy-800);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:30px 26px;display:flex;flex-direction:column;}
-.pkg.rec{border-color:var(--gold-500);background:linear-gradient(180deg,var(--navy-700),var(--navy-800));position:relative;}
-.pkg.rec::before{content:"Recommended";position:absolute;top:-13px;left:26px;background:var(--gold-500);color:var(--navy-950);font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:5px;}
+.pkg{background:var(--navy-800);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:30px 26px;display:flex;flex-direction:column;position:relative;}
+.pkg.rec{border-color:rgba(240,168,40,.55);background:linear-gradient(180deg,var(--navy-700),var(--navy-800));}
+.pkg.match{border-color:var(--gold-500);box-shadow:0 0 0 1px var(--gold-500);}
+.pkg .flag{position:absolute;top:-13px;left:26px;background:var(--gold-500);color:var(--navy-950);font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:5px;}
+.pkg .sugg{display:none;position:absolute;top:-13px;right:20px;background:var(--paper);color:var(--navy-950);font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:5px;}
+.pkg.match .sugg{display:block;}
 .pkg h3{font-size:1.15rem;}
-.pkg .price{font-family:'Archivo';font-size:2.1rem;color:var(--gold-300);margin:12px 0 2px;}
-.pkg .price span{font-family:'Inter';font-size:.85rem;color:var(--slate-400);}
-.pkg .tag{color:var(--slate-400);font-size:.9rem;margin-bottom:18px;}
+.pkg .price{font-family:'Archivo';font-weight:800;font-size:2.1rem;color:var(--gold-300);margin:12px 0 2px;}
+.pkg .price span{font-family:'Inter';font-weight:400;font-size:.85rem;color:var(--slate-400);}
+.pkg .deposit{color:var(--slate-400);font-size:.78rem;margin-bottom:6px;}
+.pkg .tag{color:var(--slate-400);font-size:.9rem;margin-bottom:16px;}
 .pkg ul{list-style:none;font-size:.9rem;color:var(--slate-200);flex:1;}
 .pkg li{padding:7px 0;border-top:1px solid rgba(255,255,255,.06);}
 .pkg li:first-child{border-top:none;}
-.pkg .btn{margin-top:20px;justify-content:center;}
+.pkg li small{display:block;color:var(--slate-400);font-size:.78rem;}
+.pkg .btn{margin-top:20px;}
+.table-scroll{overflow-x:auto;border:1px solid rgba(255,255,255,.08);border-radius:12px;}
+table.cmp{width:100%;border-collapse:collapse;min-width:640px;font-size:.88rem;}
+table.cmp th,table.cmp td{padding:11px 16px;text-align:left;border-bottom:1px solid rgba(255,255,255,.06);color:var(--slate-200);}
+table.cmp thead th{font-family:'Archivo';font-weight:800;background:var(--navy-950);color:var(--gold-300);}
+table.cmp td.no{color:var(--slate-400);}
+table.cmp tr:last-child td{border-bottom:none;}
 
-/* how it works */
+/* tools */
+.tool{background:var(--navy-800);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:26px;}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;}
+.tab{font-size:.88rem;font-weight:600;padding:11px 16px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:transparent;color:var(--slate-200);cursor:pointer;min-height:44px;}
+.tab[aria-selected="true"]{background:var(--gold-500);border-color:var(--gold-500);color:var(--navy-950);}
+.tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
+.chip{font-size:.85rem;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,.2);background:transparent;color:var(--paper);cursor:pointer;min-height:44px;}
+.chip[aria-pressed="true"]{background:var(--gold-500);border-color:var(--gold-500);color:var(--navy-950);font-weight:600;}
+.chip:disabled{cursor:default;}
+.result{background:var(--navy-950);border:1px solid rgba(255,255,255,.1);border-left:3px solid var(--gold-500);border-radius:10px;padding:22px;}
+.result .big{font-family:'Archivo';font-weight:800;font-size:1.9rem;color:var(--gold-300);line-height:1.1;}
+.result .cap{color:var(--slate-400);font-size:.85rem;margin:6px 0 14px;}
+.result p{color:var(--slate-200);font-size:.9rem;margin-bottom:14px;}
+.tool-note{margin-top:16px;color:var(--slate-400);font-size:.8rem;}
+.tier-table{margin-top:22px;}
+
+/* guarantees */
+.gua-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden;}
+.gua{background:var(--navy-950);padding:24px;}
+.gua h3{font-size:1.05rem;color:var(--gold-300);margin-bottom:8px;}
+.gua p{color:var(--slate-200);font-size:.88rem;}
+.gua-more{margin-top:18px;}
+.no-promise{margin-top:14px;font-size:.84rem;color:var(--slate-400);max-width:76ch;}
+
+/* offers */
+.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.offer{background:var(--navy-800);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:26px 24px;}
+.offer.hot{border-color:var(--gold-500);background:linear-gradient(180deg,var(--navy-700),var(--navy-800));}
+.offer .save{display:inline-block;background:var(--gold-500);color:var(--navy-950);font-weight:700;font-size:.74rem;padding:3px 9px;border-radius:5px;margin-bottom:12px;}
+.offer.plain .save{background:rgba(255,255,255,.1);color:var(--gold-300);}
+.offer h3{font-size:1.1rem;margin-bottom:8px;}
+.offer p{color:var(--slate-400);font-size:.9rem;}
+.offer .cond{margin-top:12px;font-size:.78rem;color:var(--slate-400);}
+.more-offers{margin-top:18px;}
+
+/* accordions */
+.acc{border:1px solid rgba(255,255,255,.1);border-radius:12px;background:var(--navy-800);margin-bottom:12px;overflow:hidden;}
+.acc>summary{list-style:none;cursor:pointer;padding:18px 22px;display:flex;justify-content:space-between;gap:16px;align-items:center;}
+.acc>summary::-webkit-details-marker{display:none;}
+.acc .t{font-family:'Archivo';font-weight:800;font-size:1.08rem;display:block;}
+.acc .s{color:var(--slate-400);font-size:.85rem;margin-top:2px;display:block;font-weight:400;font-family:'Inter';}
+.acc .q{color:var(--gold-500);font-size:1.5rem;transition:transform .2s ease;flex-shrink:0;line-height:1;}
+.acc[open]>summary .q{transform:rotate(45deg);}
+.acc-body{padding:6px 22px 26px;}
+.acc.inner{background:var(--navy-950);margin-bottom:0;}
+.acc.inner>summary{padding:14px 18px;}
+.acc.inner .t{font-size:.98rem;}
+
+.care-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.care{background:var(--navy-950);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:26px 24px;position:relative;}
+.care.rec{border-color:var(--gold-500);}
+.care .flag{position:absolute;top:-12px;left:24px;background:var(--gold-500);color:var(--navy-950);font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:5px;}
+.care h3{font-size:1.1rem;}
+.care .for{color:var(--slate-400);font-size:.85rem;margin-top:2px;}
+.care .price{font-family:'Archivo';font-weight:800;font-size:1.8rem;color:var(--gold-300);margin:12px 0 0;}
+.care .price span{font-family:'Inter';font-weight:400;font-size:.82rem;color:var(--slate-400);}
+.care .yr{font-size:.8rem;color:var(--slate-400);margin-bottom:14px;}
+.care ul,.bullets{list-style:none;}
+.care li{padding:6px 0;border-top:1px solid rgba(255,255,255,.06);font-size:.88rem;color:var(--slate-200);}
+.care li:first-child{border-top:none;}
+.bullets li{padding:8px 0 8px 20px;position:relative;font-size:.9rem;color:var(--slate-200);border-top:1px solid rgba(255,255,255,.07);}
+.bullets li:first-child{border-top:none;}
+.bullets li::before{content:"✓";position:absolute;left:0;color:var(--gold-500);font-weight:700;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px;}
+.panel{background:var(--navy-950);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:24px;}
+.panel h3{font-size:1.05rem;margin-bottom:12px;}
+.panel p.sub{color:var(--slate-400);font-size:.86rem;margin:-4px 0 10px;}
+.rows{list-style:none;}
+.rows li{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-top:1px solid rgba(255,255,255,.07);font-size:.9rem;color:var(--slate-200);}
+.rows li:first-child{border-top:none;}
+.rows li b{font-family:'Archivo';font-weight:700;color:var(--gold-300);white-space:nowrap;text-align:right;}
+.rows li small{display:block;color:var(--slate-400);font-size:.78rem;}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.calc-grid .tool{background:var(--navy-950);}
+.calc-grid h3{font-size:1.05rem;margin-bottom:14px;}
+.pol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.pol-btn{text-align:left;background:var(--navy-950);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px 16px;color:var(--paper);cursor:pointer;}
+.pol-btn:hover{border-color:var(--gold-500);}
+.pol-btn strong{display:block;font-size:.92rem;}
+.pol-btn span{display:block;color:var(--slate-400);font-size:.78rem;margin-top:2px;}
+.faq-item{border-bottom:1px solid rgba(255,255,255,.1);}
+.faq-item:first-child{border-top:1px solid rgba(255,255,255,.1);}
+.faq-item summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:15px 4px;cursor:pointer;font-weight:600;font-size:.95rem;list-style:none;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary .q{color:var(--gold-500);font-size:1.2rem;transition:transform .2s ease;flex-shrink:0;}
+.faq-item[open] summary .q{transform:rotate(45deg);}
+.faq-item p{padding:0 4px 18px;max-width:66ch;color:var(--slate-400);font-size:.9rem;}
+
+/* steps */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
 .step{background:var(--navy-800);border-radius:12px;padding:24px 20px;}
-.step .n{font-family:'Archivo';font-size:1.6rem;color:var(--gold-500);margin-bottom:10px;}
+.step .n{font-family:'Archivo';font-weight:800;font-size:1.6rem;color:var(--gold-500);margin-bottom:10px;}
 .step h3{font-size:1.02rem;margin-bottom:6px;}
 .step p{color:var(--slate-400);font-size:.88rem;}
+.asset{margin-top:18px;background:var(--navy-800);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:20px 22px;}
+.asset h3{font-size:1rem;margin-bottom:8px;}
+.asset p{color:var(--slate-400);font-size:.88rem;}
 
-/* demo + brochures */
+/* demo */
 .demo-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:18px;}
 .demo-card,.broch-card{background:var(--navy-800);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:30px 28px;}
 .demo-card h3,.broch-card h3{font-size:1.15rem;margin-bottom:10px;}
 .demo-card p,.broch-card p{color:var(--slate-400);font-size:.92rem;margin-bottom:20px;}
+.demo-card ul{list-style:none;margin:-6px 0 22px;}
+.demo-card li{font-size:.88rem;color:var(--slate-200);padding:5px 0 5px 20px;position:relative;}
+.demo-card li::before{content:"✓";position:absolute;left:0;color:var(--gold-500);font-weight:700;}
 .broch-list{list-style:none;display:flex;flex-direction:column;gap:2px;}
 .broch-list a{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-radius:8px;font-size:.9rem;color:var(--slate-200);}
 .broch-list a:hover{background:var(--navy-950);color:var(--gold-300);}
 .broch-list span{color:var(--slate-400);font-size:.75rem;letter-spacing:.03em;}
 
-/* policy sections */
-.policy{max-width:760px;}
-.policy .updated{color:var(--slate-400);font-size:.85rem;margin-bottom:10px;}
-.policy h3{font-family:'Archivo';font-size:1.1rem;color:var(--gold-300);margin:28px 0 8px;font-weight:700;}
-.policy p{color:var(--slate-200);font-size:.94rem;margin-bottom:4px;}
-.policy ul{list-style:none;padding:0;margin:8px 0;}
-.policy li{color:var(--slate-200);font-size:.94rem;padding:4px 0 4px 18px;position:relative;}
-.policy li::before{content:"—";position:absolute;left:0;color:var(--slate-400);}
-.policy .note{background:var(--navy-800);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:16px 20px;margin-top:26px;font-size:.86rem;color:var(--slate-400);}
-.policy-divider{border-top:1px solid rgba(255,255,255,.08);margin:56px 0 0;}
+/* about */
+.about{max-width:700px;}
+.about p{color:var(--slate-200);font-size:1rem;margin-top:12px;}
 
 /* cta */
 .cta-band{background:linear-gradient(120deg,var(--gold-500),var(--gold-300));color:var(--navy-950);border-radius:18px;padding:44px 40px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;}
-.cta-band h2{font-size:1.7rem;}
+.cta-band h2{font-size:1.7rem;color:var(--navy-950);}
 .cta-band p{margin-top:6px;font-weight:500;max-width:48ch;}
 .cta-band .btn-ghost{border-color:var(--navy-950);color:var(--navy-950);}
+.cta-band .btn-ghost:hover{background:var(--navy-950);color:var(--gold-300);}
 
 footer{padding:36px 0 40px;border-top:1px solid rgba(255,255,255,.08);color:var(--slate-400);font-size:.85rem;}
 footer .wrap{display:flex;flex-direction:column;gap:14px;}
 footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
-footer .policies button{background:none;border:none;color:var(--slate-400);margin-right:18px;font-size:.8rem;font-family:inherit;cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:3px;}
+footer .policies{display:flex;flex-wrap:wrap;gap:6px 18px;}
+footer .policies button{background:none;border:none;color:var(--slate-400);font-size:.8rem;cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:3px;}
 footer .policies button:hover{color:var(--gold-300);}
 
-/* legal modal */
-.modal-backdrop{display:none;position:fixed;inset:0;background:rgba(5,9,16,.72);z-index:100;padding:24px;overflow-y:auto;}
+/* modal */
+.modal-backdrop{display:none;position:fixed;inset:0;background:rgba(5,9,16,.76);z-index:100;padding:24px;overflow-y:auto;}
 .modal-backdrop.open{display:block;}
 .modal-box{background:var(--navy-800);border:1px solid rgba(255,255,255,.1);border-radius:16px;max-width:720px;margin:20px auto 60px;padding:30px 28px 34px;position:relative;}
-.modal-close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.08);border:none;color:var(--paper);width:32px;height:32px;border-radius:8px;font-size:1.1rem;cursor:pointer;line-height:1;}
+.modal-close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.08);border:none;color:var(--paper);width:36px;height:36px;border-radius:8px;font-size:1.1rem;cursor:pointer;line-height:1;}
 .modal-close:hover{background:var(--gold-500);color:var(--navy-950);}
 .modal-box h2{font-size:1.4rem;padding-right:40px;}
 .modal-box .updated{color:var(--slate-400);font-size:.82rem;margin:6px 0 18px;}
-.modal-box h3{font-family:'Archivo';font-size:.98rem;color:var(--gold-300);margin:22px 0 6px;font-weight:700;}
-.modal-box h3:first-of-type{margin-top:0;}
+.modal-box h3{font-size:.98rem;color:var(--gold-300);margin:22px 0 6px;}
 .modal-box p{color:var(--slate-200);font-size:.88rem;margin-bottom:4px;}
-.modal-box ul{list-style:none;padding:0;margin:6px 0;}
+.modal-box ul{list-style:none;margin:6px 0;}
 .modal-box li{color:var(--slate-200);font-size:.88rem;padding:3px 0 3px 16px;position:relative;}
 .modal-box li::before{content:"—";position:absolute;left:0;color:var(--slate-400);}
 .modal-box .note{background:var(--navy-950);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:14px 16px;margin-top:22px;font-size:.82rem;color:var(--slate-400);}
 body.modal-locked{overflow:hidden;}
 
-@media (max-width:820px){
-  nav{display:none;}
+@media (max-width:900px){
+  html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 136px);}
+  nav.main{display:none;}
+  .quick-menu{display:flex;}
+  .fab{display:inline-flex;}
   .hero .wrap{grid-template-columns:1fr;}
-  .pf-grid{grid-template-columns:1fr;}
-  .pkg-grid{grid-template-columns:1fr;}
-  .demo-grid{grid-template-columns:1fr;}
+  .circuit{max-width:300px;}
+  .pf-grid,.pkg-grid,.care-grid,.offer-grid,.gua-grid,.demo-grid,.two-col,.tool-grid,.calc-grid,.pick-grid,.mp-grid,.pol-grid{grid-template-columns:1fr;}
   .steps{grid-template-columns:1fr 1fr;}
-  .cta-band{flex-direction:column;text-align:left;}
+  .strip ul{grid-template-columns:1fr 1fr;justify-content:start;}
+  .cta-band{padding:34px 26px;}
+  footer{padding-bottom:84px;}
 }
-@media (prefers-color-scheme:light){
-  :root:not([data-theme="dark"]){
-    --navy-950:#0a1220;--navy-800:#122540;--navy-700:#1a3155;--paper:#eef1f5;
-  }
-}
+@media (max-width:480px){.steps{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -173,33 +310,47 @@ body.modal-locked{overflow:hidden;}
 <header>
   <div class="wrap">
     <a class="brand" href="https://caldeny4201.github.io/voltguardweb/"><span class="bolt">⚡</span><div>VOLTGUARD WEB<small>WEBSITES FOR SA ELECTRICIANS</small></div></a>
-    <nav>
-      <a href="#why">Why it works</a>
+    <nav class="main" aria-label="Main">
       <a href="#packages">Packages</a>
+      <a href="#tools">Smart Tools</a>
+      <a href="#guarantees">Guarantees</a>
+      <a href="#offers">Offers</a>
+      <a href="#care">Care plans</a>
       <a href="#demo">Live example</a>
-      <a href="#how">How it works</a>
       <a href="https://wa.me/27764312871?text=Hi%20Voltguard%20Web%2C%20I%27d%20like%20to%20find%20out%20more%20about%20a%20website%20for%20my%20electrical%20business." class="btn btn-gold nav-cta">WhatsApp us</a>
     </nav>
   </div>
+  <nav class="quick-menu" aria-label="Jump to section">
+    <a class="lead" href="#who">Find my package</a>
+    <a href="#packages">Packages</a>
+    <a href="#tools">Smart Tools</a>
+    <a href="#guarantees">Guarantees</a>
+    <a href="#offers">Offers</a>
+    <a href="#care">Care plans</a>
+    <a href="#faq">FAQ</a>
+  </nav>
 </header>
 
-<section class="hero">
+<a class="fab" href="https://wa.me/27764312871?text=Hi%20Voltguard%20Web%2C%20I%27d%20like%20my%20free%20website%20audit.">WhatsApp</a>
+
+<section class="hero" id="audit">
   <div class="wrap">
     <div>
       <div class="eyebrow">Free website audit · R0</div>
       <h1>A website that brings you <span class="hl">jobs.</span></h1>
-      <p class="lead">High-converting websites built exclusively for South African electricians. Productized, WhatsApp-first, live in 5 days.</p>
+      <p class="lead">High-converting websites built exclusively for South African electricians. Fixed price, WhatsApp-first, live in 5 days, and if we miss the date you get R500 off.</p>
       <div class="actions">
         <a href="https://wa.me/27764312871?text=Hi%20Voltguard%20Web%2C%20I%27d%20like%20my%20free%20website%20audit." class="btn btn-gold">Get my free audit</a>
-        <a href="#packages" class="btn btn-ghost">See packages</a>
+        <a href="#who" class="btn btn-ghost">Find my package</a>
       </div>
+      <p class="micro">No pressure, no obligation. We reply on WhatsApp.</p>
       <div class="stats">
         <div class="stat"><b>From R6,500</b><span>once-off, fixed price</span></div>
-        <div class="stat"><b>5 days</b><span>deposit to live site</span></div>
-        <div class="stat"><b>WhatsApp-first</b><span>bookings land on your phone</span></div>
+        <div class="stat"><b>5 days</b><span>live, or R500 off</span></div>
+        <div class="stat"><b>No lock-in</b><span>cancel care plans any time</span></div>
       </div>
     </div>
-    <svg class="circuit" viewBox="0 0 340 300" xmlns="http://www.w3.org/2000/svg">
+    <svg class="circuit" viewBox="0 0 340 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path class="dim" d="M20 260 H120 V180 H220"/>
       <path class="dim" d="M300 40 V110 H180 V200"/>
       <path d="M40 40 H140 V90 H260 V150"/>
@@ -214,7 +365,51 @@ body.modal-locked{overflow:hidden;}
   </div>
 </section>
 
-<section class="section" id="why">
+<div class="strip">
+  <div class="wrap">
+    <ul>
+      <li>Fixed, once-off pricing</li>
+      <li>Live in 5 days</li>
+      <li>Exclusive in your suburb</li>
+      <li>You own your content and domain</li>
+      <li>WhatsApp and call buttons on every page</li>
+    </ul>
+  </div>
+</div>
+
+<section class="section" id="who">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Which one sounds like you?</h2>
+      <p>Tap one and we'll show the package, offer and brochure that fit. Everything else on this page stays one tap away.</p>
+    </div>
+    <div class="pick-grid" id="pickGrid">
+      <button class="pick" type="button" aria-pressed="false" data-k="solo"><strong>Solo electrician</strong><span>I want a proper website that gets me started.</span></button>
+      <button class="pick" type="button" aria-pressed="false" data-k="est"><strong>Established, want more work</strong><span>I want more agent, landlord and commercial calls.</span></button>
+      <button class="pick" type="button" aria-pressed="false" data-k="multi"><strong>Multi-van or commercial</strong><span>I want to look as big as I am.</span></button>
+    </div>
+    <div class="match-panel" id="mp" aria-live="polite">
+      <div class="match-empty" id="mpEmpty">Pick the option above that fits you best.</div>
+      <div class="mp-grid" id="mpBody" hidden>
+        <div>
+          <h3 id="mpH"></h3>
+          <p id="mpP"></p>
+          <ul class="bullets" id="mpL"></ul>
+        </div>
+        <div>
+          <ul class="mp-rows" id="mpRows"></ul>
+          <label class="lbl" for="mpName" style="margin-top:14px">Business name (optional)</label>
+          <input class="field" id="mpName" type="text" placeholder="e.g. Sparks Electrical" autocomplete="off">
+          <label class="lbl" for="mpSub">Suburb (optional)</label>
+          <input class="field" id="mpSub" type="text" placeholder="e.g. Bryanston" autocomplete="off">
+          <a class="btn btn-gold" id="mpBtn" href="#">Send on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="why">
   <div class="wrap">
     <div class="section-head">
       <h2>Most electrician sites are a logo and a phone number.</h2>
@@ -229,7 +424,7 @@ body.modal-locked{overflow:hidden;}
       <div class="pf-card">
         <h3>"Call for a quote"</h3>
         <p>Visitors don't want to phone just to learn the ballpark. Many leave and try the next electrician.</p>
-        <div class="fix"><b>The fix:</b> selected pricing shown on every page.</div>
+        <div class="fix"><b>The fix:</b> selected pricing on every page, plus Smart Tools that give an instant indicative price.</div>
       </div>
       <div class="pf-card">
         <h3>Trust has to be asked for</h3>
@@ -239,7 +434,7 @@ body.modal-locked{overflow:hidden;}
       <div class="pf-card">
         <h3>Too many steps to book</h3>
         <p>Contact forms and hidden numbers cost you the impatient, urgent jobs.</p>
-        <div class="fix"><b>The fix:</b> WhatsApp and call buttons on every page.</div>
+        <div class="fix"><b>The fix:</b> WhatsApp and call buttons on every page, and a tap-to-quote form that arrives on your phone ready to price.</div>
       </div>
     </div>
   </div>
@@ -249,49 +444,276 @@ body.modal-locked{overflow:hidden;}
   <div class="wrap">
     <div class="section-head">
       <h2>Pick your package. Fixed price. Once-off.</h2>
-      <p>50% deposit to start, balance on go-live. Every package includes Solar &amp; Backup Power pricing. And your template stays exclusive — we never sell the same visual design to two electricians in the same suburb.</p>
+      <p>50% deposit to start, balance on go-live. Every package includes Solar &amp; Backup Power pricing, a tap-to-quote form and your licence and insurance up front. Your design stays exclusive: we never give the same template to two electricians in the same suburb.</p>
     </div>
-    <div class="pkg-grid">
-      <div class="pkg">
+    <div class="pkg-grid" id="pkgGrid">
+      <div class="pkg" data-pkg="solo">
+        <span class="sugg">Suggested for you</span>
         <h3>Launch</h3>
         <div class="price">R6,500<span> once-off</span></div>
+        <div class="deposit">R3,250 deposit, R3,250 on go-live</div>
         <div class="tag">Best for solo electricians</div>
         <ul>
           <li>3 audience pages of your choice</li>
-          <li>WhatsApp booking + quote form</li>
-          <li>Basic local SEO</li>
-          <li>Google Business Profile setup</li>
+          <li>WhatsApp booking + tap-to-quote form</li>
+          <li>Solar &amp; Backup Power price table</li>
+          <li>Basic local SEO + Google Business Profile setup</li>
+          <li>Terms and privacy pages</li>
           <li>Domain + 3 months hosting</li>
+          <li>30 days of free fixes after go-live</li>
+          <li>Smart Tools<small>CoC tool +R1,500 · Solar picker +R2,500</small></li>
         </ul>
         <a href="https://wa.me/27764312871?text=Hi%20Voltguard%20Web%2C%20I%27d%20like%20to%20get%20started%20with%20the%20Launch%20package%20%28R6%2C500%29." class="btn btn-ghost">Start with Launch</a>
       </div>
-      <div class="pkg rec">
+      <div class="pkg rec" data-pkg="est">
+        <span class="flag">Recommended</span>
+        <span class="sugg">Suggested for you</span>
         <h3>Growth</h3>
         <div class="price">R12,500<span> once-off</span></div>
+        <div class="deposit">R6,250 deposit, R6,250 on go-live</div>
         <div class="tag">Best for established electricians</div>
         <ul>
           <li>All 5 audience pages</li>
+          <li>CoC request tool + Solar &amp; backup picker included</li>
           <li>Membership &amp; plan cards</li>
           <li>Emergency Call-Out banner</li>
           <li>Gallery + full SEO &amp; schema</li>
-          <li>12 months hosting</li>
+          <li>Full policy pack (CoC, warranty, solar, membership)</li>
+          <li>12 months hosting + 30-minute training call</li>
+          <li>30 days of free fixes after go-live</li>
+          <li>Quote builder<small>+R3,000</small></li>
         </ul>
         <a href="https://wa.me/27764312871?text=Hi%20Voltguard%20Web%2C%20I%27d%20like%20to%20get%20started%20with%20the%20Growth%20package%20%28R12%2C500%29." class="btn btn-gold">Start with Growth</a>
       </div>
-      <div class="pkg">
+      <div class="pkg" data-pkg="multi">
+        <span class="sugg">Suggested for you</span>
         <h3>Dominate</h3>
         <div class="price">R19,500<span> once-off</span></div>
+        <div class="deposit">R9,750 deposit, R9,750 on go-live</div>
         <div class="tag">Best for multi-van &amp; commercial</div>
         <ul>
+          <li>Everything in Growth</li>
+          <li>Itemised quote builder included</li>
           <li>Suburb-specific pages</li>
           <li>Unlimited gallery, categorised</li>
-          <li>Itemised quote builder</li>
+          <li>Launch-day kit</li>
+          <li>Tools re-tuned to your prices after 2 months</li>
           <li>2 months post-launch tweaks</li>
           <li>1 free brochure pack</li>
         </ul>
         <a href="https://wa.me/27764312871?text=Hi%20Voltguard%20Web%2C%20I%27d%20like%20to%20get%20started%20with%20the%20Dominate%20package%20%28R19%2C500%29." class="btn btn-ghost">Start with Dominate</a>
       </div>
     </div>
+
+    <details class="acc" id="compare" style="margin-top:22px">
+      <summary><span><span class="t">Compare all three side by side</span><span class="s">Every feature, one table</span></span><span class="q">+</span></summary>
+      <div class="acc-body">
+        <div class="table-scroll">
+          <table class="cmp">
+            <thead><tr><th>What you get</th><th>Launch</th><th>Growth</th><th>Dominate</th></tr></thead>
+            <tbody>
+              <tr><td>Audience pages (homeowner, agent, commercial, builder, landlord)</td><td>3 of your choice</td><td>All 5</td><td>All 5 + suburb pages</td></tr>
+              <tr><td>WhatsApp, call buttons and tap-to-quote form</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+              <tr><td>Solar &amp; Backup Power price table</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+              <tr><td>CoC request tool</td><td>+R1,500</td><td>Included</td><td>Included</td></tr>
+              <tr><td>Solar &amp; backup picker</td><td>+R2,500</td><td>Included</td><td>Included</td></tr>
+              <tr><td>Itemised quote builder</td><td class="no">—</td><td>+R3,000</td><td>Included</td></tr>
+              <tr><td>Membership &amp; plan cards</td><td class="no">—</td><td>Yes</td><td>Yes</td></tr>
+              <tr><td>Emergency Call-Out banner</td><td class="no">—</td><td>Yes</td><td>Yes</td></tr>
+              <tr><td>Gallery</td><td class="no">—</td><td>Yes</td><td>Unlimited, categorised</td></tr>
+              <tr><td>Local SEO</td><td>Basic</td><td>Full + schema</td><td>Full + schema</td></tr>
+              <tr><td>Policy pack</td><td>Terms + privacy</td><td>Full pack</td><td>Full pack</td></tr>
+              <tr><td>Google Business Profile setup</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+              <tr><td>Free hosting included</td><td>3 months</td><td>12 months</td><td>12 months</td></tr>
+              <tr><td>Training call (30 minutes)</td><td>R450</td><td>Included</td><td>Included</td></tr>
+              <tr><td>Launch-day kit</td><td>R1,200</td><td>R1,200</td><td>Included</td></tr>
+              <tr><td>After go-live</td><td>30 days free fixes</td><td>30 days free fixes</td><td>2 months of tweaks</td></tr>
+              <tr><td>Brochure pack</td><td class="no">—</td><td class="no">—</td><td>1 free</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small-note">All prices in South African Rand. Smart Tools are built with your own prices, so we need your rate card before the 5-day clock starts.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="section alt" id="tools">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Smart Tools: try them right here.</h2>
+      <p>These are the tools your customers would use on your site. They give an instant indicative price and send the details to your WhatsApp, ready to quote.</p>
+    </div>
+    <div class="tool">
+      <div class="tabs" role="tablist" aria-label="Smart Tools demos">
+        <button class="tab" role="tab" id="tt-coc" aria-selected="true" aria-controls="tp-coc" type="button">CoC request tool</button>
+        <button class="tab" role="tab" id="tt-sol" aria-selected="false" aria-controls="tp-sol" type="button">Solar &amp; backup picker</button>
+        <button class="tab" role="tab" id="tt-qb" aria-selected="false" aria-controls="tp-qb" type="button">Itemised quote builder</button>
+      </div>
+
+      <div role="tabpanel" id="tp-coc" aria-labelledby="tt-coc">
+        <div class="tool-grid">
+          <div id="cocForm">
+            <span class="lbl">Property</span>
+            <div class="chips" data-k="prop"><button class="chip" type="button" aria-pressed="false">House</button><button class="chip" type="button" aria-pressed="false">Flat / apartment</button><button class="chip" type="button" aria-pressed="false">Townhouse / complex</button><button class="chip" type="button" aria-pressed="false">Commercial</button></div>
+            <span class="lbl">Supply</span>
+            <div class="chips" data-k="phase"><button class="chip" type="button" aria-pressed="false">Single-phase</button><button class="chip" type="button" aria-pressed="false">3-phase</button><button class="chip" type="button" aria-pressed="false">Not sure</button></div>
+            <span class="lbl">When</span>
+            <div class="chips" data-k="when"><button class="chip" type="button" aria-pressed="false">Today (book before 10am)</button><button class="chip" type="button" aria-pressed="false">Within 24 hours</button><button class="chip" type="button" aria-pressed="false">2–5 days</button></div>
+          </div>
+          <div class="result" aria-live="polite">
+            <div class="big" id="cocBig">Tap your options</div>
+            <div class="cap" id="cocCap">to see an indicative price</div>
+            <p id="cocTxt">The customer sees a price range, then sends the job to you on WhatsApp with every answer filled in.</p>
+            <a class="btn btn-gold" id="cocBtn" href="#">I want this on my site</a>
+          </div>
+        </div>
+      </div>
+
+      <div role="tabpanel" id="tp-sol" aria-labelledby="tt-sol" hidden>
+        <div class="tool-grid">
+          <div>
+            <span class="lbl">What do you need?</span>
+            <div class="chips" id="sModes">
+              <button class="chip" type="button" aria-pressed="false" data-m="inv">Inverter only</button>
+              <button class="chip" type="button" aria-pressed="false" data-m="bat">Battery only</button>
+              <button class="chip" type="button" aria-pressed="true" data-m="both">Inverter + battery</button>
+              <button class="chip" type="button" aria-pressed="false" data-m="solar">With solar panels</button>
+            </div>
+            <span class="lbl">What must stay on?</span>
+            <div class="chips" id="sChips">
+              <button class="chip" type="button" aria-pressed="true" data-w="1" disabled>Lights and Wi-Fi</button>
+              <button class="chip" type="button" aria-pressed="true" data-w="1">Fridge and freezer</button>
+              <button class="chip" type="button" aria-pressed="false" data-w="1">TV and laptops</button>
+              <button class="chip" type="button" aria-pressed="false" data-w="2">Pool pump</button>
+              <button class="chip" type="button" aria-pressed="false" data-w="3" data-h="1">Geyser</button>
+              <button class="chip" type="button" aria-pressed="false" data-w="3" data-h="1">Stove and oven</button>
+              <button class="chip" type="button" aria-pressed="false" data-w="3" data-h="1">Aircon</button>
+            </div>
+          </div>
+          <div class="result" aria-live="polite">
+            <div class="big" id="sName"></div>
+            <div class="cap" id="sSpec"></div>
+            <p id="sPrice" style="font-family:'Archivo';font-weight:800;font-size:1.25rem;color:var(--gold-300)"></p>
+            <a class="btn btn-gold" id="sBtn" href="#">I want this on my site</a>
+          </div>
+        </div>
+      </div>
+
+      <div role="tabpanel" id="tp-qb" aria-labelledby="tt-qb" hidden>
+        <div class="tool-grid">
+          <div>
+            <span class="lbl">Tick what the customer needs</span>
+            <div class="chips" id="qbChips">
+              <button class="chip" type="button" aria-pressed="false" data-lo="1200" data-hi="1800">CoC (single-phase)</button>
+              <button class="chip" type="button" aria-pressed="false" data-lo="5500" data-hi="8500">Whole-home surge protection</button>
+              <button class="chip" type="button" aria-pressed="false" data-lo="4500" data-hi="5500">DB board replacement</button>
+              <button class="chip" type="button" aria-pressed="false" data-lo="850" data-hi="1200">Prepaid meter installation</button>
+              <button class="chip" type="button" aria-pressed="false" data-lo="2500" data-hi="4500">Generator changeover switch</button>
+              <button class="chip" type="button" aria-pressed="false" data-lo="450" data-hi="950">Geyser element / timer</button>
+            </div>
+          </div>
+          <div class="result" aria-live="polite">
+            <div class="big" id="qbBig">Pick items</div>
+            <div class="cap" id="qbCap">to build a quote range</div>
+            <p id="qbTxt">Customers build their own itemised quote, and you confirm a firm price after a quick check.</p>
+            <a class="btn btn-gold" id="qbBtn" href="#">I want this on my site</a>
+          </div>
+        </div>
+      </div>
+      <p class="tool-note">Sample prices from our live example, Voltguard Electrical. Yours would use your own rate card. All sample prices exclude VAT.</p>
+    </div>
+
+    <div class="table-scroll tier-table">
+      <table class="cmp">
+        <thead><tr><th>Smart Tool</th><th>Launch</th><th>Growth</th><th>Dominate</th></tr></thead>
+        <tbody>
+          <tr><td>CoC request tool</td><td>+R1,500</td><td>Included</td><td>Included</td></tr>
+          <tr><td>Solar &amp; backup picker</td><td>+R2,500</td><td>Included</td><td>Included</td></tr>
+          <tr><td>Itemised quote builder</td><td class="no">—</td><td>+R3,000</td><td>Included</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small-note">Already have a site? <button class="linkbtn" data-goto="services">See Smart Tools as standalone upgrades</button>. Care Plus and Care Pro include updating your tool prices, so they never go stale.</p>
+  </div>
+</section>
+
+<section class="section" id="guarantees">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Promises we put in writing.</h2>
+      <p>Three that matter most, and every other one a tap below.</p>
+    </div>
+    <div class="gua-grid">
+      <div class="gua"><h3>Live in 5 days, or R500 off</h3><p>Once we have your deposit and your full asset pack, your site is ready for approval within 5 business days. If we miss that, R500 comes off your balance.</p></div>
+      <div class="gua"><h3>Fixed price</h3><p>The price on your invoice is the price you pay. Extras are quoted first and only done when you approve them in writing (WhatsApp counts).</p></div>
+      <div class="gua"><h3>Your content and domain are yours</h3><p>Your logo, photos, copy, credentials and domain name stay yours. If you leave, you get 30 days to export your files.</p></div>
+    </div>
+    <details class="acc gua-more">
+      <summary><span><span class="t">See all guarantees</span><span class="s">Approval, fixes, exclusivity, buttons, privacy, pricing and more</span></span><span class="q">+</span></summary>
+      <div class="acc-body">
+        <div class="gua-grid">
+          <div class="gua"><h3>Approve before it goes live</h3><p>You see the site before anyone else does and get 2 full rounds of changes before go-live.</p></div>
+          <div class="gua"><h3>30 days of free fixes</h3><p>A broken button, link or layout in the first 30 days is fixed free (2 months on Dominate).</p></div>
+          <div class="gua"><h3>Exclusive in your suburb</h3><p>We won't give the same visual design to a competing electrician in your primary suburb.</p></div>
+          <div class="gua"><h3>Button guarantee</h3><p>On any Care plan, if a WhatsApp or call button stops working, we fix it within 1 business day.</p></div>
+          <div class="gua"><h3>Mobile check</h3><p>Every site is tested on a phone before go-live. If it doesn't work properly on mobile, we fix it free.</p></div>
+          <div class="gua"><h3>Clear price, no hidden fees</h3><p>You see your Care plan price before you sign. No hidden hosting charges after the included period.</p></div>
+          <div class="gua"><h3>Your customers' details stay private</h3><p>We never sell or share your customer details. Enquiries go straight to your WhatsApp.</p></div>
+          <div class="gua"><h3>90-day enquiry review</h3><p>On a Care plan, if your site isn't getting enquiries after 90 days, we run a free review and adjustment session on your pages, prices and Google listing.</p></div>
+          <div class="gua"><h3>If we stop, you don't lose your site</h3><p>If Voltguard Web ever stops trading, we'll hand over your files and your domain. See our hosting and data policy.</p></div>
+        </div>
+      </div>
+    </details>
+    <p class="no-promise">What we don't promise: search rankings, traffic, a number of jobs, or 100% uptime. Those depend on things outside our control. <button class="linkbtn" data-policy="guarantee">Guarantee terms</button></p>
+  </div>
+</section>
+
+<section class="section alt" id="offers">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Current offers.</h2>
+      <p>Three ways to get more for the same money. The rest are a tap away.</p>
+    </div>
+    <div class="offer-grid">
+      <div class="offer hot">
+        <span class="save">Founding 10</span>
+        <h3>Be one of our first ten electricians</h3>
+        <p>Sign up on any package and get 3 extra months of hosting plus a free Review Booster (worth R1,500).</p>
+        <div class="cond">For the first 10 electricians to pay a deposit. Ask us how many spots are left.</div>
+      </div>
+      <div class="offer">
+        <span class="save">Upgrade credit</span>
+        <h3>Start small, upgrade later</h3>
+        <p>Start on Launch. Upgrade to Growth or Dominate within 90 days and the full R6,500 you paid counts toward the new price.</p>
+        <div class="cond">You pay only the difference.</div>
+      </div>
+      <div class="offer">
+        <span class="save">Annual care</span>
+        <h3>Pay for 10 months, get 12</h3>
+        <p>Prepay any Care plan for a year and the last 2 months are free. R2,990, R5,490 or R8,990 depending on the plan.</p>
+        <div class="cond">Billed once a year in advance.</div>
+      </div>
+    </div>
+    <details class="acc more-offers">
+      <summary><span><span class="t">More offers</span><span class="s">Bundles, credits, seasonal deals, referrals and more</span></span><span class="q">+</span></summary>
+      <div class="acc-body">
+        <div class="offer-grid">
+          <div class="offer plain"><span class="save">Bundle</span><h3>Growth + 12 months Care Plus</h3><p>R12,500 build + R5,490 care = R17,990, yours for <b>R16,900</b> (save R1,090).</p><div class="cond">Care starts after your included hosting ends.</div></div>
+          <div class="offer plain"><span class="save">Audit credit</span><h3>Full audit, credited</h3><p>Book the R950 full competitor audit. If you sign up for any package within 30 days, the R950 comes off the price.</p><div class="cond">The free audit stays free.</div></div>
+          <div class="offer plain"><span class="save">Switching</span><h3>Already have a site?</h3><p>We move your domain, Google listing and any good content across free with any package.</p><div class="cond">R950 if you only want the migration. Third-party transfer fees not covered.</div></div>
+          <div class="offer plain"><span class="save">Brochures</span><h3>Brochure bundle</h3><p>All five matching brochures for R2,900 when bought with a package (normally R3,500). Free with Dominate.</p><div class="cond">Brochures become yours outright once paid.</div></div>
+          <div class="offer plain"><span class="save">Seasonal</span><h3>Banners for the season</h3><p>Winter load-shedding, year-end compliance and rental changeover banners, set up and switched on for you. Included in Care Pro, R450 per banner set otherwise.</p><div class="cond">Your site, your prices, our design.</div></div>
+          <div class="offer plain"><span class="save">Referrals</span><h3>Refer another electrician</h3><p>R500 for a Launch client, R750 for Growth, R1,000 for Dominate, paid once their deposit has cleared and their build has started.</p><div class="cond">They must name you when they sign up.</div></div>
+          <div class="offer plain"><span class="save">Partner</span><h3>Refer 3 electricians</h3><p>Bring three paying clients and get 12 months of Care Plus free (R5,490 value), on top of the referral rewards.</p><div class="cond">Clients must be in different suburbs from each other and from you.</div></div>
+          <div class="offer plain"><span class="save">Group deal</span><h3>Sign up together</h3><p>Three or more electricians in a group or network, in different suburbs, get 10% off each package.</p><div class="cond">Each site still gets its own exclusive design.</div></div>
+          <div class="offer plain"><span class="save">New business</span><h3>First 12 months trading</h3><p>R500 off Launch or Growth if you've been trading less than 12 months.</p><div class="cond">We'll ask for proof of registration.</div></div>
+          <div class="offer plain"><span class="save">Instalments</span><h3>Split the balance</h3><p>On Dominate, split the go-live balance over 2 monthly payments, by written arrangement.</p><div class="cond">No interest. The site stays live while you pay.</div></div>
+          <div class="offer plain"><span class="save">Win-back</span><h3>Came back after cancelling?</h3><p>Rejoin a Care plan within 6 months and we waive any reconnection fee and give you the first month free.</p><div class="cond">Your site files must still be within the 30-day export window or on our servers.</div></div>
+        </div>
+        <p class="small-note">Offers can't be combined unless stated. <button class="linkbtn" data-policy="offers">Offer terms</button></p>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -302,14 +724,18 @@ body.modal-locked{overflow:hidden;}
     </div>
     <div class="steps">
       <div class="step"><div class="n">1</div><h3>Free audit</h3><p>We review your online presence and show where you're losing jobs.</p></div>
-      <div class="step"><div class="n">2</div><h3>Pick a package</h3><p>Launch, Growth or Dominate. 50% deposit to start.</p></div>
+      <div class="step"><div class="n">2</div><h3>Pick a package</h3><p>Launch, Growth or Dominate. 50% deposit to start. Send us your asset pack.</p></div>
       <div class="step"><div class="n">3</div><h3>Live in 5 days</h3><p>We build, you approve, your site goes live. Balance due on go-live.</p></div>
-      <div class="step"><div class="n">4</div><h3>Keep growing</h3><p>Add hosting care, ads, reviews and brochures whenever you're ready.</p></div>
+      <div class="step"><div class="n">4</div><h3>Keep growing</h3><p>Add a Care plan, reviews, extra pages and brochures whenever you're ready.</p></div>
+    </div>
+    <div class="asset">
+      <h3>What we need from you to start the 5-day clock</h3>
+      <p>Your business name, logo, rate card, trade licence details, public liability insurance figures and the areas you serve. We only publish licence and insurance details you can show us.</p>
     </div>
   </div>
 </section>
 
-<section class="section" id="demo">
+<section class="section alt" id="demo">
   <div class="wrap">
     <div class="section-head">
       <h2>See it before you buy it.</h2>
@@ -318,7 +744,13 @@ body.modal-locked{overflow:hidden;}
     <div class="demo-grid">
       <div class="demo-card">
         <h3>Live example: Voltguard Electrical</h3>
-        <p>Tap through a full site built with Voltguard Web — homeowner, agent, commercial, builder and landlord pages, all with WhatsApp booking one tap away.</p>
+        <p>Tap through a full site built with Voltguard Web.</p>
+        <ul>
+          <li>Homeowner, agent, commercial, builder and landlord pages</li>
+          <li>CoC and solar pricing with a "what must stay on?" picker</li>
+          <li>Tap-to-quote forms that open WhatsApp with the answers filled in</li>
+          <li>Licence, cover, guarantees and policies shown up front</li>
+        </ul>
         <a href="https://caldeny4201.github.io/voltguard/" class="btn btn-gold">View live example</a>
       </div>
       <div class="broch-card">
@@ -335,6 +767,216 @@ body.modal-locked{overflow:hidden;}
         </ul>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="section" id="more">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>The full detail. Open what you need.</h2>
+      <p>Care plans, extra services, calculators, FAQ and every policy, all in one place.</p>
+    </div>
+
+    <details class="acc" id="care">
+      <summary><span><span class="t">Care plans</span><span class="s">Monthly hosting and support from R299. Cancel any time.</span></span><span class="q">+</span></summary>
+      <div class="acc-body">
+        <div class="care-grid">
+          <div class="care">
+            <h3>Care Lite</h3>
+            <div class="for">Hosting and peace of mind</div>
+            <div class="price">R299<span> /month</span></div>
+            <div class="yr">R2,990 a year (2 months free)</div>
+            <ul>
+              <li>Hosting, domain upkeep and SSL</li>
+              <li>Security updates and daily backups</li>
+              <li>Uptime monitoring</li>
+              <li>1 small edit a month</li>
+              <li>Button guarantee</li>
+            </ul>
+          </div>
+          <div class="care rec">
+            <span class="flag">Most popular</span>
+            <h3>Care Plus</h3>
+            <div class="for">For electricians who change prices and offers</div>
+            <div class="price">R549<span> /month</span></div>
+            <div class="yr">R5,490 a year (2 months free)</div>
+            <ul>
+              <li>Everything in Care Lite</li>
+              <li>3 edits a month: prices, photos, offers</li>
+              <li>Quarterly price refresh of your Smart Tools and tables</li>
+              <li>Monthly "what came in" report</li>
+              <li>Google Business Profile check each quarter</li>
+              <li>90-day enquiry review</li>
+              <li>WhatsApp support, reply within 1 business day</li>
+            </ul>
+          </div>
+          <div class="care">
+            <h3>Care Pro</h3>
+            <div class="for">For busy teams that run promotions</div>
+            <div class="price">R899<span> /month</span></div>
+            <div class="yr">R8,990 a year (2 months free)</div>
+            <ul>
+              <li>Everything in Care Plus</li>
+              <li>Unlimited reasonable edits (fair use), done within 2 business days</li>
+              <li>Price refresh of Smart Tools any time you ask</li>
+              <li>Seasonal banner sets included</li>
+              <li>1 new page or suburb page every quarter</li>
+              <li>Priority WhatsApp line, same-day reply</li>
+            </ul>
+          </div>
+        </div>
+        <p class="small-note">Care plans start after your included hosting ends (3 months on Launch, 12 months on Growth and Dominate). Cancel with 30 days' written notice. No lock-in. <button class="linkbtn" data-policy="care">Care plan terms</button></p>
+      </div>
+    </details>
+
+    <details class="acc" id="services">
+      <summary><span><span class="t">Services and add-ons</span><span class="s">Smart Tools, launch kit, brochures, reviews, audits and more</span></span><span class="q">+</span></summary>
+      <div class="acc-body">
+        <div class="two-col" style="margin-top:0">
+          <div class="panel">
+            <h3>Smart Tools (for new or existing sites)</h3>
+            <p class="sub">Built from your own rate card.</p>
+            <ul class="rows">
+              <li><span>CoC request tool</span><b>R1,500</b></li>
+              <li><span>Solar &amp; backup picker</span><b>R2,500</b></li>
+              <li><span>Itemised quote builder</span><b>R3,000</b></li>
+              <li><span>All three together<small>Save R1,000</small></span><b>R6,000</b></li>
+              <li><span>Price refresh, once-off<small>Included in Care Plus and Pro</small></span><b>R450</b></li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Launch and growth</h3>
+            <p class="sub">Once-off unless stated.</p>
+            <ul class="rows">
+              <li><span>Launch-day kit<small>WhatsApp Business setup, launch message, Google profile post. Free with Dominate.</small></span><b>R1,200</b></li>
+              <li><span>Review booster<small>Review request template + QR card</small></span><b>R1,500</b></li>
+              <li><span>Google Business Profile tune-up</span><b>R1,200</b></li>
+              <li><span>Agent &amp; landlord pitch PDF<small>Ready to send to local agents</small></span><b>R1,500</b></li>
+              <li><span>Training call, 30 minutes<small>Included in Growth and Dominate</small></span><b>R450</b></li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Pages and content</h3>
+            <p class="sub">&nbsp;</p>
+            <ul class="rows">
+              <li><span>Extra audience page</span><b>R1,200</b></li>
+              <li><span>Suburb page<small>Or 5 for R3,900</small></span><b>R900</b></li>
+              <li><span>Gallery setup with photo brief</span><b>R450</b></li>
+              <li><span>Brochure pack, 5 matching PDFs<small>R2,900 with a package, free with Dominate</small></span><b>R3,500</b></li>
+              <li><span>Brochure refresh<small>When prices change</small></span><b>from R750</b></li>
+              <li><span>Logo refresh</span><b>from R1,800</b></li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Audits, migration and ads</h3>
+            <p class="sub">&nbsp;</p>
+            <ul class="rows">
+              <li><span>Free website audit</span><b>R0</b></li>
+              <li><span>Full competitor audit<small>Credited to any package within 30 days</small></span><b>R950</b></li>
+              <li><span>Existing site health check<small>Credited to any package</small></span><b>R750</b></li>
+              <li><span>Migration of domain, listing and content<small>Free with any package</small></span><b>R950</b></li>
+              <li><span>Google Ads setup and management<small>Quoted per business. Ad spend paid by you directly.</small></span><b>Quote</b></li>
+            </ul>
+          </div>
+        </div>
+        <p class="small-note">Not in the standard packages: e-commerce checkouts, native apps, programmatic email marketing, social media management, paid ad management and videography. These can be quoted separately.</p>
+      </div>
+    </details>
+
+    <details class="acc" id="calc">
+      <summary><span><span class="t">Calculators</span><span class="s">How many jobs pay for a site, and what slow replies cost you</span></span><span class="q">+</span></summary>
+      <div class="acc-body">
+        <div class="calc-grid">
+          <div class="tool">
+            <h3>How many jobs to pay for it?</h3>
+            <span class="lbl">Package</span>
+            <div class="chips" id="calcPkg">
+              <button class="chip" type="button" aria-pressed="false" data-price="6500" data-name="Launch">Launch R6,500</button>
+              <button class="chip" type="button" aria-pressed="true" data-price="12500" data-name="Growth">Growth R12,500</button>
+              <button class="chip" type="button" aria-pressed="false" data-price="19500" data-name="Dominate">Dominate R19,500</button>
+            </div>
+            <label class="lbl" for="jobVal">Average job value (rand)</label>
+            <input class="field" id="jobVal" type="number" inputmode="numeric" min="0" step="100" value="2500">
+            <span class="lbl">What you keep after materials and costs</span>
+            <div class="chips" id="calcMargin">
+              <button class="chip" type="button" aria-pressed="false" data-m="0.3">About 30%</button>
+              <button class="chip" type="button" aria-pressed="true" data-m="0.4">About 40%</button>
+              <button class="chip" type="button" aria-pressed="false" data-m="0.5">About 50%</button>
+            </div>
+            <div class="result" aria-live="polite">
+              <div class="big" id="calcBig">—</div>
+              <div class="cap" id="calcCap"></div>
+              <p id="calcText"></p>
+              <a class="btn btn-gold" id="calcBtn" href="#">Get my free audit</a>
+            </div>
+          </div>
+          <div class="tool">
+            <h3>What do slow replies cost you?</h3>
+            <label class="lbl" for="mcN">Enquiries a month you miss or answer too late</label>
+            <input class="field" id="mcN" type="number" inputmode="numeric" min="0" step="1" value="6">
+            <label class="lbl" for="mcVal">Average job value (rand)</label>
+            <input class="field" id="mcVal" type="number" inputmode="numeric" min="0" step="100" value="2500">
+            <span class="lbl">How many of those would have booked?</span>
+            <div class="chips" id="mcRate">
+              <button class="chip" type="button" aria-pressed="false" data-r="0.2">About 20%</button>
+              <button class="chip" type="button" aria-pressed="true" data-r="0.3">About 30%</button>
+              <button class="chip" type="button" aria-pressed="false" data-r="0.5">About 50%</button>
+            </div>
+            <div class="result" aria-live="polite">
+              <div class="big" id="mcBig">—</div>
+              <div class="cap" id="mcCap"></div>
+              <p id="mcText"></p>
+              <a class="btn btn-gold" id="mcBtn" href="#">Get my free audit</a>
+            </div>
+          </div>
+        </div>
+        <p class="small-note">Both calculators are simple illustrations based on the numbers you enter, not forecasts of results.</p>
+      </div>
+    </details>
+
+    <details class="acc" id="faq">
+      <summary><span><span class="t">FAQ</span><span class="s">Pricing, ownership, Smart Tools, cancelling and more</span></span><span class="q">+</span></summary>
+      <div class="acc-body">
+        <details class="faq-item"><summary>Is it really a once-off price?<span class="q">+</span></summary><p>Yes. The website package is a fixed, once-off fee. The only ongoing cost is hosting, which is included for 3 months (Launch) or 12 months (Growth and Dominate) and then moves to a Care plan from R299 a month.</p></details>
+        <details class="faq-item"><summary>What do you need from me to start?<span class="q">+</span></summary><p>Your business name, logo, rate card, trade licence details, public liability insurance figures and the areas you serve. Your 5-day clock starts once we have your 50% deposit and that asset pack.</p></details>
+        <details class="faq-item"><summary>What are Smart Tools?<span class="q">+</span></summary><p>They are the interactive tools on your site: a CoC request tool, a solar and backup picker and an itemised quote builder. Customers tap what they need, see an indicative price range, and the details land on your WhatsApp ready to quote. They're built from your own prices.</p></details>
+        <details class="faq-item"><summary>Who owns the website and the domain?<span class="q">+</span></summary><p>You own your content and your domain name. The site itself, including the source code and design templates, stays with Voltguard Web, and you get a licence to use it while your hosting is active. If you leave, you get 30 days to export your files. Brochures are yours outright once paid.</p></details>
+        <details class="faq-item"><summary>What does "exclusive" mean?<span class="q">+</span></summary><p>We won't deploy the exact same visual template to two competing electricians in the same primary suburb. Your content is always unique to you.</p></details>
+        <details class="faq-item"><summary>How many changes do I get?<span class="q">+</span></summary><p>Two full rounds of changes before go-live, then 30 days of free fixes for genuine faults (2 months of tweaks on Dominate). After that, a Care plan covers your edits.</p></details>
+        <details class="faq-item"><summary>What if I'm late sending my assets or approvals?<span class="q">+</span></summary><p>The timeline extends without penalty to us and the R500 late-go-live credit doesn't apply. We'll tell you straight away if we're waiting on something.</p></details>
+        <details class="faq-item"><summary>Can I cancel a Care plan?<span class="q">+</span></summary><p>Yes, with 30 days' written notice by WhatsApp or email. There's no lock-in and no cancellation fee. Annual prepay is billed once a year in advance.</p></details>
+        <details class="faq-item"><summary>Do you run my Google Ads or social media?<span class="q">+</span></summary><p>Not in the standard packages. Google Ads setup and management can be quoted as an add-on, and ad spend is always paid directly by you. Social media management, e-commerce, native apps and videography are quoted separately.</p></details>
+        <details class="faq-item"><summary>Will the site get me to number one on Google?<span class="q">+</span></summary><p>We build it properly for local search, but no one can promise rankings. What we do promise is a fast, clear site that makes it easy for visitors to book you on WhatsApp.</p></details>
+        <details class="faq-item"><summary>Can I get a refund?<span class="q">+</span></summary><p>Deposits are non-refundable once work has officially commenced. If we miss the go-live date, you get R500 off your balance. Your rights under the Consumer Protection Act apply in full.</p></details>
+        <details class="faq-item"><summary>Do prices include VAT?<span class="q">+</span></summary><p>Prices on this page are in South African Rand. We confirm the final amount, including any VAT that applies, on your invoice before you pay.</p></details>
+      </div>
+    </details>
+
+    <details class="acc" id="policies">
+      <summary><span><span class="t">Policies</span><span class="s">Terms, payment, hosting and data, revisions, complaints and privacy</span></span><span class="q">+</span></summary>
+      <div class="acc-body">
+        <div class="pol-grid">
+          <button class="pol-btn" type="button" data-policy="terms"><strong>Master terms of service</strong><span>The main agreement</span></button>
+          <button class="pol-btn" type="button" data-policy="payment"><strong>Payment terms</strong><span>Deposits, balances, late payment</span></button>
+          <button class="pol-btn" type="button" data-policy="care"><strong>Care plan terms</strong><span>Edits, response times, cancelling</span></button>
+          <button class="pol-btn" type="button" data-policy="guarantee"><strong>Guarantee terms</strong><span>What we promise and what we don't</span></button>
+          <button class="pol-btn" type="button" data-policy="revisions"><strong>Revisions and approvals</strong><span>What counts as a change</span></button>
+          <button class="pol-btn" type="button" data-policy="hosting"><strong>Hosting, data and domain</strong><span>Uptime, backups, ownership, continuity</span></button>
+          <button class="pol-btn" type="button" data-policy="content"><strong>Content and acceptable use</strong><span>Accuracy, claims, third parties</span></button>
+          <button class="pol-btn" type="button" data-policy="offers"><strong>Offer and referral terms</strong><span>How each offer works</span></button>
+          <button class="pol-btn" type="button" data-policy="complaints"><strong>Complaints and disputes</strong><span>How we resolve problems</span></button>
+          <button class="pol-btn" type="button" data-policy="privacy"><strong>Privacy (POPIA)</strong><span>How we handle personal information</span></button>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="section alt" id="about">
+  <div class="wrap about">
+    <h2>Who's behind it</h2>
+    <p>Voltguard Web is run by Callum Denysschen. We build websites for electricians only, so we know the questions your customers ask: is he licensed, is he insured, what will it cost, how fast can he come?</p>
+    <p>You message one person directly on WhatsApp. No ticket system, no call centre.</p>
   </div>
 </section>
 
@@ -357,118 +999,548 @@ body.modal-locked{overflow:hidden;}
       <div>Callum Denysschen · +27 76 431 2871 · denysschen.callum43@gmail.com</div>
     </div>
     <div class="policies">
-      <button type="button" data-open-modal="terms-modal">Terms &amp; Conditions</button>
-      <button type="button" data-open-modal="privacy-modal">Privacy Policy</button>
+      <button type="button" data-policy="terms">Terms &amp; Conditions</button>
+      <button type="button" data-policy="payment">Payment terms</button>
+      <button type="button" data-policy="care">Care plan terms</button>
+      <button type="button" data-policy="guarantee">Guarantee terms</button>
+      <button type="button" data-policy="revisions">Revisions</button>
+      <button type="button" data-policy="hosting">Hosting &amp; data</button>
+      <button type="button" data-policy="content">Content &amp; use</button>
+      <button type="button" data-policy="offers">Offer terms</button>
+      <button type="button" data-policy="complaints">Complaints</button>
+      <button type="button" data-policy="privacy">Privacy Policy</button>
     </div>
+    <div>© 2026 Voltguard Web. All rights reserved.</div>
   </div>
 </footer>
 
-<div class="modal-backdrop" id="terms-modal" data-modal>
-  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="terms-title">
-    <button class="modal-close" type="button" data-close-modal aria-label="Close">✕</button>
-    <h2 id="terms-title">Master Terms of Service</h2>
+<div class="modal-backdrop" id="polModal">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="polTitle">
+    <button class="modal-close" id="polClose" type="button" aria-label="Close">✕</button>
+    <h2 id="polTitle"></h2>
     <div class="updated">Last updated: September 2026</div>
-
-    <h3>1. Scope &amp; acceptance</h3>
-    <p>These terms govern all design, development, web deployment, digital collateral, hosting and technical maintenance services provided by Voltguard Web. By paying a 50% project deposit, executing an invoice, or issuing a go-ahead via WhatsApp or email, the client agrees to be bound by these terms in full.</p>
-
-    <h3>2. Pricing &amp; payment</h3>
-    <ul>
-      <li>Website packages (Launch, Growth, Dominate) are fixed, once-off fees. A 50% deposit is required before any technical or design work commences; the remaining 50% is due immediately on go-live.</li>
-      <li>Standalone digital brochure packs and marketing collateral are billed 100% upfront, prior to final file delivery.</li>
-      <li>Once the complimentary hosting period expires (3 months for Launch, 12 months for Growth), hosting, security maintenance and domain upkeep move to a recurring monthly fee billed in advance.</li>
-      <li>All figures are in South African Rand (ZAR).</li>
-    </ul>
-
-    <h3>3. Timelines &amp; client responsibilities</h3>
-    <p>Website deployment is completed within 5 business days, calculated from the moment we receive both the 50% deposit and your complete asset package (business name, logo, rate cards, trade licensing details, public liability insurance figures, and service areas). If assets or approvals are delayed, the timeline is extended without penalty to Voltguard Web.</p>
-
-    <h3>4. Intellectual property &amp; ownership</h3>
-    <ul>
-      <li>All logos, photographs, copy and trade credentials you supply remain your property at all times; we claim no ownership over client-supplied assets.</li>
-      <li>Source code, wireframes, visual templates and database configurations remain the exclusive property of Voltguard Web.</li>
-      <li>You receive a continuous, non-exclusive licence to use the built site and PDF brochures for the duration of your active hosting agreement. On cancellation or migration, you have a strict 30-day window to export your files before the installation is decommissioned.</li>
-      <li>Standalone PDF brochures and digital flyers become your outright property once paid in full.</li>
-    </ul>
-
-    <h3>5. Geographic exclusivity</h3>
-    <p>We will not deploy the exact same visual website template to two competing electrical contractors operating within the same primary suburb.</p>
-
-    <h3>6. Exclusions</h3>
-    <p>Standard packages exclude e-commerce checkouts, native mobile app development, programmatic email marketing, social media management, paid ad management (Google/Meta), logo design and professional videography. These can be quoted separately.</p>
-
-    <h3>7. Cancellations, default &amp; refunds</h3>
-    <ul>
-      <li>Deposits are non-refundable once work has officially commenced.</li>
-      <li>Recurring hosting or maintenance plans may be cancelled with 30 days' written notice via WhatsApp or email.</li>
-    </ul>
-
-    <h3>8. Referral programme</h3>
-    <p>Referral rewards (R500–R1,000 depending on package) are disbursed only after the referred client's 50% deposit has cleared and their build has officially commenced.</p>
-
-    <div class="note">Questions about these terms? WhatsApp +27 76 431 2871 or email denysschen.callum43@gmail.com. This isn't a substitute for formal legal advice.</div>
-  </div>
-</div>
-
-<div class="modal-backdrop" id="privacy-modal" data-modal>
-  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="privacy-title">
-    <button class="modal-close" type="button" data-close-modal aria-label="Close">✕</button>
-    <h2 id="privacy-title">POPIA Privacy Policy</h2>
-    <div class="updated">Last updated: September 2026</div>
-    <p>Voltguard Web respects your privacy and safeguards personal and commercial information in alignment with South Africa's Protection of Personal Information Act (POPIA).</p>
-
-    <h3>Information we collect</h3>
-    <ul>
-      <li>Identity &amp; contact data: full names, business names, phone numbers, WhatsApp numbers and email addresses</li>
-      <li>Operational data: trade licence numbers, insurance policy details, service areas, pricing rate cards and brand logos</li>
-      <li>Communication history: transcripts and logs from WhatsApp Business, email or contact forms</li>
-    </ul>
-
-    <h3>Why we process it</h3>
-    <ul>
-      <li>Service delivery: free website audits, proposals, and building, hosting &amp; maintaining sites and brochures</li>
-      <li>Administration: project workflows, payment tracking, routine communications and referral incentives</li>
-    </ul>
-
-    <h3>Security &amp; sharing</h3>
-    <p>We do not sell, trade, rent or lease personal client data to unauthorized third parties. Records are stored behind secure authorization protocols. WhatsApp Business communications are governed by WhatsApp's own encryption and privacy standards.</p>
-
-    <h3>Your rights under POPIA</h3>
-    <ul>
-      <li>Access — request confirmation of what personal information we hold about you</li>
-      <li>Correction — request an update or amendment of inaccurate information</li>
-      <li>Deletion — request destruction of records, subject to statutory tax and accounting retention requirements</li>
-    </ul>
-
-    <h3>Information officer</h3>
-    <p>Voltguard Web acts as the Responsible Party for data collected via its digital properties. For privacy requests or notices, contact us via WhatsApp at +27 76 431 2871 or email denysschen.callum43@gmail.com.</p>
-
-    <div class="note">This isn't a substitute for formal legal advice.</div>
+    <div id="polBody"></div>
+    <div class="note">Questions? WhatsApp +27 76 431 2871 or email denysschen.callum43@gmail.com. This isn't a substitute for formal legal advice.</div>
   </div>
 </div>
 
 <script>
-document.querySelectorAll('[data-open-modal]').forEach(function(btn){
-  btn.addEventListener('click', function(){
-    var modal = document.getElementById(btn.getAttribute('data-open-modal'));
-    if(modal){ modal.classList.add('open'); document.body.classList.add('modal-locked'); }
-  });
-});
-document.querySelectorAll('[data-modal]').forEach(function(modal){
-  modal.addEventListener('click', function(e){
-    if(e.target === modal){ modal.classList.remove('open'); document.body.classList.remove('modal-locked'); }
-  });
-  modal.querySelectorAll('[data-close-modal]').forEach(function(btn){
-    btn.addEventListener('click', function(){ modal.classList.remove('open'); document.body.classList.remove('modal-locked'); });
-  });
-});
-document.addEventListener('keydown', function(e){
-  if(e.key === 'Escape'){
-    document.querySelectorAll('.modal-backdrop.open').forEach(function(m){ m.classList.remove('open'); });
-    document.body.classList.remove('modal-locked');
-  }
-});
-</script>
+/* ---------- helpers ---------- */
+var WA = "https://wa.me/27764312871?text=";
+function rand(n){ return "R" + String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+function single(group, btn){
+  group.querySelectorAll(".chip").forEach(function(c){ c.setAttribute("aria-pressed", c === btn ? "true" : "false"); });
+}
+function selected(group){ return group.querySelector('[aria-pressed="true"]'); }
 
+/* ---------- open details when linking to them ---------- */
+function openFor(el){
+  var d = el;
+  while(d){ if(d.tagName === "DETAILS"){ d.open = true; } d = d.parentElement; }
+}
+function goTo(id, scroll){
+  var el = document.getElementById(id);
+  if(!el) return;
+  openFor(el);
+  if(scroll){ el.scrollIntoView({behavior:"smooth", block:"start"}); }
+}
+document.addEventListener("click", function(e){
+  var a = e.target.closest('a[href^="#"]');
+  if(a && a.getAttribute("href").length > 1){ openFor(document.getElementById(a.getAttribute("href").slice(1))); }
+  var g = e.target.closest("[data-goto]");
+  if(g){ goTo(g.getAttribute("data-goto"), true); }
+});
+window.addEventListener("hashchange", function(){ if(location.hash.length > 1){ goTo(location.hash.slice(1), false); } });
+if(location.hash.length > 1){ window.addEventListener("load", function(){ goTo(location.hash.slice(1), true); }); }
+
+/* ---------- audience picker ---------- */
+(function(){
+  var grid = document.getElementById("pickGrid"), pk = document.getElementById("pkgGrid");
+  var empty = document.getElementById("mpEmpty"), body = document.getElementById("mpBody");
+  var H = document.getElementById("mpH"), P = document.getElementById("mpP"), L = document.getElementById("mpL"), R = document.getElementById("mpRows");
+  var btn = document.getElementById("mpBtn"), nm = document.getElementById("mpName"), sb = document.getElementById("mpSub");
+  var cur = null;
+  var AUD = {
+    solo:{ who:"a solo electrician", h:"Your first proper website", p:"A clear, fast site that gets you noticed and makes it easy for customers to book you on WhatsApp.", pkg:"Launch", price:"R6,500",
+      list:["3 audience pages, for example homeowners, agents and landlords","WhatsApp booking and a tap-to-quote form","Google Business Profile set up","Add the CoC tool (+R1,500) or solar picker (+R2,500) any time"],
+      care:"Care Lite, R299/month", offer:"Founding 10: 3 extra months of hosting + a free Review Booster", bro:["Web Spec Sheet (PDF)","https://caldeny4201.github.io/collateral/Voltguard_Web_Spec_Sheet.pdf"] },
+    est:{ who:"an established electrician", h:"Stop losing agent and commercial work", p:"All five customer pages, plus the tools that turn a question into a priced lead before you've picked up the phone.", pkg:"Growth", price:"R12,500",
+      list:["All 5 audience pages","CoC request tool and solar picker included","Membership cards, emergency banner and gallery","Full policy pack that builds trust"],
+      care:"Care Plus, R549/month", offer:"Growth + 12 months Care Plus for R16,900", bro:["Web Agency Brochure (PDF)","https://caldeny4201.github.io/collateral/Voltguard_Web_Agency_Brochure.pdf"] },
+    multi:{ who:"a multi-van or commercial business", h:"Look as big as you are", p:"Suburb pages, an itemised quote builder and a full brochure pack, so you stand out next to bigger companies.", pkg:"Dominate", price:"R19,500",
+      list:["Everything in Growth","Itemised quote builder included","Suburb pages and an unlimited gallery","Launch-day kit and a free brochure pack"],
+      care:"Care Pro, R899/month", offer:"Split the go-live balance over 2 payments, by written arrangement", bro:["Web Agency Brochure (PDF)","https://caldeny4201.github.io/collateral/Voltguard_Web_Agency_Brochure.pdf"] }
+  };
+  function row(a, b){ return "<li><span>" + a + "</span><span>" + b + "</span></li>"; }
+  function msg(){
+    if(!cur) return "Hi Voltguard Web, I'd like a website for my electrical business.";
+    var a = AUD[cur];
+    var m = "Hi Voltguard Web, I'm " + a.who + " and I'm interested in the " + a.pkg + " package (" + a.price + ").";
+    if(nm.value.trim()) m += " Business: " + nm.value.trim() + ".";
+    if(sb.value.trim()) m += " Suburb: " + sb.value.trim() + ".";
+    return m;
+  }
+  function upd(){ btn.href = WA + encodeURIComponent(msg()); }
+  grid.querySelectorAll(".pick").forEach(function(b){
+    b.addEventListener("click", function(){
+      cur = b.dataset.k;
+      grid.querySelectorAll(".pick").forEach(function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      var a = AUD[cur];
+      empty.hidden = true; body.hidden = false;
+      H.textContent = a.h; P.textContent = a.p;
+      L.innerHTML = a.list.map(function(t){ return "<li>" + t + "</li>"; }).join("");
+      R.innerHTML = row("Package", a.pkg + " · " + a.price) + row("Care plan", a.care) + row("Offer", a.offer) + row("Brochure", '<a href="' + a.bro[1] + '">' + a.bro[0] + "</a>");
+      pk.querySelectorAll(".pkg").forEach(function(p){ p.classList.toggle("match", p.dataset.pkg === cur); });
+      upd();
+    });
+  });
+  nm.addEventListener("input", upd); sb.addEventListener("input", upd);
+  upd();
+})();
+
+/* ---------- tabs ---------- */
+(function(){
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".tab"));
+  function show(t){
+    tabs.forEach(function(x){
+      var on = x === t;
+      x.setAttribute("aria-selected", on ? "true" : "false");
+      x.tabIndex = on ? 0 : -1;
+      document.getElementById(x.getAttribute("aria-controls")).hidden = !on;
+    });
+  }
+  tabs.forEach(function(t, i){
+    t.addEventListener("click", function(){ show(t); });
+    t.addEventListener("keydown", function(e){
+      var n = null;
+      if(e.key === "ArrowRight") n = tabs[(i + 1) % tabs.length];
+      if(e.key === "ArrowLeft") n = tabs[(i - 1 + tabs.length) % tabs.length];
+      if(n){ e.preventDefault(); show(n); n.focus(); }
+    });
+  });
+  show(tabs[0]);
+})();
+
+/* ---------- CoC tool demo ---------- */
+(function(){
+  var f = document.getElementById("cocForm"), st = {};
+  var big = document.getElementById("cocBig"), cap = document.getElementById("cocCap"), txt = document.getElementById("cocTxt"), btn = document.getElementById("cocBtn");
+  var PR = {
+    "Single-phase":{"Today (book before 10am)":["R2,500 flat","same-day"],"Within 24 hours":["R2,200","priority, 24hr"],"2–5 days":["R1,200–R1,800","2–3 days"]},
+    "3-phase":{"Today (book before 10am)":["R5,500 flat","same-day"],"Within 24 hours":["R5,000","priority 3-phase is 48hr"],"2–5 days":["R3,500–R5,500","3–5 days"]}
+  };
+  function upd(){
+    var m = "Hi Voltguard Web, I tried the CoC request tool on your site and I'd like one like it for my business.";
+    if(st.prop === "Commercial"){
+      big.textContent = "Quoted per site"; cap.textContent = "commercial CoCs"; txt.textContent = "For commercial jobs the customer is told it's quoted per site, and is sent to your WhatsApp.";
+    } else if(PR[st.phase] && st.when){
+      var r = PR[st.phase][st.when];
+      big.textContent = r[0]; cap.textContent = "indicative, " + r[1] + ", excl. VAT"; txt.textContent = "The customer sees this range, then sends the job to you with every answer filled in.";
+    } else if(st.phase === "Not sure" && st.when){
+      big.textContent = "From R1,200"; cap.textContent = "single-phase, excl. VAT"; txt.textContent = "If the customer isn't sure of their supply, the tool says you'll confirm it on WhatsApp.";
+    } else {
+      big.textContent = "Tap your options"; cap.textContent = "to see an indicative price"; txt.textContent = "The customer sees a price range, then sends the job to you on WhatsApp with every answer filled in.";
+    }
+    if(st.prop) m += " (Sample answers: " + st.prop + (st.phase ? ", " + st.phase : "") + (st.when ? ", " + st.when : "") + ".)";
+    btn.href = WA + encodeURIComponent(m);
+  }
+  f.querySelectorAll(".chips").forEach(function(g){
+    g.querySelectorAll(".chip").forEach(function(b){
+      b.addEventListener("click", function(){ single(g, b); st[g.dataset.k] = b.textContent; upd(); });
+    });
+  });
+  upd();
+})();
+
+/* ---------- solar picker demo ---------- */
+(function(){
+  var M = "both", C = document.querySelectorAll("#sChips .chip"), MC = document.querySelectorAll("#sModes .chip");
+  var INV=[{m:3,n:"Inverter 3kVA",s:"Runs lights, Wi-Fi and a fridge. Needs a battery to work in an outage.",p:"R15,000 to R22,000"},{m:6,n:"Inverter 5kVA",s:"Runs most homes. Needs a battery to work in an outage.",p:"R25,000 to R35,000"},{m:99,n:"Inverter 8kVA",s:"Runs a geyser, stove and aircon. Needs a battery to work in an outage.",p:"R38,000 to R52,000"}];
+  var BAT=[{m:3,n:"Battery 5kWh",s:"About 4 hours of essentials, for your existing inverter.",p:"R20,000 to R28,000"},{m:6,n:"Battery 10kWh",s:"A full evening, for your existing inverter.",p:"R38,000 to R52,000"},{m:99,n:"Battery 15kWh",s:"Through the night, for your existing inverter.",p:"R55,000 to R72,000"}];
+  var B=[{m:3,n:"Essential backup",s:"3kVA inverter, 5kWh battery",p:"R35,000 to R48,000"},{m:6,n:"Home comfort",s:"5kVA inverter, 5kWh battery",p:"R45,000 to R63,000"},{m:99,n:"Large backup",s:"8kVA inverter, 10kWh battery. Heavy loads drain the battery fast, so we'll advise on what to run at once.",p:"R70,000 to R95,000"}];
+  var BH={n:"Home comfort plus",s:"5kVA inverter, 10kWh battery. A bigger battery so a geyser, stove or aircon doesn't flatten it.",p:"R62,000 to R85,000"};
+  var S=[{m:3,n:"Solar starter",s:"3kVA inverter, 5kWh battery, 6 panels (3.3kWp)",p:"R58,000 to R75,000"},{m:6,n:"Solar hybrid",s:"5kW hybrid inverter, 5kWh battery, 6 panels (3.3kWp)",p:"R65,000 to R85,000"},{m:99,n:"Whole home solar",s:"8kVA inverter, 10kWh battery, 10 panels (5.5kWp)",p:"R110,000 to R145,000"}];
+  var SH={n:"Solar hybrid plus",s:"5kW hybrid inverter, 10kWh battery, 10 panels (5.5kWp)",p:"R95,000 to R125,000"};
+  var SET = {inv:INV, bat:BAT, both:B, solar:S};
+  function upd(){
+    var w = 0, l = [], h = false;
+    C.forEach(function(c){ if(c.getAttribute("aria-pressed") === "true"){ w += +c.dataset.w; l.push(c.textContent); if(c.dataset.h) h = true; } });
+    var t = SET[M].find(function(x){ return w <= x.m; });
+    if(h && w <= 6){ if(M === "both") t = BH; if(M === "solar") t = SH; }
+    var sp = t.s + (w >= 12 ? " Everything at once is about 10kW, so we'd add load management or a larger system." : "");
+    document.getElementById("sName").textContent = t.n;
+    document.getElementById("sSpec").textContent = sp;
+    document.getElementById("sPrice").textContent = t.p + " excl. VAT";
+    document.getElementById("sBtn").href = WA + encodeURIComponent("Hi Voltguard Web, I tried the solar & backup picker on your site (keeping running: " + l.join(", ") + "; it suggested " + t.n + ", " + t.p + "). I'd like a picker like this on my site.");
+  }
+  C.forEach(function(c){ c.addEventListener("click", function(){ if(c.disabled) return; c.setAttribute("aria-pressed", c.getAttribute("aria-pressed") === "true" ? "false" : "true"); upd(); }); });
+  MC.forEach(function(b){ b.addEventListener("click", function(){ M = b.dataset.m; MC.forEach(function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); }); upd(); }); });
+  upd();
+})();
+
+/* ---------- quote builder demo ---------- */
+(function(){
+  var chips = document.querySelectorAll("#qbChips .chip");
+  var big = document.getElementById("qbBig"), cap = document.getElementById("qbCap"), txt = document.getElementById("qbTxt"), btn = document.getElementById("qbBtn");
+  function upd(){
+    var lo = 0, hi = 0, l = [];
+    chips.forEach(function(c){ if(c.getAttribute("aria-pressed") === "true"){ lo += +c.dataset.lo; hi += +c.dataset.hi; l.push(c.textContent); } });
+    var m = "Hi Voltguard Web, I tried the itemised quote builder on your site and I'd like one like it for my business.";
+    if(!l.length){
+      big.textContent = "Pick items"; cap.textContent = "to build a quote range";
+    } else {
+      big.textContent = rand(lo) + " – " + rand(hi); cap.textContent = l.length + (l.length === 1 ? " item" : " items") + ", indicative, excl. VAT";
+      m += " (Sample items: " + l.join(", ") + ".)";
+    }
+    btn.href = WA + encodeURIComponent(m);
+  }
+  chips.forEach(function(c){ c.addEventListener("click", function(){ c.setAttribute("aria-pressed", c.getAttribute("aria-pressed") === "true" ? "false" : "true"); upd(); }); });
+  upd();
+})();
+
+/* ---------- payback calculator ---------- */
+(function(){
+  var pkg = document.getElementById("calcPkg"), mar = document.getElementById("calcMargin"), val = document.getElementById("jobVal");
+  var big = document.getElementById("calcBig"), cap = document.getElementById("calcCap"), txt = document.getElementById("calcText"), btn = document.getElementById("calcBtn");
+  function upd(){
+    var p = selected(pkg), m = selected(mar), price = +p.dataset.price, margin = +m.dataset.m, job = parseFloat(val.value), msg;
+    if(!job || job <= 0){
+      big.textContent = "—"; cap.textContent = ""; txt.textContent = "Enter what a typical job is worth to you.";
+      msg = "Hi Voltguard Web, I'd like my free website audit.";
+    } else {
+      var keep = job * margin, jobs = Math.ceil(price / keep);
+      big.textContent = jobs + (jobs === 1 ? " job" : " jobs");
+      cap.textContent = "to cover the " + p.dataset.name + " package (" + rand(price) + ")";
+      txt.textContent = "At " + rand(job) + " a job and about " + Math.round(margin * 100) + "% kept, each job puts roughly " + rand(keep) + " in your pocket. Your once-off price is covered after " + jobs + " extra " + (jobs === 1 ? "job" : "jobs") + " from the site.";
+      msg = "Hi Voltguard Web, I'm looking at the " + p.dataset.name + " package (" + rand(price) + ") and my average job is about " + rand(job) + ". Can I get my free website audit?";
+    }
+    btn.href = WA + encodeURIComponent(msg);
+  }
+  pkg.querySelectorAll(".chip").forEach(function(c){ c.addEventListener("click", function(){ single(pkg, c); upd(); }); });
+  mar.querySelectorAll(".chip").forEach(function(c){ c.addEventListener("click", function(){ single(mar, c); upd(); }); });
+  val.addEventListener("input", upd);
+  upd();
+})();
+
+/* ---------- slow reply calculator ---------- */
+(function(){
+  var n = document.getElementById("mcN"), v = document.getElementById("mcVal"), rate = document.getElementById("mcRate");
+  var big = document.getElementById("mcBig"), cap = document.getElementById("mcCap"), txt = document.getElementById("mcText"), btn = document.getElementById("mcBtn");
+  function upd(){
+    var N = parseFloat(n.value), V = parseFloat(v.value), r = +selected(rate).dataset.r, msg;
+    if(!(N >= 0) || !(V > 0) || isNaN(N)){
+      big.textContent = "—"; cap.textContent = ""; txt.textContent = "Enter both numbers.";
+      msg = "Hi Voltguard Web, I'd like my free website audit.";
+    } else {
+      var jobs = N * r, month = jobs * V, year = month * 12;
+      big.textContent = rand(month) + " a month";
+      cap.textContent = "about " + rand(year) + " a year";
+      txt.textContent = "If " + N + " enquiries a month go unanswered or slow and about " + Math.round(r * 100) + "% would have booked at " + rand(V) + ", that's roughly " + (Math.round(jobs * 10) / 10) + " jobs a month not reaching you.";
+      msg = "Hi Voltguard Web, I'm missing roughly " + N + " enquiries a month and my average job is about " + rand(V) + ". Can I get my free website audit?";
+    }
+    btn.href = WA + encodeURIComponent(msg);
+  }
+  rate.querySelectorAll(".chip").forEach(function(c){ c.addEventListener("click", function(){ single(rate, c); upd(); }); });
+  n.addEventListener("input", upd); v.addEventListener("input", upd);
+  upd();
+})();
+
+/* ---------- policies ---------- */
+var POL = {
+terms:{t:"Master Terms of Service", h:`
+<h3>1. Scope &amp; acceptance</h3>
+<p>These terms govern all design, development, web deployment, digital collateral, hosting and technical maintenance services provided by Voltguard Web. By paying a 50% project deposit, executing an invoice, or issuing a go-ahead via WhatsApp or email, the client agrees to be bound by these terms in full. They work together with our other policies listed on this website.</p>
+<h3>2. Pricing &amp; payment</h3>
+<ul>
+<li>Website packages (Launch R6,500, Growth R12,500, Dominate R19,500) are fixed, once-off fees. A 50% deposit is required before any technical or design work commences; the remaining 50% is due on go-live.</li>
+<li>Smart Tools add-ons (CoC request tool R1,500, Solar &amp; backup picker R2,500, Itemised quote builder R3,000), other add-ons, brochure packs and marketing collateral are billed 100% upfront, before final file delivery, unless agreed otherwise in writing.</li>
+<li>When the complimentary hosting period ends (3 months for Launch, 12 months for Growth and Dominate), hosting, security maintenance and domain upkeep move to a Care plan, billed monthly or annually in advance.</li>
+<li>All figures are in South African Rand (ZAR). See our Payment terms for details.</li>
+</ul>
+<h3>3. Timelines &amp; client responsibilities</h3>
+<p>Website deployment is completed within 5 business days, calculated from the moment we receive both the 50% deposit and your complete asset package (business name, logo, rate cards, trade licensing details, public liability insurance figures and service areas). If assets or approvals are delayed, the timeline is extended without penalty to Voltguard Web. You must supply accurate information and are responsible for the accuracy of what is published on your site.</p>
+<h3>4. Intellectual property &amp; ownership</h3>
+<ul>
+<li>All logos, photographs, copy, trade credentials and your domain name remain your property at all times.</li>
+<li>Source code, wireframes, visual templates, Smart Tools code and database configurations remain the exclusive property of Voltguard Web.</li>
+<li>You receive a continuous, non-exclusive licence to use the built site and PDF brochures for as long as your hosting is active. On cancellation or migration, you have 30 days to export your files before the installation is decommissioned.</li>
+<li>Standalone PDF brochures and digital flyers become your outright property once paid in full.</li>
+</ul>
+<h3>5. Geographic exclusivity</h3>
+<p>We will not deploy the exact same visual website template to two competing electrical contractors operating within the same primary suburb.</p>
+<h3>6. Exclusions</h3>
+<p>Standard packages exclude e-commerce checkouts, native mobile app development, programmatic email marketing, social media management, paid ad management (Google/Meta), logo design and professional videography. These can be quoted separately. Ad spend is always paid directly by the client to the ad platform.</p>
+<h3>7. Cancellations &amp; refunds</h3>
+<ul>
+<li>Deposits are non-refundable once work has officially commenced.</li>
+<li>Care plans may be cancelled with 30 days' written notice via WhatsApp or email. Annual prepayments are not refunded once the plan year has started, except where we cancel.</li>
+<li>If we cancel a project before delivery for reasons other than the client's default, any deposit for work not done is refunded.</li>
+</ul>
+<h3>8. Limits of liability</h3>
+<p>We build and host your site with reasonable care and skill. We do not guarantee search rankings, traffic, enquiries or revenue. Our liability for any project is limited to the fees paid for it, except where the law does not allow that. Nothing here limits your rights under the Consumer Protection Act.</p>
+<h3>9. Changes to these terms</h3>
+<p>We may update these terms. Existing clients get 30 days' notice of any change that affects them.</p>
+<h3>10. Governing law</h3>
+<p>South African law governs these terms.</p>`},
+
+payment:{t:"Payment terms", h:`
+<h3>1. Milestones</h3>
+<ul>
+<li><b>Website packages:</b> 50% deposit before work starts, 50% on go-live.</li>
+<li><b>Add-ons, Smart Tools bought on their own, brochures:</b> 100% upfront, before delivery.</li>
+<li><b>Care plans:</b> monthly in advance, or annually in advance for the annual option.</li>
+</ul>
+<h3>2. How to pay</h3>
+<ul>
+<li>EFT or card/QR payment. No cheques.</li>
+<li>Banking details appear on your invoice only. Confirm them by phone if anything looks unusual, and never pay to details sent from an unfamiliar number.</li>
+</ul>
+<h3>3. Instalments</h3>
+<ul><li>Instalment arrangements (for example splitting the Dominate balance) are only valid when agreed in writing.</li></ul>
+<h3>4. Late payment</h3>
+<ul>
+<li>We may pause work if a milestone payment is overdue.</li>
+<li>For an overdue Care plan payment, we may suspend the site after 7 days' written notice until the account is settled.</li>
+<li>We may hold back handover of final files until any due balance is paid.</li>
+</ul>
+<h3>5. Deposits</h3>
+<ul><li>Deposits secure your build slot and our time. Refunds are covered in the Master Terms.</li></ul>
+<h3>6. If we are late</h3>
+<ul><li>If we miss the 5-day go-live window, R500 comes off your balance (see Guarantee terms).</li></ul>`},
+
+care:{t:"Care plan terms", h:`
+<h3>1. Plans</h3>
+<ul>
+<li>Care Lite R299/month, Care Plus R549/month, Care Pro R899/month. Annual prepay: R2,990, R5,490 and R8,990 (2 months free).</li>
+<li>Plans start when your included hosting ends, or earlier if you choose. Fees are billed in advance.</li>
+</ul>
+<h3>2. What "edits" means</h3>
+<ul>
+<li>An edit is a small change to existing content: updating a price, swapping a photo, changing wording, turning a banner on or off.</li>
+<li>New pages, redesigns and new features are quoted separately, except the quarterly page included in Care Pro.</li>
+<li>Unused edits do not carry over.</li>
+<li>Care Pro "unlimited" edits are subject to fair use. If requests are regularly beyond what is reasonable for a single small business site, we will talk to you first.</li>
+</ul>
+<h3>3. Price refresh of Smart Tools</h3>
+<ul>
+<li>Care Plus includes a refresh of your Smart Tools and price tables once a quarter. Care Pro includes a refresh whenever you ask.</li>
+<li>We update the prices you give us. We do not set or check your prices for you.</li>
+</ul>
+<h3>4. Response times</h3>
+<ul>
+<li>Care Lite: within 2 business days. Care Plus: within 1 business day. Care Pro: same business day for messages received during service hours.</li>
+<li>These are service targets, not guarantees.</li>
+</ul>
+<h3>5. Button guarantee and enquiry review</h3>
+<ul>
+<li>If a WhatsApp or call button stops working because of our work or our hosting, we fix it within 1 business day of you telling us.</li>
+<li>Care Plus and Care Pro include a free enquiry review after the first 90 days of the plan. This is a review and adjustment of your pages, prices and Google listing, not a guarantee of results.</li>
+</ul>
+<h3>6. Cancelling</h3>
+<ul>
+<li>Cancel with 30 days' written notice via WhatsApp or email. No cancellation fee.</li>
+<li>After cancellation, you have 30 days to export your files before the installation is decommissioned.</li>
+<li>Annual prepayments are not refunded once the plan year has started, except where we cancel.</li>
+</ul>
+<h3>7. Rejoining</h3>
+<ul><li>If you rejoin within 6 months of cancelling and your files are still available, we waive any reconnection fee and the first month is free.</li></ul>`},
+
+guarantee:{t:"Guarantee terms", h:`
+<h3>1. Live in 5 days, or R500 off</h3>
+<ul>
+<li>The 5 business days start when we have both your 50% deposit and your complete asset pack.</li>
+<li>If your site is not ready for your approval within 5 business days of that point, R500 is deducted from your final balance.</li>
+<li>Delays caused by late assets, late approvals, or third parties (domain registrars, Google, WhatsApp) extend the timeline and do not trigger the credit.</li>
+</ul>
+<h3>2. Fixed price</h3>
+<ul><li>The price on your invoice is the price you pay. Extra work is only done after you approve a quote in writing (WhatsApp counts).</li></ul>
+<h3>3. Your content and domain are yours</h3>
+<ul><li>Logos, photos, copy, credentials and your domain name stay your property. If you leave, you have 30 days to export your files.</li></ul>
+<h3>4. Approve before it goes live</h3>
+<ul><li>You receive a preview before go-live and up to 2 full rounds of changes. See Revisions and approvals.</li></ul>
+<h3>5. 30 days of free fixes</h3>
+<ul>
+<li>We fix genuine faults in our work (for example a broken button, link or layout) for free for 30 days after go-live. Dominate clients get 2 months of tweaks.</li>
+<li>Not covered: new content, redesigns, or problems caused by edits made by others.</li>
+</ul>
+<h3>6. Exclusive in your suburb</h3>
+<ul><li>We will not deploy the exact same visual website template to a competing electrical contractor operating in your primary suburb.</li></ul>
+<h3>7. Mobile check</h3>
+<ul><li>Every site is tested on a phone before go-live. If it does not work properly on mobile when delivered, we fix it free.</li></ul>
+<h3>8. Clear price, no hidden fees</h3>
+<ul><li>You see your Care plan price before you sign, and there are no hidden hosting charges after the included period.</li></ul>
+<h3>9. Privacy of your customers' details</h3>
+<ul><li>We never sell or share your customers' details. Enquiries from your forms and tools go straight to your WhatsApp.</li></ul>
+<h3>10. Button guarantee and 90-day enquiry review</h3>
+<ul><li>See Care plan terms. These apply to clients on a Care plan.</li></ul>
+<h3>What we do not guarantee</h3>
+<ul>
+<li>Search rankings, traffic, enquiries, jobs or revenue.</li>
+<li>100% uptime. We monitor the site, but hosting depends on third-party infrastructure.</li>
+<li>That a third-party platform (Google, WhatsApp, your domain registrar) will behave the same way in future.</li>
+</ul>
+<p style="margin-top:10px">Your rights under the Consumer Protection Act apply in full.</p>`},
+
+revisions:{t:"Revisions and approvals", h:`
+<h3>1. Rounds of changes</h3>
+<ul>
+<li>Every build includes 2 full rounds of changes before go-live.</li>
+<li>A round is one consolidated list of changes sent together (WhatsApp or email).</li>
+</ul>
+<h3>2. Revision or new work?</h3>
+<ul>
+<li><b>Revision:</b> changing wording, prices, photos, colours within the design, or fixing something that does not match the agreed scope.</li>
+<li><b>New work:</b> new pages, new Smart Tools, a different layout or a new design direction. We quote these separately.</li>
+</ul>
+<h3>3. Approval</h3>
+<ul>
+<li>Please respond to previews within 3 business days. If approvals are delayed, the 5-day timeline pauses until we hear from you.</li>
+<li>Your go-ahead in writing (WhatsApp counts) means the site is approved for go-live.</li>
+</ul>
+<h3>4. After go-live</h3>
+<ul>
+<li>Genuine faults in our work are fixed free for 30 days (2 months of tweaks on Dominate).</li>
+<li>After that, edits are covered by a Care plan or quoted separately.</li>
+</ul>`},
+
+hosting:{t:"Hosting, data and domain", h:`
+<h3>1. Hosting</h3>
+<ul>
+<li>Hosting, SSL and security updates are included for the free hosting period and on every Care plan.</li>
+<li>We monitor uptime and act quickly on outages. We do not guarantee 100% uptime, since it depends on third-party infrastructure.</li>
+</ul>
+<h3>2. Backups</h3>
+<ul><li>Sites are backed up daily and backups are kept for 30 days.</li></ul>
+<h3>3. Domain ownership</h3>
+<ul>
+<li>Your domain name is registered in your name, or transferred to you on request. Registrar fees and renewal fees are paid by you or included in your Care plan as stated on your invoice.</li>
+</ul>
+<h3>4. Your data</h3>
+<ul>
+<li>Customer enquiries from your forms and tools open WhatsApp on the customer's phone and go to you. We do not store the answers on our servers.</li>
+<li>We do not sell or share your customers' information.</li>
+</ul>
+<h3>5. If you leave</h3>
+<ul>
+<li>You have 30 days after cancelling or migrating to export your files before the installation is decommissioned.</li>
+</ul>
+<h3>6. If we stop trading</h3>
+<ul>
+<li>Where possible we will give 30 days' notice, hand over your content and domain, and help you move your site to another host.</li>
+</ul>`},
+
+content:{t:"Content and acceptable use", h:`
+<h3>1. Accuracy of what you publish</h3>
+<ul>
+<li>You confirm that your trade licence numbers, insurance figures, prices and guarantees are accurate and current, and that you can show us proof if asked.</li>
+<li>We only publish licence and insurance details you can show us.</li>
+<li>Testimonials and ratings shown on your site must be real.</li>
+<li>You must tell us when your prices, licences or insurance change.</li>
+</ul>
+<h3>2. Content you supply</h3>
+<ul><li>You confirm you have the right to use the logos, photos and text you give us.</li></ul>
+<h3>3. Acceptable use</h3>
+<ul>
+<li>We may decline or remove content that is illegal, misleading, or breaks advertising rules or the rights of others.</li>
+<li>We will tell you what we removed and why.</li>
+</ul>
+<h3>4. Third-party services</h3>
+<ul>
+<li>Google, WhatsApp and your domain registrar can change their rules and features. We are not responsible for those changes, but on a Care plan we help you adapt your site.</li>
+</ul>`},
+
+offers:{t:"Offer and referral terms", h:`
+<h3>1. General</h3>
+<ul>
+<li>Offers can't be combined unless stated.</li>
+<li>We may change or withdraw offers for new clients at any time. Offers already accepted are honoured.</li>
+</ul>
+<h3>2. Founding 10</h3>
+<ul><li>For the first 10 electricians to pay a deposit. Includes 3 extra months of hosting and a free Review Booster (worth R1,500).</li></ul>
+<h3>3. Upgrade credit</h3>
+<ul><li>Start on Launch and upgrade to Growth or Dominate within 90 days. The price paid for Launch is credited to the new package. You pay the difference.</li></ul>
+<h3>4. Annual care</h3>
+<ul><li>Prepay a Care plan for 12 months and pay for 10. Billed once a year in advance.</li></ul>
+<h3>5. Bundle, brochure bundle and audit credit</h3>
+<ul>
+<li>Growth + 12 months Care Plus: R16,900.</li>
+<li>Brochure bundle: R2,900 with a package (free with Dominate).</li>
+<li>Full competitor audit (R950) is credited to any package signed within 30 days.</li>
+</ul>
+<h3>6. Referrals</h3>
+<ul>
+<li>R500 for a Launch client, R750 for Growth, R1,000 for Dominate, paid once the referred client's 50% deposit has cleared and their build has started.</li>
+<li>The referred client must be new to us and name the referrer when signing up. Self-referrals do not qualify.</li>
+<li>Partner offer: three paying referred clients earns 12 months of Care Plus free. The clients must be in different suburbs from each other and from you.</li>
+</ul>
+<h3>7. Group deal, new business offer and instalments</h3>
+<ul>
+<li>Group deal: 3 or more electricians in a group or network, in different suburbs, get 10% off each package.</li>
+<li>New business offer: R500 off Launch or Growth if you have been trading less than 12 months. We may ask for proof of registration.</li>
+<li>Instalments: on Dominate, the go-live balance can be split over 2 monthly payments if agreed in writing.</li>
+</ul>
+<h3>8. Seasonal banners and win-back</h3>
+<ul>
+<li>Seasonal banner sets are included in Care Pro and R450 per set otherwise.</li>
+<li>Win-back: see Care plan terms.</li>
+</ul>`},
+
+complaints:{t:"Complaints and disputes", h:`
+<h3>1. Complaints</h3>
+<ul><li>Message or email us with what went wrong. We acknowledge within 24 hours, propose a fix within 3 working days, and Callum personally reviews any complaint that is not resolved.</li></ul>
+<h3>2. Disputes</h3>
+<ul><li>Raise it with us directly first (WhatsApp or email). If we cannot agree, we will try mediation before either side goes to court. South African law governs our agreements.</li></ul>
+<h3>3. Consumer Protection Act</h3>
+<ul><li>Your rights under the CPA apply in full. Nothing in our terms limits them.</li></ul>
+<h3>4. Events outside our control</h3>
+<ul><li>Neither side is liable for delays caused by events outside reasonable control, such as load-shedding or grid failure, severe weather, supplier or platform failures. We tell you as soon as we know and reschedule at no extra cost.</li></ul>`},
+
+privacy:{t:"POPIA Privacy Policy", h:`
+<p>Voltguard Web respects your privacy and safeguards personal and commercial information in alignment with South Africa's Protection of Personal Information Act (POPIA).</p>
+<h3>Information we collect</h3>
+<ul>
+<li>Identity &amp; contact data: full names, business names, phone numbers, WhatsApp numbers and email addresses</li>
+<li>Operational data: trade licence numbers, insurance policy details, service areas, pricing rate cards and brand logos</li>
+<li>Communication history: transcripts and logs from WhatsApp Business, email or contact forms</li>
+</ul>
+<h3>Why we process it</h3>
+<ul>
+<li>Service delivery: free website audits, proposals, and building, hosting &amp; maintaining sites and brochures</li>
+<li>Administration: project workflows, payment tracking, routine communications and referral incentives</li>
+</ul>
+<h3>Security &amp; sharing</h3>
+<p>We do not sell, trade, rent or lease personal client data to unauthorized third parties. Records are stored behind secure authorization protocols. WhatsApp Business communications are governed by WhatsApp's own encryption and privacy standards.</p>
+<h3>This website</h3>
+<p>The tap-to-choose forms, calculators and Smart Tools on this page don't store anything. They open WhatsApp with your message ready to send, and only what you choose to send reaches us.</p>
+<h3>Your rights under POPIA</h3>
+<ul>
+<li>Access — request confirmation of what personal information we hold about you</li>
+<li>Correction — request an update or amendment of inaccurate information</li>
+<li>Deletion — request destruction of records, subject to statutory tax and accounting retention requirements</li>
+</ul>
+<h3>Information officer</h3>
+<p>Voltguard Web acts as the Responsible Party for data collected via its digital properties. For privacy requests or notices, contact us via WhatsApp at +27 76 431 2871 or email denysschen.callum43@gmail.com. You may also complain to the Information Regulator (inforeg.org.za).</p>`}
+};
+
+(function(){
+  var modal = document.getElementById("polModal"), title = document.getElementById("polTitle"), body = document.getElementById("polBody"), close = document.getElementById("polClose");
+  var last = null;
+  function open(k, from){
+    var p = POL[k]; if(!p) return;
+    last = from || null;
+    title.textContent = p.t; body.innerHTML = p.h;
+    modal.classList.add("open"); document.body.classList.add("modal-locked");
+    modal.scrollTop = 0; close.focus();
+  }
+  function shut(){
+    modal.classList.remove("open"); document.body.classList.remove("modal-locked");
+    if(last){ last.focus(); last = null; }
+  }
+  document.querySelectorAll("[data-policy]").forEach(function(b){ b.addEventListener("click", function(){ open(b.getAttribute("data-policy"), b); }); });
+  close.addEventListener("click", shut);
+  modal.addEventListener("click", function(e){ if(e.target === modal) shut(); });
+  document.addEventListener("keydown", function(e){ if(e.key === "Escape" && modal.classList.contains("open")) shut(); });
+})();
+</script>
 </body>
 </html>
