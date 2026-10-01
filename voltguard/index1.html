@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Voltguard Electrical — The No-Surprise Electrician | Sandton</title>
-<meta name="description" content="Fixed-price electrical services in Sandton, Bryanston, Fourways, Rosebank &amp; Randburg. 24-hour guarantee, licensed &amp; insured. CoCs, DB boards, solar, fire compliance. WhatsApp or call for same-day quotes.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<!-- PLACEHOLDERS: search this file for class="ph" (dashed outline on the page) to find every item to replace with real info. Remove any you don't fill in before publishing. -->
+<title>Voltguard Electrical — Certificates of Compliance &amp; Solar CoCs | Sandton</title>
+<meta name="description" content="Fast, fixed-price Certificates of Compliance and solar CoCs in Sandton, Bryanston, Fourways, Rosebank &amp; Randburg. Same-day options, licensed and insured. Book on WhatsApp.">
 <meta property="og:title" content="Voltguard Electrical — The No-Surprise Electrician">
 <meta property="og:description" content="Fixed pricing, 24-hour guarantees, and a maintenance plan on every job. Serving Sandton, Bryanston, Fourways, Rosebank, Parktown, Randburg, Rivonia &amp; Morningside.">
 <meta property="og:type" content="website">
@@ -15,7 +16,7 @@
   "@context": "https://schema.org",
   "@type": "Electrician",
   "name": "Voltguard Electrical",
-  "description": "Fixed-price residential and commercial electrical services — DB boards, solar, Certificates of Compliance, fire and emergency lighting compliance.",
+  "description": "Fixed-price Certificates of Compliance and solar CoCs, plus DB boards, surge protection, solar and backup power.",
   "telephone": "+27764312871",
   "email": "callum@voltguardelectrical.co.za",
   "priceRange": "R550 - R180000",
@@ -62,6 +63,9 @@
   a{ color:inherit; }
   .wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
   img,svg{ display:block; max-width:100%; }
+
+  /* placeholders: replace with real info */
+  .ph{ outline:1px dashed var(--copper); outline-offset:2px; color:var(--copper-dark); border-radius:2px; }
 
   /* ---------- ticked rule, the recurring drawing motif ---------- */
   .tick-rule{
@@ -356,7 +360,7 @@
   /* ---------- footer ---------- */
   footer{ background:var(--navy); color:var(--paper); padding:48px 0 28px; }
   .footer-grid{ display:grid; grid-template-columns:1fr; gap:28px; }
-  @media(min-width:760px){ .footer-grid{ grid-template-columns:1.2fr 1fr 1fr; } }
+  @media(min-width:760px){ .footer-grid{ grid-template-columns:1.2fr 1fr 1fr 1fr; } }
   footer h4{
     font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--amber);
     margin-bottom:12px;
@@ -369,18 +373,129 @@
     font-family:'IBM Plex Mono', monospace; font-size:0.7rem; color:var(--paper-on-navy);
     display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
   }
+  .footer-bottom a{ font-size:inherit; text-decoration:underline; text-underline-offset:3px; }
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .chip{font-family:'IBM Plex Mono',monospace;font-size:.8rem;background:transparent;border:1px solid var(--ink);padding:10px 14px;cursor:pointer;color:var(--ink)}
+  .chip[aria-pressed=true]{background:var(--navy);color:var(--paper);border-color:var(--navy)}
+  .chip:disabled{cursor:default}
+  .chip:focus-visible,.btn:focus-visible{outline:3px solid var(--copper);outline-offset:2px}
+  .packs{display:grid;grid-template-columns:1fr;gap:8px;margin:6px 0 10px}
+  @media(min-width:640px){.packs{grid-template-columns:repeat(3,1fr)}}
+  .pack{text-align:left;font-family:'IBM Plex Sans',sans-serif;background:transparent;border:1px solid var(--ink);padding:14px;cursor:pointer;color:var(--ink)}
+  .pack strong{display:block;font-family:'Archivo',sans-serif;font-weight:800;font-size:1.02rem}
+  .pack span{display:block;font-size:.82rem;margin-top:2px;color:var(--navy-2)}
+  .pack[aria-pressed=true]{background:var(--navy);border-color:var(--navy);color:var(--paper)}
+  .pack[aria-pressed=true] span{color:var(--paper-on-navy)}
+  .pack:focus-visible{outline:3px solid var(--copper);outline-offset:2px}
+  .unsure{display:inline-block;font-size:.85rem;color:var(--copper-dark);margin-bottom:22px}
+  .creds{display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--ink);margin-top:24px}
+  @media(min-width:700px){.creds{grid-template-columns:repeat(4,1fr)}}
+  .cred{padding:16px;border-bottom:1px solid var(--line)}
+  @media(min-width:700px){.cred{border-bottom:0;border-right:1px solid var(--line)}.cred:last-child{border-right:0}}
+  .cred:last-child{border-bottom:0}
+  .cred strong{display:block;font-family:'Archivo',sans-serif;font-weight:800}
+  .cred span{display:block;font-size:.85rem;color:var(--navy-2);margin-top:2px}
+  .cred span.ph{display:inline-block;color:var(--copper-dark);margin-top:8px;font-size:.78rem}
+  .reviews{display:grid;grid-template-columns:1fr;gap:12px;margin-top:20px}
+  @media(min-width:800px){.reviews{grid-template-columns:repeat(3,1fr)}}
+  .review{border:1px solid var(--ink);padding:18px;background:var(--paper)}
+  .review .stars{color:var(--amber);letter-spacing:2px;font-size:1rem}
+  .review p{margin:8px 0 12px;font-size:.95rem}
+  .review .who{font-size:.8rem;color:var(--navy-2)}
+  .review .job{display:inline-block;margin-top:8px;font-size:.72rem;color:var(--copper-dark)}
+  .proof-note{margin-top:14px;font-size:.8rem;color:var(--navy-2)}
+  .gbadge{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;border:1px solid var(--ink);padding:10px 14px;margin-top:20px;text-decoration:none;background:var(--paper)}
+  .gbadge b{font-family:'Archivo',sans-serif;font-size:1.3rem}
+  .gbadge .stars{color:var(--amber);letter-spacing:2px}
+  .gbadge span{font-size:.85rem;color:var(--navy-2)}
+  .mini-proof{margin-top:12px;font-size:.82rem;color:var(--navy-2)}
+  .mini-proof .stars{color:var(--amber);letter-spacing:1px}
+  .photos{display:grid;grid-template-columns:1fr;gap:12px;margin-top:20px}
+  @media(min-width:700px){.photos{grid-template-columns:repeat(3,1fr)}}
+  .photo-slot{aspect-ratio:4/3;border:2px dashed var(--copper);background:var(--paper-2);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16px;color:var(--copper-dark)}
+  .photo-slot strong{font-family:'Archivo',sans-serif}
+  .photo-slot span{font-size:.82rem;color:var(--navy-2);margin-top:4px;max-width:28ch}
+  .avatar{width:44px;height:44px;border:2px dashed var(--copper);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;color:var(--copper-dark);float:right;margin-left:10px;background:var(--paper-2)}
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper-2)}
+  .strip-in{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;padding-top:12px;padding-bottom:12px}
+  .strip .gbadge{margin-top:0;padding:6px 12px}
+  .strip-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;font-size:.85rem;color:var(--navy-2)}
+  @media(min-width:760px){.strip-list{display:flex;gap:22px}}
+  .strip-list li::before{content:"✓ ";color:var(--copper-dark);font-weight:600}
+  .match{margin-top:20px;border:1px solid var(--ink);padding:20px;background:var(--paper)}
+  .match h3{font-size:1.4rem}
+  .match .spec{font-size:.9rem;color:var(--navy-2)}
+  .match .rng{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:1.25rem;color:var(--copper-dark);margin:8px 0 14px}
+  .linkbtn{background:none;border:0;padding:0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer;text-align:left}
+  footer .linkbtn{font-size:.88rem;color:var(--paper-on-navy);text-decoration:none;line-height:1.8}
+  footer .linkbtn:hover{color:var(--paper)}
+  .linkbtn:focus-visible{outline:3px solid var(--copper);outline-offset:2px}
+  dialog.policy{border:1px solid var(--ink);background:var(--paper);color:var(--ink);padding:0;width:min(720px,94vw);max-height:88vh;margin:auto}
+  dialog.policy::backdrop{background:rgba(16,22,28,.7)}
+  .pol-head{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 22px;background:var(--paper);border-bottom:1px solid var(--line)}
+  .pol-head h2{font-size:1.25rem}
+  .pol-x{font:600 .9rem 'IBM Plex Mono',monospace;background:var(--navy);color:var(--paper);border:0;width:38px;height:38px;cursor:pointer}
+  .pol-x:hover{background:var(--copper)}
+  .pol-body{padding:8px 22px 24px;overflow-y:auto}
+  .pol-body h3{font-size:.95rem;margin:18px 0 6px;color:var(--copper-dark)}
+  .pol-body ul{margin-left:18px}
+  .pol-body li{font-size:.9rem;margin:5px 0;color:var(--navy-2)}
+  .pol-foot{margin-top:22px;padding-top:12px;border-top:1px solid var(--line);font:.72rem 'IBM Plex Mono',monospace;color:var(--navy-2)}
+  .gua-grid{display:grid;grid-template-columns:1fr;gap:1px;background:rgba(236,233,226,.2);margin-top:28px;border:1px solid rgba(236,233,226,.2)}
+  @media(min-width:800px){.gua-grid{grid-template-columns:repeat(3,1fr)}}
+  .gua{background:var(--ink);padding:22px}
+  .gua .num{font:.78rem 'IBM Plex Mono',monospace;color:var(--amber)}
+  .gua h3{color:var(--paper);font-size:1.1rem;margin-top:8px}
+  .gua p{color:var(--paper-on-navy);font-size:.88rem;margin-top:8px}
+  .gua-note{margin-top:18px;font-size:.82rem;color:var(--paper-on-navy);max-width:70ch}
+  .band .linkbtn{color:var(--paper)}
+  .save-list{list-style:none;columns:1;margin-top:8px}
+  @media(min-width:760px){.save-list{columns:2;column-gap:32px}}
+  .save-list li{font-size:.9rem;padding:7px 0;border-bottom:1px dashed var(--line-soft);break-inside:avoid}
+  .quick-menu{display:flex;gap:8px;overflow-x:auto;padding:8px 16px 10px;border-top:1px solid var(--line);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .quick-menu::-webkit-scrollbar{display:none}
+  .quick-menu a{flex:0 0 auto;font:500 .78rem 'IBM Plex Mono',monospace;color:var(--ink);text-decoration:none;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:transparent}
+  .quick-menu a.qm-lead{background:var(--copper);border-color:var(--copper);color:#fff}
+  .quick-menu a:focus-visible{outline:3px solid var(--copper);outline-offset:2px}
+  @media(min-width:860px){.quick-menu{display:none}}
+  section[id],footer[id]{scroll-margin-top:120px}
+  .quick-coc{margin:28px 0 8px;padding:20px;border:1px solid var(--ink);background:var(--paper)}
+  .qc-title{font-size:.78rem;color:var(--copper-dark);margin-bottom:12px}
+  .qc-group{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+  .qc-group span{flex:0 0 100%;font:500 .75rem 'IBM Plex Mono',monospace;color:var(--navy-2)}
+  .qc-group button{font:500 .85rem 'IBM Plex Mono',monospace;padding:10px 14px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;min-height:44px}
+  .qc-group button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:var(--paper)}
+  .qc-group button:focus-visible,.qc-sub input:focus-visible{outline:3px solid var(--copper);outline-offset:2px}
+  .qc-sub{display:block;font:500 .75rem 'IBM Plex Mono',monospace;color:var(--navy-2);margin-bottom:12px}
+  .qc-sub input{display:block;width:100%;max-width:340px;margin-top:6px;padding:11px 12px;border:1px solid var(--line);background:#fff;font:1rem 'IBM Plex Sans',sans-serif;color:var(--ink)}
+  .qc-price{font-weight:600;margin:4px 0 14px;min-height:1.4em}
+  .qc-sub textarea{display:block;width:100%;max-width:480px;margin-top:6px;padding:11px 12px;border:1px solid var(--line);background:#fff;font:1rem 'IBM Plex Sans',sans-serif;color:var(--ink);resize:vertical}
+  .qc-sub textarea:focus-visible{outline:3px solid var(--copper);outline-offset:2px}
+  #reqCall[hidden]{display:none}
+  .how-solar{margin:28px 0 8px;padding:20px;border:1px solid var(--ink);background:var(--paper)}
+  .how-title{font-size:.78rem;color:var(--copper-dark);margin-bottom:12px}
+  .how-steps{list-style:none;display:grid;grid-template-columns:1fr;gap:14px}
+  @media(min-width:760px){.how-steps{grid-template-columns:repeat(4,1fr)}}
+  .how-steps li b{display:block;font-size:.95rem}
+  .how-steps li span{display:block;font-size:.85rem;color:var(--navy-2);margin-top:4px}
+  .how-note{margin-top:14px;font-size:.82rem;color:var(--navy-2)}
+  /* floating WhatsApp button, phones only */
+  .fab{display:none;position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;font:600 .85rem 'IBM Plex Mono',monospace;background:var(--copper);color:#fff;padding:14px 18px;border:1px solid var(--copper-dark);box-shadow:0 6px 18px rgba(16,22,28,.35);text-decoration:none}
+  .fab:hover{background:var(--copper-dark)}
+  .fab:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+  @media(max-width:859px){.fab{display:inline-block}footer{padding-bottom:84px}}
 </style>
 </head>
 <body>
-
 <header>
   <div class="header-inner">
     <div class="brand">
       <span class="brand-mark"><span class="bolt">⚡</span> VOLTGUARD ELECTRICAL</span>
-      <span class="brand-tag mono">THE NO-SURPRISE ELECTRICIAN</span>
+      <span class="brand-tag mono">CoCs &amp; SOLAR</span>
     </div>
     <nav class="top-links">
-      <a href="#directory">Directory</a>
+      <a href="#coc">CoCs</a>
+      <a href="#solar">Solar</a>
       <a href="#homeowners">Homeowners</a>
       <a href="#agents">Agents</a>
       <a href="#commercial">Commercial</a>
@@ -388,30 +503,263 @@
     </nav>
     <div class="cta-group">
       <a class="tel-btn" href="tel:+27764312871">CALL NOW</a>
-      <a class="call-btn" href="https://wa.me/27764312871">WHATSAPP 076 431 2871</a>
+      <a class="call-btn" href="https://wa.me/27764312871?text=Hi%20Voltguard%2C%20I%27d%20like%20a%20quote.">WHATSAPP 076 431 2871</a>
     </div>
   </div>
+  <nav class="quick-menu" aria-label="Jump to section">
+    <a class="qm-lead" href="#coc">CoCs</a>
+    <a href="#solar">Solar</a>
+    <a href="#homeowners">Homeowners</a>
+    <a href="#agents">Agents</a>
+    <a href="#request">Get a quote</a>
+    <a href="#proof">Why trust us</a>
+    <a href="#guarantees">Guarantees</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
+
+<a class="fab" href="https://wa.me/27764312871?text=Hi%20Voltguard%2C%20I%27d%20like%20a%20quote.">WhatsApp</a>
 
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow-line"><span class="dot"></span>SANDTON &amp; SURROUNDS — LICENSED &amp; INSURED</div>
-      <h1>Electrical work with no surprises on the invoice.</h1>
-      <p class="lede">Fixed pricing you agree to before we start. A 24-hour guarantee on urgent call-outs. And we never finish a job without leaving you a maintenance plan that actually saves you money.</p>
+      <div class="eyebrow-line"><span class="dot"></span>CERTIFICATES OF COMPLIANCE &amp; SOLAR CoCs — SANDTON &amp; SURROUNDS</div>
+      <h1>A CoC that doesn't hold up your sale or your solar.</h1>
+      <p class="lede">Fast, fixed-price Certificates of Compliance for property sales, rentals and solar installs. Fails inspection? We quote the fix on the spot. Priced before we start, with a 12-month warranty.</p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="https://wa.me/27764312871">Book on WhatsApp</a>
+        <a class="btn btn-primary" href="https://wa.me/27764312871?text=Hi%20Voltguard%2C%20I%20need%20a%20CoC.">Book a CoC</a>
         <a class="btn btn-ghost" href="tel:+27764312871">Call 076 431 2871</a>
-        <a class="btn btn-ghost" href="#directory">Find your service →</a>
+        <a class="btn btn-ghost" href="#solar">Solar CoCs &amp; systems →</a>
       </div>
+      <p class="mini-proof"><span class="ph">[Add your Google rating once you have real reviews, e.g. "4.9 from 37 Google reviews"]</span></p>
     </div>
     <div class="nameplate">
       <div class="nameplate-title">RATING PLATE — SERVICE SPEC</div>
-      <div class="plate-row"><span class="plate-label">RESPONSE, STANDARD</span><span class="plate-value">NEXT DAY</span></div>
-      <div class="plate-row"><span class="plate-label">RESPONSE, EMERGENCY</span><span class="plate-value">24 HR</span></div>
+      <div class="plate-row"><span class="plate-label">SAME-DAY CoC, BOOK BEFORE 10AM</span><span class="plate-value">R2,500</span></div>
+      <div class="plate-row"><span class="plate-label">PRIORITY CoC, SINGLE-PHASE</span><span class="plate-value">24 HR</span></div>
       <div class="plate-row"><span class="plate-label">WARRANTY, LABOUR &amp; PARTS</span><span class="plate-value">12 MONTHS</span></div>
       <div class="plate-row"><span class="plate-label">PUBLIC LIABILITY COVER</span><span class="plate-value">R5,000,000</span></div>
       <div class="plate-row"><span class="plate-label">LICENSING</span><span class="plate-value">RED SEAL / WIREMAN'S</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="strip" aria-label="Credentials and rating">
+  <div class="wrap strip-in">
+    <ul class="strip-list">
+      <li>Same-day CoCs</li>
+      <li>Licensed contractor</li>
+      <li>SSEG paperwork prepared</li>
+      <li>R5m liability cover</li>
+      <li>12-month warranty</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sheet" id="coc">
+  <div class="wrap">
+    <div class="sheet-titleblock">
+      <div>
+        <div class="sheet-num mono">CERTIFICATES OF COMPLIANCE</div>
+        <h2>The CoC is the product. Fast, fixed and signed off.</h2>
+        <p class="lede">Selling, renting, or adding solar? You need a valid Certificate of Compliance. We inspect, quote any fixes, and issue the certificate once it passes, often in the same visit.</p>
+      </div>
+      <div class="sheet-meta">PRICED BEFORE WE START<br>EXCL. VAT</div>
+    </div>
+    <div class="content-grid">
+      <table class="spec-table">
+        <caption>CoC PRICING</caption>
+        <tr><td>CoC, single-phase (2–3 days)</td><td class="price">R1,200–R1,800</td></tr>
+        <tr><td>CoC, 3-phase (3–5 days)</td><td class="price">R3,500–R5,500</td></tr>
+        <tr><td>Priority CoC, single-phase (24hr)</td><td class="price">R2,200</td></tr>
+        <tr><td>Priority CoC, 3-phase (48hr)</td><td class="price">R5,000</td></tr>
+        <tr><td>Expedited same-day CoC, single-phase (book before 10am)</td><td class="price">R2,500</td></tr>
+        <tr><td>Expedited same-day CoC, 3-phase</td><td class="price">R5,500</td></tr>
+        <tr><td><b>Solar-ready CoC</b> (panels, inverter or battery being added)</td><td class="price">R2,200 from</td></tr>
+        <tr><td>Re-inspection: free within 30 days, or any time for a fault we should have caught. Otherwise R350</td><td class="price">Free</td></tr>
+        <tr><td>Pre-sale electrical audit</td><td class="price">R550</td></tr>
+      </table>
+      <div class="side-note">
+        <h4>HOW IT WORKS</h4>
+        <ul>
+          <li><b>1. Book</b><br>WhatsApp us the address and your deadline</li>
+          <li><b>2. Inspect</b><br>We test the installation and give a fixed price for any fixes</li>
+          <li><b>3. Fix</b><br>Most fixes are done on the same visit, with your approval</li>
+          <li><b>4. Certificate</b><br>Issued once the installation is compliant</li>
+        </ul>
+      </div>
+    </div>
+    <div class="quick-coc" id="quickCoc">
+      <div class="qc-title mono">QUICK CoC REQUEST</div>
+      <div class="qc-group" data-k="prop"><span>Property</span><button type="button">House</button><button type="button">Flat / apartment</button><button type="button">Townhouse / complex</button><button type="button">Commercial</button></div>
+      <div class="qc-group" data-k="phase"><span>Supply</span><button type="button">Single-phase</button><button type="button">3-phase</button><button type="button">Not sure</button></div>
+      <div class="qc-group" data-k="when"><span>When</span><button type="button">Today (book before 10am)</button><button type="button">Within 24 hours</button><button type="button">2–5 days</button></div>
+      <label class="qc-sub">Suburb <input id="qcSuburb" type="text" placeholder="e.g. Bryanston" autocomplete="off"></label>
+      <p class="qc-price" id="qcPrice">Tap your options for an indicative price.</p>
+      <a class="btn btn-primary" id="qcSend" href="https://wa.me/27764312871?text=Hi%20Voltguard%2C%20I%20need%20a%20CoC.">Send on WhatsApp</a>
+    </div>
+    <p class="lede" style="font-size:.8rem">Prices exclude VAT. Priority CoC +R150 beyond 10 km. Fixes needed to reach compliance are quoted separately and only done with your approval. See our <button class="linkbtn" data-policy="coc">CoC policy</button>.</p>
+  </div>
+</section>
+
+<section class="sheet alt" id="solar">
+  <div class="wrap">
+    <div class="sheet-titleblock">
+      <div>
+        <div class="sheet-num mono">SOLAR CoCs &amp; BACKUP POWER</div>
+        <h2>When the grid goes down, what stays on?</h2>
+        <p class="lede">Tap what you want running. We match a system and show an estimated price range before anyone visits your home. Your firm price comes after a quick site check.</p>
+      </div>
+      <div class="sheet-meta">FIRM QUOTE IN WRITING<br>CoC INCLUDED</div>
+    </div>
+    <div class="content-grid">
+      <div>
+        <div class="mono" style="font-size:.72rem;color:var(--copper-dark)">PICK A STARTING POINT</div>
+        <div class="packs" id="packs">
+          <button class="pack" aria-pressed="false" data-k="lights"><strong>Keep the lights on</strong><span>Lights, Wi-Fi, fridge and freezer</span></button>
+          <button class="pack" aria-pressed="true" data-k="home"><strong>Most homes</strong><span>Adds TV, laptops and pool pump</span></button>
+          <button class="pack" aria-pressed="false" data-k="solar"><strong>Add solar</strong><span>Same as Most homes, plus panels</span></button>
+        </div>
+        <a class="unsure" id="unsure" href="#">Not sure? Ask us to recommend one on WhatsApp</a>
+        <div class="mono" style="font-size:.72rem;color:var(--copper-dark)">OR ADJUST IT YOURSELF: WHAT DO YOU NEED?</div>
+        <div class="chips" id="modes">
+          <button class="chip" aria-pressed="false" data-m="inv">Inverter only (add battery later)</button>
+          <button class="chip" aria-pressed="false" data-m="bat">Battery only</button>
+          <button class="chip" aria-pressed="true" data-m="both">Inverter + battery</button>
+          <button class="chip" aria-pressed="false" data-m="solar">With solar panels</button>
+        </div>
+        <div class="mono" style="font-size:.72rem;color:var(--copper-dark);margin-top:18px">WHAT MUST STAY ON?</div>
+        <div class="chips" id="chips">
+          <button class="chip" aria-pressed="true" data-w="1" disabled>Lights and Wi-Fi</button>
+          <button class="chip" aria-pressed="false" data-w="1">Fridge and freezer</button>
+          <button class="chip" aria-pressed="false" data-w="1">TV and laptops</button>
+          <button class="chip" aria-pressed="false" data-w="2">Pool pump</button>
+          <button class="chip" aria-pressed="false" data-w="3" data-h="1">Geyser</button>
+          <button class="chip" aria-pressed="false" data-w="3" data-h="1">Stove and oven</button>
+          <button class="chip" aria-pressed="false" data-w="3" data-h="1">Aircon</button>
+        </div>
+        <div class="match" aria-live="polite">
+          <div class="mono" style="font-size:.72rem;color:var(--copper-dark)">ESTIMATE FOR WHAT YOU PICKED</div>
+          <h3 id="mName"></h3>
+          <div class="spec" id="mSpec"></div>
+          <div class="rng" id="mPrice"></div>
+          <p class="spec" style="margin:-6px 0 14px">Estimate only. Your firm price is confirmed in a written quote after a quick site check.</p>
+          <a class="btn btn-primary" id="mBtn" href="#">Get a firm quote on WhatsApp</a>
+        </div>
+      </div>
+      <div class="side-note">
+        <h4>EVERY INSTALL INCLUDES</h4>
+        <ul>
+          <li>Certificate of Compliance</li>
+          <li>12-month labour and parts warranty</li>
+          <li>Handover walk-through and monitoring app setup</li>
+          <li>Written maintenance plan</li>
+        </ul>
+        <div class="stamp-wrap"><span class="stamp">PRICE EXCLUDES VAT</span></div>
+      </div>
+    </div>
+    <div class="how-solar">
+      <div class="how-title mono">HOW SOLAR WORKS</div>
+      <ol class="how-steps">
+        <li><b>1. Site check</b><span>We check your roof, DB board and earthing, then confirm what you want running.</span></li>
+        <li><b>2. Firm quote</b><span>Fixed price in writing, valid 30 days. Changes only with your approval.</span></li>
+        <li><b>3. Install + CoC</b><span>Licensed electricians install. The Certificate of Compliance is included.</span></li>
+        <li><b>4. Paperwork + handover</b><span>We prepare your grid-registration application if needed, set up monitoring and walk you through it.</span></li>
+      </ol>
+      <p class="how-note">We never promise solar output or savings. <button class="linkbtn" data-policy="solar">Solar &amp; battery policy</button></p>
+    </div>
+    <table class="spec-table" style="margin-top:32px">
+      <caption>SETUP OPTIONS — PANELS ARE OPTIONAL</caption>
+      <tr><td>Inverter only: replacement, or battery-ready for later (5kW hybrid)</td><td class="price">R25,000–R35,000</td></tr>
+      <tr><td>Battery add-on (5kWh lithium, for your existing inverter)</td><td class="price">R20,000–R28,000</td></tr>
+      <tr><td>Inverter + battery, no panels</td><td class="price">R45,000–R63,000</td></tr>
+      <tr><td>Solar hybrid (inverter, battery, panels)</td><td class="price">R65,000–R85,000</td></tr>
+      <tr><td>Whole home solar (8kVA, 10kWh, 5.5kWp)</td><td class="price">R110,000–R145,000</td></tr>
+      <tr><td>Add panels to an existing system</td><td class="price">Quote on request</td></tr>
+    </table>
+    <div class="content-grid" style="margin-top:32px">
+      <table class="spec-table">
+        <caption>REPLACEMENTS &amp; UPGRADES</caption>
+        <tr><td>Replace a faulty inverter (5kW, fitted)</td><td class="price">R22,000–R32,000</td></tr>
+        <tr><td>Replace a battery (5kWh lithium, old one removed)</td><td class="price">R20,000–R28,000</td></tr>
+        <tr><td>Upgrade lead-acid to lithium</td><td class="price">R24,000–R32,000</td></tr>
+        <tr><td>Add panels to an existing system (6 panels)</td><td class="price">from R18,000</td></tr>
+        <tr><td>Inverter fault diagnosis call-out</td><td class="price">R550</td></tr>
+        <tr><td>Annual system health check</td><td class="price">R1,200</td></tr>
+        </table>
+      <table class="spec-table">
+        <caption>SIZE BY NEED (EACH PART, FITTED)</caption>
+        <tr><td>Inverter 3kVA: lights, Wi-Fi, fridge</td><td class="price">R15,000–R22,000</td></tr>
+        <tr><td>Inverter 5kVA: most homes</td><td class="price">R25,000–R35,000</td></tr>
+        <tr><td>Inverter 8kVA: geyser, stove, aircon</td><td class="price">R38,000–R52,000</td></tr>
+        <tr><td>Battery 5kWh: about 4 hours of essentials</td><td class="price">R20,000–R28,000</td></tr>
+        <tr><td>Battery 10kWh: a full evening</td><td class="price">R38,000–R52,000</td></tr>
+        <tr><td>Battery 15kWh: through the night</td><td class="price">R55,000–R72,000</td></tr>
+        <tr><td>Panels 6 (3.3kWp): cuts the daytime bill</td><td class="price">R25,000–R32,000</td></tr>
+        <tr><td>Panels 10 (5.5kWp): recharges a 10kWh battery</td><td class="price">R38,000–R48,000</td></tr>
+        <tr><td>Panels 12 (6.6kWp): big homes and small businesses</td><td class="price">R45,000–R58,000</td></tr>
+        </table>
+    </div>
+    <p class="lede" style="font-size:.8rem">Prices exclude VAT. Final price depends on brand, roof and your DB board, and is confirmed in your written quote.</p>
+  </div>
+</section>
+
+<section class="sheet" id="proof">
+  <div class="wrap">
+    <div class="sheet-titleblock">
+      <div>
+        <div class="sheet-num mono">WHY PEOPLE TRUST US</div>
+        <h2>Licensed, insured and signed off on paper</h2>
+        <p class="lede">Every job ends with a Certificate of Compliance. Check who we are before you message us.</p>
+      </div>
+      <div class="sheet-meta">RED SEAL / WIREMAN'S<br>SSEG PAPERWORK PREPARED</div>
+    </div>
+    <div class="creds">
+      <div class="cred"><strong>Licensed contractor</strong><span>Red Seal and Wireman's licensed</span><span class="ph">[Add licence / registration numbers]</span></div>
+      <div class="cred"><strong>SSEG paperwork prepared</strong><span>We prepare your grid-registration application</span></div>
+      <div class="cred"><strong>R5,000,000 cover</strong><span>Public liability insurance</span><span class="ph">[Add insurer and policy expiry date]</span></div>
+      <div class="cred"><strong>12-month warranty</strong><span>Labour and parts, every job</span></div>
+    </div>
+    <p class="proof-note">Licence, registration and insurance documents are available on request. <span class="ph">[Add how to request them, e.g. "WhatsApp us and we'll send copies"]</span></p>
+
+    <a class="gbadge ph" href="#proof"><b>[X.X]</b><span>[Add your Google rating and number of reviews, linked to your Google Business Profile]</span></a>
+
+    <div class="reviews">
+      <div class="review"><div class="avatar">photo</div><p class="ph">[Add a real customer review, word for word]</p><div class="who ph">[Customer first name, suburb]</div><span class="job mono">[Job type, e.g. CoC before a sale]</span></div>
+      <div class="review"><div class="avatar">photo</div><p class="ph">[Add a real customer review, word for word]</p><div class="who ph">[Customer first name, suburb]</div><span class="job mono">[Job type, e.g. solar and battery]</span></div>
+      <div class="review"><div class="avatar">photo</div><p class="ph">[Add a real review from an estate agent or landlord]</p><div class="who ph">[First name, agency or suburb]</div><span class="job mono">[Job type, e.g. same-day CoC]</span></div>
+    </div>
+
+    <div class="photos">
+      <div class="photo-slot"><strong>Photo: a finished DB board</strong><span>[Add a clean, labelled DB board from a real job]</span></div>
+      <div class="photo-slot"><strong>Photo: a solar or battery install</strong><span>[Add a tidy install from a real job]</span></div>
+      <div class="photo-slot"><strong>Photo: you, with your van or ID</strong><span>[Add a friendly photo so customers know who is coming]</span></div>
+    </div>
+    <p class="proof-note">Only publish reviews and photos from real jobs, and with the customer's permission.</p>
+  </div>
+</section>
+
+<section class="sheet" id="request">
+  <div class="wrap">
+    <div class="sheet-titleblock">
+      <div>
+        <div class="sheet-num mono">ANY OTHER JOB</div>
+        <h2>Tell us what you need</h2>
+        <p class="lede">DB boards, surge protection, repairs, solar or anything else. Five quick taps and your details arrive on WhatsApp, ready to quote.</p>
+      </div>
+      <div class="sheet-meta">20 SECONDS<br>NO PRICE GUESSING</div>
+    </div>
+    <div class="quick-coc" id="reqForm">
+      <div class="qc-group" data-k="need"><span>1. What do you need?</span><button type="button">DB board</button><button type="button">Surge protection</button><button type="button">Call-out / repair</button><button type="button">Solar / battery</button><button type="button">Other</button></div>
+      <div class="qc-group" data-k="who"><span>2. Who are you?</span><button type="button">Homeowner</button><button type="button">Landlord</button><button type="button">Estate agent</button><button type="button">Business / body corporate</button><button type="button">Builder</button></div>
+      <div class="qc-group" data-k="urg"><span>3. How urgent?</span><button type="button">Emergency (no power)</button><button type="button">Today</button><button type="button">This week</button><button type="button">Just a quote</button></div>
+      <label class="qc-sub">4. Suburb (optional) <input id="reqSuburb" type="text" placeholder="e.g. Rivonia" autocomplete="off"></label>
+      <label class="qc-sub">5. Anything else? (optional) <textarea id="reqNote" rows="3" maxlength="300" placeholder="e.g. old DB board keeps tripping"></textarea></label>
+      <div class="cta-group">
+        <a class="btn btn-primary" id="reqSend" href="https://wa.me/27764312871?text=Hi%20Voltguard%2C%20I%20need%20an%20electrician.">Send on WhatsApp</a>
+        <a class="btn btn-ghost" id="reqCall" href="tel:+27764312871" hidden>Call now: 076 431 2871</a>
+      </div>
+      <p class="lede" style="font-size:.8rem;margin-top:12px">We don't store this form. It opens WhatsApp with your message ready to send. Prices are quoted on WhatsApp after we hear what you need.</p>
     </div>
   </div>
 </section>
@@ -426,17 +774,17 @@
     <div class="circuit-list">
       <a class="circuit-row" href="#homeowners">
         <span class="circuit-num">01</span>
-        <span class="circuit-body"><h3>Homeowners</h3><p>Load-shedding, DB boards, solar &amp; backup power</p></span>
+        <span class="circuit-body"><h3>Homeowners</h3><p>Solar, batteries and backup power for your home</p></span>
         <span class="circuit-arrow">→</span>
       </a>
       <a class="circuit-row" href="#agents">
         <span class="circuit-num">02</span>
-        <span class="circuit-body"><h3>Estate agents</h3><p>Same-day Certificates of Compliance, no missed transfers</p></span>
+        <span class="circuit-body"><h3>Estate agents</h3><p>Same-day Certificates of Compliance, so paperwork doesn't hold up the transfer</p></span>
         <span class="circuit-arrow">→</span>
       </a>
       <a class="circuit-row" href="#commercial">
         <span class="circuit-num">03</span>
-        <span class="circuit-body"><h3>Commercial &amp; body corporates</h3><p>Compliance, fire systems, liability cover</p></span>
+        <span class="circuit-body"><h3>Commercial &amp; body corporates</h3><p>Solar and backup for tills, servers and fridges</p></span>
         <span class="circuit-arrow">→</span>
       </a>
       <a class="circuit-row" href="#developers">
@@ -460,7 +808,7 @@
       <div>
         <div class="sheet-num mono">SHEET 01 / 05</div>
         <h2>Homeowners</h2>
-        <p class="lede">From a R550 audit that flags the risk in your DB board, to full solar and battery installs — priced upfront, no callback surprises.</p>
+        <p class="lede">Start with a R550 Load-shedding Survival Audit, then move to a battery or full solar install. Priced upfront, no callback surprises.</p>
       </div>
       <div class="sheet-meta">DRAWN FOR: RESIDENTIAL<br>SCALE: PER PROPERTY</div>
     </div>
@@ -469,6 +817,8 @@
       <table class="spec-table">
         <caption>SELECTED PRICING</caption>
         <tr><td>Load-shedding Survival Audit</td><td class="price">R550</td></tr>
+        <tr><td>Free surge protection check with every audit</td><td class="price">Free</td></tr>
+        <tr><td>Free second opinion on an existing quote</td><td class="price">Free</td></tr>
         <tr><td>DB Board Replacement (Basic)</td><td class="price">R4,500–R5,500</td></tr>
         <tr><td>DB Board Upgrade (Standard, incl. surge)</td><td class="price">R6,500–R8,500</td></tr>
         <tr><td>Surge Protection — Whole Home</td><td class="price">R5,500–R8,500</td></tr>
@@ -477,17 +827,40 @@
         <tr><td>Full Solar Package (5kW)</td><td class="price">R65,000–R85,000</td></tr>
         <tr><td>Certificate of Compliance (single-phase)</td><td class="price">R1,200–R1,800</td></tr>
         <tr><td>Priority CoC (24hr)</td><td class="price">R2,200</td></tr>
+        <tr><td>DB Board Premium (full rewire, new DB, surge)</td><td class="price">R10,000–R14,000</td></tr>
+        <tr><td>Call-out diagnostic (first hour)</td><td class="price">R750</td></tr>
+        <tr><td>Daytime call-out</td><td class="price">R650–R850</td></tr>
+        <tr><td>After-hours call-out (6pm–10pm)</td><td class="price">R950–R1,200</td></tr>
+        <tr><td>Saturday call-out</td><td class="price">R850–R1,100</td></tr>
+        <tr><td>Sunday / public holiday call-out</td><td class="price">R1,200–R1,600</td></tr>
+        <tr><td>Hourly labour (daytime)</td><td class="price">R550–R750/hr</td></tr>
+        <tr><td>Emergency call-out (10pm–6am / load-shedding)</td><td class="price">R1,400–R1,800</td></tr>
+        <tr><td>Prepaid meter installation</td><td class="price">R850–R1,200</td></tr>
+        <tr><td>Add panels to your existing system (6 panels)</td><td class="price">from R18,000</td></tr>
+        <tr><td>Generator changeover switch</td><td class="price">R2,500–R4,500</td></tr>
+        <tr><td>Geyser element / timer</td><td class="price">R450–R950</td></tr>
       </table>
 
       <div class="side-note">
         <h4>MEMBERSHIP</h4>
         <ul>
-          <li><b>Standard — R450/mo</b><br>Free annual audit, 2 free call-outs, 15% off labour</li>
-          <li><b>Premium — R750/mo</b><br>Unlimited call-outs, 1-hour emergency response, dedicated technician, 25% off</li>
+          <li><b>Standard — R450/mo</b> (R4,950 a year, 2 months free)<br>Free annual audit, 2 free call-outs, 15% off labour</li>
+          <li><b>Premium — R750/mo</b> (R8,250 a year, 2 months free)<br>Unlimited call-outs (fair use), 1-hour emergency response during service hours, dedicated technician, 25% off</li>
         </ul>
-        <div class="stamp-wrap"><span class="stamp">SAVE R1,500 OR IT'S FREE</span></div>
+        <div class="stamp-wrap"><span class="stamp">SAVE R1,500 A YEAR OR WE REFUND THE DIFFERENCE</span> <button class="linkbtn" data-policy="member" style="font-size:.78rem">See savings terms</button></div>
       </div>
     </div>
+    <h3 style="font-size:1.05rem;margin-top:36px">More ways to save</h3>
+    <ul class="save-list">
+      <li>Audit + surge protection labour bundle: <b>R1,800</b> (save R450)</li>
+      <li>Homeowner Launch: audit + surge + DB check: <b>R2,200</b> (save R1,350)</li>
+      <li>First call-out free when you book an audit</li>
+      <li>15% off labour on 3+ points in one visit</li>
+      <li>10% off for seniors (65+), military and police</li>
+      <li>10% off annual prepay on maintenance</li>
+      <li>Refer a friend: R200 off for both of you. Members: 3 referrals = R500 cash, 5 = free month, 10 = free year</li>
+    </ul>
+    <p class="lede" style="font-size:.8rem">Offers can't be combined unless stated. Membership: month-to-month, try 3 months and cancel anytime.</p>
   </div>
 </section>
 
@@ -506,13 +879,21 @@
     <div class="content-grid">
       <table class="spec-table">
         <caption>SELECTED PRICING</caption>
-        <tr><td>Priority CoC — Single Phase</td><td class="price">R1,500 from</td></tr>
-        <tr><td>Priority CoC — 3-Phase</td><td class="price">R4,500 flat</td></tr>
+        <tr><td>Solar-ready CoC (panels or battery being added)</td><td class="price">R2,200 from</td></tr>
+        <tr><td>Priority CoC (24hr), single-phase</td><td class="price">R2,200</td></tr>
+        <tr><td>Priority CoC (48hr), 3-phase</td><td class="price">R5,000</td></tr>
         <tr><td>Expedited Same-Day CoC (single-phase)</td><td class="price">R2,500 flat</td></tr>
         <tr><td>Pre-Sale Electrical Audit</td><td class="price">R550</td></tr>
-        <tr><td>Re-inspection (buyer flags a fault)</td><td class="price">R350</td></tr>
-        <tr><td>CoC + Minor Repairs Bundle</td><td class="price">R3,500</td></tr>
+        <tr><td>Re-inspection: free within 30 days, or any time for a fault we should have caught. Otherwise R350</td><td class="price">Free</td></tr>
+        <tr><td>CoC + audit bundle</td><td class="price">R2,000</td></tr>
+        <tr><td>CoC + Minor Repairs Bundle (up to R2,000 of light fittings, sockets, switches, plugs, breakers; excludes DB upgrades, rewires, 3-phase, solar)</td><td class="price">R3,500</td></tr>
+        <tr><td>Expedited same-day CoC (3-phase)</td><td class="price">R5,500 flat</td></tr>
+        <tr><td>Volume (standard single-phase CoC): 1–4 / 5–9 / 10–14 properties a month</td><td class="price">R1,500 / R1,200 / R1,050</td></tr>
         <tr><td>Volume: 15+ properties/month</td><td class="price">R900/property</td></tr>
+        <tr><td>Agent Launch: 3 CoCs + 1 audit</td><td class="price">R4,500</td></tr>
+        <tr><td>Agent Launch: 5 CoCs + 2 audits</td><td class="price">R7,500</td></tr>
+        <tr><td>Portfolio Pack: 10 CoCs + 5 audits</td><td class="price">R15,000</td></tr>
+        <tr><td>Retainer: Silver / Gold / Platinum (2 / 4 / 8 CoCs a month)</td><td class="price">R2,500 / R4,500 / R8,000</td></tr>
       </table>
 
       <div class="side-note">
@@ -520,8 +901,8 @@
         <ul>
           <li>Queue-jump booking, always same-day</li>
           <li>Unlimited free re-inspections</li>
-          <li><b>3-hour CoC guarantee</b> (single-phase)</li>
-          <li>10% referral commission on agents you bring in</li>
+          <li><b>3-hour CoC guarantee</b> (single-phase, from the start of the inspection)</li>
+          <li>Refer clients: <b>10% of the job value</b>, 15% at 5+ a month. <button class="linkbtn" data-policy="member">Terms</button></li>
         </ul>
         <div class="stamp-wrap"><span class="stamp">3 CoCs + 1 AUDIT — R4,500</span></div>
       </div>
@@ -544,11 +925,20 @@
     <div class="content-grid">
       <table class="spec-table">
         <caption>SELECTED PRICING</caption>
+        <tr><td><b>Free site assessment + maintenance plan proposal</b></td><td class="price">Free</td></tr>
+        <tr><td>Backup power for tills, servers and fridges</td><td class="price">from R32,000</td></tr>
+        <tr><td>Business solar system (sized to your bill)</td><td class="price">Quote on request</td></tr>
+        <tr><td>Load-shedding bypass (internet, lights, security)</td><td class="price">R3,500–R6,000</td></tr>
         <tr><td>CoC — Full Premises (single-phase)</td><td class="price">R3,500–R5,500</td></tr>
         <tr><td>CoC — Full Premises (3-phase)</td><td class="price">R5,500–R8,500</td></tr>
+        <tr><td>Tenant move-in / move-out inspection</td><td class="price">R750/site</td></tr>
+        <tr><td>Emergency lighting maintenance (per year)</td><td class="price">R1,200–R2,500</td></tr>
         <tr><td>Emergency Lighting Install</td><td class="price">from R4,500</td></tr>
         <tr><td>Fire System Wiring</td><td class="price">from R6,500</td></tr>
         <tr><td>Fire System Annual Inspection</td><td class="price">R1,500–R3,500</td></tr>
+        <tr><td>Priority commercial CoC (48hr fast-track)</td><td class="price">+R1,500</td></tr>
+        <tr><td>3-phase fault finding</td><td class="price">R750–R950/hr</td></tr>
+        <tr><td>Fire + emergency lighting bundle</td><td class="price">R8,000–R12,000</td></tr>
         <tr><td>Annual Compliance Bundle</td><td class="price">R8,500–R12,000</td></tr>
       </table>
 
@@ -556,7 +946,10 @@
         <h4>MAINTENANCE PLANS</h4>
         <ul>
           <li><b>Lite (SME) — R1,500/mo</b><br>Quarterly inspection, 1 free call-out/qtr, 4-hr response</li>
-          <li><b>Premium (Body Corp) — R3,800/mo</b><br>Unlimited call-outs, dedicated Account Manager, board-level reporting</li>
+          <li><b>Standard (1–3 sites) — R2,500/mo</b><br>Monthly inspection, 2 free call-outs/qtr, 20% off labour, 2-hr response</li>
+          <li><b>Premium (Body Corp) — R3,800/mo</b><br>Unlimited call-outs (fair use), dedicated Account Manager, board-level reporting</li>
+          <li>Refer another business or body corporate: <b>R200 off for both of you</b>. <button class="linkbtn" data-policy="member">Terms</button></li>
+          <li>Spend your compliance budget before 31 December: book in November and we schedule inspections, fire and emergency lighting checks on your terms, with the paperwork ready for your board.</li>
         </ul>
         <div class="stamp-wrap"><span class="stamp">YEAR-END COMPLIANCE WINDOW</span></div>
       </div>
@@ -584,13 +977,17 @@
         <tr><td>Final Connection (kitchen, geyser, pool)</td><td class="price">R1,500–R2,500</td></tr>
         <tr><td>Bulk CoC (10+ units)</td><td class="price">R900–R1,200</td></tr>
         <tr><td>Full Turnkey (rough-in + trim + CoC)</td><td class="price">R8,000–R12,000</td></tr>
+        <tr><td><i>Example: 10-unit development on turnkey. Indicative, final quote after a site walk.</i></td><td class="price">R80,000–R120,000</td></tr>
       </table>
 
       <div class="side-note">
         <h4>SITE LOCK-IN</h4>
         <ul>
           <li>Book a dedicated weekly slot and get <b>10% off labour</b> for that day</li>
+          <li>20 km site coverage from our core suburbs</li>
           <li>Refer another developer → <b>R1,000 cash</b></li>
+          <li>How we work: <b>1.</b> site walk, every point priced up front. <b>2.</b> Dedicated weekly slot. <b>3.</b> Milestone billing.</li>
+          <li>Billing: <b>50%</b> deposit, <b>40%</b> materials on site, <b>10%</b> sign-off</li>
         </ul>
       </div>
     </div>
@@ -614,41 +1011,36 @@
         <caption>SELECTED PRICING</caption>
         <tr><td>Tenant Move-In/Move-Out Inspection</td><td class="price">R750/site</td></tr>
         <tr><td>Annual Rental Safety Check</td><td class="price">R1,200</td></tr>
-        <tr><td>CoC for Rental (single-phase)</td><td class="price">R1,500 from</td></tr>
-        <tr><td>Portfolio Pack (5 properties)</td><td class="price">R5,500</td></tr>
+        <tr><td>CoC for Rental (single-phase)</td><td class="price">R1,200–R1,800</td></tr>
+        <tr><td>Rental compliance pack (CoC + move-in inspection)</td><td class="price">R2,200</td></tr>
+        <tr><td>Portfolio Pack (5 properties: 5 inspections, 5 CoCs, report)</td><td class="price">R5,500</td></tr>
       </table>
 
       <div class="side-note">
         <h4>MEMBERSHIP</h4>
         <ul>
           <li><b>Landlord Lite — R300/mo</b><br>Free annual check (1 property), 10% off call-outs</li>
-          <li><b>Landlord Pro — R800/mo</b><br>Checks for up to 5 properties, priority hotline, 15% off labour</li>
+          <li><b>Landlord Pro — R800/mo</b> (3–5 properties)<br>Annual checks for up to 5 properties, 2 free tenant changeover inspections a year, priority hotline, 15% off labour</li>
+          <li>Refer another landlord: <b>R200 off for both of you</b>. <button class="linkbtn" data-policy="member">Terms</button></li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section class="band">
+<section class="band" id="guarantees">
   <div class="wrap">
-    <h2>Why this is worth trusting with your property</h2>
-    <div class="band-grid">
-      <div class="band-item">
-        <div class="num mono">A</div>
-        <h3>Fixed pricing</h3>
-        <p>You see the number before we start. What we quote is what you pay — no revised invoice after the fact.</p>
-      </div>
-      <div class="band-item">
-        <div class="num mono">B</div>
-        <h3>24-hour guarantee</h3>
-        <p>Urgent call-outs handled within 24 hours, every time — load-shedding, faults, or a failed inspection.</p>
-      </div>
-      <div class="band-item">
-        <div class="num mono">C</div>
-        <h3>A plan, not just a fix</h3>
-        <p>Every job ends with a maintenance recommendation built to save you money before something breaks.</p>
-      </div>
+    <div class="sheet-num mono" style="color:var(--amber)">OUR GUARANTEES</div>
+    <h2>Six promises, in writing</h2>
+    <div class="gua-grid">
+      <div class="gua"><div class="num">01 · ALL JOBS</div><h3>Fixed price</h3><p>The quote is the invoice. No revised bill unless you approve extra work in writing (WhatsApp counts).</p></div>
+      <div class="gua"><div class="num">02 · ALL JOBS</div><h3>On time</h3><p>Miss the agreed arrival window without notice and that visit is free.</p></div>
+      <div class="gua"><div class="num">03 · CoCs ONLY</div><h3>CoC guarantee</h3><p>A fault we should have caught, or a municipal inspection failure on work we certified? We fix it free, within your 12-month warranty.</p></div>
+      <div class="gua"><div class="num">04 · CoCs ONLY</div><h3>Same-day CoC</h3><p>Single-phase, booked before 10am, installation compliant: certificate the same day, or R250 off.</p></div>
+      <div class="gua"><div class="num">05 · CoCs ONLY</div><h3>Free re-inspection</h3><p>A buyer's inspector flags a fault after our CoC? Free re-inspection within 30 days, or any time in your warranty if it's a fault we should have caught.</p></div>
+      <div class="gua"><div class="num">06 · ALL JOBS</div><h3>12-month warranty</h3><p>Labour and parts on every job (24 and 36 months on Standard and Premium DB boards). No lock-in contracts.</p></div>
     </div>
+    <p class="gua-note">Targets, not guarantees: we aim to reply on WhatsApp within 5 minutes. We never promise solar output, bill savings or that a specific insurer will accept a certificate. <button class="linkbtn" data-policy="warranty">Full warranty terms</button> · <button class="linkbtn" data-policy="legal">Your rights &amp; disputes</button></p>
   </div>
 </section>
 
@@ -664,24 +1056,44 @@
     <div class="tick-rule"></div>
     <div class="faq-list">
       <details class="faq-item">
+        <summary>How long does a solar or battery install take?<span class="q-mark">+</span></summary>
+        <p>A battery and inverter install is usually done in one day. A full solar system with panels takes 2 to 4 days, depending on the roof. You get the timeline in your written quote.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Will my house keep running during load shedding?<span class="q-mark">+</span></summary>
+        <p>Yes, for the circuits you choose. The picker above sizes the system to what you want running. Heavy loads like the geyser, stove and aircon need a bigger system.</p>
+      </details>
+      <details class="faq-item">
         <summary>Do you charge for quotes or call-outs?<span class="q-mark">+</span></summary>
         <p>The Load-shedding Survival Audit (R550) and Pre-Sale Electrical Audit (R550) are paid diagnostics — you get a full written report either way. Standard call-outs are priced upfront on the rate card before we dispatch, so there's never a surprise fee for someone showing up.</p>
       </details>
       <details class="faq-item">
         <summary>What if I'm not happy with the work?<span class="q-mark">+</span></summary>
-        <p>Every job carries a 12-month warranty on labour and parts. On membership plans, we back that with an explicit savings guarantee — Standard members save R1,500/year or the difference is refunded; Premium members save R3,000.</p>
+        <p>Every job carries a 12-month warranty on labour and parts. On membership plans, we back that with an explicit savings guarantee — Standard members save R1,500/year or the difference is refunded; Premium members save R3,000. <button class="linkbtn" data-policy="member">See what counts</button>.</p>
       </details>
       <details class="faq-item">
         <summary>How fast can you actually come out?<span class="q-mark">+</span></summary>
-        <p>Standard requests are handled by next day. Emergencies — no power, load-shedding faults, failed inspections before a deadline — are handled within 24 hours. Members and Estate Agent VIPs get faster tiers: 1-hour emergency response and 3-hour CoC turnaround respectively.</p>
+        <p>Standard requests are handled by next day. Emergencies — no power, load-shedding faults, failed inspections before a deadline — are handled within 24 hours. Members and Estate Agent VIPs get faster tiers: 1-hour emergency response (during service hours) and a 3-hour single-phase CoC turnaround respectively.</p>
       </details>
       <details class="faq-item">
         <summary>Are you licensed and insured?<span class="q-mark">+</span></summary>
-        <p>Yes — Red Seal and Wireman's licensed, with public liability cover up to R5,000,000. Certificates of Compliance are issued for every new or altered installation, as required by law.</p>
+        <p>Yes — Red Seal and Wireman's licensed, with public liability cover up to R5,000,000. Certificates of Compliance are issued for every new or altered installation, as required by law. We'll send copies of your licence and insurance on request. <span class="ph">[Add licence and registration numbers]</span></p>
       </details>
       <details class="faq-item">
         <summary>Do prices include VAT?<span class="q-mark">+</span></summary>
         <p>All prices shown exclude VAT. We'll confirm the VAT-inclusive total on your quote before any work is booked.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can you do a CoC on the same day?<span class="q-mark">+</span></summary>
+        <p>Yes. Book before 10am for an expedited same-day CoC on a single-phase installation (R2,500 flat). If the installation fails, fixes are quoted before we start and the certificate is issued once it is compliant.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do I need a CoC to add solar or a battery?<span class="q-mark">+</span></summary>
+        <p>Yes. Any new or altered electrical installation, including inverters, batteries and panels, needs a Certificate of Compliance. Your insurer and municipality may also ask for it. Every install we do includes one.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What if my CoC inspection fails?<span class="q-mark">+</span></summary>
+        <p>We list what failed and give a fixed price to correct it, often a DB board or surge protection upgrade. Nothing is done without your approval, and the certificate is issued once the installation is compliant.</p>
       </details>
       <details class="faq-item">
         <summary>What areas do you cover?<span class="q-mark">+</span></summary>
@@ -695,15 +1107,12 @@
   <div class="wrap">
     <div class="launch-inner">
       <div>
-        <h2>Launch pricing — first 30 clients</h2>
-        <p>Locked-in rates across every service line above, plus priority booking as we onboard our first clients.</p>
-      </div>
-      <div class="launch-deadline">
-        BOOK BY<br><span style="font-size:1.1rem; color:var(--ink); font-weight:600;">30 SEPTEMBER 2026</span>
+        <h2>Agent Launch: 3 CoCs + 1 audit, R4,500</h2>
+        <p>A fixed-price pack for agents with listings on the go. Message us to set it up.</p>
       </div>
       <div class="cta-group">
         <a class="btn btn-ghost" href="tel:+27764312871">Call</a>
-        <a class="btn btn-primary" href="https://wa.me/27764312871">Claim your slot</a>
+        <a class="btn btn-primary" href="https://wa.me/27764312871?text=Hi%20Voltguard%2C%20I%27d%20like%20the%20Agent%20Launch%20pack%20(3%20CoCs%20%2B%201%20audit).">Book the launch pack</a>
       </div>
     </div>
   </div>
@@ -725,12 +1134,147 @@
       <h4>COVERAGE</h4>
       <p>Sandton · Bryanston · Fourways<br>Rosebank · Parktown · Randburg<br>Rivonia · Morningside<br>+ building sites within 20km</p>
     </div>
+    <div>
+      <h4>POLICIES</h4>
+      <p><button class="linkbtn" data-policy="terms">Terms &amp; quotes</button><br><button class="linkbtn" data-policy="pay">Payment terms</button><br><button class="linkbtn" data-policy="coc">CoC policy</button><br><button class="linkbtn" data-policy="warranty">Warranty &amp; guarantees</button><br><button class="linkbtn" data-policy="cancel">Cancellation</button><br><button class="linkbtn" data-policy="member">Membership &amp; referrals</button><br><button class="linkbtn" data-policy="solar">Solar &amp; battery</button><br><button class="linkbtn" data-policy="legal">Rights &amp; disputes</button><br><button class="linkbtn" data-policy="privacy">Privacy (POPIA)</button></p>
+    </div>
   </div>
   <div class="wrap footer-bottom">
     <span>RED SEAL &amp; WIREMAN'S LICENSED — PUBLIC LIABILITY R5,000,000</span>
-    <span>© 2026 VOLTGUARD ELECTRICAL</span>
+    <span>© 2026 VOLTGUARD ELECTRICAL · Website by <a href="https://caldeny4201.github.io/voltguardweb/">Voltguard Web</a></span>
+  </div>
+  <div class="wrap footer-bottom" style="margin-top:12px;border-top:none;padding-top:0">
+    <span class="ph">[Add company registration number and VAT number, if applicable]</span>
   </div>
 </footer>
 
+<dialog class="policy" id="p-terms" aria-labelledby="t-terms"><div class="pol-head"><h2 id="t-terms">Terms &amp; quotes</h2><button class="pol-x" data-close aria-label="Close">✕</button></div><div class="pol-body"><h3>1. Quotes</h3><ul><li>Fixed quotes are written, valid for 30 days, and exclude VAT (15%) unless stated.</li><li>Prices on this website are indicative ranges. Your firm price is confirmed in a written quote, after a site check where needed.</li><li>A quote covers only the work described in it.</li></ul>
+<h3>2. Changes to scope</h3><ul><li>If we find something that changes the job (hidden damage, non-compliant existing wiring, a roof that cannot carry panels), we stop, explain it and quote the extra work.</li><li>Extra work is only done after you approve it in writing (WhatsApp counts).</li></ul>
+<h3>3. Access and site conditions</h3><ul><li>You must give safe access to the property, DB board, roof and meters, and a responsible adult on site for inspections and handover.</li><li>Delays caused by access, third parties or municipal bodies can move the timeline. We tell you as soon as we know.</li></ul>
+<h3>4. Materials and ownership</h3><ul><li>Equipment we supply remains our property until paid in full.</li><li>Brands may be substituted with equivalent or better products with your approval.</li></ul>
+<h3>5. Our responsibilities</h3><ul><li>All work is done by licensed, registered electricians and meets the applicable SANS 10142-1 wiring code and regulations.</li><li>We carry public liability insurance to R5,000,000.</li></ul>
+<h3>6. Limits</h3><ul><li>We are not liable for pre-existing faults we were not asked to inspect, or for indirect losses such as lost trade or spoiled stock.</li><li>Our liability for any job is limited to the fees paid for it, except where the law does not allow that (for example death, injury or gross negligence).</li><li>Nothing here limits your rights under the Consumer Protection Act.</li></ul><p class="pol-foot">Voltguard Electrical · Last updated October 2026 · Questions: 076 431 2871 or callum@voltguardelectrical.co.za</p></div></dialog>
+<dialog class="policy" id="p-pay" aria-labelledby="t-pay"><div class="pol-head"><h2 id="t-pay">Payment terms</h2><button class="pol-x" data-close aria-label="Close">✕</button></div><div class="pol-body"><h3>1. Milestones</h3><ul><li><b>Jobs under R5,000:</b> 100% on completion.</li><li><b>Jobs R5,000 to R10,000:</b> 50% deposit, 50% on completion.</li><li><b>Jobs over R10,000:</b> 50% deposit, 40% when materials are on site, 10% at final sign-off.</li><li><b>Solar and large projects:</b> 50% deposit, 30% when materials are on site, 20% at final sign-off.</li><li><b>Builders and developers:</b> 50% deposit, 40% on materials delivered, 10% on final sign-off.</li></ul>
+<h3>2. How to pay</h3><ul><li>EFT, cash, or card/QR (Yoco, Zapper). No cheques.</li><li>Banking details appear on your quote or invoice only. Confirm them by phone if anything looks unusual, and never pay to details sent from an unfamiliar number.</li></ul>
+<h3>3. Late payment</h3><ul><li>Invoices are due on the milestone date. We may pause further work and hold back certificates and handover documents until a due milestone is settled.</li></ul>
+<h3>4. Deposits</h3><ul><li>Deposits secure your booking, materials and installer time. Refunds are covered in our Cancellation policy.</li></ul>
+<h3>5. If we are late</h3><ul><li>If we miss an agreed arrival window without notice, that visit is free.</li></ul><p class="pol-foot">Voltguard Electrical · Last updated October 2026 · Questions: 076 431 2871 or callum@voltguardelectrical.co.za</p></div></dialog>
+<dialog class="policy" id="p-coc" aria-labelledby="t-coc"><div class="pol-head"><h2 id="t-coc">Certificate of Compliance (CoC) policy</h2><button class="pol-x" data-close aria-label="Close">✕</button></div><div class="pol-body"><h3>1. What a CoC is</h3><ul><li>A Certificate of Compliance is a legal document, issued by a registered electrician, confirming that an electrical installation meets the electrical installation regulations at the time of inspection.</li><li>It is normally required when a property is sold, and for new or altered installations, including solar, inverters and batteries. Insurers may also ask for one.</li></ul>
+<h3>2. Process and timelines</h3><ul><li>Standard single-phase: 2 to 3 days. 3-phase: 3 to 5 days.</li><li>Priority: 24 hours (single-phase), 48 hours (3-phase). Same-day expedited CoCs need booking before 10am, subject to inspection results.</li><li>VIP agents get a 3-hour single-phase CoC guarantee. The 3 hours run from when we start the inspection with access to the property, and the guarantee applies where the installation passes inspection.</li><li><b>Same-day guarantee:</b> single-phase, booked before 10am, with access on the day and an installation that passes inspection: certificate the same day or R250 off the CoC fee. If it fails, we give you the defect list and fixed price straight away, and the guarantee does not apply to time spent on fixes.</li></ul>
+<h3>3. If the installation fails</h3><ul><li>We give you a written list of defects and a fixed price to correct them. Nothing is done without your approval.</li><li>A certificate is only issued once the installation is compliant. We cannot certify an unsafe installation for any price or deadline.</li><li>Common fixes: old or overcrowded DB boards, missing earth leakage or surge protection, exposed wiring, faulty plugs.</li></ul>
+<h3>4. Re-inspection</h3><ul><li>If a buyer or their inspector flags a fault after our certificate, we re-inspect free within 30 days. After 30 days we still re-inspect free if the fault is one we should have caught at our inspection, within the 12-month warranty and if the installation has not been altered since. Otherwise re-inspection is R350 (free for VIP agents). Fixing a defect we should have caught is always free on the same terms.</li></ul>
+<h3>5. Solar, inverter and battery CoCs</h3><ul><li>Every solar, inverter or battery install we do includes a CoC. Solar-ready CoCs are available from R2,200 if you are adding equipment.</li><li>Grid-tied systems may need registration with your municipality or utility as a small-scale embedded generator (SSEG). We prepare the documents with you, but approval sits with the authority, and timing is outside our control.</li></ul>
+<h3>6. Your responsibilities</h3><ul><li>Tell us about all alterations, extensions and other electricians who worked on the property.</li><li>Keep the certificate safe. It stays valid only for the installation as inspected; later changes need a new certificate.</li></ul><p class="pol-foot">Voltguard Electrical · Last updated October 2026 · Questions: 076 431 2871 or callum@voltguardelectrical.co.za</p></div></dialog>
+<dialog class="policy" id="p-warranty" aria-labelledby="t-warranty"><div class="pol-head"><h2 id="t-warranty">Warranty &amp; guarantees</h2><button class="pol-x" data-close aria-label="Close">✕</button></div><div class="pol-body"><h3>1. Workmanship</h3><ul><li>12-month warranty on labour and parts on every job, from the date of completion.</li><li>DB board upgrades: Standard 24 months, Premium 36 months.</li></ul>
+<h3>2. Our guarantees</h3><ul><li><b>A fault we should have caught:</b> we fix it free.</li><li><b>Municipal inspection failure on work we certified:</b> we fix it free.</li><li>Both apply within the 12-month warranty period, only to work we did or inspected, and only if the installation has not been altered by anyone else since. Defects that already existed and were listed in our defect quote are paid work, quoted and approved before we start.</li><li><b>We are late:</b> you do not pay for that visit.</li><li><b>Fixed quote:</b> no surprise charges.</li></ul>
+<h3>3. Equipment</h3><ul><li>Inverters, batteries and panels also carry the manufacturer's warranty. We help you lodge claims during our 12-month period. After it, claims go through the manufacturer or their agent.</li></ul>
+<h3>4. Not covered</h3><ul><li>Damage from lightning, grid surges without surge protection, flooding, misuse or overloading beyond the designed capacity.</li><li>Work altered or repaired by another party.</li><li>Normal wear, and batteries degrading within the manufacturer's stated tolerance.</li><li>Faults unrelated to our work.</li></ul>
+<h3>5. Making a claim</h3><ul><li>WhatsApp or call us with your invoice details and photos if possible. We respond within 24 hours and, once the claim is accepted, agree an attendance window with you.</li></ul><h3>6. What we do not guarantee</h3><ul><li>Solar output, energy savings or payback periods, which depend on your roof, weather and usage.</li><li>That a particular insurer, bank or municipality will accept a certificate.</li><li>Instant WhatsApp replies. Our 5-minute reply is a target. Plan response times and booked arrival windows are covered by the free-visit promise in our membership and terms.</li></ul><p class="pol-foot">Voltguard Electrical · Last updated October 2026 · Questions: 076 431 2871 or callum@voltguardelectrical.co.za</p></div></dialog>
+<dialog class="policy" id="p-cancel" aria-labelledby="t-cancel"><div class="pol-head"><h2 id="t-cancel">Cancellation &amp; rescheduling</h2><button class="pol-x" data-close aria-label="Close">✕</button></div><div class="pol-body"><h3>1. Rescheduling</h3><ul><li>Free with at least 24 hours notice.</li><li>Later changes, or no access on arrival, may incur a call-out fee of R650 to R850.</li></ul>
+<h3>2. Cancelling before work starts</h3><ul><li>Deposit refunded, less costs already incurred (special-order materials, assessments and travel).</li><li>Custom-ordered solar equipment that cannot be returned to the supplier may be non-refundable, and we tell you this on your quote.</li></ul>
+<h3>3. Cancelling after work starts</h3><ul><li>You pay for work completed and materials supplied or ordered, up to the milestones reached.</li></ul>
+<h3>4. Our cancellations</h3><ul><li>If we cancel, you get a full refund of any deposit for work not done, or a new date at your choice.</li></ul>
+<h3>5. Weather and safety</h3><ul><li>Roof work stops in rain, wind or unsafe conditions. We reschedule at no cost to you.</li></ul>
+<h3>6. Memberships</h3><ul><li>Month-to-month, with a 3-month trial you may cancel anytime. See Membership terms.</li></ul><p class="pol-foot">Voltguard Electrical · Last updated October 2026 · Questions: 076 431 2871 or callum@voltguardelectrical.co.za</p></div></dialog>
+<dialog class="policy" id="p-member" aria-labelledby="t-member"><div class="pol-head"><h2 id="t-member">Membership, VIP &amp; referral terms</h2><button class="pol-x" data-close aria-label="Close">✕</button></div><div class="pol-body"><h3>1. Memberships</h3><ul><li>Homeowner Standard (R450/mo), Premium (R750/mo); Estate Agent VIP (R850/mo); Landlord Lite (R300/mo) and Pro (R800/mo); Commercial plans (Lite R1,500, Standard R2,500, Premium R3,800/mo).</li><li>Month-to-month, no lock-in. Try it for 3 months and cancel anytime. Annual prepay saves 10% or earns free months as advertised.</li><li>Benefits (free call-outs, discounts, response times) apply to standard work during the plan and reset per period. Call-outs are for diagnostics and repairs, not new installs.</li><li>"Unlimited" call-outs apply to the property or sites on your plan, within our service area, and are subject to fair use.</li></ul>
+<h3>2. Savings guarantee</h3><ul><li>Standard homeowner members save R1,500 a year, and Premium R3,000, or we refund the difference. Savings are counted as discounts on labour and parts, free call-outs and the free audit, valued at our standard rates, over your plan year. Fees paid are not counted. The guarantee applies to members who have used the benefits available to them, for example by booking the free annual audit and reporting faults to us. Claim within 30 days after your plan year ends.</li></ul>
+<h3>3. Response times</h3><ul><li>Response times run from when we receive your request during service hours (Mon–Sat, 7am–6pm). If we are late against your plan's response time or an agreed arrival window, that visit is free.</li></ul>
+<h3>4. Referrals</h3><ul><li>Agents earn 10% of the job value on referred clients, rising to 15% at 5+ referrals a month, paid within 7 days of the client paying in full.</li><li>Agents are responsible for disclosing any referral reward to their principal or clients where the law or their agency rules require it.</li><li>Homeowner, landlord and business or body corporate referrals: R200 off for both parties. Member reward tiers: 3 referrals R500 cash, 5 a free month, 10 a free year.</li><li>Developer referrals: R1,000 cash once the referred developer pays their first invoice.</li><li>The referred person must be new to us and must name you at booking. Self-referrals do not qualify.</li></ul>
+<h3>5. Changes and ending</h3><ul><li>We may change plan pricing with 30 days notice. We may end a plan for non-payment or abuse of benefits.</li></ul><p class="pol-foot">Voltguard Electrical · Last updated October 2026 · Questions: 076 431 2871 or callum@voltguardelectrical.co.za</p></div></dialog>
+<dialog class="policy" id="p-privacy" aria-labelledby="t-privacy"><div class="pol-head"><h2 id="t-privacy">Privacy policy (POPIA)</h2><button class="pol-x" data-close aria-label="Close">✕</button></div><div class="pol-body"><h3>1. Who we are</h3><ul><li>Voltguard Electrical is the responsible party under the Protection of Personal Information Act (POPIA). Information officer: Callum, callum@voltguardelectrical.co.za. <span class="ph">[Add your Information Regulator registration details]</span></li></ul>
+<h3>2. What we collect</h3><ul><li>Name, phone number, email, property address, and details of your electrical installation.</li><li>Photos of your DB board and installation, taken with your permission.</li><li>Payment records. We do not store card details.</li><li>WhatsApp messages you send us.</li></ul>
+<h3>3. Why we use it</h3><ul><li>To quote, schedule and complete work, issue certificates, invoice, and provide warranty support.</li><li>To meet legal duties, including keeping CoC records.</li><li>To contact you about your job. We only send marketing if you agree, and you can stop it anytime.</li></ul>
+<h3>4. Who sees it</h3><ul><li>Our electricians and subcontractors working on your job, payment providers, and authorities when the law requires (for example SSEG registration or municipal submissions).</li><li>We do not sell your information.</li></ul>
+<h3>5. Keeping it safe and how long</h3><ul><li>Information is held securely and kept as long as needed for warranty, legal and tax purposes, then deleted or anonymised.</li></ul>
+<h3>6. Your rights</h3><ul><li>You may ask to see, correct or delete your information, or object to its use, by emailing us.</li><li>You may complain to the Information Regulator (inforeg.org.za) if you believe your rights were breached.</li></ul>
+<h3>7. If something goes wrong</h3><ul><li>If personal information is breached, we notify the Information Regulator and affected people as POPIA requires.</li></ul><h3>8. Website and WhatsApp</h3><ul><li>This website does not use tracking cookies or collect data itself. WhatsApp buttons open a chat in the WhatsApp app, subject to WhatsApp's own privacy terms.</li></ul><p class="pol-foot">Voltguard Electrical · Last updated October 2026 · Questions: 076 431 2871 or callum@voltguardelectrical.co.za</p></div></dialog>
+<dialog class="policy" id="p-solar" aria-labelledby="t-solar"><div class="pol-head"><h2 id="t-solar">Solar &amp; battery policy</h2><button class="pol-x" data-close aria-label="Close">✕</button></div><div class="pol-body"><h3>1. Site assessment</h3><ul><li>We check your roof, DB board, earthing and existing wiring before a firm quote. Panels need a roof that can safely carry them, and some DB boards must be upgraded first. If so, we say so in the quote.</li></ul>
+<h3>2. Sizing and what runs</h3><ul><li>We size the system to the appliances you want running. Heavy loads (geyser, stove, aircon) drain batteries fast. We advise on what to run at once and may recommend load management or a larger system.</li><li>Backup time depends on battery size, load and state of charge, so we quote an estimate, not a guarantee.</li></ul>
+<h3>3. Output and savings</h3><ul><li>We do not guarantee solar output, savings or payback. Weather, shading, roof direction and usage all change results.</li></ul>
+<h3>4. Approvals (SSEG)</h3><ul><li>Grid-tied systems may need registration with your municipality or utility. We prepare the documents with you. Approval, fees and timing sit with the authority.</li><li>Some systems must not feed the grid until approved, and we tell you when that applies.</li></ul>
+<h3>5. Certificate and handover</h3><ul><li>Every install includes a Certificate of Compliance, a handover walk-through, monitoring app setup and a written maintenance plan.</li></ul>
+<h3>6. Warranty</h3><ul><li>12 months on our labour and parts. Inverters, batteries and panels also carry the manufacturer's warranty, and we help with claims in our first 12 months.</li></ul>
+<h3>7. Your responsibilities</h3><ul><li>Tell your insurer about the system, keep the monitoring connected, and do not let others alter it. Alterations by third parties void our warranty.</li></ul><p class="pol-foot">Voltguard Electrical · Last updated October 2026 · Questions: 076 431 2871 or callum@voltguardelectrical.co.za</p></div></dialog>
+<dialog class="policy" id="p-legal" aria-labelledby="t-legal"><div class="pol-head"><h2 id="t-legal">Your rights, complaints &amp; disputes</h2><button class="pol-x" data-close aria-label="Close">✕</button></div><div class="pol-body"><h3>1. Business and VAT details</h3><ul><li>Our registration details, VAT status and electrician registration numbers appear on every quote and invoice. Prices exclude VAT (15%) unless stated.</li></ul>
+<h3>2. Complaints</h3><ul><li>Message or email us with what went wrong. We acknowledge within 24 hours, propose a fix within 3 working days, and Callum personally reviews any complaint that is not resolved.</li></ul>
+<h3>3. Disputes</h3><ul><li>Raise it with us directly first (WhatsApp or email). If we cannot agree, we will try mediation before either side goes to court. South African law governs our agreements.</li></ul>
+<h3>4. Consumer Protection Act</h3><ul><li>Your rights under the CPA apply in full, including the implied warranty of quality (section 56) and, where a sale results from direct marketing, a 5 business day cooling-off period (section 16). Nothing in our terms limits them.</li></ul>
+<h3>5. Subcontractors</h3><ul><li>Some work may be done by licensed subcontractors under our supervision. We remain your single point of contact and stay responsible for the work. A CoC is always signed by the registered person responsible for that work.</li></ul>
+<h3>6. Events outside our control</h3><ul><li>Neither side is liable for delays caused by events outside reasonable control: severe weather, load-shedding or grid failure, municipal strikes or delays, supplier failures, or unsafe site conditions. We tell you as soon as we know and reschedule at no extra cost.</li></ul><p class="pol-foot">Voltguard Electrical · Last updated October 2026 · Questions: 076 431 2871 or callum@voltguardelectrical.co.za</p></div></dialog>
+<script>
+var M="both",C=document.querySelectorAll("#chips .chip"),MC=document.querySelectorAll("#modes .chip"),PK=document.querySelectorAll("#packs .pack");
+var INV=[{m:3,n:"Inverter 3kVA",s:"Runs lights, Wi-Fi and a fridge. Needs a battery to work in an outage.",p:"R15,000 to R22,000"},{m:6,n:"Inverter 5kVA",s:"Runs most homes. Needs a battery to work in an outage.",p:"R25,000 to R35,000"},{m:99,n:"Inverter 8kVA",s:"Runs a geyser, stove and aircon. Needs a battery to work in an outage.",p:"R38,000 to R52,000"}];
+var BAT=[{m:3,n:"Battery 5kWh",s:"About 4 hours of essentials, for your existing inverter.",p:"R20,000 to R28,000"},{m:6,n:"Battery 10kWh",s:"A full evening, for your existing inverter.",p:"R38,000 to R52,000"},{m:99,n:"Battery 15kWh",s:"Through the night, for your existing inverter.",p:"R55,000 to R72,000"}];
+var B=[{m:3,n:"Essential backup",s:"3kVA inverter, 5kWh battery",p:"R35,000 to R48,000"},{m:6,n:"Home comfort",s:"5kVA inverter, 5kWh battery",p:"R45,000 to R63,000"},{m:99,n:"Large backup",s:"8kVA inverter, 10kWh battery. Heavy loads drain the battery fast, so we'll advise on what to run at once.",p:"R70,000 to R95,000"}];
+var BH={n:"Home comfort plus",s:"5kVA inverter, 10kWh battery. A bigger battery so a geyser, stove or aircon doesn't flatten it.",p:"R62,000 to R85,000"};
+var S=[{m:3,n:"Solar starter",s:"3kVA inverter, 5kWh battery, 6 panels (3.3kWp)",p:"R58,000 to R75,000"},{m:6,n:"Solar hybrid",s:"5kW hybrid inverter, 5kWh battery, 6 panels (3.3kWp)",p:"R65,000 to R85,000"},{m:99,n:"Whole home solar",s:"8kVA inverter, 10kWh battery, 10 panels (5.5kWp)",p:"R110,000 to R145,000"}];
+var SH={n:"Solar hybrid plus",s:"5kW hybrid inverter, 10kWh battery, 10 panels (5.5kWp)",p:"R95,000 to R125,000"};
+var SET={inv:INV,bat:BAT,both:B,solar:S};
+function upd(){var w=0,l=[],h=false;
+C.forEach(function(c){if(c.getAttribute("aria-pressed")==="true"){w+=+c.dataset.w;l.push(c.textContent);if(c.dataset.h)h=true}});
+var t=SET[M].find(function(x){return w<=x.m});
+if(h&&w<=6){if(M==="both")t=BH;if(M==="solar")t=SH}
+var sp=t.s+(w>=12?" Everything at once is about 10kW, so we'd add load management or a larger system.":"");
+mName.textContent=t.n;mSpec.textContent=sp;mPrice.textContent=t.p+" excl. VAT";
+mBtn.href="https://wa.me/27764312871?text="+encodeURIComponent("Hi Voltguard, I want to keep running: "+l.join(", ")+". Your site suggested "+t.n+" ("+t.p+"). Can I get a quote?")}
+C.forEach(function(c){c.addEventListener("click",function(){if(c.disabled)return;clr();c.setAttribute("aria-pressed",c.getAttribute("aria-pressed")==="true"?"false":"true");upd()})});
+MC.forEach(function(b){b.addEventListener("click",function(){clr();M=b.dataset.m;MC.forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});upd()})});
+var P={lights:{m:"both",w:["Lights and Wi-Fi","Fridge and freezer"]},home:{m:"both",w:["Lights and Wi-Fi","Fridge and freezer","TV and laptops","Pool pump"]},solar:{m:"solar",w:["Lights and Wi-Fi","Fridge and freezer","TV and laptops","Pool pump"]}};
+function clr(){PK.forEach(function(p){p.setAttribute("aria-pressed","false")})}
+function pick(k){var p=P[k];M=p.m;
+MC.forEach(function(x){x.setAttribute("aria-pressed",x.dataset.m===M?"true":"false")});
+C.forEach(function(c){c.setAttribute("aria-pressed",c.disabled||p.w.indexOf(c.textContent)>-1?"true":"false")});
+PK.forEach(function(x){x.setAttribute("aria-pressed",x.dataset.k===k?"true":"false")});upd()}
+PK.forEach(function(p){p.addEventListener("click",function(){pick(p.dataset.k)})});
+document.getElementById("unsure").href="https://wa.me/27764312871?text="+encodeURIComponent("Hi Voltguard, I'm not sure what system I need. Can you recommend one?");
+(function(){
+  var st={},box=document.getElementById("quickCoc");if(!box)return;
+  var out=document.getElementById("qcPrice"),send=document.getElementById("qcSend"),sub=document.getElementById("qcSuburb");
+  var PR={"Single-phase":{"Today (book before 10am)":"R2,500 flat (same-day)","Within 24 hours":"R2,200 (priority, 24hr)","2–5 days":"R1,200–R1,800 (2–3 days)"},"3-phase":{"Today (book before 10am)":"R5,500 flat (same-day)","Within 24 hours":"R5,000 (priority 3-phase is 48hr)","2–5 days":"R3,500–R5,500 (3–5 days)"}};
+  function upd(){
+    var t="";
+    if(st.prop==="Commercial")t="Commercial CoCs are quoted per site. We'll confirm on WhatsApp.";
+    else if(PR[st.phase]&&st.when)t="Indicative: "+PR[st.phase][st.when]+", excl. VAT";
+    else if(st.phase==="Not sure"&&st.when)t="We'll confirm your supply on WhatsApp. Single-phase starts from R1,200, excl. VAT.";
+    else t="Tap your options for an indicative price.";
+    out.textContent=t;
+    var m="Hi Voltguard, I need a CoC.";
+    if(st.prop)m+=" Property: "+st.prop+".";
+    if(st.phase)m+=" Supply: "+st.phase+".";
+    if(st.when)m+=" When: "+st.when+".";
+    if(sub.value.trim())m+=" Suburb: "+sub.value.trim()+".";
+    send.href="https://wa.me/27764312871?text="+encodeURIComponent(m);
+  }
+  box.querySelectorAll(".qc-group").forEach(function(g){
+    g.querySelectorAll("button").forEach(function(b){b.setAttribute("aria-pressed","false");b.addEventListener("click",function(){
+      g.querySelectorAll("button").forEach(function(x){x.setAttribute("aria-pressed","false")});
+      b.setAttribute("aria-pressed","true");st[g.dataset.k]=b.textContent;upd();});});
+  });
+  sub.addEventListener("input",upd);
+})();
+(function(){
+  var f=document.getElementById("reqForm");if(!f)return;
+  var st={},send=document.getElementById("reqSend"),call=document.getElementById("reqCall"),sub=document.getElementById("reqSuburb"),note=document.getElementById("reqNote");
+  function upd(){
+    var m,N={"DB board":"a DB board","Surge protection":"surge protection","Call-out / repair":"a call-out or repair","Solar / battery":"solar or a battery","Other":"help with an electrical job"};
+    m="Hi Voltguard, I need "+(N[st.need]||"an electrician")+".";
+    if(st.who)m+=" Who I am: "+st.who+".";
+    if(st.urg)m+=" Urgency: "+st.urg+".";
+    if(sub.value.trim())m+=" Suburb: "+sub.value.trim()+".";
+    if(note.value.trim())m+=" Note: "+note.value.trim();
+    send.href="https://wa.me/27764312871?text="+encodeURIComponent(m);
+    call.hidden=st.urg!=="Emergency (no power)";
+  }
+  f.querySelectorAll(".qc-group").forEach(function(g){
+    g.querySelectorAll("button").forEach(function(b){b.setAttribute("aria-pressed","false");b.addEventListener("click",function(){
+      g.querySelectorAll("button").forEach(function(x){x.setAttribute("aria-pressed","false")});
+      b.setAttribute("aria-pressed","true");st[g.dataset.k]=b.textContent;upd();});});
+  });
+  sub.addEventListener("input",upd);note.addEventListener("input",upd);
+})();
+document.querySelectorAll("[data-policy]").forEach(function(b){b.addEventListener("click",function(){document.getElementById("p-"+b.dataset.policy).showModal()})});
+document.querySelectorAll("dialog.policy").forEach(function(d){d.addEventListener("click",function(e){if(e.target===d)d.close()});d.querySelector("[data-close]").addEventListener("click",function(){d.close()})});
+pick("home");
+</script>
 </body>
 </html>
