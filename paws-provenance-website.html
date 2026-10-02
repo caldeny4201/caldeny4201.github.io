@@ -1,0 +1,1131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Paws &amp; Provenance Collective</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: announcement bar, sticky header, editorial hero beside a founding-member offer panel, then deals, meal plans, shop, membership, referrals, visit, FAQ. Waitlist and policies open as modals. Field gear meets apothecary. */
+:root {
+  --bg: #ecede7;
+  --surface: #f6f7f2;
+  --fg: #16201b;
+  --muted: #55625a;
+  --line: #c9cdc3;
+  --accent: #1f4d3a;
+  --accent-fg: #f3f6f1;
+  --signal: #8a5d0c;
+  --danger: #a1301f;
+  --focus: #1f4d3a;
+  --ad-bg: #1f4d3a;
+  --ad-fg: #f3f6f1;
+  --ad-sub: #bfd6c8;
+  --ad-hot: #e6b655;
+  --scrim: rgba(15, 22, 18, 0.58);
+  --font-display: "Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1612;
+    --surface: #17211c;
+    --fg: #e5e9e1;
+    --muted: #9aa89f;
+    --line: #2c3a33;
+    --accent: #86c7a1;
+    --accent-fg: #0d1a13;
+    --signal: #d9a441;
+    --danger: #f0907e;
+    --focus: #86c7a1;
+    --ad-bg: #1d3a2c;
+    --ad-fg: #e8eee6;
+    --ad-sub: #a9c4b3;
+    --ad-hot: #e6b655;
+    --scrim: rgba(0, 0, 0, 0.7);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1612;
+  --surface: #17211c;
+  --fg: #e5e9e1;
+  --muted: #9aa89f;
+  --line: #2c3a33;
+  --accent: #86c7a1;
+  --accent-fg: #0d1a13;
+  --signal: #d9a441;
+  --danger: #f0907e;
+  --focus: #86c7a1;
+  --ad-bg: #1d3a2c;
+  --ad-fg: #e8eee6;
+  --ad-sub: #a9c4b3;
+  --ad-hot: #e6b655;
+  --scrim: rgba(0, 0, 0, 0.7);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 16px; line-height: 1.55; }
+h1, h2, h3, h4, p, ul, ol, dl, dd { margin: 0; }
+h1, h2, h3, h4 { font-family: var(--font-display); text-wrap: balance; letter-spacing: -0.01em; }
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.wrap { max-width: 1120px; margin-inline: auto; padding-inline: clamp(16px, 4vw, 48px); }
+.mono { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+.muted { color: var(--muted); }
+.fine { color: var(--muted); font-size: 13px; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* buttons */
+.btn {
+  font: inherit; font-family: var(--font-display); font-weight: 600; font-size: 16px;
+  padding: 12px 18px; border-radius: 4px; border: 1px solid var(--accent);
+  background: var(--accent); color: var(--accent-fg); cursor: pointer;
+  text-align: center; text-decoration: none; display: inline-block; line-height: 1.2;
+}
+.btn:hover { filter: brightness(1.08); }
+.btn.ghost { background: transparent; color: var(--accent); }
+.btn.light { background: var(--ad-fg); color: var(--ad-bg); border-color: var(--ad-fg); }
+.btn.small { font-size: 14px; padding: 8px 12px; }
+.linkbtn { font: inherit; background: none; border: 0; padding: 0; color: var(--accent); text-decoration: underline; cursor: pointer; text-align: left; }
+
+/* announcement */
+.announce { background: var(--ad-bg); color: var(--ad-fg); }
+.announce .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 16px; padding-block: 9px; font-size: 14px; text-align: center; }
+.announce b { color: var(--ad-hot); font-weight: 600; }
+.announce .linkbtn { color: var(--ad-fg); font-weight: 600; }
+
+/* header */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--bg); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 20px; padding-block: 12px; }
+.wordmark { font-family: var(--font-display); font-weight: 700; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--fg); }
+.wordmark span { font-family: var(--font-mono); font-weight: 400; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-left: 8px; }
+.nav { display: flex; gap: 20px; font-size: 14px; font-weight: 500; }
+.nav a { color: var(--fg); text-decoration: none; white-space: nowrap; }
+.nav a:hover { color: var(--accent); text-decoration: underline; }
+section[id] { scroll-margin-top: 96px; }
+
+/* hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: clamp(28px, 5vw, 64px); align-items: stretch; padding-block: clamp(32px, 6vw, 72px) 0; }
+.hero-copy { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+h1 { font-size: clamp(36px, 6.4vw, 70px); line-height: 1.01; font-weight: 700; }
+.lede { font-size: 18px; max-width: 54ch; color: var(--muted); }
+.lede strong { color: var(--fg); font-weight: 600; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.cta-row .btn { padding: 14px 22px; font-size: 17px; }
+.spec { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); margin: 0; }
+.spec div { padding: 12px 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.spec div:nth-child(odd) { padding-right: 16px; }
+.spec dt { color: var(--muted); }
+.spec dd { margin: 2px 0 0; font-family: var(--font-display); font-weight: 600; font-size: 18px; }
+
+.offer-card { background: var(--ad-bg); color: var(--ad-fg); border-radius: 6px; padding: clamp(20px, 3vw, 32px); display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.offer-card .mono { color: var(--ad-hot); }
+.offer-card .big { font-family: var(--font-display); font-weight: 700; font-size: clamp(72px, 12vw, 120px); line-height: 0.85; letter-spacing: -0.04em; }
+.offer-card .big small { font-size: 0.28em; letter-spacing: 0; margin-left: 6px; font-weight: 600; }
+.offer-card h2 { font-size: 24px; line-height: 1.15; }
+.offer-card p { color: var(--ad-sub); font-size: 15px; }
+.ticks { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 15px; }
+.ticks li { padding-left: 22px; position: relative; }
+.ticks li::before { content: ""; position: absolute; left: 2px; top: 0.5em; width: 10px; height: 6px; border-left: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg) translateY(-3px); }
+
+/* sections */
+section.block { padding-top: clamp(56px, 9vw, 104px); }
+.block-head { display: flex; flex-direction: column; gap: 8px; margin-bottom: 26px; }
+.block-head h2 { font-size: clamp(28px, 4.4vw, 44px); line-height: 1.06; max-width: 24ch; }
+.block-head p.sub { color: var(--muted); max-width: 60ch; }
+.block-head .mono { color: var(--accent); }
+
+/* why strip */
+.why { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-top: clamp(40px, 6vw, 72px); }
+.why div { padding: 18px 18px 18px 0; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.why div + div { padding-left: 18px; border-left: 1px solid var(--line); }
+.why b { font-family: var(--font-display); font-size: 20px; line-height: 1.15; }
+.why span { color: var(--muted); font-size: 14px; }
+
+/* deals */
+.deals { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.deal { display: grid; grid-template-columns: minmax(120px, 190px) minmax(0, 1fr) auto; gap: 8px clamp(16px, 3vw, 40px); align-items: center; padding: 26px 0; border-bottom: 1px solid var(--line); }
+.deal .big { font-family: var(--font-display); font-weight: 700; font-size: clamp(46px, 7vw, 76px); line-height: 0.9; letter-spacing: -0.03em; }
+.deal .big small { display: block; font-family: var(--font-mono); font-weight: 400; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+.deal .body { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.deal h3 { font-size: 22px; line-height: 1.15; }
+.deal p { color: var(--muted); max-width: 58ch; }
+.deal .cta { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+.deal.hot { background: var(--ad-bg); color: var(--ad-fg); padding-inline: clamp(16px, 3vw, 32px); border-radius: 6px; border-bottom: 0; margin-bottom: 1px; }
+.deal.hot .big small { color: var(--ad-hot); }
+.deal.hot p, .deal.hot .fine { color: var(--ad-sub); }
+.badge { display: inline-block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; border: 1px solid var(--signal); color: var(--signal); width: fit-content; }
+.deal.hot .badge { border-color: var(--ad-hot); color: var(--ad-hot); }
+
+/* plan calculator */
+.plan-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(20px, 4vw, 48px); align-items: start; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: clamp(18px, 3vw, 28px); min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.panel h3 { font-size: 22px; }
+fieldset.field { border: 0; padding: 0; margin: 0; min-width: 0; }
+.field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.field label, .field legend { font-size: 13px; font-weight: 600; }
+.opt { font-weight: 400; color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.chip { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; font-size: 14px; font-weight: 500; background: var(--bg); border: 1px solid var(--line); border-radius: 4px; cursor: pointer; }
+.chip input { accent-color: var(--accent); margin: 0; }
+.chip:has(input:checked) { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, var(--bg)); }
+.chip small { color: var(--muted); font-weight: 400; }
+.quote { display: flex; flex-direction: column; gap: 10px; }
+.quote .line { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+.quote .line span:first-child { color: var(--muted); font-size: 14px; }
+.quote .price { font-family: var(--font-display); font-weight: 700; font-size: 26px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.quote .price.big { font-size: 38px; color: var(--accent); }
+.quote .price small { font-size: 14px; font-weight: 500; color: var(--muted); }
+.save { color: var(--signal); font-weight: 600; font-size: 14px; }
+.tablewrap { overflow-x: auto; margin-top: 28px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 15px; }
+th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+th { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
+tr:last-child td { border-bottom: 0; }
+tr.sel td { background: color-mix(in srgb, var(--accent) 10%, var(--surface)); font-weight: 600; }
+td.hl { color: var(--accent); font-weight: 600; }
+
+/* shop */
+.shop { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.item { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.item h3 { font-size: 20px; line-height: 1.2; }
+.item p { color: var(--muted); font-size: 15px; flex: 1; }
+.item .pr { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; font-variant-numeric: tabular-nums; }
+.item .pr b { font-family: var(--font-display); font-size: 24px; }
+.item .pr s { color: var(--muted); font-size: 14px; }
+.item .pr em { font-style: normal; font-size: 13px; color: var(--signal); font-weight: 600; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 7px; border: 1px solid var(--line); border-radius: 3px; color: var(--muted); }
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(24px, 5vw, 64px); margin-top: clamp(36px, 6vw, 64px); }
+.list h3 { font-size: 22px; margin-bottom: 4px; }
+.list .row { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.list .row div { min-width: 0; }
+.list .row b { font-weight: 600; display: block; }
+.list .row span { color: var(--muted); font-size: 14px; }
+.list .row .p { font-family: var(--font-display); font-weight: 700; font-size: 18px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.list { border-top: 0; }
+
+/* membership */
+.tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
+.tier { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.tier h3 { font-size: 24px; }
+.tier .price { font-family: var(--font-display); font-weight: 700; font-size: 36px; font-variant-numeric: tabular-nums; line-height: 1; }
+.tier .price small { font-size: 14px; font-weight: 500; opacity: 0.75; }
+.tier .alt { font-size: 14px; color: var(--muted); margin-top: -6px; }
+.tier .ticks { flex: 1; }
+.tier.feature { border-color: var(--accent); }
+.tier.founding { background: var(--ad-bg); color: var(--ad-fg); border-color: var(--ad-bg); }
+.tier.founding .alt { color: var(--ad-sub); }
+.tier.founding .badge { border-color: var(--ad-hot); color: var(--ad-hot); }
+
+/* referrals */
+.ladder { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 3vw, 32px); margin-top: 28px; }
+.rung { border-top: 2px solid var(--fg); padding-top: 14px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.rung .n { font-family: var(--font-display); font-size: 40px; font-weight: 700; line-height: 1; }
+.rung .n small { font-size: 14px; font-weight: 500; color: var(--muted); margin-left: 6px; }
+.rung p { color: var(--muted); font-size: 15px; }
+.steps { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 3vw, 32px); counter-reset: s; }
+.steps li { counter-increment: s; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.steps li::before { content: "Step " counter(s); font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.steps h3 { font-size: 20px; }
+.steps p { color: var(--muted); font-size: 15px; }
+
+/* promise */
+.promise { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(24px, 5vw, 64px); border-top: 1px solid var(--line); }
+.promise > div { padding: 20px 0; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.promise h3 { font-size: 20px; }
+.promise p { color: var(--muted); font-size: 15px; }
+
+/* visit */
+.zones { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.zone { border-left: 3px solid var(--accent); padding: 4px 0 4px 16px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.zone h3 { font-size: 20px; }
+.zone p { color: var(--muted); font-size: 15px; }
+
+/* faq */
+.faq { border-top: 1px solid var(--line); }
+details { border-bottom: 1px solid var(--line); }
+summary { cursor: pointer; padding: 16px 0; font-family: var(--font-display); font-weight: 600; font-size: 18px; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font-family: var(--font-mono); color: var(--accent); }
+details[open] summary::after { content: "\2212"; }
+details p { padding: 0 0 18px; color: var(--muted); max-width: 70ch; }
+
+/* final ad */
+.final { background: var(--ad-bg); color: var(--ad-fg); border-radius: 6px; padding: clamp(28px, 5vw, 56px); display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; margin-top: clamp(56px, 9vw, 104px); }
+.final h2 { font-size: clamp(28px, 4.6vw, 46px); line-height: 1.05; max-width: 20ch; }
+.final p { color: var(--ad-sub); margin-top: 10px; max-width: 46ch; }
+.final .mono { color: var(--ad-hot); margin-bottom: 8px; display: block; }
+
+/* footer */
+footer { margin-top: clamp(48px, 8vw, 88px); border-top: 1px solid var(--line); padding-block: 32px 48px; }
+.foot { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); gap: 28px; }
+.foot h4 { font-family: var(--font-mono); font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.foot ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 15px; }
+.foot a { color: var(--fg); text-decoration: none; }
+.foot a:hover, .foot .linkbtn:hover { text-decoration: underline; }
+.foot .linkbtn { color: var(--fg); text-decoration: none; }
+.numline { font-family: var(--font-mono); font-size: 17px; user-select: all; }
+.copybtn { font: inherit; font-size: 13px; background: none; border: 1px solid var(--line); color: var(--fg); border-radius: 4px; padding: 5px 9px; cursor: pointer; margin-left: 8px; }
+.legal { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); }
+
+/* modals */
+.modal { position: fixed; inset: 0; z-index: 50; background: var(--scrim); display: flex; align-items: center; justify-content: center; padding: calc(16px + env(safe-area-inset-top, 0px)) 16px calc(16px + env(safe-area-inset-bottom, 0px)); }
+#docModal { z-index: 60; }
+.sheet { background: var(--surface); color: var(--fg); border: 1px solid var(--line); border-radius: 8px; width: min(640px, 100%); max-height: 100%; overflow-y: auto; padding: clamp(18px, 3vw, 30px); display: flex; flex-direction: column; gap: 16px; }
+.sheet:focus { outline: none; }
+.sheet-head { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; }
+.sheet-head h2 { font-size: 26px; line-height: 1.12; }
+.xbtn { font: inherit; font-size: 14px; background: none; border: 1px solid var(--line); color: var(--fg); border-radius: 4px; padding: 6px 10px; cursor: pointer; flex: none; }
+.doc h3 { font-size: 18px; margin: 18px 0 6px; }
+.doc p, .doc li { color: var(--muted); font-size: 15px; }
+.doc p + p { margin-top: 8px; }
+.doc ul { padding-left: 20px; display: flex; flex-direction: column; gap: 4px; margin-top: 6px; }
+.doc strong { color: var(--fg); font-weight: 600; }
+.sheet form { display: flex; flex-direction: column; gap: 16px; }
+input[type="text"], input[type="tel"], select, textarea.msg {
+  width: 100%; font: inherit; font-size: 16px; color: var(--fg); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 4px; padding: 11px 12px;
+}
+input::placeholder { color: var(--muted); opacity: 0.8; }
+.row2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.err { color: var(--danger); font-size: 13px; min-height: 1.2em; }
+.ctx { background: color-mix(in srgb, var(--accent) 10%, var(--surface)); border: 1px solid var(--accent); border-radius: 4px; padding: 10px 12px; font-size: 14px; }
+.consent { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--muted); }
+.consent input { accent-color: var(--accent); margin-top: 4px; flex: none; }
+textarea.msg { min-height: 170px; font-family: var(--font-mono); font-size: 13px; line-height: 1.5; resize: vertical; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.actions > * { flex: 1 1 170px; }
+.note { color: var(--signal); font-size: 14px; font-weight: 500; min-height: 1.2em; }
+.codebox { border: 1px dashed var(--accent); border-radius: 6px; padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+.codebox .code { font-family: var(--font-mono); font-size: 22px; letter-spacing: 0.06em; user-select: all; color: var(--accent); }
+
+@media (max-width: 900px) {
+  .hero, .plan-grid, .two { grid-template-columns: minmax(0, 1fr); }
+  .tiers, .ladder, .steps { grid-template-columns: minmax(0, 1fr); }
+  .why { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .why div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .why div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .foot { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .deal { grid-template-columns: minmax(0, 1fr); }
+  .deal .cta { flex-direction: row; align-items: center; flex-wrap: wrap; }
+}
+@media (max-width: 720px) {
+  .top .wrap { gap: 10px; }
+  .nav { order: 3; width: 100%; overflow-x: auto; padding-bottom: 4px; }
+  section[id] { scroll-margin-top: 120px; }
+  .promise, .zones { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 480px) {
+  .row2, .spec { grid-template-columns: minmax(0, 1fr); }
+  .spec div:nth-child(odd) { padding-right: 0; }
+  .why { grid-template-columns: minmax(0, 1fr); }
+  .why div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  .foot { grid-template-columns: minmax(0, 1fr); }
+  .cta-row .btn { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+</style>
+
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="announce">
+  <div class="wrap">
+    <span><b>Founding waitlist:</b> 20% off your first 3 months. Opening week: 15% off gear. Refer a friend: R100 each.</span>
+    <button class="linkbtn" type="button" data-wl>Join the waitlist</button>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="wordmark" href="#top">Paws &amp; Provenance<span>Collective</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#deals">Deals</a>
+      <a href="#plans">Meal plans</a>
+      <a href="#shop">Shop</a>
+      <a href="#membership">Membership</a>
+      <a href="#referrals">Referrals</a>
+      <a href="#visit">Visit</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <button class="btn small" type="button" data-wl>Join waitlist</button>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <div class="hero">
+    <div class="hero-copy">
+      <p class="mono" style="color:var(--accent)">Opening soon · Sandton, Johannesburg</p>
+      <h1>Fresh food, field gear and recovery for dogs that work for a living.</h1>
+      <p class="lede">A pet wellness hub for Sandton, Dainfern and Steyn City. <strong>Human-grade meals cooked in front of you</strong>, a clinical supplement counter, tactical gear we design ourselves, and a hydro-suite for conditioning and rehab.</p>
+      <div class="cta-row">
+        <button class="btn" type="button" data-wl>Join the waitlist</button>
+        <a class="btn ghost" href="#plans">See launch prices</a>
+      </div>
+      <p class="fine">No card needed. No commitment. We WhatsApp you when the doors open.</p>
+      <dl class="spec">
+        <div><dt class="mono muted">Proteins</dt><dd>Venison · Ostrich · Beef</dd></div>
+        <div><dt class="mono muted">Harness fabric</dt><dd>1050D ballistic nylon</dd></div>
+        <div><dt class="mono muted">Cold chain</dt><dd>Solar and battery backed</dd></div>
+        <div><dt class="mono muted">Built for</dt><dd>Highveld winters</dd></div>
+      </dl>
+    </div>
+
+    <aside class="offer-card" aria-label="Founding member offer">
+      <p class="mono">Founding member deal</p>
+      <div class="big num">20%<small>off</small></div>
+      <h2>Your first 3 months of fresh meals</h2>
+      <p>For everyone on the waitlist when we open. One plan per household.</p>
+      <ul class="ticks">
+        <li>Free delivery on your first month</li>
+        <li>First access to launch gear drops</li>
+        <li>Founding Alpha Pack price, first 100 members</li>
+        <li>R100 credit for every friend who joins</li>
+      </ul>
+      <button class="btn light" type="button" data-wl data-interest="Fresh meals,Founding Alpha Pack" data-plan="Founding member deal">Claim my founding spot</button>
+    </aside>
+  </div>
+
+  <div class="why">
+    <div><b>Human-grade</b><span>Cooked in an open glass kitchen you can watch.</span></div>
+    <div><b>Local protein</b><span>South African abattoirs and organic co-ops.</span></div>
+    <div><b>Power-cut proof</b><span>Solar and storage keep the cold chain running.</span></div>
+    <div><b>Compostable</b><span>Packaging for every fresh meal batch.</span></div>
+  </div>
+
+  <!-- DEALS -->
+  <section class="block" id="deals" aria-labelledby="dealsH">
+    <div class="block-head">
+      <p class="mono">Launch deals</p>
+      <h2 id="dealsH">Four ways to start for less</h2>
+      <p class="sub">Every deal starts on the waitlist. Join once and we apply what you qualify for when we open.</p>
+    </div>
+    <div class="deals">
+      <div class="deal hot">
+        <div class="big num">20%<small>off 3 months</small></div>
+        <div class="body">
+          <span class="badge">Waitlist only</span>
+          <h3>Founding member pricing</h3>
+          <p>Your first three months of fresh meals at a fifth off, plus free delivery for the first month. The same pet, the same plan, a smaller bill while you see the difference.</p>
+        </div>
+        <div class="cta"><button class="btn light" type="button" data-wl data-interest="Fresh meals" data-plan="Founding member pricing">Join the waitlist</button></div>
+      </div>
+      <div class="deal">
+        <div class="big num">R149<small>trial box, from</small></div>
+        <div class="body">
+          <span class="badge">Low-risk start</span>
+          <h3>Three-day trial box</h3>
+          <p>Try the food before you subscribe. The full price of your trial box is credited to your first monthly plan, so you lose nothing if you stay.</p>
+        </div>
+        <div class="cta"><button class="btn ghost" type="button" data-wl data-interest="Trial box" data-plan="Three-day trial box">Reserve a trial box</button></div>
+      </div>
+      <div class="deal">
+        <div class="big num">R100<small>per friend</small></div>
+        <div class="body">
+          <span class="badge">Referrals</span>
+          <h3>Refer a friend, you both save</h3>
+          <p>Your friend gets R100 off their first order. You get R100 credit for each friend, up to R500, with bonus rewards at 3 and 5 friends.</p>
+        </div>
+        <div class="cta"><a class="btn ghost" href="#referrals">How it works</a></div>
+      </div>
+      <div class="deal">
+        <div class="big num">15%<small>off gear, week one</small></div>
+        <div class="body">
+          <span class="badge">Opening week</span>
+          <h3>Opening week discounts</h3>
+          <p>Waitlist members save 15% on Kinetic Shield gear and 10% at the Apothecary in our first week. Everyone else gets 10% on gear.</p>
+        </div>
+        <div class="cta"><a class="btn ghost" href="#shop">See the gear</a></div>
+      </div>
+    </div>
+    <p class="fine" style="margin-top:14px">Launch pricing is a draft and may change before we open. Full conditions in the <button class="linkbtn" type="button" data-doc="waitlist">waitlist and referral terms</button>.</p>
+  </section>
+
+  <!-- MEAL PLANS -->
+  <section class="block" id="plans" aria-labelledby="plansH">
+    <div class="block-head">
+      <p class="mono">Fresh meal plans</p>
+      <h2 id="plansH">Priced by your pet's size</h2>
+      <p class="sub">Flash-frozen, vacuum-sealed daily portions, set to weight, age and activity. Pick a size to see your launch price.</p>
+    </div>
+    <div class="plan-grid">
+      <div class="panel">
+        <fieldset class="field">
+          <legend>Who are we feeding?</legend>
+          <div class="chips" id="sizeChips">
+            <label class="chip"><input type="radio" name="size" value="cat"> Cat <small>to 5 kg</small></label>
+            <label class="chip"><input type="radio" name="size" value="small"> Small dog <small>under 10 kg</small></label>
+            <label class="chip"><input type="radio" name="size" value="medium"> Medium dog <small>10–25 kg</small></label>
+            <label class="chip"><input type="radio" name="size" value="large" checked> Large dog <small>25–40 kg</small></label>
+            <label class="chip"><input type="radio" name="size" value="giant"> Giant dog <small>40 kg+</small></label>
+          </div>
+        </fieldset>
+        <p class="fine">Includes your choice of venison, ostrich or pasture-fed beef, rotated through the month. Final portions are set in your profile at sign-up.</p>
+        <p class="fine">Check with your vet before changing your pet's diet. See <button class="linkbtn" type="button" data-doc="health">pet health and safety</button>.</p>
+      </div>
+      <div class="panel" aria-live="polite">
+        <h3 id="qTitle">Large dog</h3>
+        <div class="quote">
+          <div class="line"><span>Founding price, months 1 to 3</span><span class="price big" id="qFound"></span></div>
+          <div class="line"><span>Then every month</span><span class="price" id="qStd"></span></div>
+          <div class="line"><span>Founding price per day</span><span class="price" id="qDay"></span></div>
+          <div class="line"><span>Three-day trial box (credited to your plan)</span><span class="price" id="qTrial"></span></div>
+        </div>
+        <p class="save" id="qSave"></p>
+        <div class="actions">
+          <button class="btn" type="button" id="qJoin" data-wl>Join the waitlist for this plan</button>
+          <button class="btn ghost" type="button" id="qTrialBtn" data-wl>Start with a trial box</button>
+        </div>
+      </div>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Size</th><th>Weight</th><th>Standard / month</th><th>Founding, months 1–3</th><th>Trial box</th></tr></thead>
+        <tbody id="priceRows"></tbody>
+      </table>
+    </div>
+    <p class="fine" style="margin-top:12px">Prices in rand, for 30 days of meals. Delivery is free on all subscriptions in our launch area. Pause, skip or cancel before the dispatch cut-off. See <button class="linkbtn" type="button" data-doc="subs">subscription terms</button>.</p>
+    <div class="shop" style="margin-top:24px">
+      <div class="item"><h3>Functional meal toppers</h3><p>Freeze-dried bone broth, single-ingredient organ meats and probiotic booster powders. Add to any plan.</p><div class="pr"><b class="num">From R149</b></div><div class="tags"><span class="tag">Bone broth</span><span class="tag">Organ meats</span><span class="tag">Probiotic</span></div><button class="btn ghost small" type="button" data-wl data-interest="Fresh meals" data-plan="Meal toppers">Notify me</button></div>
+    </div>
+  </section>
+
+  <!-- SHOP -->
+  <section class="block" id="shop" aria-labelledby="shopH">
+    <div class="block-head">
+      <p class="mono">Gear, Apothecary and services</p>
+      <h2 id="shopH">Built, tested and priced for launch</h2>
+      <p class="sub">Waitlist prices apply in opening week. Tap Notify me and we message you the moment an item is ready to order.</p>
+    </div>
+    <div class="shop">
+      <article class="item">
+        <h3>Kinetic Shield Pro-Harness</h3>
+        <p>1050D ballistic nylon with a chest plate that spreads pulling force across the sternum, away from the trachea. Lockable pocket for a GPS tag.</p>
+        <div class="tags"><span class="tag">1050D</span><span class="tag">Sizes S–XL</span><span class="tag">GPS pocket</span></div>
+        <div class="pr"><b class="num" data-wprice="1350"></b><s class="num" data-price="1350"></s><em>waitlist, week one</em></div>
+        <button class="btn ghost small" type="button" data-wl data-interest="Gear" data-plan="Kinetic Shield Pro-Harness">Notify me</button>
+      </article>
+      <article class="item">
+        <h3>Thermal Field Bed</h3>
+        <p>An off-ground cot with an extruded aluminium frame, replaceable ripstop ballistic canvas and a thermal-reflective core for cold Highveld mornings.</p>
+        <div class="tags"><span class="tag">Aluminium frame</span><span class="tag">Sizes M–XL</span><span class="tag">Weatherproof</span></div>
+        <div class="pr"><b class="num" data-wprice="2450"></b><s class="num" data-price="2450"></s><em>waitlist, week one</em></div>
+        <button class="btn ghost small" type="button" data-wl data-interest="Gear" data-plan="Thermal Field Bed">Notify me</button>
+      </article>
+      <article class="item">
+        <h3>Tactical leash and collar set</h3>
+        <p>Heavy-duty, weather-resistant webbing with aluminium hardware, matched to the harness.</p>
+        <div class="tags"><span class="tag">Weather-resistant</span><span class="tag">Matched set</span></div>
+        <div class="pr"><b class="num" data-wprice="690"></b><s class="num" data-price="690"></s><em>waitlist, week one</em></div>
+        <button class="btn ghost small" type="button" data-wl data-interest="Gear" data-plan="Tactical leash and collar set">Notify me</button>
+      </article>
+      <article class="item">
+        <h3>Travel-grade crate</h3>
+        <p>Secure, heavy-duty crating for the car, the estate and the road. Sizes confirmed at the Gear Studio.</p>
+        <div class="tags"><span class="tag">Heavy-duty</span><span class="tag">Travel-grade</span></div>
+        <div class="pr"><b class="num">From </b><b class="num" data-wprice="5200"></b><s class="num" data-price="5200"></s></div>
+        <button class="btn ghost small" type="button" data-wl data-interest="Gear" data-plan="Travel-grade crate">Notify me</button>
+      </article>
+    </div>
+
+    <div class="two">
+      <div class="list">
+        <h3>Longevity Apothecary</h3>
+        <p class="fine">Supplements for dogs and cats, sorted by goal. Waitlist members save 10% in opening week.</p>
+        <div class="row"><div><b>Joint and mobility</b><span>Cold-extracted green-lipped mussel powder, 200 g</span></div><span class="p num" data-price="420"></span></div>
+        <div class="row"><div><b>Skin and coat</b><span>Omega-3 marine oil, 250 ml</span></div><span class="p num" data-price="380"></span></div>
+        <div class="row"><div><b>Cold-pressed hemp seed oil</b><span>Coat and skin support, 250 ml</span></div><span class="p num" data-price="320"></span></div>
+        <div class="row"><div><b>Calm and cognition</b><span>For working animals and stress-prone pets, 60 days</span></div><span class="p num" data-price="450"></span></div>
+        <p style="margin-top:14px"><button class="btn ghost small" type="button" data-wl data-interest="Supplements" data-plan="Longevity Apothecary">Notify me</button></p>
+      </div>
+      <div class="list">
+        <h3>Hydro-suite and consultations</h3>
+        <p class="fine">By appointment. Alpha Pack members book first.</p>
+        <div class="row"><div><b>Conditioning session</b><span>30 minutes, underwater treadmill or swim channel</span></div><span class="p num" data-price="450"></span></div>
+        <div class="row"><div><b>Five-session pack</b><span>Save R250 on conditioning or rehab</span></div><span class="p num" data-price="2000"></span></div>
+        <div class="row"><div><b>Nutrition consultation</b><span>60 minutes with a professional, plus a written plan</span></div><span class="p num" data-price="650"></span></div>
+        <div class="row"><div><b>Follow-up review</b><span>30 minutes, metabolic and weight check</span></div><span class="p num" data-price="350"></span></div>
+        <p style="margin-top:14px"><button class="btn ghost small" type="button" data-wl data-interest="Hydro-suite" data-plan="Hydro-suite and consultations">Notify me</button></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMBERSHIP -->
+  <section class="block" id="membership" aria-labelledby="memH">
+    <div class="block-head">
+      <p class="mono">The Pack</p>
+      <h2 id="memH">Membership that pays for itself</h2>
+      <p class="sub">Free to join, with an Alpha tier for people who use the hydro-suite, order monthly or want first pick of limited gear.</p>
+    </div>
+    <div class="tiers">
+      <div class="tier">
+        <h3>Standard Pack</h3>
+        <div class="price">Free</div>
+        <p class="alt">For everyone on the waitlist</p>
+        <ul class="ticks">
+          <li>Community trail walks</li>
+          <li>Loyalty points on every order</li>
+          <li>App-based care guides</li>
+          <li>Waitlist deals at launch</li>
+        </ul>
+        <button class="btn ghost" type="button" data-wl data-interest="Fresh meals" data-plan="Standard Pack">Join free</button>
+      </div>
+      <div class="tier feature">
+        <span class="badge">Most useful</span>
+        <h3>Alpha Pack</h3>
+        <div class="price num">R149<small> / month</small></div>
+        <p class="alt">Or R1&nbsp;490 a year, two months free</p>
+        <ul class="ticks">
+          <li>Priority hydro-suite booking</li>
+          <li>Free cold-chain delivery on every order</li>
+          <li>Two nutrition consultations a year</li>
+          <li>Early access to limited gear drops</li>
+          <li>10% off at the Apothecary</li>
+        </ul>
+        <button class="btn" type="button" data-wl data-interest="Alpha Pack" data-plan="Alpha Pack">Join the waitlist</button>
+      </div>
+      <div class="tier founding">
+        <span class="badge">First 100 members</span>
+        <h3>Founding Alpha</h3>
+        <div class="price num">R1&nbsp;190<small> / first year</small></div>
+        <p class="alt">20% off the annual price, then R1&nbsp;490</p>
+        <ul class="ticks">
+          <li>Everything in Alpha Pack</li>
+          <li>Founding member status in the app</li>
+          <li>First pick of launch-week hydro-suite slots</li>
+          <li>Waitlist members only</li>
+        </ul>
+        <button class="btn light" type="button" data-wl data-interest="Founding Alpha Pack" data-plan="Founding Alpha Pack">Claim a founding spot</button>
+      </div>
+    </div>
+    <p class="fine" style="margin-top:12px">Memberships are billed only after we open, never at the waitlist stage. See <button class="linkbtn" type="button" data-doc="subs">subscription terms</button>.</p>
+  </section>
+
+  <!-- REFERRALS -->
+  <section class="block" id="referrals" aria-labelledby="refH">
+    <div class="block-head">
+      <p class="mono">Referrals</p>
+      <h2 id="refH">Bring your pack. Everyone saves.</h2>
+      <p class="sub">When you join the waitlist you get a personal code. Friends use it when they join, and you both earn once they place their first order.</p>
+    </div>
+    <ol class="steps">
+      <li><h3>Join and get your code</h3><p>Your code, like PAW-THA-4821, appears after you join the waitlist.</p></li>
+      <li><h3>Friends add it</h3><p>They type your code in the waitlist form, or mention it when they message us on WhatsApp.</p></li>
+      <li><h3>You both earn</h3><p>They get R100 off their first order. You get R100 credit once it is paid.</p></li>
+    </ol>
+    <div class="ladder">
+      <div class="rung"><div class="n num">1<small>friend</small></div><p>R100 credit, up to R500 across five friends.</p></div>
+      <div class="rung"><div class="n num">3<small>friends</small></div><p>A free bone broth topper box on top of your credit.</p></div>
+      <div class="rung"><div class="n num">5<small>friends</small></div><p>Three months of Alpha Pack free.</p></div>
+    </div>
+    <p style="margin-top:22px"><button class="btn" type="button" data-wl data-plan="Referral programme">Get my referral code</button></p>
+  </section>
+
+  <!-- PROMISE -->
+  <section class="block" id="promise" aria-labelledby="promH">
+    <div class="block-head">
+      <p class="mono">Low-risk entry</p>
+      <h2 id="promH">Try it. If it is not right, we sort it out.</h2>
+    </div>
+    <div class="promise">
+      <div><h3>Free to join, no card</h3><p>The waitlist takes no payment and no commitment. You can ask us to remove you at any time.</p></div>
+      <div><h3>Trial box credited back</h3><p>Pay for a three-day box first. The full price comes off your first monthly plan.</p></div>
+      <div><h3>Swap or refund</h3><p>If your pet will not eat the first protein, we swap it free. After two swaps, we refund your first box. <button class="linkbtn" type="button" data-doc="refunds">Read the guarantee</button></p></div>
+      <div><h3>Pause, skip or cancel</h3><p>No lock-in on meal plans. Change anything before the dispatch cut-off. <button class="linkbtn" type="button" data-doc="subs">Subscription terms</button></p></div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="block" id="visit" aria-labelledby="visitH">
+    <div class="block-head">
+      <p class="mono">The flagship</p>
+      <h2 id="visitH">Four zones under one roof in Sandton</h2>
+      <p class="sub">Address and opening date go to the waitlist first.</p>
+    </div>
+    <div class="zones">
+      <div class="zone"><h3>The Biome Bar</h3><p>An open stainless-steel kitchen behind glass. Watch venison, ostrich and beef meals being batched to veterinary formulations.</p></div>
+      <div class="zone"><h3>Longevity Apothecary</h3><p>A climate-controlled counter of supplements, organised by goal and explained by trained animal nutrition advisors.</p></div>
+      <div class="zone"><h3>Ergonomics and Gear Studio</h3><p>Matte-black steel racks, fit-testing for harnesses and the full Kinetic Shield range in hand.</p></div>
+      <div class="zone"><h3>Conditioning and Hydro-Suite</h3><p>An orthopaedic underwater treadmill and resistance-swimming channel for conditioning, rehab and weight management.</p></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block" id="faq" aria-labelledby="faqH">
+    <div class="block-head">
+      <p class="mono">Questions</p>
+      <h2 id="faqH">Before you join</h2>
+    </div>
+    <div class="faq">
+      <details><summary>When do you open?</summary><p>We have not fixed a date yet. Everyone on the waitlist hears first, on WhatsApp, with time to claim founding pricing before the public does.</p></details>
+      <details><summary>Does joining the waitlist cost anything?</summary><p>No. We take no payment and no card details. You only send us a WhatsApp message with your details.</p></details>
+      <details><summary>Where will you deliver?</summary><p>We plan to launch with Sandton, Bryanston, Fourways, Rosebank, Dainfern and Steyn City, in temperature-controlled vans. More areas follow once the cold chain is proven. See <button class="linkbtn" type="button" data-doc="delivery">delivery and cold chain</button>.</p></details>
+      <details><summary>Do you make food for cats?</summary><p>Yes. Cats have their own plan, priced from R690 a month, and the same trial box and swap guarantee.</p></details>
+      <details><summary>Is raw food safe?</summary><p>Fresh and gently cooked meals are handled and packed under cold-chain controls, and every box comes with storage and thawing guidance. Talk to your vet before changing a diet, especially for puppies, seniors and pets with health conditions.</p></details>
+      <details><summary>How does the referral code work?</summary><p>You get a code when you join. A friend enters it on the waitlist form. Once they place and pay for a first order, you each receive R100. Full terms are in the <button class="linkbtn" type="button" data-doc="waitlist">waitlist and referral terms</button>.</p></details>
+      <details><summary>Can I visit the kitchen?</summary><p>Yes. The Biome Bar is open-format behind glass, and the Gear Studio and Apothecary are walk-in. The hydro-suite is by appointment.</p></details>
+    </div>
+  </section>
+
+  <div class="final">
+    <div>
+      <span class="mono">Founding waitlist · Sandton</span>
+      <h2>Be first through the door.</h2>
+      <p>Join in a minute. Get 20% off your first three months, a code to share, and first access to launch gear.</p>
+    </div>
+    <button class="btn light" type="button" data-wl style="padding:16px 26px;font-size:18px">Join the waitlist</button>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <p class="wordmark" style="font-size:22px">Paws &amp; Provenance</p>
+        <p class="fine" style="margin-top:8px;max-width:34ch">Fresh nutrition, clinical supplements, field-grade gear and recovery for pets. Sandton, Johannesburg.</p>
+        <p style="margin-top:14px"><span class="numline" id="bizNum">+27 76 431 2871</span><button class="copybtn" type="button" id="copyNum">Copy</button></p>
+        <p class="fine" style="margin-top:4px">WhatsApp</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#deals">Launch deals</a></li>
+          <li><a href="#plans">Meal plans</a></li>
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#membership">Membership</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Join in</h4>
+        <ul>
+          <li><button class="linkbtn" type="button" data-wl>Join the waitlist</button></li>
+          <li><a href="#referrals">Referrals</a></li>
+          <li><a href="#visit">The flagship</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Policies</h4>
+        <ul>
+          <li><button class="linkbtn" type="button" data-doc="privacy">Privacy (POPIA)</button></li>
+          <li><button class="linkbtn" type="button" data-doc="terms">Website terms</button></li>
+          <li><button class="linkbtn" type="button" data-doc="subs">Subscriptions</button></li>
+          <li><button class="linkbtn" type="button" data-doc="refunds">Refunds and guarantee</button></li>
+          <li><button class="linkbtn" type="button" data-doc="delivery">Delivery and cold chain</button></li>
+          <li><button class="linkbtn" type="button" data-doc="waitlist">Waitlist and referrals</button></li>
+          <li><button class="linkbtn" type="button" data-doc="health">Pet health and safety</button></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine legal">Paws &amp; Provenance Collective is opening soon. Prices, deals and policies are launch drafts and may change before opening. Rand prices will be confirmed including VAT.</p>
+  </div>
+</footer>
+
+<!-- WAITLIST MODAL -->
+<div class="modal" id="wlModal" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="wlTitle" tabindex="-1">
+    <div id="formPanel">
+      <div class="sheet-head">
+        <div>
+          <h2 id="wlTitle">Join the waitlist</h2>
+          <p class="fine" style="margin-top:6px">Takes a minute. We use your number only for launch news and your deals.</p>
+        </div>
+        <button class="xbtn" type="button" data-close>Close</button>
+      </div>
+      <p class="ctx" id="ctx" hidden style="margin-top:16px"></p>
+      <form id="waitForm" novalidate style="margin-top:16px">
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" type="text" autocomplete="name" placeholder="Thandi Mokoena">
+          <div class="err" id="nameErr" aria-live="polite"></div>
+        </div>
+        <div class="field">
+          <label for="phone">Your WhatsApp number</label>
+          <input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="082 123 4567">
+          <div class="err" id="phoneErr" aria-live="polite"></div>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="area">Where do you live?</label>
+            <select id="area">
+              <option>Sandton</option><option>Dainfern</option><option>Steyn City</option><option>Bryanston</option><option>Fourways</option><option>Rosebank</option><option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="petName">Pet name <span class="opt">(optional)</span></label>
+            <input id="petName" type="text" placeholder="Rex">
+          </div>
+        </div>
+        <fieldset class="field">
+          <legend>Who is it for?</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="pet" value="Dog" checked> Dog</label>
+            <label class="chip"><input type="radio" name="pet" value="Cat"> Cat</label>
+            <label class="chip"><input type="radio" name="pet" value="Dog and cat"> Both</label>
+          </div>
+        </fieldset>
+        <fieldset class="field">
+          <legend>What are you most interested in?</legend>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="int" value="Fresh meals"> Fresh meals</label>
+            <label class="chip"><input type="checkbox" name="int" value="Trial box"> Trial box</label>
+            <label class="chip"><input type="checkbox" name="int" value="Supplements"> Supplements</label>
+            <label class="chip"><input type="checkbox" name="int" value="Gear"> Gear</label>
+            <label class="chip"><input type="checkbox" name="int" value="Hydro-suite"> Hydro-suite</label>
+            <label class="chip"><input type="checkbox" name="int" value="Alpha Pack"> Alpha Pack</label>
+            <label class="chip"><input type="checkbox" name="int" value="Founding Alpha Pack"> Founding Alpha</label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="refcode">Friend's referral code <span class="opt">(optional)</span></label>
+          <input id="refcode" type="text" autocapitalize="characters" placeholder="PAW-THA-4821">
+          <div class="err" id="refErr" aria-live="polite"></div>
+        </div>
+        <label class="consent"><input type="checkbox" id="consent"><span>I agree that Paws &amp; Provenance Collective may message me on WhatsApp about the launch and my deals. I can reply STOP at any time. <button class="linkbtn" type="button" data-doc="privacy">Privacy policy</button></span></label>
+        <div class="err" id="consentErr" aria-live="polite"></div>
+        <button class="btn" type="submit">Continue to WhatsApp</button>
+        <p class="fine">Next you will see a ready-written WhatsApp message. Your spot is saved once you send it.</p>
+      </form>
+    </div>
+
+    <div id="resultPanel" hidden style="display:flex;flex-direction:column;gap:16px">
+      <div class="sheet-head">
+        <div>
+          <h2>One more tap</h2>
+          <p class="fine" style="margin-top:6px">Send this message to us on WhatsApp to take your place on the list.</p>
+        </div>
+        <button class="xbtn" type="button" data-close>Close</button>
+      </div>
+      <textarea class="msg" id="msgBox" readonly aria-label="Your waitlist message"></textarea>
+      <div class="actions">
+        <a class="btn" id="waLink" href="#" target="_blank" rel="noopener">Open WhatsApp</a>
+        <button class="btn ghost" type="button" id="copyMsg">Copy message</button>
+      </div>
+      <p class="note" id="copyNote" aria-live="polite"></p>
+      <div class="codebox">
+        <span class="mono muted">Your referral code</span>
+        <span class="code" id="myCode"></span>
+        <p class="fine">Friends who enter this code get R100 off their first order, and you earn R100 credit when they pay. It counts once your message above reaches us.</p>
+        <div class="actions">
+          <a class="btn ghost small" id="shareLink" href="#" target="_blank" rel="noopener">Share on WhatsApp</a>
+          <button class="btn ghost small" type="button" id="copyCode">Copy code</button>
+        </div>
+      </div>
+      <p class="fine">If WhatsApp does not open, copy the message and send it to <span style="font-family:var(--font-mono)">+27 76 431 2871</span>.</p>
+      <button class="btn ghost" type="button" id="editBtn">Edit my details</button>
+    </div>
+  </div>
+</div>
+
+<!-- POLICY MODAL -->
+<div class="modal" id="docModal" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="docTitle" tabindex="-1">
+    <div class="sheet-head">
+      <div>
+        <h2 id="docTitle"></h2>
+        <p class="fine" style="margin-top:6px">Launch draft v1 · 2 October 2026</p>
+      </div>
+      <button class="xbtn" type="button" data-close>Close</button>
+    </div>
+    <div class="doc" id="docBody"></div>
+    <p class="fine">Questions about this policy? WhatsApp us on +27 76 431 2871.</p>
+    <button class="btn ghost" type="button" data-close>Close</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  var BIZ = "27764312871";
+  var $ = function (id) { return document.getElementById(id); };
+
+  /* ---------- pricing ---------- */
+  var SIZES = {
+    cat:    { label: "Cat",        wt: "up to 5 kg", m: 690,  t: 149 },
+    small:  { label: "Small dog",  wt: "under 10 kg", m: 890,  t: 189 },
+    medium: { label: "Medium dog", wt: "10–25 kg",   m: 1490, t: 249 },
+    large:  { label: "Large dog",  wt: "25–40 kg",   m: 2090, t: 329 },
+    giant:  { label: "Giant dog",  wt: "over 40 kg", m: 2790, t: 429 }
+  };
+  function money(n) { return "R" + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " "); }
+  function founding(p) { return Math.round(p * 0.8); }
+  function gearWaitlist(p) { return Math.round(p * 0.85); }
+  function perDay(p) { return Math.round(p / 30); }
+  function saving3(p) { return (p - founding(p)) * 3; }
+
+  function renderRows(sel) {
+    var html = "";
+    Object.keys(SIZES).forEach(function (k) {
+      var s = SIZES[k];
+      html += '<tr' + (k === sel ? ' class="sel"' : "") + '><td>' + s.label + '</td><td>' + s.wt + '</td><td>' + money(s.m) + '</td><td class="hl">' + money(founding(s.m)) + '</td><td>' + money(s.t) + '</td></tr>';
+    });
+    $("priceRows").innerHTML = html;
+  }
+  function renderQuote(k) {
+    var s = SIZES[k];
+    $("qTitle").textContent = s.label + " · " + s.wt;
+    $("qFound").innerHTML = money(founding(s.m)) + "<small> /mo</small>";
+    $("qStd").innerHTML = money(s.m) + "<small> /mo</small>";
+    $("qDay").innerHTML = "about " + money(perDay(founding(s.m))) + "<small> /day</small>";
+    $("qTrial").textContent = money(s.t);
+    $("qSave").textContent = "You save " + money(saving3(s.m)) + " over your first three months.";
+    $("qJoin").setAttribute("data-interest", "Fresh meals");
+    $("qJoin").setAttribute("data-plan", "Fresh meal plan, " + s.label + " (" + s.wt + ")");
+    $("qTrialBtn").setAttribute("data-interest", "Trial box");
+    $("qTrialBtn").setAttribute("data-plan", "Three-day trial box, " + s.label + " (" + s.wt + ")");
+    renderRows(k);
+  }
+  document.querySelectorAll('input[name="size"]').forEach(function (r) {
+    r.addEventListener("change", function () { renderQuote(r.value); });
+  });
+  renderQuote("large");
+  document.querySelectorAll("[data-price]").forEach(function (e) { e.textContent = money(+e.getAttribute("data-price")); });
+  document.querySelectorAll("[data-wprice]").forEach(function (e) { e.textContent = money(gearWaitlist(+e.getAttribute("data-wprice"))); });
+  // regular prices next to waitlist prices on gear cards are struck through
+  document.querySelectorAll(".item .pr s[data-price]").forEach(function (e) { e.setAttribute("aria-label", "regular price"); });
+
+  /* ---------- waitlist logic ---------- */
+  function normalizeZA(raw) {
+    var n = String(raw || "").replace(/[^\d+]/g, "").replace(/^\+/, "");
+    if (/^0\d{9}$/.test(n)) return "27" + n.slice(1);
+    if (/^27\d{9}$/.test(n)) return n;
+    return null;
+  }
+  function prettyZA(n) { return "+" + n.slice(0, 2) + " " + n.slice(2, 4) + " " + n.slice(4, 7) + " " + n.slice(7); }
+  function makeCode(name, rnd) {
+    var l = String(name || "").replace(/[^A-Za-z]/g, "").toUpperCase().slice(0, 3);
+    while (l.length < 3) l += "X";
+    var d = typeof rnd === "number" ? rnd : Math.floor(1000 + Math.random() * 9000);
+    return "PAW-" + l + "-" + d;
+  }
+  function validCode(c) { return /^PAW-[A-Z]{3}-\d{4}$/.test(c); }
+  function buildMessage(d) {
+    var L = [
+      "Hi Paws & Provenance Collective, please add me to the waitlist.",
+      "",
+      "Name: " + d.name,
+      "WhatsApp: " + d.phone,
+      "Area: " + d.area,
+      "Pet: " + d.pet + (d.petName ? " (" + d.petName + ")" : ""),
+      "Interested in: " + (d.interests.length ? d.interests.join(", ") : "Everything")
+    ];
+    if (d.plan) L.push("Selected: " + d.plan);
+    if (d.ref) L.push("Referred by: " + d.ref);
+    L.push("My referral code: " + d.code);
+    L.push("I agree to be messaged on WhatsApp about the launch.");
+    return L.join("\n");
+  }
+  function waUrl(text) { return "https://wa.me/" + BIZ + "?text=" + encodeURIComponent(text); }
+  function shareText(code) {
+    return "I joined the Paws & Provenance Collective waitlist in Sandton: fresh human-grade pet food, field gear and a hydro-suite. Message them on WhatsApp at +27 76 431 2871 and use my code " + code + " for R100 off your first order.";
+  }
+  window.__pp = { SIZES: SIZES, money: money, founding: founding, gearWaitlist: gearWaitlist, perDay: perDay, saving3: saving3, normalizeZA: normalizeZA, prettyZA: prettyZA, makeCode: makeCode, validCode: validCode, buildMessage: buildMessage, waUrl: waUrl, shareText: shareText };
+
+  function copyText(text, cb, fallbackEl) {
+    var fail = function () { if (fallbackEl) { fallbackEl.focus(); fallbackEl.select(); } cb(false); };
+    try { navigator.clipboard.writeText(text).then(function () { cb(true); }, fail); } catch (e) { fail(); }
+  }
+
+  /* ---------- modals ---------- */
+  var stack = [];
+  function focusables(root) {
+    return Array.prototype.slice.call(root.querySelectorAll('a[href],button:not([disabled]),input:not([disabled]),select,textarea,[tabindex]:not([tabindex="-1"])')).filter(function (e) {
+      return !e.closest("[hidden]");
+    });
+  }
+  function openM(el, opener) {
+    el.hidden = false;
+    stack.push({ el: el, opener: opener });
+    document.documentElement.style.overflow = "hidden";
+    var sheet = el.querySelector(".sheet");
+    sheet.scrollTop = 0;
+    sheet.focus();
+  }
+  function closeM() {
+    var top = stack.pop();
+    if (!top) return;
+    top.el.hidden = true;
+    if (!stack.length) document.documentElement.style.overflow = "";
+    if (top.opener && document.contains(top.opener)) { try { top.opener.focus(); } catch (e) {} }
+  }
+  document.addEventListener("keydown", function (e) {
+    if (!stack.length) return;
+    if (e.key === "Escape") { e.preventDefault(); closeM(); return; }
+    if (e.key === "Tab") {
+      var f = focusables(stack[stack.length - 1].el);
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && (document.activeElement === first || document.activeElement.classList.contains("sheet"))) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+  ["wlModal", "docModal"].forEach(function (id) {
+    $(id).addEventListener("mousedown", function (e) { if (e.target === $(id)) closeM(); });
+  });
+
+  var DOCS = window.__DOCS = {};
+  function openWaitlist(opener) {
+    var interests = (opener && opener.getAttribute("data-interest") || "").split(",").filter(Boolean);
+    var plan = opener && opener.getAttribute("data-plan") || "";
+    document.querySelectorAll('input[name="int"]').forEach(function (c) { if (interests.indexOf(c.value) > -1) c.checked = true; });
+    $("ctx").hidden = !plan;
+    $("ctx").textContent = plan ? "Selected: " + plan : "";
+    $("ctx").setAttribute("data-plan", plan);
+    $("resultPanel").hidden = true;
+    $("formPanel").hidden = false;
+    openM($("wlModal"), opener);
+  }
+  function openDoc(key, opener) {
+    var d = DOCS[key];
+    if (!d) return;
+    $("docTitle").textContent = d.title;
+    $("docBody").innerHTML = d.html;
+    openM($("docModal"), opener);
+  }
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest ? e.target : e.target.parentElement;
+    if (!t) return;
+    var w = t.closest("[data-wl]");
+    if (w) { e.preventDefault(); openWaitlist(w); return; }
+    var d = t.closest("[data-doc]");
+    if (d) { e.preventDefault(); openDoc(d.getAttribute("data-doc"), d); return; }
+    if (t.closest("[data-close]")) { e.preventDefault(); closeM(); }
+  });
+
+  /* ---------- waitlist form ---------- */
+  var form = $("waitForm");
+  var lastCode = "";
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var name = $("name").value.trim();
+    var n = normalizeZA($("phone").value);
+    var ref = $("refcode").value.trim().toUpperCase();
+    $("nameErr").textContent = name ? "" : "Enter your name so we know who to message.";
+    $("phoneErr").textContent = n ? "" : "Enter a South African number, like 082 123 4567 or +27 82 123 4567.";
+    $("refErr").textContent = (!ref || validCode(ref)) ? "" : "Codes look like PAW-THA-4821. Check it or leave it blank.";
+    $("consentErr").textContent = $("consent").checked ? "" : "Tick the box so we are allowed to message you.";
+    if (!name) { $("name").focus(); return; }
+    if (!n) { $("phone").focus(); return; }
+    if (ref && !validCode(ref)) { $("refcode").focus(); return; }
+    if (!$("consent").checked) { $("consent").focus(); return; }
+
+    var interests = [];
+    form.querySelectorAll('input[name="int"]:checked').forEach(function (c) { interests.push(c.value); });
+    var code = makeCode(name);
+    lastCode = code;
+    var text = buildMessage({
+      name: name, phone: prettyZA(n), area: $("area").value,
+      pet: form.querySelector('input[name="pet"]:checked').value, petName: $("petName").value.trim(),
+      interests: interests, plan: $("ctx").getAttribute("data-plan") || "", ref: ref, code: code
+    });
+    $("msgBox").value = text;
+    $("waLink").href = waUrl(text);
+    $("myCode").textContent = code;
+    $("shareLink").href = "https://wa.me/?text=" + encodeURIComponent(shareText(code));
+    $("copyNote").textContent = "";
+    $("formPanel").hidden = true;
+    $("resultPanel").hidden = false;
+    var sheet = $("wlModal").querySelector(".sheet");
+    sheet.scrollTop = 0;
+    sheet.focus();
+  });
+  $("editBtn").addEventListener("click", function () {
+    $("resultPanel").hidden = true;
+    $("formPanel").hidden = false;
+    $("wlModal").querySelector(".sheet").scrollTop = 0;
+    $("name").focus();
+  });
+  $("copyMsg").addEventListener("click", function () {
+    copyText($("msgBox").value, function (ok) {
+      $("copyNote").textContent = ok ? "Message copied." : "Copy is blocked here. The message is selected, press and hold to copy it.";
+    }, $("msgBox"));
+  });
+  $("copyCode").addEventListener("click", function () {
+    var b = $("copyCode");
+    copyText(lastCode, function (ok) { b.textContent = ok ? "Copied" : "Select the code"; });
+  });
+  $("copyNum").addEventListener("click", function () {
+    var b = $("copyNum");
+    copyText("+27764312871", function (ok) { b.textContent = ok ? "Copied" : "Select the number"; });
+  });
+
+  /* ---------- policies ---------- */
+  DOCS.privacy = { title: "Privacy policy (POPIA)", html:
+    '<p>We respect your personal information and handle it under the Protection of Personal Information Act 4 of 2013 (POPIA). This policy explains what we collect on the waitlist and what we do with it.</p>' +
+    '<h3>Who we are</h3><p>Paws &amp; Provenance Collective, Sandton, Johannesburg is the responsible party. Contact us on WhatsApp at +27 76 431 2871.</p>' +
+    '<h3>What we collect</h3><ul><li>Your name and WhatsApp number</li><li>Your area, your pet type and pet name</li><li>The products and plans you are interested in</li><li>Referral codes you give or receive</li><li>The WhatsApp conversation itself</li></ul>' +
+    '<h3>Why we collect it</h3><ul><li>To add you to the waitlist and tell you when we open</li><li>To apply your founding, opening and referral deals</li><li>To plan launch areas, stock and delivery routes</li></ul>' +
+    '<p>We rely on your consent. You give it by ticking the box on the form and sending us the WhatsApp message.</p>' +
+    '<h3>Who sees it</h3><p>Our team and the service providers we need to operate, including WhatsApp (Meta), which carries the messages. We do not sell your information. We do not share it with advertisers.</p>' +
+    '<h3>How long we keep it</h3><p>Until you ask us to delete it, or 24 months after we open, whichever is first. Order and billing records, once we trade, are kept as long as the law requires.</p>' +
+    '<h3>Your rights</h3><ul><li>Ask what we hold about you</li><li>Ask us to correct or delete it</li><li>Withdraw consent at any time by replying STOP</li><li>Object to how we use it</li></ul>' +
+    '<p>If you are unhappy with how we handle your information, you may complain to the Information Regulator of South Africa at inforegulator.org.za.</p>' +
+    '<h3>Security</h3><p>We limit access to your details and keep them only in the tools we use to run the business. No method of sending information is perfectly secure, and we cannot promise otherwise.</p>' };
+
+  DOCS.terms = { title: "Website terms", html:
+    '<p>By using this website you agree to these terms.</p>' +
+    '<h3>Information and prices</h3><p>This site describes a business that is opening soon. Prices, deals, products and dates shown are launch drafts. We may change them before opening. Prices are in South African rand and will be confirmed including VAT.</p>' +
+    '<h3>The waitlist is not an order</h3><p>Joining the waitlist reserves your place for launch news and deals. It is not a purchase, it takes no payment, and neither side is bound to buy or sell.</p>' +
+    '<h3>Offers</h3><p>Founding, opening-week and referral offers are limited, one per household, and governed by the waitlist and referral terms.</p>' +
+    '<h3>Your conduct</h3><p>Give us accurate details and your own number. Do not misuse referral codes or try to disrupt the site or our WhatsApp line.</p>' +
+    '<h3>Content</h3><p>The Paws &amp; Provenance name, the Kinetic Shield and Thermal Field Bed names, and the site text and design belong to us. Please ask before reusing them.</p>' +
+    '<h3>Liability and your rights</h3><p>We take care to keep this information accurate, but we cannot guarantee it is error-free. Nothing here limits your rights under the Consumer Protection Act 68 of 2008 or other South African law.</p>' +
+    '<h3>Governing law</h3><p>South African law applies to these terms.</p>' };
+
+  DOCS.subs = { title: "Subscription terms", html:
+    '<p>These terms apply to fresh meal plans and to the Alpha Pack membership once we are open. Nothing is billed at the waitlist stage.</p>' +
+    '<h3>Fresh meal plans</h3><ul><li>A plan covers 30 days of meals, set to your pet\'s weight, age and activity.</li><li>You are billed monthly in advance, on the same date each month.</li><li>Each box is dispatched on a fixed cycle. The cut-off to change, skip or cancel is 5 days before dispatch.</li><li>You can pause for up to 2 months in a row.</li><li>There is no lock-in. Cancel any time before the cut-off and you are not billed for the next box.</li></ul>' +
+    '<h3>Founding pricing</h3><p>The founding price is 20% off for your first three monthly boxes. Standard pricing applies from the fourth box. If you pause, the founding months you have not used are kept.</p>' +
+    '<h3>Trial box</h3><p>A trial box is a one-off, three-day purchase. Its full price is credited to your first monthly plan if you start within 30 days of delivery.</p>' +
+    '<h3>Alpha Pack membership</h3><ul><li>Billed monthly, or yearly in advance at the annual price.</li><li>The annual plan can be cancelled at any time and runs to the end of the paid year.</li><li>Founding Alpha is limited to the first 100 members. The founding price covers the first year, and the standard annual price applies at renewal.</li></ul>' +
+    '<h3>Price changes</h3><p>We give you at least 30 days\' notice before a price change takes effect on your plan.</p>' +
+    '<h3>Missed payments</h3><p>If a payment fails we will tell you and try again. If it still fails, the next box is held until it is resolved.</p>' };
+
+  DOCS.refunds = { title: "Refunds and guarantee", html:
+    '<p>We want you to try us without risk. These are our promises. Your rights under the Consumer Protection Act are never reduced by them.</p>' +
+    '<h3>Swap-or-refund guarantee</h3><p>If your pet will not eat the first protein you choose, tell us within 14 days of your first box and we will swap it free. If your pet still refuses after two swaps, we refund your first box.</p>' +
+    '<h3>Trial box</h3><p>The price of your trial box is credited in full to your first monthly plan. It is not refundable once delivered unless it arrives damaged or thawed.</p>' +
+    '<h3>Damaged or thawed deliveries</h3><p>Send us a photo within 24 hours of delivery and we will replace the order or refund it, whichever you prefer.</p>' +
+    '<h3>Gear</h3><ul><li>Return unused gear in its original condition within 30 days for a refund or exchange.</li><li>We fit-test harnesses in store. Size exchanges are free within 30 days.</li><li>Faulty gear is repaired, replaced or refunded.</li></ul>' +
+    '<h3>Apothecary</h3><p>Return sealed, unopened supplements within 14 days. Opened products can be returned only if faulty.</p>' +
+    '<h3>Hydro-suite and consultations</h3><p>Cancel or reschedule up to 24 hours before your slot at no charge. Later cancellations may be charged in full. A pack session that is missed without notice is counted as used.</p>' +
+    '<h3>How refunds are paid</h3><p>To your original payment method, within 7 working days of approval.</p>' };
+
+  DOCS.delivery = { title: "Delivery and cold chain", html:
+    '<p>Fresh meals travel frozen in temperature-controlled vans from our Sandton kitchen.</p>' +
+    '<h3>Launch area</h3><p>We plan to deliver to Sandton, Bryanston, Fourways, Rosebank, Dainfern and Steyn City. We will confirm the final areas and delivery days to the waitlist before opening.</p>' +
+    '<h3>Delivery fees</h3><ul><li>Free on all subscription boxes in our launch area.</li><li>Free for Alpha Pack members on every order.</li><li>R75 on other orders under R1&nbsp;500, free above that.</li></ul>' +
+    '<h3>Cold chain</h3><p>Meals are kept frozen from our kitchen to your door. Our kitchen and cold storage run on solar and battery backup so a power cut does not break the chain.</p>' +
+    '<h3>When your box arrives</h3><ul><li>Put it in the freezer straight away. Frozen food is stored at -18 degrees Celsius or colder.</li><li>Thaw portions in the fridge, not on the counter.</li><li>Use thawed portions within the time printed on the pack.</li></ul>' +
+    '<h3>If you are not home</h3><p>Choose a safe place or a trusted person to receive the box. If a box cannot be delivered, we contact you the same day to rearrange. Boxes left too long may be unsafe, and we cannot replace them.</p>' +
+    '<h3>Gear delivery</h3><p>Gear and Apothecary orders travel by courier. Timing and fees are shown at checkout.</p>' };
+
+  DOCS.waitlist = { title: "Waitlist and referral terms", html:
+    '<h3>Joining</h3><p>The waitlist is free. It takes no payment and carries no obligation. Your place is saved once we receive your WhatsApp message.</p>' +
+    '<h3>Founding offer</h3><ul><li>20% off the first three monthly boxes of one fresh meal plan, plus free delivery for the first month.</li><li>One offer per household.</li><li>Open to people on the waitlist when we open. You must start your plan within 30 days of our launch invitation.</li><li>Founding Alpha Pack is limited to the first 100 members.</li></ul>' +
+    '<h3>Opening week</h3><p>Opening week is the first 7 days after our flagship opens. Waitlist members get 15% off Kinetic Shield gear and 10% off Apothecary products. Other customers get 10% off gear. Opening week discounts cannot be combined with other discounts on the same item.</p>' +
+    '<h3>Referrals</h3><ul><li>You receive a personal code when you join. Codes look like PAW-THA-4821.</li><li>A friend must enter your code on the waitlist form, or give it to us when they message us.</li><li>When your friend places and pays for their first order, they get R100 off it and you receive R100 credit.</li><li>Credit is capped at R500 across five friends. At 3 friends you also get a free bone broth topper box. At 5 friends you get three months of Alpha Pack free.</li><li>Credits are not cash. They are used against orders and expire 12 months after they are issued.</li></ul>' +
+    '<h3>Fair use</h3><p>No referring yourself, people in your own household, or accounts made only to earn credit. We may refuse or reverse rewards for misuse.</p>' +
+    '<h3>How we track it</h3><p>We match referral codes against the WhatsApp messages we receive. If your friend forgets your code, ask them to message us with it before their first order.</p>' +
+    '<h3>Changes</h3><p>Offers are launch drafts. We may change or end an offer, but we will honour any offer you have already claimed.</p>' };
+
+  DOCS.health = { title: "Pet health and safety", html:
+    '<p>Our content is general information. It is not veterinary advice.</p>' +
+    '<h3>Talk to your vet first</h3><p>Ask your vet before changing your pet\'s diet or starting supplements, especially for puppies and kittens, pregnant or nursing animals, seniors, and pets with medical conditions or on medication.</p>' +
+    '<h3>Feeding guidance</h3><p>Portions in your plan are based on the details you give us. Watch your pet\'s weight, energy and digestion, and tell us or your vet if something changes.</p>' +
+    '<h3>Handling fresh and raw food</h3><ul><li>Wash your hands, bowls and surfaces after every feed.</li><li>Keep raw meals away from human food.</li><li>Keep young children away from raw food and feeding pets.</li></ul>' +
+    '<h3>Supplements</h3><p>Our supplements support general wellbeing. They do not diagnose, treat or cure any condition. Follow the label and stop if your pet reacts badly.</p>' +
+    '<h3>Hydro-suite</h3><p>For injury or post-surgery rehab, we ask for your vet\'s clearance and any records before your first session. Sessions are supervised by trained staff.</p>' +
+    '<h3>Gear</h3><p>Check fit and wear on every use. Gear is not a substitute for training, supervision or secure fencing. Tracking devices can fail, so do not rely on one alone.</p>' +
+    '<h3>Emergencies</h3><p>If your pet is unwell or injured, call your vet or the nearest emergency clinic straight away.</p>' };
+})();
+</script>
+
+</body>
+</html>
