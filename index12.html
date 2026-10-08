@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Callum Denysschen — Junior DevOps &amp; Cloud Engineer</title>
+<meta name="description" content="Junior DevOps &amp; Cloud Engineer. AWS Certified Cloud Practitioner. Terraform, Docker, Kubernetes, CI/CD, and Python automation across a production-shaped capstone portfolio. Remote-ready, Sandton, South Africa.">
+<meta name="author" content="Callum Denysschen">
+<meta property="og:title" content="Callum Denysschen — Junior DevOps &amp; Cloud Engineer">
+<meta property="og:description" content="AWS · Terraform · Docker · Kubernetes · CI/CD · Python automation. A capstone infrastructure build you can actually open and read.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://caldeny4201.github.io/">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F1F4F7;
+    --surface:#FFFFFF;
+    --ink:#12181F;
+    --ink-soft:#4B5768;
+    --ink-mute:#8993A2;
+    --line:#D3DAE1;
+    --line-soft:#E4E9EE;
+    --signal:#D7481D;
+    --signal-soft:#FBEAE3;
+    --ok:#1F8A5C;
+    --ok-soft:#E4F3EC;
+    --max:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:.001ms !important;transition-duration:.001ms !important;}
+  }
+  body{
+    font-family:'IBM Plex Sans',-apple-system,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--signal);outline-offset:2px;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+  h1,h2,h3{
+    font-family:'IBM Plex Serif',serif;
+    font-weight:600;
+    letter-spacing:-.01em;
+  }
+  .mono{font-family:'IBM Plex Mono',monospace;}
+
+  /* HEADER */
+  header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(241,244,247,.92);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    max-width:1200px;margin:0 auto;padding:0 24px;height:60px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .logo{
+    font-family:'IBM Plex Serif',serif;font-weight:600;font-size:16px;
+    text-decoration:none;color:var(--ink);
+  }
+  nav.top-nav{display:none;gap:26px;font-size:14px;}
+  @media(min-width:780px){nav.top-nav{display:flex;}}
+  nav.top-nav a{text-decoration:none;color:var(--ink-soft);}
+  nav.top-nav a:hover{color:var(--signal);}
+  .cta-btn{
+    font-size:13.5px;font-weight:600;padding:9px 16px;border-radius:6px;
+    background:var(--ink);color:var(--paper);text-decoration:none;
+    transition:background .15s;white-space:nowrap;
+  }
+  .cta-btn:hover{background:var(--signal);}
+
+  /* HERO */
+  .hero{padding:64px 0 48px;border-bottom:1px solid var(--line);}
+  .manifest{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink-soft);
+    background:var(--surface);border:1px solid var(--line);border-radius:6px;
+    padding:12px 16px;display:inline-block;margin-bottom:28px;line-height:1.9;
+  }
+  .manifest .k{color:var(--ink-mute);}
+  .manifest .v{color:var(--ink);}
+  .manifest .status-dot{
+    display:inline-block;width:7px;height:7px;border-radius:50%;
+    background:var(--ok);margin-right:7px;
+  }
+  .hero h1{
+    font-size:clamp(32px,5.2vw,48px);
+    line-height:1.1;margin-bottom:20px;max-width:16ch;
+  }
+  .hero .sub{
+    font-size:17.5px;line-height:1.65;color:var(--ink-soft);
+    max-width:60ch;margin-bottom:30px;
+  }
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    font-family:inherit;font-size:14px;font-weight:600;
+    padding:12px 20px;border-radius:6px;text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:all .15s;border:1px solid var(--ink);
+  }
+  .btn-primary{background:var(--ink);color:var(--paper);}
+  .btn-primary:hover{background:var(--signal);border-color:var(--signal);}
+  .btn-ghost{background:transparent;color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--signal);color:var(--signal);}
+
+  .hero-stats{
+    display:flex;gap:0;flex-wrap:wrap;margin-top:40px;
+    border-top:1px solid var(--line);
+  }
+  .hero-stat{
+    flex:1 1 140px;padding:18px 20px 0 0;
+  }
+  .hero-stat .num{
+    font-family:'IBM Plex Serif',serif;font-weight:600;font-size:25px;color:var(--ink);
+    display:block;
+  }
+  .hero-stat .label{font-size:12.5px;color:var(--ink-mute);}
+
+  /* SECTIONS */
+  section{padding:64px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .section-header{margin-bottom:36px;max-width:64ch;}
+  .section-title{font-size:26px;margin-bottom:8px;}
+  .section-sub{font-size:15px;color:var(--ink-soft);}
+
+  /* CAPSTONE STACK */
+  .stack{position:relative;display:flex;flex-direction:column;gap:0;}
+  .stack::before{
+    content:"";position:absolute;left:23px;top:24px;bottom:24px;width:1px;
+    background:var(--line);
+  }
+  .layer{
+    position:relative;display:grid;
+    grid-template-columns:48px 1fr;gap:20px;
+    padding:28px 0;
+  }
+  .layer + .layer{border-top:1px dashed var(--line-soft);}
+  .layer-id{
+    width:48px;height:48px;border-radius:8px;
+    background:var(--surface);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:14px;color:var(--ink);
+    position:relative;z-index:1;
+  }
+  .layer-name{font-size:18px;font-weight:600;margin-bottom:6px;}
+  .layer-repos{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+  .repo-chip{
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;
+    background:var(--surface);border:1px solid var(--line);border-radius:5px;
+    padding:5px 10px;text-decoration:none;color:var(--ink-soft);
+    transition:all .15s;
+  }
+  .repo-chip:hover{border-color:var(--signal);color:var(--signal);}
+  .repo-chip.soon{
+    cursor:default;opacity:.6;font-style:italic;
+  }
+  .repo-chip.soon:hover{border-color:var(--line);color:var(--ink-soft);}
+  .layer ul{list-style:none;margin-bottom:10px;}
+  .layer li{
+    font-size:14.5px;color:var(--ink-soft);padding:4px 0 4px 16px;position:relative;
+  }
+  .layer li::before{
+    content:"";position:absolute;left:0;top:13px;width:6px;height:1px;background:var(--ink-mute);
+  }
+  .layer .proves{
+    font-size:13.5px;color:var(--ink-mute);font-style:italic;
+  }
+
+  /* PROJECT CARDS */
+  .project-grid{display:grid;grid-template-columns:1fr;gap:14px;}
+  @media(min-width:720px){.project-grid{grid-template-columns:1fr 1fr;}}
+  .project-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:10px;
+    padding:24px 26px;display:flex;flex-direction:column;gap:12px;
+  }
+  .project-name{font-size:17px;font-weight:600;line-height:1.3;}
+  .project-desc{font-size:14px;color:var(--ink-soft);line-height:1.6;}
+  .project-meta{
+    font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--ink-mute);
+    padding-top:10px;border-top:1px solid var(--line-soft);margin-top:auto;
+  }
+  .project-links{display:flex;gap:14px;flex-wrap:wrap;margin-top:2px;}
+  .project-links a{
+    font-size:13px;font-weight:600;color:var(--signal);text-decoration:none;
+  }
+  .project-links a:hover{text-decoration:underline;}
+
+  /* DOCUMENTS */
+  .doc-table{
+    width:100%;border-collapse:collapse;background:var(--surface);
+    border-radius:10px;overflow:hidden;border:1px solid var(--line);
+  }
+  .doc-table tr{border-bottom:1px solid var(--line-soft);}
+  .doc-table tr:last-child{border-bottom:none;}
+  .doc-table td{padding:13px 20px;font-size:14.5px;vertical-align:middle;}
+  .doc-table td:last-child{text-align:right;width:90px;}
+  .doc-table a{text-decoration:none;color:var(--ink);font-weight:500;}
+  .doc-table a:hover{color:var(--signal);}
+  .doc-tag{
+    font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;
+    color:var(--ink-mute);
+  }
+
+  /* SKILLS + CERTS */
+  .info-grid{display:grid;grid-template-columns:1fr;gap:26px;}
+  @media(min-width:720px){.info-grid{grid-template-columns:1fr 1fr 1fr;}}
+  .info-block h3{
+    font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:14.5px;
+    margin-bottom:10px;color:var(--ink);
+  }
+  .info-block ul{list-style:none;}
+  .info-block li{
+    font-size:13.5px;color:var(--ink-soft);padding:6px 0;
+    border-bottom:1px dashed var(--line-soft);line-height:1.5;
+  }
+  .info-block li:last-child{border-bottom:none;}
+
+  .cert-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:36px;}
+  @media(min-width:720px){.cert-grid{grid-template-columns:repeat(4,1fr);}}
+  .cert-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:10px;
+    padding:18px 18px;display:flex;flex-direction:column;gap:6px;
+  }
+  .cert-card .badge{
+    width:26px;height:26px;border-radius:50%;background:var(--ok-soft);
+    border:1px solid var(--ok);color:var(--ok);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;
+  }
+  .cert-card .cert-name{font-size:13.5px;font-weight:600;line-height:1.35;}
+  .cert-card .cert-issuer{font-size:12px;color:var(--ink-mute);}
+
+  /* EXPERIENCE */
+  .exp-item{
+    display:grid;grid-template-columns:1fr;gap:4px;
+    padding:18px 0;border-bottom:1px dashed var(--line-soft);
+  }
+  .exp-item:last-child{border-bottom:none;}
+  @media(min-width:640px){
+    .exp-item{grid-template-columns:1fr 200px;gap:20px;align-items:baseline;}
+  }
+  .exp-role{font-size:15px;font-weight:600;}
+  .exp-org{font-size:14px;color:var(--ink-soft);}
+  .exp-date{font-size:12.5px;font-family:'IBM Plex Mono',monospace;color:var(--ink-mute);}
+  .exp-desc{font-size:13.5px;color:var(--ink-soft);margin-top:4px;grid-column:1/-1;}
+
+  /* CTA */
+  .cta-section{
+    background:var(--ink);color:var(--paper);border-radius:14px;
+    padding:44px 40px;
+    display:flex;flex-wrap:wrap;justify-content:space-between;
+    align-items:center;gap:24px;
+  }
+  .cta-section h2{
+    font-size:clamp(21px,3vw,28px);color:#fff;margin-bottom:8px;max-width:22ch;
+  }
+  .cta-section p{font-size:14.5px;color:rgba(241,244,247,.72);max-width:44ch;}
+  .cta-section .btn-light{
+    background:var(--signal);color:#fff;font-weight:600;
+    padding:13px 22px;border-radius:8px;text-decoration:none;
+    font-size:14px;transition:opacity .15s;white-space:nowrap;
+  }
+  .cta-section .btn-light:hover{opacity:.85;}
+
+  /* FOOTER */
+  footer{padding:40px 0 32px;}
+  .footer-inner{
+    max-width:var(--max);margin:0 auto;padding:0 24px;
+    display:flex;flex-wrap:wrap;justify-content:space-between;
+    gap:16px;align-items:center;
+  }
+  .footer-brand{font-family:'IBM Plex Serif',serif;font-weight:600;font-size:15px;}
+  .footer-links{display:flex;gap:20px;font-size:13.5px;flex-wrap:wrap;}
+  .footer-links a{color:var(--ink-soft);text-decoration:none;}
+  .footer-links a:hover{color:var(--signal);}
+  .footer-copy{
+    width:100%;font-size:12px;color:var(--ink-mute);
+    padding-top:18px;margin-top:10px;border-top:1px solid var(--line-soft);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">Callum Denysschen</a>
+    <nav class="top-nav">
+      <a href="#capstone">Capstone</a>
+      <a href="#projects">Projects</a>
+      <a href="#documents">Documents</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="cta-btn" href="/Callum_Denysschen_CV.pdf" target="_blank">Download CV</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="manifest">
+      <span class="k">role:</span> <span class="v">junior-devops-engineer</span><br>
+      <span class="k">availability:</span> <span class="v"><span class="status-dot"></span>remote — UK / EU / US hours</span>
+    </div>
+    <h1>I provision it, ship it, and keep it running.</h1>
+    <p class="sub">
+      Systems and Cloud Engineer with an AWS Cloud Practitioner certification and a production-shaped capstone portfolio spanning AWS, Terraform, Docker, Kubernetes, Helm, Python automation, and CI/CD. Everything below is a repository you can open, not a line on a résumé.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="/Callum_Denysschen_CV.pdf" target="_blank">Download CV</a>
+      <a class="btn btn-ghost" href="#capstone">See the capstone build</a>
+      <a class="btn btn-ghost" href="mailto:denysschen.callum43@gmail.com">Email me</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="num">3</span><span class="label">Capstone layers</span></div>
+      <div class="hero-stat"><span class="num">5</span><span class="label">Capstone repositories</span></div>
+      <div class="hero-stat"><span class="num">4</span><span class="label">Certifications</span></div>
+      <div class="hero-stat"><span class="num">4</span><span class="label">Client &amp; personal builds</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPSTONE -->
+<section id="capstone">
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-title">Capstone portfolio</div>
+      <div class="section-sub">One integrated system, three proof layers. Every repo carries Architecture Decision Records, cost estimates, and structured failure logs.</div>
+    </div>
+
+    <div class="stack">
+
+      <div class="layer">
+        <div class="layer-id mono">L1</div>
+        <div>
+          <div class="layer-name">Network &amp; infrastructure foundation</div>
+          <div class="layer-repos">
+            <span class="repo-chip soon" title="Repo coming soon">infra-baseline-aws — repo coming soon</span>
+          </div>
+          <ul>
+            <li>Modular, multi-tier AWS network provisioned entirely from Terraform: VPC, public/private subnets, Internet Gateway, NAT Gateways, and an RDS backend.</li>
+            <li>Remote state locking via S3 and DynamoDB, automated drift remediation, and documented recovery from manual IAM permission failures.</li>
+          </ul>
+          <div class="proves">Proves: infrastructure-as-code proficiency, state management, secure network topology design.</div>
+        </div>
+      </div>
+
+      <div class="layer">
+        <div class="layer-id mono">L2</div>
+        <div>
+          <div class="layer-name">Containers, orchestration &amp; delivery</div>
+          <div class="layer-repos">
+            <span class="repo-chip soon" title="Repo coming soon">k8s-deploy-lab — repo coming soon</span>
+            <span class="repo-chip soon" title="Repo coming soon">ci-cd-container-workflow — repo coming soon</span>
+          </div>
+          <ul>
+            <li>Microservice containerized with optimized multi-stage Dockerfiles, orchestrated via custom Helm charts on a Kubernetes cluster.</li>
+            <li>GitHub Actions pipeline: linting, unit tests, container builds, Trivy vulnerability scanning, registry pushes, rolling deploys, and automated rollback.</li>
+          </ul>
+          <div class="proves">Proves: container packaging, Kubernetes orchestration, safe hands-off continuous delivery.</div>
+        </div>
+      </div>
+
+      <div class="layer">
+        <div class="layer-id mono">L3</div>
+        <div>
+          <div class="layer-name">Observability &amp; operational automation</div>
+          <div class="layer-repos">
+            <span class="repo-chip soon" title="Repo coming soon">system-incident-lab — repo coming soon</span>
+            <span class="repo-chip soon" title="Repo coming soon">python-automation — repo coming soon</span>
+          </div>
+          <ul>
+            <li>CloudWatch, Prometheus, and Grafana dashboards tracking resource utilization, error rates, and custom metrics.</li>
+            <li>A formal disaster-recovery case study, structured 30-minute incident drills, and Python/Boto3 scripts for EC2 lifecycle management and log parsing.</li>
+          </ul>
+          <div class="proves">Proves: a disciplined diagnostic loop and operational automation under pressure.</div>
+        </div>
+      </div>
+
+    </div>
+    <p style="margin-top:24px;font-size:13.5px;color:var(--ink-mute);">
+      Infrastructure and pipeline repos link to code only — a Terraform module or CI pipeline has no browsable live demo. Front-end projects below link to both.
+    </p>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-title">Additional projects</div>
+      <div class="section-sub">Client and personal front-end work — built, deployed, and live.</div>
+    </div>
+
+    <div class="project-grid">
+
+      <div class="project-card">
+        <div class="project-name">Voltguard Electrical</div>
+        <p class="project-desc">
+          A fully responsive 5-page digital presence and service platform for an electrical contracting business, plus a full suite of client-facing collateral — brochures, quote templates, spec sheets — hosted alongside the site.
+        </p>
+        <div class="project-meta">Stack: HTML · CSS · GitHub Pages</div>
+        <div class="project-links">
+          <a href="/voltguard/" target="_blank">Live demo</a>
+          <a href="https://github.com/caldeny4201/caldeny4201.github.io/tree/main/voltguard" target="_blank">View code</a>
+          <a href="#documents">View documents</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Voltguard Web</div>
+        <p class="project-desc">
+          A productized website-building service for South African electricians, packaged into Launch / Growth / Dominate tiers with fixed pricing, audience-specific pages, and WhatsApp booking built in. Voltguard Electrical (above) is the live example site built with it.
+        </p>
+        <div class="project-meta">Stack: HTML · CSS · GitHub Pages</div>
+        <div class="project-links">
+          <a href="/voltguardweb/" target="_blank">Live demo</a>
+          <a href="https://github.com/caldeny4201/caldeny4201.github.io/tree/main/voltguardweb" target="_blank">View code</a>
+          <a href="#documents">View documents</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">Fathom — CS Study Platform</div>
+        <p class="project-desc">
+          A static resource-indexing application organizing 70+ computer science topics across 9 South African universities, each mapped to multiple module codes for fast navigation between course content and concept libraries.
+        </p>
+        <div class="project-meta">Stack: HTML · CSS · JS</div>
+        <div class="project-links">
+          <a href="/fathom/" target="_blank">Live demo</a>
+          <a href="https://github.com/caldeny4201/caldeny4201.github.io/tree/main/fathom" target="_blank">View code</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-name">LexPilot — Invoicing Prototype</div>
+        <p class="project-desc">
+          Front-end billing and invoicing prototype exploring a clean workflow for legal professionals to generate, track, and manage invoices with trust-account awareness.
+        </p>
+        <div class="project-meta">Stack: HTML · CSS · JS</div>
+        <div class="project-links">
+          <a href="/lexpilot/invoicer.html" target="_blank">Live demo</a>
+          <a href="https://github.com/caldeny4201/caldeny4201.github.io/tree/main/lexpilot" target="_blank">View code</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DOCUMENTS -->
+<section id="documents">
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-title">Documents</div>
+      <div class="section-sub">PDF, print-ready A4 — split between the Voltguard Web agency and its Voltguard Electrical example client.</div>
+    </div>
+
+    <h3 style="font-size:13.5px;font-weight:600;color:var(--ink-mute);margin-bottom:10px;">Voltguard Web — agency collateral</h3>
+    <table class="doc-table" style="margin-bottom:28px;">
+      <tr><td><a href="/collateral/Voltguard_Web_Agency_Brochure.pdf" target="_blank">Web Agency Brochure</a></td><td><span class="doc-tag">PDF</span></td></tr>
+      <tr><td><a href="/collateral/Voltguard_Web_Example_Quote.pdf" target="_blank">Web Example Quote</a></td><td><span class="doc-tag">PDF</span></td></tr>
+      <tr><td><a href="/collateral/Voltguard_Web_Spec_Sheet.pdf" target="_blank">Web Spec Sheet</a></td><td><span class="doc-tag">PDF</span></td></tr>
+    </table>
+
+    <h3 style="font-size:13.5px;font-weight:600;color:var(--ink-mute);margin-bottom:10px;">Voltguard Electrical — client brochures</h3>
+    <table class="doc-table">
+      <tr><td><a href="/collateral/Voltguard_Brochure_1_Homeowners.pdf" target="_blank">Brochure 1 — Homeowners</a></td><td><span class="doc-tag">PDF</span></td></tr>
+      <tr><td><a href="/collateral/Voltguard_Brochure_2_Estate_Agents.pdf" target="_blank">Brochure 2 — Estate Agents</a></td><td><span class="doc-tag">PDF</span></td></tr>
+      <tr><td><a href="/collateral/Voltguard_Brochure_3_Commercial.pdf" target="_blank">Brochure 3 — Commercial</a></td><td><span class="doc-tag">PDF</span></td></tr>
+      <tr><td><a href="/collateral/Voltguard_Brochure_4_Builders_Developers.pdf" target="_blank">Brochure 4 — Builders &amp; Developers</a></td><td><span class="doc-tag">PDF</span></td></tr>
+      <tr><td><a href="/collateral/Voltguard_Brochure_5_Landlords.pdf" target="_blank">Brochure 5 — Landlords</a></td><td><span class="doc-tag">PDF</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-title">Skills</div>
+      <div class="section-sub">Cloud, infrastructure, and the automation layer around it.</div>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-block">
+        <h3>Cloud &amp; infrastructure</h3>
+        <ul>
+          <li>AWS — EC2, S3, VPC, IAM, Security Groups, CloudFront, CloudWatch, RDS</li>
+          <li>Terraform — modular HCL, remote state backends, drift resolution</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h3>Containers &amp; orchestration</h3>
+        <ul>
+          <li>Docker — multi-stage builds, Docker Compose</li>
+          <li>Kubernetes — Pods, Deployments, Services, Helm charts</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h3>Automation &amp; scripting</h3>
+        <ul>
+          <li>Linux (Ubuntu), Bash, systemd, journalctl</li>
+          <li>Python — Boto3 automation, script optimization</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h3>Networking</h3>
+        <ul>
+          <li>TCP/IP, DNS, DHCP, CIDR subnetting</li>
+          <li>Routing tables, firewall rules, tcpdump analysis</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h3>CI/CD &amp; observability</h3>
+        <ul>
+          <li>GitHub Actions — lint → test → build → scan → deploy</li>
+          <li>CloudWatch, Prometheus, Grafana, incident post-mortems</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h3>Front-end</h3>
+        <ul>
+          <li>HTML, CSS, JavaScript</li>
+          <li>Responsive static sites and interactive prototypes</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="badge">✓</div>
+        <div class="cert-name">AWS Certified Cloud Practitioner</div>
+        <div class="cert-issuer">Amazon Web Services</div>
+      </div>
+      <div class="cert-card">
+        <div class="badge">✓</div>
+        <div class="cert-name">Terraform Associate</div>
+        <div class="cert-issuer">HashiCorp Certified</div>
+      </div>
+      <div class="cert-card">
+        <div class="badge">✓</div>
+        <div class="cert-name">AWS Solutions Architect – Associate</div>
+        <div class="cert-issuer">SAA-C03, Amazon Web Services</div>
+      </div>
+      <div class="cert-card">
+        <div class="badge">✓</div>
+        <div class="cert-name">Certified Kubernetes Administrator</div>
+        <div class="cert-issuer">The Linux Foundation (CKA)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section>
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-title">Experience</div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-role">Freelance Web Developer</div>
+        <div class="exp-org">Self-employed</div>
+      </div>
+      <div class="exp-date">Ongoing</div>
+      <div class="exp-desc">Designed, developed, and maintained custom web infrastructure and digital tools for clients — managing requirements, technical delivery, hosting, and ongoing support.</div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-role">Conference Assistant (Part-time)</div>
+        <div class="exp-org">The Travel Link</div>
+      </div>
+      <div class="exp-date">Aug 2019 – Jun 2020</div>
+      <div class="exp-desc">Assisted delegates with on-site technical infrastructure, registration queries, and event system troubleshooting.</div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-role">Sales Representative</div>
+        <div class="exp-org">DN Agencies</div>
+      </div>
+      <div class="exp-date">Jan 2019 – Jul 2019</div>
+      <div class="exp-desc">Customer outreach, technical product needs analysis, negotiation, and client relationship management.</div>
+    </div>
+  </div>
+</section>
+
+<!-- REMOTE READINESS + EDUCATION -->
+<section>
+  <div class="wrap">
+    <div class="info-grid" style="grid-template-columns:1fr 1fr;">
+      <div class="info-block">
+        <h3>Remote readiness</h3>
+        <ul>
+          <li>Dedicated inverter backup with automatic LTE failover, plus fibre internet</li>
+          <li>Fully operational across UK, EU, and US time zones</li>
+          <li>Professional written &amp; verbal English (C2)</li>
+          <li>Zoom · Slack · Microsoft Teams</li>
+        </ul>
+      </div>
+      <div class="info-block">
+        <h3>Education</h3>
+        <ul>
+          <li>National Senior Certificate — Treverton School</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact">
+  <div class="wrap">
+    <div class="cta-section">
+      <div>
+        <h2>Looking for a junior DevOps or cloud engineer?</h2>
+        <p>Open to remote junior and apprenticeship roles in cloud and DevOps engineering. Send me a message — I reply fast.</p>
+      </div>
+      <a class="btn-light" href="mailto:denysschen.callum43@gmail.com">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Callum Denysschen</div>
+    <div class="footer-links">
+      <a href="/Callum_Denysschen_CV.pdf" target="_blank">CV</a>
+      <a href="mailto:denysschen.callum43@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/callum-denysschen-a5ab1b168" target="_blank">LinkedIn</a>
+      <a href="https://github.com/caldeny4201" target="_blank">GitHub</a>
+    </div>
+    <div class="footer-copy">
+      Sandton, Gauteng, South Africa · +27 76 431 2871 · © 2026 Callum Denysschen
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

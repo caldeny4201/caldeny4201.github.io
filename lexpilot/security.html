@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security – LexPilot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #000; color: #fff; margin: 0; padding: 0; }
+    .break-words { word-break: break-word; hyphens: auto; overflow-wrap: break-word; }
+    /* Fluid typography */
+    .fluid-body { font-size: clamp(1rem, 4vw, 1.25rem); line-height: 1.6; }
+    .fluid-title { font-size: clamp(1.75rem, 6vw, 3rem); line-height: 1.2; }
+    .fluid-heading { font-size: clamp(3rem, 12vw, 6rem); line-height: 1.1; }
+    .fluid-subheading { font-size: clamp(2.5rem, 8vw, 4rem); line-height: 1.2; }
+    .fluid-question { font-size: clamp(2rem, 7vw, 3.5rem); line-height: 1.2; }
+    /* Hero-style container — consistent across all legal/compliance pages */
+    @media (max-width: 767px) {
+      .hero-container {
+        min-height: calc(100vh - var(--header-height, 80px));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 1rem !important;
+        padding-bottom: 3rem !important;
+      }
+    }
+    @media (min-width: 768px) {
+      .hero-container {
+        padding-top: 2rem;
+        padding-bottom: 6rem;
+        min-height: calc(100vh - var(--header-height, 100px));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+  <div id="header-placeholder"></div>
+  <main class="flex-1 px-4 sm:px-6 lg:px-8 text-center">
+    <div class="max-w-5xl mx-auto hero-container break-words">
+      <h1 class="fluid-heading font-black text-green-400 leading-none mt-4">
+        SECURITY<br class="sm:hidden"> OVERVIEW
+      </h1>
+      <div class="mt-12 sm:mt-16 bg-zinc-900/90 backdrop-blur border-4 border-green-500 rounded-3xl p-8 sm:p-12 md:p-16 lg:p-20">
+        <p class="fluid-subheading font-black text-green-400 mb-12">Bank-Level Security for South African Law Firms</p>
+        
+        <ul class="space-y-10 sm:space-y-14 fluid-body font-medium text-left max-w-4xl mx-auto leading-relaxed">
+          <li class="text-green-300 font-black fluid-title">1. Data Residency & Sovereignty</li>
+          <li class="ml-8">
+            All data is hosted exclusively in South Africa on AWS Johannesburg (af-south-1) region.<br>
+            No data is transferred outside SA borders, ensuring full POPIA compliance and protection from foreign jurisdiction risks.
+          </li>
+        
+          <li class="text-amber-300 font-black fluid-title mt-10">2. Encryption Standards</li>
+          <li class="ml-8">
+            <span class="block mt-4 opacity-90">
+              • In-transit: TLS 1.3 with Perfect Forward Secrecy<br>
+              • At-rest: AES-256 encryption with customer-managed keys<br>
+              • Database fields: Additional field-level encryption for sensitive data<br>
+              • Automatic key rotation every 90 days
+            </span>
+          </li>
+        
+          <li class="text-green-300 font-black fluid-title mt-10">3. Access Controls & Authentication</li>
+          <li class="ml-8">
+            <span class="block mt-4 opacity-90">
+              • Mandatory Multi-Factor Authentication (MFA) option for all users<br>
+              • Role-Based Access Control (RBAC) with granular permissions<br>
+              • Zero-trust architecture: Every request verified<br>
+              • Session timeouts and automatic logout after 15 minutes inactivity<br>
+              • IP allow-listing available on Enterprise plans
+            </span>
+          </li>
+        
+          <li class="text-amber-300 font-black fluid-title mt-10">4. Monitoring & Threat Detection</li>
+          <li class="ml-8">
+            <span class="block mt-4 opacity-90">
+              • 24/7 real-time monitoring with SIEM (Security Information & Event Management)<br>
+              • Automated intrusion detection and prevention systems<br>
+              • Continuous vulnerability scanning (daily)<br>
+              • Regular independent security audits and penetration testing<br>
+              • Full audit logs retained for 12 months
+            </span>
+          </li>
+        
+          <li class="text-green-300 font-black fluid-title mt-10">5. Incident Response & Breach Protocol</li>
+          <li class="ml-8">
+            In the unlikely event of a security incident:<br>
+            <span class="block mt-4 opacity-90">
+              • Immediate containment and forensic investigation<br>
+              • Notification to affected Firms and Information Regulator within 72 hours (POPIA requirement)<br>
+              • Transparent post-incident report and remediation plan<br>
+              • Dedicated incident response team on standby
+            </span>
+          </li>
+        
+          <li class="text-amber-300 font-black fluid-title mt-10">6. Compliance & Certifications</li>
+          <li class="ml-8">
+            <span class="block mt-4 opacity-90">
+              • 100% POPIA compliant with registered Information Officer<br>
+              • Aligned with ISO 27001 Information Security Management standards<br>
+              • PCI DSS compliant payment processing via PayFast<br>
+              • Annual third-party security audits and SOC 2 Type I readiness<br>
+              • Secure backups with 30-day retention and off-site redundancy (still in SA)
+            </span>
+          </li>
+        
+          <li class="text-green-300 font-black fluid-title mt-10">7. Physical & Infrastructure Security</li>
+          <li class="ml-8">
+            Underlying AWS Johannesburg data centres feature:<br>
+            <span class="block mt-4 opacity-90">
+              • Biometric access controls<br>
+              • 24/7 on-site security<br>
+              • Redundant power and cooling<br>
+              • Fire suppression and environmental monitoring
+            </span>
+          </li>
+        
+          <li class="text-amber-300 font-black fluid-title mt-10">8. Your Responsibilities</li>
+          <li class="ml-8">
+            To maintain maximum security, Firms should:<br>
+            <span class="block mt-4 opacity-90">
+              • Use strong, unique passwords<br>
+              • Enable MFA on all accounts<br>
+              • Train staff on phishing awareness<br>
+              • Report suspicious activity immediately to security@lexpilot.co.za
+            </span>
+          </li>
+        
+          <li class="mt-10 fluid-body">
+            • Effective Date: 28 December 2025<br>
+            • Last Updated: 28 December 2025<br>
+            • Security Contact: security@lexpilot.co.za<br>
+            • Emergency/WhatsApp: 076 431 2871
+          </li>
+        </ul>
+        
+        <p class="mt-16 fluid-question text-yellow-400 font-black text-center">
+          Questions?<br class="sm:hidden"> WhatsApp 076 431 2871
+        </p>
+      </div>
+    </div>
+  </main>
+  <div id="footer-placeholder" class="mt-auto"></div>
+  <script>
+    // Load header & footer
+    fetch('header.html?v='+Date.now())
+      .then(r => r.ok ? r.text() : '')
+      .then(h => document.getElementById('header-placeholder').innerHTML = h);
+    fetch('footer.html?v='+Date.now())
+      .then(r => r.ok ? r.text() : '')
+      .then(f => document.getElementById('footer-placeholder').innerHTML = f);
+    
+    // Header padding auto-adjust (identical to Privacy, Terms, DPA, POPIA pages)
+    function adjustMainPadding() {
+      const header = document.querySelector('header');
+      const main = document.querySelector('main');
+      if (header && main) {
+        const headerHeight = header.offsetHeight || 0;
+        main.style.paddingTop = `${headerHeight}px`;
+        document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
+      }
+    }
+    window.addEventListener('load', adjustMainPadding);
+    window.addEventListener('resize', adjustMainPadding);
+    document.fonts?.ready.then(adjustMainPadding);
+    setTimeout(adjustMainPadding, 100);
+    setTimeout(adjustMainPadding, 500);
+  </script>
+</body>
+</html>

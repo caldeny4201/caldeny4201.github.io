@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LexPilot Service Guide: Explore our AI-powered digital solutions for South African law firms, including websites, chatbots, and marketing, with full POPIA compliance.">
+    <meta name="keywords" content="LexPilot service guide, lawyer digital solutions, legal web development, South Africa law firm services, POPIA compliance, AI chatbot services, legal marketing">
+    <meta name="author" content="LexPilot">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="LexPilot - Service Guide">
+    <meta property="og:description" content="Discover LexPilot’s tailored digital partnerships for law firms, featuring AI-driven websites, chatbots, and marketing solutions, all POPIA-compliant.">
+    <meta property="og:image" content="https://www.LexPilot.co.za/images/og-lawyer-image.jpg">
+    <meta property="og:url" content="https://www.LexPilot.co.za/service-guide.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="LexPilot">
+    <title>LexPilot - Service Guide</title>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="preload" href="/images/lawyer.jpg" as="image">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="/styles.css">
+    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/dompurify@2.3.10/dist/purify.min.js"></script>
+    <script defer src="/script.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1234567890" id="gtag-script" data-consent-required="true"></script>
+    <script>
+        function initGA() {
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-1234567890', {
+                'page_path': window.location.pathname,
+                'linker': {'domains': ['LexPilot.co.za']}
+            });
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('cookieConsent') === 'accepted' && localStorage.getItem('analyticsCookies') === 'true') {
+                initGA();
+            }
+            loadHeader();
+            loadFooter();
+            AOS.init({ once: true, duration: 800 });
+        });
+    </script>
+</head>
+<body class="bg-gray-50 font-sans antialiased">
+    <!-- Cookie Consent Popup -->
+    <div id="cookie-consent" class="fixed bottom-4 left-4 right-4 max-w-lg mx-auto bg-white rounded-xl shadow-2xl p-6 z-50 hidden md:bottom-6 md:left-6 md:right-auto" role="dialog" aria-labelledby="cookie-consent-title">
+        <div class="space-y-4">
+            <h2 id="cookie-consent-title" class="text-lg font-semibold text-gray-800">We Value Your Privacy</h2>
+            <p class="text-sm text-gray-600">LexPilot uses cookies to enhance your experience and provide personalized services, fully compliant with POPIA. Choose your preferences below.</p>
+            <div class="space-y-3">
+                <div class="flex items-center">
+                    <input type="checkbox" id="essential-cookies" checked disabled class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" aria-describedby="essential-cookies-desc">
+                    <label for="essential-cookies" class="ml-2 text-sm text-gray-700">Essential Cookies <span class="text-gray-500">(Required for site functionality)</span></label>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" id="analytics-cookies" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" aria-describedby="analytics-cookies-desc">
+                    <label for="analytics-cookies" class="ml-2 text-sm text-gray-700">Analytics <span class="text-gray-500">(Helps us improve via Google Analytics)</span></label>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" id="marketing-cookies" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" aria-describedby="marketing-cookies-desc">
+                    <label for="marketing-cookies" class="ml-2 text-sm text-gray-700">Marketing <span class="text-gray-500">(Personalized offers & updates)</span></label>
+                </div>
+                <div class="border-t border-gray-200 pt-3">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="terms-agree" required aria-required="true" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" aria-describedby="terms-agree-error">
+                        <label for="terms-agree" class="ml-2 text-sm text-gray-700">I agree to the <a href="/policies.html" class="text-indigo-600 hover:underline" target="_blank">Privacy Policy & Terms</a> as per POPIA.</label>
+                    </div>
+                    <p id="terms-agree-error" class="text-red-600 text-xs mt-1 hidden">You must agree to proceed.</p>
+                </div>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3">
+                <button id="accept-btn" onclick="acceptCookiesWithGranular()" class="bg-indigo-600 text-white px-4 py-2 rounded-full hover:bg-indigo-700 transition font-medium disabled:opacity-50 disabled:cursor-not-allowed" disabled aria-label="Accept Selected Cookies" data-gtag-event="accept_cookies">Accept Selected</button>
+                <button onclick="declineCookies()" class="bg-gray-200 text-gray-800 px-4 py-2 rounded-full hover:bg-gray-300 transition font-medium" aria-label="Decline Optional Cookies" data-gtag-event="decline_cookies">Decline Optional</button>
+                <a href="/cookie.html" class="text-indigo-600 hover:underline text-sm text-center sm:self-center" target="_blank">Learn More</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="pt-16 min-h-screen">
+        <!-- Hero Section -->
+        <section id="home" class="relative min-h-[calc(100vh-4rem)] flex items-center justify-center text-white bg-cover bg-center" aria-labelledby="hero-title" style="background-image: url('/images/lawyer.jpg');">
+            <div class="absolute inset-0 bg-black bg-opacity-60 z-0"></div>
+            <div class="relative z-10 text-center max-w-4xl mx-auto px-4 py-16 sm:py-24 md:py-32" data-aos="fade-up">
+                <h1 id="hero-title" class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight">LexPilot Service Guide</h1>
+                <p class="text-lg sm:text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Explore our tailored digital partnerships for South African law firms, featuring AI-powered websites, chatbots, and marketing solutions, all designed with POPIA compliance to drive your growth.</p>
+                <a href="#guide-content" class="inline-block bg-indigo-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:bg-indigo-700 transition transform hover:scale-105" aria-label="Explore Service Guide" data-gtag-event="view_service_guide">Explore Guide</a>
+            </div>
+        </section>
+
+        <!-- Guide Content Section -->
+        <section id="guide-content" class="py-12 bg-white" aria-labelledby="guide-title">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 id="guide-title" class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-8" data-aos="fade-up">Service Guide</h2>
+                <p class="text-gray-600 mb-8 text-center" data-aos="fade-up" data-aos-delay="100">Last Updated: October 15, 2025</p>
+                <div class="space-y-12 text-gray-700" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Introduction -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">1. Welcome to LexPilot</h3>
+                        <p>LexPilot partners with South African law firms to deliver AI-powered digital solutions, including websites, chatbots, and marketing tools, all tailored to enhance client engagement and ensure compliance with the Protection of Personal Information Act (POPIA). This guide details our five partnership plans—Starter, Essentials, Launch, Pro, and Ultimate—designed to meet diverse firm needs. Whether you’re a solo practitioner or a large firm, our services streamline operations and boost your digital presence. Review our <a href="/policies.html" class="text-indigo-600 hover:underline">Terms of Service</a> for full details or contact us at <a href="mailto:info@LexPilot.co.za" class="text-indigo-600 hover:underline">info@LexPilot.co.za</a> to start.</p>
+                    </div>
+
+                    <!-- Partnership Plans -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">2. Our Partnership Plans</h3>
+                        <p>Our plans combine one-time setup fees with flexible monthly partnerships, including secure hosting, 24/7 support, and POPIA-compliant tools. Each plan ensures functionality (e.g., website performance, chatbot responsiveness) and design (e.g., aesthetics, user interface) meet your expectations, with support to resolve issues.</p>
+                        <div class="space-y-8 mt-6">
+                            <div class="border-l-4 border-teal-500 pl-4" role="region" aria-labelledby="starter-plan">
+                                <h4 id="starter-plan" class="text-lg font-semibold text-gray-800 mb-2">Starter (R5,000 Setup, R1,200/mo)</h4>
+                                <p class="text-sm mb-4">Ideal for new firms launching a cost-effective digital presence.</p>
+                                <ul class="list-disc pl-6 space-y-2 text-sm">
+                                    <li>Single-page AI website with local SEO to attract clients via Google.</li>
+                                    <li>24/7 AI intake form to collect and organize inquiries.</li>
+                                    <li>Automated email welcome sequence to engage prospects.</li>
+                                    <li>POPIA compliance audit with SSL encryption for data security.</li>
+                                    <li>Bi-annual performance reviews to optimize your site.</li>
+                                    <li>Free POPIA toolkit (checklist, consent templates).</li>
+                                </ul>
+                                <p class="text-sm mt-4"><strong>Functionality & Design</strong>: Fast-loading website with intuitive navigation and a clean, professional design tailored to your brand.</p>
+                            </div>
+                            <div class="border-l-4 border-indigo-500 pl-4" role="region" aria-labelledby="essentials-plan">
+                                <h4 id="essentials-plan" class="text-lg font-semibold text-gray-800 mb-2">Essentials (R10,000 Setup, R2,500/mo)</h4>
+                                <p class="text-sm mb-4">Perfect for solo attorneys building a reliable digital foundation.</p>
+                                <ul class="list-disc pl-6 space-y-2 text-sm">
+                                    <li>Single-page AI website with hyper-local SEO for better rankings.</li>
+                                    <li>Smart AI intake form to capture and filter inquiries 24/7.</li>
+                                    <li>Automated email follow-ups to nurture leads.</li>
+                                    <li>POPIA audit, AES-256 encryption, and multilingual support.</li>
+                                    <li>Quarterly ROI reviews with tailored strategies.</li>
+                                    <li>Basic analytics dashboard for traffic insights.</li>
+                                    <li>Free POPIA toolkit (checklist, consent templates).</li>
+                                </ul>
+                                <p class="text-sm mt-4"><strong>Functionality & Design</strong>: Responsive website with enhanced SEO and a user-friendly interface, plus multilingual options for accessibility.</p>
+                            </div>
+                            <div class="border-l-4 border-blue-500 pl-4" role="region" aria-labelledby="launch-plan">
+                                <h4 id="launch-plan" class="text-lg font-semibold text-gray-800 mb-2">Launch (R20,000 Setup, R5,000/mo)</h4>
+                                <p class="text-sm mb-4">Designed for small firms expanding client reach with integrated tools.</p>
+                                <ul class="list-disc pl-6 space-y-2 text-sm">
+                                    <li>5-page custom website with SEO for multiple practice areas.</li>
+                                    <li>Advanced AI inquiry form with smart routing.</li>
+                                    <li>Custom email drip campaigns to nurture leads.</li>
+                                    <li>POPIA-compliant tools with secure calendar sync.</li>
+                                    <li>Social media setup with automated posts and analytics.</li>
+                                    <li>Monthly performance reports with growth insights.</li>
+                                    <li>CRM integration for efficient lead management.</li>
+                                    <li>Free POPIA toolkit (checklist, consent templates).</li>
+                                </ul>
+                                <p class="text-sm mt-4"><strong>Functionality & Design</strong>: Multi-page site with seamless navigation, integrated CRM, and professional design across devices.</p>
+                            </div>
+                            <div class="border-l-4 border-green-500 pl-4" role="region" aria-labelledby="pro-plan">
+                                <h4 id="pro-plan" class="text-lg font-semibold text-gray-800 mb-2">Pro (R50,000 Setup, R10,000/mo)</h4>
+                                <p class="text-sm mb-4">For mid-sized firms aiming to compete with comprehensive solutions.</p>
+                                <ul class="list-disc pl-6 space-y-2 text-sm">
+                                    <li>12-page dynamic website with advanced SEO, schema, and voice search.</li>
+                                    <li>Pro AI chatbot for website and WhatsApp engagement.</li>
+                                    <li>Google Ads with AI-optimized bidding for lead flow.</li>
+                                    <li>12 premium SEO-optimized content pieces/month.</li>
+                                    <li>6 months priority maintenance with AI refinements.</li>
+                                    <li>Weekly campaign tweaks based on analytics.</li>
+                                    <li>Advanced CRM with automated client portals.</li>
+                                    <li>Reputation monitoring to protect your brand.</li>
+                                    <li>Free POPIA toolkit (checklist, consent templates).</li>
+                                </ul>
+                                <p class="text-sm mt-4"><strong>Functionality & Design</strong>: Dynamic site with voice search optimization, responsive chatbot, and premium design for brand authority.</p>
+                            </div>
+                            <div class="border-l-4 border-orange-500 pl-4" role="region" aria-labelledby="ultimate-plan">
+                                <h4 id="ultimate-plan" class="text-lg font-semibold text-gray-800 mb-2">Ultimate (R100,000 Setup, R25,000/mo)</h4>
+                                <p class="text-sm mb-4">For large firms managing high client volumes with enterprise needs.</p>
+                                <ul class="list-disc pl-6 space-y-2 text-sm">
+                                    <li>Unlimited-page website with global SEO and predictive analytics.</li>
+                                    <li>Enterprise AI chatbots across all client channels.</li>
+                                    <li>Full marketing suite: PPC, SEO, email, social, unlimited content.</li>
+                                    <li>Advanced reputation tools with real-time alerts.</li>
+                                    <li>12 months VIP support with custom AI integrations.</li>
+                                    <li>Monthly C-suite consultations for strategic growth.</li>
+                                    <li>Predictive AI for client retention and forecasting.</li>
+                                    <li>Integration with legal software (e.g., Clio, PracticePanther).</li>
+                                    <li>Free POPIA toolkit (checklist, consent templates).</li>
+                                </ul>
+                                <p class="text-sm mt-4"><strong>Functionality & Design</strong>: Enterprise-grade site with predictive analytics, multi-channel chatbots, and a sophisticated, scalable design.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Your Protections -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">3. Your Protections</h3>
+                        <p>We prioritize your satisfaction and compliance with South African laws, including POPIA and the Consumer Protection Act (CPA). Our commitments include:</p>
+                        <ul class="list-disc pl-6 space-y-2 text-sm mt-4">
+                            <li><strong>Intellectual Property</strong>: LexPilot retains ownership of proprietary technology (e.g., AI algorithms, code, designs) but grants you a perpetual, royalty-free license to use delivered assets (e.g., client-provided content) during and after the partnership.</li>
+                            <li><strong>Cancellation Policy</strong>: Cancel or adjust your plan with 30-day notice if dissatisfied with functionality (e.g., website performance, chatbot responsiveness) or design (e.g., aesthetics, user interface), with no penalties and a pro-rata refund for unused services. Other terms are in your signed agreement.</li>
+                            <li><strong>Data Security</strong>: Your data is protected with AES-256 encryption and strict POPIA compliance. Request access, correction, or deletion anytime via <a href="mailto:info@LexPilot.co.za" class="text-indigo-600 hover:underline">info@LexPilot.co.za</a>.</li>
+                            <li><strong>Transparency</strong>: No hidden fees; all costs and features are detailed in a clear, signed agreement tailored to your firm’s needs.</li>
+                            <li><strong>Support</strong>: Free initial consultation to align solutions with your goals, plus 24/7 support to resolve functionality or design concerns.</li>
+                        </ul>
+                        <p class="text-sm mt-4">Download our <a href="/service-guide.pdf" class="text-indigo-600 hover:underline font-semibold" data-gtag-event="download_service_guide">PDF Service Guide</a> or review our <a href="/policies.html" class="text-indigo-600 hover:underline font-semibold">Terms of Service</a> for full details.</p>
+                    </div>
+
+                    <!-- How It Works -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">4. How It Works</h3>
+                        <p>Partnering with LexPilot is simple and tailored to your firm’s needs:</p>
+                        <ol class="list-decimal pl-6 space-y-2 text-sm mt-4">
+                            <li><strong>Free Consultation</strong>: Schedule a strategy session to discuss your goals and select the best plan.</li>
+                            <li><strong>Signed Agreement</strong>: Review and sign a transparent agreement outlining costs, features, and terms.</li>
+                            <li><strong>Content Submission</strong>: Provide content (e.g., text, images, branding) within 7 days to ensure timely delivery.</li>
+                            <li><strong>Setup and Delivery</strong>: Receive initial mockups within 5–7 business days; full delivery varies by plan (2–12 weeks).</li>
+                            <li><strong>Support and Optimization</strong>: Access 24/7 support to resolve functionality or design issues, plus ongoing optimizations (e.g., SEO, analytics).</li>
+                            <li><strong>Cancellation or Adjustment</strong>: If dissatisfied with functionality or design, contact us within 30 days to adjust or cancel with no penalties (see Section 3).</li>
+                        </ol>
+                        <p class="text-sm mt-4">Contact our team at <a href="mailto:info@LexPilot.co.za" class="text-indigo-600 hover:underline">info@LexPilot.co.za</a> for assistance at any step.</p>
+                    </div>
+
+                    <!-- FAQ -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4">5. Frequently Asked Questions</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="text-md font-medium text-gray-800">What is included in functionality and design?</h4>
+                                <p class="text-sm">Functionality includes website performance (e.g., load times, navigation), chatbot responsiveness, and tool integration (e.g., CRM, email campaigns). Design covers aesthetics, user interface, and layout tailored to your brand.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-md font-medium text-gray-800">How do I cancel if I’m dissatisfied?</h4>
+                                <p class="text-sm">Notify us within 30 days of service delivery at <a href="mailto:info@LexPilot.co.za" class="text-indigo-600 hover:underline">info@LexPilot.co.za</a> with details of functionality or design issues. We’ll attempt to resolve them within 5 business days; if unresolved, you can cancel with a pro-rata refund for unused services.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-md font-medium text-gray-800">Is my data secure?</h4>
+                                <p class="text-sm">Yes, we use AES-256 encryption and comply with POPIA. You can request data access, correction, or deletion anytime.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-md font-medium text-gray-800">Are there hidden fees?</h4>
+                                <p class="text-sm">No, all costs are detailed in your signed agreement, ensuring transparency per the CPA.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Call to Action -->
+                    <div class="text-center mt-12">
+                        <button onclick="openStrategySessionModal('Service Guide Enquiry')" class="bg-indigo-600 text-white px-6 py-3 rounded-full hover:bg-indigo-700 transition font-semibold text-base transform hover:scale-105" aria-label="Schedule Free Partnership Session" data-gtag-event="book_strategy_session_guide">Schedule Free Partnership Session</button>
+                        <p class="text-sm text-gray-600 mt-4">Ready to transform your firm’s digital presence? Contact us at <a href="mailto:info@LexPilot.co.za" class="text-indigo-600 hover:underline">info@LexPilot.co.za</a> or download our <a href="/service-guide.pdf" class="text-indigo-600 hover:underline font-semibold" data-gtag-event="download_service_guide">PDF Service Guide</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-container" aria-label="Footer"></div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-4 right-4 bg-indigo-600 text-white p-3 rounded-full hover:bg-indigo-700 transition opacity-0 transform hover:scale-110" aria-label="Back to top" data-gtag-event="back_to_top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- WhatsApp Button -->
+    <button id="whatsapp-button" class="fixed bottom-16 right-4 bg-green-600 text-white p-3 rounded-full hover:bg-green-700 transition transform hover:scale-110" aria-label="Chat on WhatsApp" data-gtag-event="start_whatsapp" onclick="startWhatsApp()">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </button>
+
+    <!-- JavaScript for Dynamic Header and Footer Loading -->
+    <script>
+        function loadHeader() {
+            fetch('/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = DOMPurify.sanitize(data);
+                    const mobileMenuButton = document.getElementById('mobile-menu-button');
+                    if (mobileMenuButton) {
+                        mobileMenuButton.addEventListener('click', () => {
+                            const mobileMenu = document.getElementById('mobile-menu');
+                            const isExpanded = mobileMenu.classList.toggle('hidden');
+                            mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+                            mobileMenuButton.querySelector('i').classList.toggle('fa-bars', isExpanded);
+                            mobileMenuButton.querySelector('i').classList.toggle('fa-times', !isExpanded);
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading header:', error);
+                    document.getElementById('header-placeholder').innerHTML = DOMPurify.sanitize(`
+                        <nav class="bg-white shadow-lg fixed w-full z-50 top-0" aria-label="Main Navigation">
+                            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                                <div class="flex justify-between items-center h-16">
+                                    <div class="flex items-center space-x-3">
+                                        <a href="/index.html" class="flex items-center" aria-label="LexPilot Home">
+                                            <img src="/images/craftvibe-logo.jpg" alt="LexPilot Logo" class="h-10 w-auto" onerror="this.src='https://via.placeholder.com/40'">
+                                            <span class="text-2xl font-bold text-indigo-600 hidden sm:block">LexPilot</span>
+                                        </a>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <button id="mobile-menu-button" class="sm:hidden text-gray-600 hover:text-indigo-600 focus:outline-none" aria-expanded="false" aria-controls="mobile-menu">
+                                            <i class="fas fa-bars text-2xl"></i>
+                                        </button>
+                                        <div id="mobile-menu" class="hidden sm:flex sm:items-center sm:space-x-6">
+                                            <a href="/index.html#home" class="text-gray-600 hover:text-indigo-600 transition">Home</a>
+                                            <a href="/index.html#bundles" class="text-gray-600 hover:text-indigo-600 transition">Bundles</a>
+                                            <a href="/index.html#services" class="text-gray-600 hover:text-indigo-600 transition">Services</a>
+                                            <a href="/index.html#contact" class="text-gray-600 hover:text-indigo-600 transition">Contact</a>
+                                            <a href="/tos.html" class="text-gray-600 hover:text-indigo-600 transition">Terms</a>
+                                            <a href="/policies.html" class="text-gray-600 hover:text-indigo-600 transition">Privacy</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    `);
+                });
+        }
+
+        function loadFooter() {
+            fetch('/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = DOMPurify.sanitize(data);
+                })
+                .catch(error => {
+                    console.error('Error loading footer:', error);
+                    document.getElementById('footer-container').innerHTML = DOMPurify.sanitize(`
+                        <footer class="bg-gray-800 text-white py-8" aria-label="Footer">
+                            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                    <div>
+                                        <h3 class="text-lg font-semibold mb-4">LexPilot</h3>
+                                        <p class="text-gray-400 text-sm">Your partner for AI-powered websites and chatbots tailored for South African law firms, designed to support growth and ensure POPIA compliance.</p>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                                        <ul class="text-gray-400 text-sm space-y-2">
+                                            <li><a href="/index.html#bundles" class="hover:text-indigo-400 transition">Bundles</a></li>
+                                            <li><a href="/index.html#services" class="hover:text-indigo-400 transition">Services</a></li>
+                                            <li><a href="/tos.html" class="hover:text-indigo-400 transition">Terms of Service</a></li>
+                                            <li><a href="/policies.html" class="hover:text-indigo-400 transition">Privacy Policy</a></li>
+                                            <li><a href="/cookie.html" class="hover:text-indigo-400 transition">Cookie Policy</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold mb-4">Contact Us</h3>
+                                        <p class="text-gray-400 text-sm">Email: <a href="mailto:info@LexPilot.co.za" class="hover:text-indigo-400 transition">info@LexPilot.co.za</a></p>
+                                        <p class="text-gray-400 text-sm">Phone: <a href="tel:+27764312871" class="hover:text-indigo-400 transition">+27 76 431 2871</a></p>
+                                        <p class="text-gray-400 text-sm">Address: Creative Street, Sandton, Gauteng, 2196, South Africa</p>
+                                        <p class="text-gray-400 text-sm">Hours: Monday - Friday, 9:00 AM - 5:00 PM SAST</p>
+                                        <div class="mt-4 flex space-x-4">
+                                            <a href="https://facebook.com/LexPilot" class="text-gray-400 hover:text-indigo-400 transition" aria-label="Facebook" data-gtag-event="social_facebook" rel="noopener"><i class="fab fa-facebook-f text-xl"></i></a>
+                                            <a href="https://twitter.com/LexPilot" class="text-gray-400 hover:text-indigo-400 transition" aria-label="Twitter" data-gtag-event="social_twitter" rel="noopener"><i class="fab fa-twitter text-xl"></i></a>
+                                            <a href="https://instagram.com/LexPilot" class="text-gray-400 hover:text-indigo-400 transition" aria-label="Instagram" data-gtag-event="social_instagram" rel="noopener"><i class="fab fa-instagram text-xl"></i></a>
+                                            <a href="https://linkedin.com/company/LexPilot" class="text-gray-400 hover:text-indigo-400 transition" aria-label="LinkedIn" data-gtag-event="social_linkedin" rel="noopener"><i class="fab fa-linkedin-in text-xl"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-8 border-t border-gray-700 pt-4 text-center text-gray-400 text-sm">
+                                    <p>&copy; 2025 LexPilot. All rights reserved.</p>
+                                </div>
+                            </div>
+                        </footer>
+                    `);
+                });
+        }
+    </script>
+</body>
+</html>

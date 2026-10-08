@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POPIA Compliance – LexPilot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #000; color: #fff; margin: 0; padding: 0; }
+    .break-words { word-break: break-word; hyphens: auto; overflow-wrap: break-word; }
+    /* Fluid typography */
+    .fluid-body { font-size: clamp(1rem, 4vw, 1.25rem); line-height: 1.6; }
+    .fluid-title { font-size: clamp(1.75rem, 6vw, 3rem); line-height: 1.2; }
+    .fluid-heading { font-size: clamp(3rem, 12vw, 6rem); line-height: 1.1; }
+    .fluid-subheading { font-size: clamp(2.5rem, 8vw, 4rem); line-height: 1.2; }
+    .fluid-question { font-size: clamp(2rem, 7vw, 3.5rem); line-height: 1.2; }
+    /* Hero-style container — same as all legal pages */
+    @media (max-width: 767px) {
+      .hero-container {
+        min-height: calc(100vh - var(--header-height, 80px));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 1rem !important;
+        padding-bottom: 3rem !important;
+      }
+    }
+    @media (min-width: 768px) {
+      .hero-container {
+        padding-top: 2rem;
+        padding-bottom: 6rem;
+        min-height: calc(100vh - var(--header-height, 100px));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+  <div id="header-placeholder"></div>
+  <main class="flex-1 px-4 sm:px-6 lg:px-8 text-center">
+    <div class="max-w-5xl mx-auto hero-container break-words">
+      <h1 class="fluid-heading font-black text-green-400 leading-none mt-4">
+        POPIA<br class="sm:hidden"> COMPLIANCE
+      </h1>
+      <div class="mt-12 sm:mt-16 bg-zinc-900/90 backdrop-blur border-4 border-green-500 rounded-3xl p-8 sm:p-12 md:p-16 lg:p-20">
+        <p class="fluid-subheading font-black text-green-400 mb-12">Fully Compliant with South Africa's Protection of Personal Information Act (POPIA)</p>
+        
+        <ul class="space-y-10 sm:space-y-14 fluid-body font-medium text-left max-w-4xl mx-auto leading-relaxed">
+          <li class="text-green-300 font-black fluid-title">1. Our POPIA Commitment</li>
+          <li class="ml-8">
+            LexPilot is 100% compliant with the Protection of Personal Information Act 4 of 2013 (POPIA). We process personal information lawfully, minimally, and transparently to protect the privacy rights of our users, their staff, and their clients.
+          </li>
+        
+          <li class="text-amber-300 font-black fluid-title mt-10">2. Data Residency & Cross-Border</li>
+          <li class="ml-8">
+            All personal data is stored and processed exclusively in South Africa (AWS Johannesburg region).<br>
+            No cross-border transfers occur without explicit, informed consent or where permitted under Section 72 of POPIA.
+          </li>
+        
+          <li class="text-green-300 font-black fluid-title mt-10">3. Lawful Processing Bases</li>
+          <li class="ml-8">
+            We rely on the following lawful bases under POPIA:<br>
+            <span class="block mt-4 opacity-90">
+              • Contractual necessity – to deliver the LexPilot service<br>
+              • Legitimate interests – security, fraud prevention, platform improvements<br>
+              • Legal obligation – tax, regulatory reporting<br>
+              • Consent – marketing communications (revocable anytime)
+            </span>
+          </li>
+        
+          <li class="text-amber-300 font-black fluid-title mt-10">4. Accountability & Governance</li>
+          <li class="ml-8">
+            LexPilot acts as both Responsible Party and Operator (Processor) where applicable.<br>
+            We maintain comprehensive records of processing activities (ROPA).<br>
+            Information Officer: privacy@lexpilot.co.za (registered with the Information Regulator).
+          </li>
+        
+          <li class="text-green-300 font-black fluid-title mt-10">5. Security Safeguards</li>
+          <li class="ml-8">
+            We implement appropriate technical and organisational measures:<br>
+            <span class="block mt-4 opacity-90">
+              • End-to-end encryption (TLS 1.3 & AES-256 at rest)<br>
+              • Role-based access control (RBAC) and multi-factor authentication<br>
+              • Annual independent security audits and penetration testing<br>
+              • Regular vulnerability scanning<br>
+              • Mandatory breach notification to Regulator and data subjects within 72 hours
+            </span>
+          </li>
+        
+          <li class="text-amber-300 font-black fluid-title mt-10">6. Data Subject Rights</li>
+          <li class="ml-8">
+            Data subjects enjoy full POPIA rights:<br>
+            <span class="block mt-4 opacity-90">
+              • Access personal information free of charge<br>
+              • Rectify inaccurate data<br>
+              • Request deletion ("right to be forgotten") subject to legal obligations<br>
+              • Object to processing or direct marketing<br>
+              • Lodge a complaint with the Information Regulator
+            </span><br>
+            Exercise rights via privacy@lexpilot.co.za or WhatsApp 076 431 2871.
+          </li>
+        
+          <li class="text-green-300 font-black fluid-title mt-10">7. Sub-Processors & Operators</li>
+          <li class="ml-8">
+            We engage only POPIA-compliant sub-processors bound by written agreements:<br>
+            <span class="block mt-4 opacity-90">
+              • PayFast (payments – SA servers)<br>
+              • Google Cloud Firebase (auth/notifications – Johannesburg region only)<br>
+              • AWS (infrastructure – Johannesburg region)<br>
+              • SendGrid (transactional email – POPIA compliant routing)
+            </span><br>
+            Full sub-processor list available on request.
+          </li>
+        
+          <li class="text-amber-300 font-black fluid-title mt-10">8. Staff Training & Internal Policies</li>
+          <li class="ml-8">
+            All LexPilot team members complete annual POPIA training.<br>
+            We maintain strict internal policies on data handling, retention, minimisation, and secure deletion.
+          </li>
+        
+          <li class="text-green-300 font-black fluid-title mt-10">9. Data Minimisation & Retention</li>
+          <li class="ml-8">
+            We collect only necessary data and retain it no longer than required for the original purpose or legal obligations (e.g., 5 years for tax records, then securely deleted or anonymised).
+          </li>
+        
+          <li class="mt-10 fluid-body">
+            • Effective Date: 28 December 2025<br>
+            • Last Updated: 28 December 2025<br>
+            • Information Officer: privacy@lexpilot.co.za<br>
+            • WhatsApp: 076 431 2871<br>
+            • Regulator Complaints: enquiries@inforegulator.org.za
+          </li>
+        </ul>
+        
+        <p class="mt-16 fluid-question text-yellow-400 font-black text-center">
+          Questions?<br class="sm:hidden"> WhatsApp 076 431 2871
+        </p>
+      </div>
+    </div>
+  </main>
+  <div id="footer-placeholder" class="mt-auto"></div>
+  <script>
+    // Load header & footer
+    fetch('header.html?v='+Date.now())
+      .then(r => r.ok ? r.text() : '')
+      .then(h => document.getElementById('header-placeholder').innerHTML = h);
+    fetch('footer.html?v='+Date.now())
+      .then(r => r.ok ? r.text() : '')
+      .then(f => document.getElementById('footer-placeholder').innerHTML = f);
+    
+    // Header padding auto-adjust (same as Privacy, Terms, DPA)
+    function adjustMainPadding() {
+      const header = document.querySelector('header');
+      const main = document.querySelector('main');
+      if (header && main) {
+        const headerHeight = header.offsetHeight || 0;
+        main.style.paddingTop = `${headerHeight}px`;
+        document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
+      }
+    }
+    window.addEventListener('load', adjustMainPadding);
+    window.addEventListener('resize', adjustMainPadding);
+    document.fonts?.ready.then(adjustMainPadding);
+    setTimeout(adjustMainPadding, 100);
+    setTimeout(adjustMainPadding, 500);
+  </script>
+</body>
+</html>

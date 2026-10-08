@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Processing Agreement – LexPilot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #000; color: #fff; margin: 0; padding: 0; }
+    .break-words { word-break: break-word; hyphens: auto; overflow-wrap: break-word; }
+    /* Fluid typography */
+    .fluid-body { font-size: clamp(1rem, 4vw, 1.25rem); line-height: 1.6; }
+    .fluid-title { font-size: clamp(1.75rem, 6vw, 3rem); line-height: 1.2; }
+    .fluid-heading { font-size: clamp(3rem, 12vw, 6rem); line-height: 1.1; }
+    .fluid-subheading { font-size: clamp(2.5rem, 8vw, 4rem); line-height: 1.2; }
+    .fluid-question { font-size: clamp(2rem, 7vw, 3.5rem); line-height: 1.2; }
+    /* Hero-style container — same as privacy/terms */
+    @media (max-width: 767px) {
+      .hero-container {
+        min-height: calc(100vh - var(--header-height, 80px));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 1rem !important;
+        padding-bottom: 3rem !important;
+      }
+    }
+    @media (min-width: 768px) {
+      .hero-container {
+        padding-top: 2rem;
+        padding-bottom: 6rem;
+        min-height: calc(100vh - var(--header-height, 100px));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+  <div id="header-placeholder"></div>
+  <main class="flex-1 px-4 sm:px-6 lg:px-8 text-center">
+    <div class="max-w-5xl mx-auto hero-container break-words">
+      <h1 class="fluid-heading font-black text-green-400 leading-none mt-4">
+        DATA PROCESSING<br class="sm:hidden"> AGREEMENT
+      </h1>
+      <div class="mt-12 sm:mt-16 bg-zinc-900/90 backdrop-blur border-4 border-green-500 rounded-3xl p-8 sm:p-12 md:p-16 lg:p-20">
+        <p class="fluid-subheading font-black text-green-400 mb-12">POPIA-Compliant Data Processing Agreement</p>
+        <p class="fluid-body opacity-90 mb-8">This Data Processing Agreement ("DPA") supplements the Terms of Service and Privacy Policy. It applies where LexPilot processes personal data on behalf of the Client (the "Firm") as a Processor under POPIA.</p>
+        <ul class="space-y-10 sm:space-y-14 fluid-body font-medium text-left max-w-4xl mx-auto leading-relaxed">
+          <li class="text-green-300 font-black fluid-title">1. Definitions</li>
+          <li class="ml-8">
+            • "Personal Data": Any information relating to an identified or identifiable natural person.<br>
+            • "Processing": Any operation performed on Personal Data.<br>
+            • "Processor": LexPilot (or its sub-processors).<br>
+            • "Controller": The Firm (as the data controller under POPIA).
+          </li>
+        
+          <li class="text-amber-300 font-black fluid-title mt-10">2. Processing Instructions</li>
+          <li class="ml-8">LexPilot processes Personal Data only on the Firm's documented instructions, including for providing the Service (billing, AI drafting, CPD tracking, trust alerts). The Firm instructs LexPilot to process data in South Africa only.</li>
+        
+          <li class="text-green-300 font-black fluid-title mt-10">3. Purpose & Scope</li>
+          <li class="ml-8">Processing is limited to: Firm management, client data input/output, billing, compliance alerts. Categories: Firm staff, clients (names, contacts, case details). No special categories (e.g., health, race) unless explicitly provided by the Firm.</li>
+        
+          <li class="text-amber-300 font-black fluid-title mt-10">4. Security Measures</li>
+          <li class="ml-8">
+            End-to-end encryption for all data in transit and at rest.<br>
+            Independent annual security audits.<br>
+            Strict access controls: Only authorised LexPilot team members under NDAs.<br>
+            Data stored solely on AWS Johannesburg region.<br>
+            Breach notification: Firm and Information Regulator within 72 hours.
+          </li>
+        
+          <li class="text-green-300 font-black fluid-title mt-10">5. Sub-Processors</li>
+          <li class="ml-8">
+            Authorised sub-processors:<br>
+            <span class="block mt-4 opacity-90">
+              • PayFast (payments – Johannesburg servers)<br>
+              • Firebase (Google Cloud – Johannesburg region, auth/notifications only)<br>
+              • SendGrid/Mailgun (email delivery – POPIA compliant)<br>
+              • AWS (cloud storage – Johannesburg only)
+            </span><br>
+            Full list available on request at privacy@lexpilot.co.za. Firm may object to any sub-processor with reasonable cause (30 days' notice). LexPilot will not engage objected sub-processors.
+          </li>
+        
+          <li class="text-amber-300 font-black fluid-title mt-10">6. Data Subject Rights</li>
+          <li class="ml-8">
+            LexPilot assists the Firm in responding to data subject requests (access, rectification, deletion, objection) within 48 hours.<br>
+            The Firm remains responsible for authorising requests and handling direct communications.<br>
+            No direct data subject requests accepted by LexPilot without Firm instruction.
+          </li>
+        
+          <li class="text-green-300 font-black fluid-title mt-10">7. Data Deletion & Return</li>
+          <li class="ml-8">
+            Upon termination or request, LexPilot will:<br>
+            <span class="block mt-2 opacity-90">
+              1. Return all Personal Data in structured CSV/JSON format within 7 days<br>
+              2. Delete all Personal Data (including backups) within 30 days<br>
+              3. Provide deletion certification upon request
+            </span><br>
+            Subject to legal retention periods (tax, audit – max 5 years anonymised).
+          </li>
+        
+          <li class="text-amber-300 font-black fluid-title mt-10">8. Audits & Inspections</li>
+          <li class="ml-8">
+            Firm (or appointed auditor) may audit LexPilot's compliance once per year.<br>
+            60 days' written notice required. Audits at Firm's expense (unless breach found).<br>
+            Remote audits preferred; on-site only with Regulator approval.<br>
+            LexPilot provides SOC 2 Type II reports and annual POPIA audit summaries.
+          </li>
+        
+          <li class="text-green-300 font-black fluid-title mt-10">9. Governing Law</li>
+          <li class="ml-8">This DPA is governed by South African law (POPIA, Constitution). Disputes resolved exclusively in Johannesburg High Court or arbitration (AFSA rules).</li>
+        
+          <li class="text-amber-300 font-black fluid-title mt-10">10. Duration & Termination</li>
+          <li class="ml-8">
+            Effective for entire Service term + 5 years post-termination for confidentiality/deletion.<br>
+            Terminates automatically on main Terms of Service termination.<br>
+            Survives for data deletion, audits, liability.
+          </li>
+        
+          <li class="mt-10 fluid-body">
+            • Effective Date: 28 December 2025<br>
+            • Last Updated: 28 December 2025<br>
+            • Controller Sign-off: ____________________ Date: __________<br>
+            • Processor (LexPilot): ____________________ Date: __________<br>
+            • Contact: privacy@lexpilot.co.za or WhatsApp 076 431 2871
+          </li>
+        </ul>
+        <p class="mt-16 fluid-question text-yellow-400 font-black text-center">
+          Questions?<br class="sm:hidden"> WhatsApp 076 431 2871
+        </p>
+      </div>
+    </div>
+  </main>
+  <div id="footer-placeholder" class="mt-auto"></div>
+  <script>
+    // Load header & footer
+    fetch('header.html?v='+Date.now())
+      .then(r => r.ok ? r.text() : '')
+      .then(h => document.getElementById('header-placeholder').innerHTML = h);
+    fetch('footer.html?v='+Date.now())
+      .then(r => r.ok ? r.text() : '')
+      .then(f => document.getElementById('footer-placeholder').innerHTML = f);
+    // Same header padding fix as privacy/terms
+    function adjustMainPadding() {
+      const header = document.querySelector('header');
+      const main = document.querySelector('main');
+      if (header && main) {
+        const headerHeight = header.offsetHeight || 0;
+        main.style.paddingTop = `${headerHeight}px`;
+        document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
+      }
+    }
+    window.addEventListener('load', adjustMainPadding);
+    window.addEventListener('resize', adjustMainPadding);
+    document.fonts?.ready.then(adjustMainPadding);
+    setTimeout(adjustMainPadding, 100);
+    setTimeout(adjustMainPadding, 500);
+  </script>
+</body>
+</html>
