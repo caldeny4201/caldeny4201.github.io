@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      padding-top: 0 !important; /* Overridden by JS on main page */
+    }
+    header {
+      box-shadow: 0 4px 20px rgba(0, 255, 0, 0.1);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 min-h-screen text-white">
+
+<header class="fixed top-0 left-0 right-0 z-[999] bg-black/95 backdrop-blur-2xl border-b border-green-500/20">
+  <div class="max-w-7xl mx-auto px-5 py-4">
+    
+    <!-- Desktop Layout -->
+    <div class="hidden lg:flex items-center justify-between">
+      <a href="/" class="flex items-center gap-4 group">
+        <img src="/images/lexpilot-logo.jpg" alt="LexPilot Logo"
+             class="h-10 md:h-12 rounded-full shadow-2xl ring-4 ring-green-500/30
+                    transition-all duration-300 group-hover:scale-110 group-hover:ring-green-400">
+        <span class="hidden md:flex items-baseline font-black tracking-tighter leading-none">
+          <span class="text-3xl md:text-4xl text-white">Lex</span>
+          <span class="text-4xl md:text-5xl text-green-400">Pilot</span>
+        </span>
+      </a>
+
+      <div class="flex items-center gap-8 xl:gap-12">
+        <nav class="flex items-center gap-10 text-base font-bold">
+          <a href="index.html#pricing" class="text-white/80 hover:text-green-400 transition duration-300">Pricing</a>
+          <a href="index.html#features" class="text-white/80 hover:text-green-400 transition duration-300">Features</a>
+        </nav>
+        
+        <button onclick="startQuiz()"
+                class="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700
+                        text-black font-black px-7 py-4 rounded-full shadow-2xl hover:scale-110 transition-all duration-300
+                        text-sm md:text-lg flex items-center gap-3 whitespace-nowrap border-2 border-green-400/50">
+          <i class="fab fa-whatsapp text-2xl"></i>
+          <span class="hidden xs:inline">SECURE MY SPOT NOW</span>
+          <span class="xs:hidden">APPLY</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile & Tablet Layout (now includes Pricing & Features links) -->
+    <div class="lg:hidden flex flex-col gap-4">
+      <div class="flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3 group">
+          <img src="/images/lexpilot-logo.jpg" alt="LexPilot Logo"
+               class="h-10 rounded-full shadow-2xl ring-4 ring-green-500/30
+                      transition-all duration-300 group-hover:scale-110 group-hover:ring-green-400">
+          <span class="hidden xs:flex items-baseline font-black tracking-tighter leading-none">
+            <span class="text-2xl text-white">Lex</span>
+            <span class="text-3xl text-green-400">Pilot</span>
+          </span>
+        </a>
+
+        <button onclick="startQuiz()"
+                class="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700
+                        text-black font-black px-5 py-3 rounded-full shadow-2xl hover:scale-110 transition-all duration-300
+                        text-sm flex items-center gap-2 whitespace-nowrap border-2 border-green-400/50">
+          <i class="fab fa-whatsapp text-2xl"></i>
+          <span class="hidden xs:inline">SECURE MY SPOT</span>
+          <span class="xs:hidden">APPLY</span>
+        </button>
+      </div>
+
+      <!-- Quick menu visible on all mobile/tablet devices -->
+      <nav class="flex justify-center gap-8 text-base font-bold pb-2 border-b border-green-500/20">
+        <a href="index.html#pricing" class="text-white/80 hover:text-green-400 transition duration-300">Pricing</a>
+        <a href="index.html#features" class="text-white/80 hover:text-green-400 transition duration-300">Features</a>
+      </nav>
+    </div>
+
+  </div>
+</header>
+
+</body>
+</html>

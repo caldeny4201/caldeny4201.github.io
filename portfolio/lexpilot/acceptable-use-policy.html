@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceptable Use Policy – LexPilot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #000; color: #fff; margin: 0; padding: 0; }
+    .break-words { word-break: break-word; hyphens: auto; overflow-wrap: break-word; }
+    /* Fluid typography */
+    .fluid-body { font-size: clamp(1rem, 4vw, 1.25rem); line-height: 1.6; }
+    .fluid-title { font-size: clamp(1.75rem, 6vw, 3rem); line-height: 1.2; }
+    .fluid-heading { font-size: clamp(3rem, 12vw, 6rem); line-height: 1.1; }
+    .fluid-subheading { font-size: clamp(2.5rem, 8vw, 4rem); line-height: 1.2; }
+    .fluid-question { font-size: clamp(2rem, 7vw, 3.5rem); line-height: 1.2; }
+
+    /* Hero-style container — same as index, refund, privacy */
+    @media (max-width: 767px) {
+      .hero-container {
+        min-height: calc(100vh - var(--header-height, 80px));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 1rem !important;
+        padding-bottom: 3rem !important;
+      }
+    }
+    @media (min-width: 768px) {
+      .hero-container {
+        padding-top: 2rem;
+        padding-bottom: 6rem;
+        min-height: calc(100vh - var(--header-height, 100px));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 px-4 sm:px-6 lg:px-8 text-center">
+    <div class="max-w-5xl mx-auto hero-container break-words">
+      <h1 class="fluid-heading font-black text-green-400 leading-none mt-4">
+        ACCEPTABLE<br class="sm:hidden"> USE POLICY
+      </h1>
+
+      <div class="mt-12 sm:mt-16 bg-zinc-900/90 backdrop-blur border-4 border-green-500 rounded-3xl p-8 sm:p-12 md:p-16 lg:p-20">
+        <p class="fluid-subheading font-black text-green-400 mb-12">LexPilot Acceptable Use Policy</p>
+
+        <p class="fluid-body opacity-90 mb-10">
+          This Acceptable Use Policy ("AUP") outlines the rules for using LexPilot. Violation may result in suspension or termination of your account. This supplements the Terms of Service.
+        </p>
+
+        <ul class="space-y-10 sm:space-y-14 fluid-body font-medium text-left max-w-4xl mx-auto leading-relaxed">
+          <li class="text-green-300 font-black fluid-title">1. Prohibited Activities</li>
+          <li class="ml-8">
+            You may not use the Service to:<br>
+            <span class="block mt-4 opacity-90">
+              • Violate any South African law, including LSSA rules or trust account regulations.<br>
+              • Upload, store, or transmit illegal, harmful, or offensive content (e.g., malware, spam, hate speech).<br>
+              • Infringe intellectual property rights of others.<br>
+              • Attempt unauthorised access, hacking, or reverse-engineering.<br>
+              • Overload or disrupt the Service (e.g., DDoS attacks).<br>
+              • Use for non-legal purposes or to mislead clients.<br>
+              • Share credentials or allow unauthorised access.
+            </span>
+          </li>
+
+          <li class="text-amber-300 font-black fluid-title mt-10">2. Content & Data Responsibilities</li>
+          <li class="ml-8">
+            You are responsible for all data you input. Ensure it complies with POPIA and ethical standards. Do not input sensitive client data without proper safeguards. LexPilot is not liable for data accuracy or legal consequences from misuse.
+          </li>
+
+          <li class="text-green-300 font-black fluid-title mt-10">3. Account & Usage Limits</li>
+          <li class="ml-8">
+            <span class="block mt-4 opacity-90">
+              • Do not exceed usage limits based on your tier (e.g., team size restrictions).<br>
+              • No scraping, automated access, or bots without permission.<br>
+              • Maintain accurate firm details.
+            </span>
+          </li>
+
+          <li class="text-amber-300 font-black fluid-title mt-10">4. Monitoring & Enforcement</li>
+          <li class="ml-8">
+            We monitor for compliance but do not actively review content unless required by law. We may suspend/terminate access for violations without notice. You may appeal via WhatsApp.
+          </li>
+
+          <li class="text-green-300 font-black fluid-title mt-10">5. Reporting Violations</li>
+          <li class="ml-8">
+            Report suspected violations to support@lexpilot.co.za or WhatsApp 076 431 2871. We investigate promptly.
+          </li>
+
+          <li class="text-amber-300 font-black fluid-title mt-10">6. Changes to AUP</li>
+          <li class="ml-8">
+            We may update this AUP. Material changes will be notified via email/WhatsApp. Continued use constitutes acceptance.
+          </li>
+
+          <li class="mt-10 fluid-body">
+            • Effective Date: 20 December 2025<br>
+            • Last Updated: 20 December 2025<br>
+            • Contact: support@lexpilot.co.za or WhatsApp 076 431 2871
+          </li>
+        </ul>
+
+        <p class="mt-16 fluid-question text-yellow-400 font-black text-center">
+          Questions?<br class="sm:hidden"> WhatsApp 076 431 2871
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder" class="mt-auto"></div>
+
+  <script>
+    // Load header & footer
+    fetch('header.html?v='+Date.now())
+      .then(r => r.ok ? r.text() : '')
+      .then(h => document.getElementById('header-placeholder').innerHTML = h);
+
+    fetch('footer.html?v='+Date.now())
+      .then(r => r.ok ? r.text() : '')
+      .then(f => document.getElementById('footer-placeholder').innerHTML = f);
+
+    // Header padding fix (same as all pages)
+    function adjustMainPadding() {
+      const header = document.querySelector('header');
+      const main = document.querySelector('main');
+      if (header && main) {
+        const headerHeight = header.offsetHeight || 0;
+        main.style.paddingTop = `${headerHeight}px`;
+        document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
+      }
+    }
+    window.addEventListener('load', adjustMainPadding);
+    window.addEventListener('resize', adjustMainPadding);
+    document.fonts?.ready.then(adjustMainPadding);
+    setTimeout(adjustMainPadding, 100);
+    setTimeout(adjustMainPadding, 500);
+  </script>
+</body>
+</html>

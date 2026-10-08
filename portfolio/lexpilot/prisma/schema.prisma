@@ -1,0 +1,151 @@
+model Firm {
+  id            String   @id @default(cuid())
+  name          String
+  vatNumber     String?
+  bankDetails   String?
+  logoUrl       String?
+  createdAt     DateTime @default(now())
+  users         User[]
+  clients       Client[]
+  presets       ServicePreset[]
+}
+
+model User {
+  id            String   @id @default(cuid())
+  firmId        String
+  email         String   @unique
+  name          String
+  role          Role     @default(LAWYER) // ADMIN, LAWYER, STAFF
+  createdAt     DateTime @default(now())
+  firm          Firm     @relation(fields: [firmId], references: [id])
+  timeEntries   TimeEntry[]
+}
+
+enum Role {
+  ADMIN
+  LAWYER
+  STAFF
+}
+
+model Client {
+  id            String   @id @default(cuid())
+  firmId        String
+  name          String
+  email         String?
+  phone         String?
+  address       String?
+  idNumber      String?
+  createdAt     DateTime @default(now())
+  firm          Firm     @relation(fields: [firmId], references: [id])
+  cases         Case[]
+  trustBalance  Decimal  @default(0)
+  deposits      Deposit[]
+}
+
+model Case {
+  id            String   @id @default(cuid())
+  clientId      String
+  name          String
+  caseNumber    String?
+  court         String?
+  type          String?  // Civil, Family, etc.
+  status        String   @default("Active")
+  opposingParty String?
+  description   String?
+  createdAt     DateTime @default(now())
+  client        Client   @relation(fields: [clientId], references: [id])
+  unbilled      UnbilledItem[]
+  invoices      Invoice[]
+}
+
+model ServicePreset {
+  id            String   @id @default(cuid())
+  firmId        String
+  name          String
+  type          String   // Hourly / Fixed
+  rate          Decimal
+  description   String?
+  useTrust      Boolean  @default(false)
+  firm          Firm     @relation(fields: [firmId], references: [id])
+}
+
+model TimeSession {
+  id            String   @id @default(cuid())
+  caseId        String
+  lawyerId      String
+  notes         String?
+  createdAt     DateTime @default(now())
+  services      SessionService[]
+  disbursements Disbursement[]
+  case          Case     @relation(fields: [caseId], references: [id])
+  lawyer        User     @relation(fields: [lawyerId], references: [id])
+}
+
+model SessionService {
+  id            String   @id @default(cuid())
+  sessionId     String
+  name          String
+  description   String?
+  hours         Decimal  @default(0)
+  rate          Decimal
+  amount        Decimal
+  useTrust      Boolean
+  timerSeconds  Int      @default(0)
+  status        String   @default("Stopped") // Running, Paused, Stopped
+  session       TimeSession @relation(fields: [sessionId], references: [id])
+}
+
+model Disbursement {
+  id            String   @id @default(cuid())
+  sessionId     String?
+  invoiceId     String?
+  description   String
+  amount        Decimal
+  useTrust      Boolean
+  session       TimeSession? @relation(fields: [sessionId], references: [id])
+  invoice       Invoice?     @relation(fields: [invoiceId], references: [id])
+}
+
+model UnbilledItem {
+  id            String   @id @default(cuid())
+  caseId        String
+  item          String
+  hours         Decimal?
+  rate          Decimal?
+  amount        Decimal
+  useTrust      Boolean
+  lawyerId      String?
+  createdAt     DateTime @default(now())
+  case          Case     @relation(fields: [caseId], references: [id])
+  lawyer        User?    @relation(fields: [lawyerId], references: [id])
+}
+
+model Invoice {
+  id            String   @id @default(cuid())
+  caseId        String
+  number        String   @unique
+  date          DateTime
+  dueDate       DateTime
+  subtotal      Decimal
+  vat           Decimal
+  trustDeducted Decimal
+  totalDue      Decimal
+  status        String   @default("Draft") // Draft, Sent, Paid, Overdue
+  payfastLink   String?
+  createdAt     DateTime @default(now())
+  case          Case     @relation(fields: [caseId], references: [id])
+  items         UnbilledItem[] // Linked via move on send
+  disbursements Disbursement[]
+}
+
+model Deposit {
+  id            String   @id @default(cuid())
+  clientId      String
+  caseId        String?  // null = general
+  amount        Decimal
+  method        String   // Payfast, EFT, Card
+  payfastLink   String?
+  status        String   @default("Pending")
+  createdAt     DateTime @default(now())
+  client        Client   @relation(fields: [clientId], references: [id])
+}

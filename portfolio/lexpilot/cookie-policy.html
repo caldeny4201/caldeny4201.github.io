@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Policy – LexPilot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #000; color: #fff; margin: 0; padding: 0; }
+    .break-words { word-break: break-word; hyphens: auto; overflow-wrap: break-word; }
+    /* Fluid typography */
+    .fluid-body { font-size: clamp(1rem, 4vw, 1.25rem); line-height: 1.6; }
+    .fluid-title { font-size: clamp(1.75rem, 6vw, 3rem); line-height: 1.2; }
+    .fluid-heading { font-size: clamp(3rem, 12vw, 6rem); line-height: 1.1; }
+    .fluid-subheading { font-size: clamp(2.5rem, 8vw, 4rem); line-height: 1.2; }
+    .fluid-question { font-size: clamp(2rem, 7vw, 3.5rem); line-height: 1.2; }
+
+    /* Hero-style container — same as all other pages */
+    @media (max-width: 767px) {
+      .hero-container {
+        min-height: calc(100vh - var(--header-height, 80px));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 1rem !important;
+        padding-bottom: 3rem !important;
+      }
+    }
+    @media (min-width: 768px) {
+      .hero-container {
+        padding-top: 2rem;
+        padding-bottom: 6rem;
+        min-height: calc(100vh - var(--header-height, 100px));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+  <div id="header-placeholder"></div>
+
+  <main class="flex-1 px-4 sm:px-6 lg:px-8 text-center">
+    <div class="max-w-5xl mx-auto hero-container break-words">
+      <h1 class="fluid-heading font-black text-green-400 leading-none mt-4">
+        COOKIE<br class="sm:hidden"> POLICY
+      </h1>
+
+      <div class="mt-12 sm:mt-16 bg-zinc-900/90 backdrop-blur border-4 border-green-500 rounded-3xl p-8 sm:p-12 md:p-16 lg:p-20">
+        <p class="fluid-subheading font-black text-green-400 mb-12">LexPilot Cookie Policy</p>
+
+        <p class="fluid-body opacity-90 mb-10 text-2xl sm:text-3xl">
+          Last Updated: 20 December 2025
+        </p>
+
+        <ul class="space-y-10 sm:space-y-14 fluid-body font-medium text-left max-w-4xl mx-auto leading-relaxed">
+          <li class="text-green-300 font-black fluid-title">1. What Are Cookies?</li>
+          <li class="ml-8">
+            Cookies are small text files stored on your device (computer, phone, tablet) when you visit a website. They help the site remember your actions and preferences (e.g., login status, language) over time.
+          </li>
+
+          <li class="text-amber-300 font-black fluid-title mt-10">2. Cookies We Use</li>
+          <li class="ml-8">
+            LexPilot uses <strong>only essential cookies</strong> for core functionality. No marketing, tracking, or analytics cookies (e.g., no Google Analytics, Facebook Pixel). Our essential cookies include:<br>
+            <span class="block mt-4 opacity-90">
+              • Session cookies: For login and navigation (e.g., remembering your authenticated state).<br>
+              • Preference cookies: To save your language or dark mode settings.<br>
+              • Security cookies: To prevent fraud and ensure secure access.
+            </span><br>
+            These cookies are strictly necessary for the site to function and do not collect personal data beyond what is required for service delivery.
+          </li>
+
+          <li class="text-green-300 font-black fluid-title mt-10">3. No Third-Party Cookies</li>
+          <li class="ml-8">
+            We do not use third-party cookies or trackers. All cookies are first-party and managed by LexPilot. No data is shared with advertising networks or analytics providers.
+          </li>
+
+          <li class="text-amber-300 font-black fluid-title mt-10">4. Managing Cookies</li>
+          <li class="ml-8">
+            You can manage cookies through your browser settings:<br>
+            <span class="block mt-4 opacity-90">
+              • Block or delete cookies at any time.<br>
+              • Note: Blocking essential cookies may prevent access to certain features (e.g., login).
+            </span><br>
+            For more details, visit your browser's help section (e.g., Chrome, Firefox, Safari).
+          </li>
+
+          <li class="text-green-300 font-black fluid-title mt-10">5. Changes to This Policy</li>
+          <li class="ml-8">
+            We may update this Cookie Policy. Changes will be posted here and notified via email/WhatsApp if material. Continued use constitutes acceptance.
+          </li>
+
+          <li class="mt-10 fluid-body">
+            • Effective Date: 20 December 2025<br>
+            • Last Updated: 20 December 2025<br>
+            • Contact: support@lexpilot.co.za or WhatsApp 076 431 2871
+          </li>
+        </ul>
+
+        <p class="mt-16 fluid-question text-yellow-400 font-black text-center">
+          Questions?<br class="sm:hidden"> WhatsApp 076 431 2871
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder" class="mt-auto"></div>
+
+  <script>
+    // Load header & footer
+    fetch('header.html?v='+Date.now())
+      .then(r => r.ok ? r.text() : '')
+      .then(h => document.getElementById('header-placeholder').innerHTML = h);
+
+    fetch('footer.html?v='+Date.now())
+      .then(r => r.ok ? r.text() : '')
+      .then(f => document.getElementById('footer-placeholder').innerHTML = f);
+
+    // Header padding fix (same as all pages)
+    function adjustMainPadding() {
+      const header = document.querySelector('header');
+      const main = document.querySelector('main');
+      if (header && main) {
+        const headerHeight = header.offsetHeight || 0;
+        main.style.paddingTop = `${headerHeight}px`;
+        document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
+      }
+    }
+    window.addEventListener('load', adjustMainPadding);
+    window.addEventListener('resize', adjustMainPadding);
+    document.fonts?.ready.then(adjustMainPadding);
+    setTimeout(adjustMainPadding, 100);
+    setTimeout(adjustMainPadding, 500);
+  </script>
+</body>
+</html>
