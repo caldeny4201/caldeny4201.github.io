@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Patient Revenue Recovery | Turn missed dental enquiries into booked appointments</title>
+<meta name="description" content="A managed revenue-recovery service for private dental practices in South Africa: 24/7 enquiry response, missed-call recovery, cancellation recovery and patient reactivation. Free Patient Leakage Audit.">
+<meta name="theme-color" content="#0A1522">
+<meta property="og:title" content="Patient Revenue Recovery">
+<meta property="og:description" content="Turn missed dental enquiries into booked appointments. Free Patient Leakage Audit for private dental practices.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234FE3C1'/%3E%3Cpath d='M8 17l5 5 11-12' fill='none' stroke='%2304141A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0A1522; --ink2:#0F2234; --ink3:#060D16;
+  --mint:#4FE3C1; --teal:#0B5B52; --amber:#F2B84B;
+  --light:#F2F5F6; --white:#FFFFFF; --line:#D5DEE2;
+  --text:#0A1522; --muted:#46565F; --body:#33444D;
+  --dtext:#E8F1F4; --dmuted:#8FA6B1; --dbody:#B8CAD3;
+  --display:'Bricolage Grotesque',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{margin:0;font-family:'DM Sans',system-ui,sans-serif;color:var(--text);background:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg{max-width:100%}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.sec{padding:84px 0}
+.light{background:var(--light)}
+.white{background:var(--white)}
+.dark{background:var(--ink);color:var(--dtext)}
+.dark2{background:var(--ink2);color:var(--dtext)}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+.dark .eyebrow,.dark2 .eyebrow{color:var(--mint)}
+h1,h2,h3{font-family:var(--display);margin:0}
+h2{font-weight:700;font-size:clamp(30px,4.2vw,46px);line-height:1.06;letter-spacing:-.02em;margin-top:12px;max-width:840px}
+h3{letter-spacing:-.01em}
+.lead{font-size:18px;line-height:1.55;margin:16px 0 0;max-width:700px;color:var(--muted)}
+.dark .lead,.dark2 .lead{color:var(--dbody)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:14px 24px;border-radius:12px;border:0;font:inherit;font-weight:700;font-size:16px;text-decoration:none;cursor:pointer;transition:filter .15s,transform .15s}
+.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn-mint{background:var(--mint);color:#04141A}
+.btn-ink{background:var(--ink);color:var(--dtext)}
+.btn-amber{background:var(--amber);color:#1A1200}
+.btn-ghost{background:transparent;color:var(--dtext);border:1px solid rgba(255,255,255,.3)}
+.btn-ghost-l{background:transparent;color:var(--ink);border:1px solid #9FB0B8}
+.btn-lg{min-height:56px;padding:16px 28px;font-size:17px}
+.row{display:flex;flex-wrap:wrap;gap:18px}
+.card{background:var(--light);border-radius:20px;padding:26px}
+.card-w{background:var(--white);border-radius:20px;padding:26px}
+.card-d{background:var(--ink2);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:26px}
+.tick{flex:none;margin-top:3px}
+.ul{margin:14px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:7px}
+
+/* announce + header */
+.announce{background:var(--amber);color:#1A1200}
+.announce .wrap{padding-top:10px;padding-bottom:10px;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;justify-content:center;text-align:center;font-size:15px;font-weight:500}
+.announce button{background:#1A1200;color:#FFF3D6;border:0;border-radius:8px;padding:8px 14px;min-height:44px;font:inherit;font-weight:700;cursor:pointer}
+header.top{background:var(--ink);border-bottom:1px solid rgba(255,255,255,.1)}
+header.top .wrap{padding-top:14px;padding-bottom:14px;display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--dtext);font-family:var(--display);font-weight:700;font-size:19px}
+.brand .mark{width:36px;height:36px;border-radius:10px;background:var(--mint);display:inline-flex;align-items:center;justify-content:center}
+nav.main{display:flex;flex-wrap:wrap;gap:6px 24px;align-items:center;font-size:15px;color:#C5D4DB}
+nav.main a{text-decoration:none;padding:10px 0}
+nav.main a.btn{padding:12px 18px;color:#04141A}
+
+/* hero */
+.hero{padding:clamp(28px,6vh,72px) 0 clamp(40px,8vh,88px);min-height:calc(100vh - var(--chrome,110px));min-height:calc(100svh - var(--chrome,110px));display:flex;align-items:center}
+.hero>.wrap{width:100%}
+.hero .wrap{display:flex;flex-wrap:wrap;gap:clamp(28px,4vw,56px);align-items:center}
+.hero h1{font-weight:800;font-size:clamp(32px,4.2vw + 1.2vh,74px);line-height:1.03;letter-spacing:-.025em;margin:clamp(10px,2vh,16px) 0 0;text-wrap:balance}
+.hero p.sub{font-size:clamp(16px,.9vw + 11px,20px);line-height:1.55;color:var(--dbody);margin:clamp(14px,2.4vh,22px) 0 0;max-width:600px}
+.hero .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(20px,3.5vh,30px)}
+.hero .checks{margin-top:clamp(18px,3vh,28px)}
+.announce .a-short{display:none}
+.checks{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:16px;color:#C5D4DB}
+.checks li{display:flex;gap:10px;align-items:flex-start}
+.chat{background:var(--ink2);border:1px solid rgba(255,255,255,.12);border-radius:22px;overflow:hidden}
+.chat-h{padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:space-between;gap:10px}
+.chat-b{padding:18px;display:flex;flex-direction:column;gap:10px;font-size:15px}
+.msg{max-width:86%;padding:10px 14px}
+.msg.in{align-self:flex-start;background:#1B3148;border-radius:16px 16px 16px 4px}
+.msg.out{align-self:flex-end;background:#0E5C53;color:#F2FFFB;border-radius:16px 16px 4px 16px}
+.pill{font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px;display:inline-block}
+
+.strip{background:var(--ink2);color:#C5D4DB;border-block:1px solid rgba(255,255,255,.08)}
+.strip .wrap{padding-top:22px;padding-bottom:22px;display:flex;flex-wrap:wrap;gap:14px 36px;justify-content:space-between;font-size:15px;font-weight:500}
+
+/* leakage */
+.bar{height:14px;border-radius:7px;background:#E3EAEC}
+.bar i{display:block;height:14px;border-radius:7px;background:var(--teal)}
+.bar-row{display:flex;justify-content:space-between;margin-bottom:4px}
+.leak{flex:1 1 240px;background:var(--white);border-radius:14px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.45}
+.leak b{flex:none;width:28px;height:28px;border-radius:8px;background:#E0F5F0;color:var(--teal);display:inline-flex;align-items:center;justify-content:center;font-size:14px}
+
+/* system */
+.sys{flex:1 1 340px}
+.sys h3{font-size:22px}
+.sys .hd{display:flex;align-items:center;gap:12px}
+.sys .ltr{width:40px;height:40px;border-radius:12px;background:var(--teal);color:#E8FFF9;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.sys p{margin:14px 0 0;font-size:16px;color:var(--body)}
+.chip{display:inline-block;background:var(--white);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700}
+
+/* stats */
+.stat{flex:1 1 190px;background:var(--light);border-radius:14px;padding:16px 18px}
+.stat b{display:block;font-family:var(--display);font-weight:700;font-size:32px;letter-spacing:-.02em;color:var(--teal)}
+.stat span{font-size:14px;color:var(--muted)}
+
+/* steps */
+.step{flex:1 1 260px;border:1px solid var(--line);border-radius:20px;padding:24px}
+.step .k{font-size:13px;font-weight:700;color:var(--teal)}
+.step h3{font-size:22px;margin-top:6px}
+.step p{margin:10px 0 0;font-size:15px;color:var(--body)}
+.step.dk{background:var(--ink);color:var(--dtext);border-color:var(--ink)}
+.step.dk .k{color:var(--mint)}
+.step.dk p{color:var(--dbody)}
+
+/* calculator */
+.calc label{display:flex;justify-content:space-between;font-weight:700;font-size:16px}
+.calc input[type=range]{accent-color:var(--teal);width:100%;height:32px;margin:0}
+.calc .out{font-family:var(--display);font-weight:800;font-size:44px;letter-spacing:-.02em}
+
+/* deals / pricing */
+.deal{flex:1 1 360px;border-radius:22px;padding:30px;display:flex;flex-direction:column}
+.deal .big{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-.02em;margin-top:4px}
+.deal .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:22px}
+.mini{flex:1 1 260px;border:1px solid var(--line);border-radius:22px;padding:26px}
+.mini .big{font-family:var(--display);font-weight:800;font-size:34px;color:var(--teal);margin-top:8px}
+.seg{display:inline-flex;background:#E3EAEC;border-radius:12px;padding:4px;gap:4px}
+.seg button{background:transparent;color:var(--ink);border:0;border-radius:9px;padding:10px 18px;min-height:44px;font:inherit;font-weight:700;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--ink);color:var(--dtext)}
+.plan{flex:1 1 320px;border-radius:22px;padding:28px;display:flex;flex-direction:column;background:var(--white)}
+.plan.pop{background:var(--ink);color:var(--dtext);border:2px solid var(--mint)}
+.plan .price{font-family:var(--display);font-weight:800;font-size:44px;letter-spacing:-.02em;margin-top:14px}
+.plan .price small{font-size:16px;font-weight:500;color:var(--muted)}
+.plan.pop .price small{color:var(--dmuted)}
+.plan ul{margin:18px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:7px;font-size:15px;color:var(--body)}
+.plan.pop ul{color:#C5D4DB}
+.plan .btn{margin-top:24px}
+.plan .note{font-size:14px;color:var(--muted);min-height:21px}
+.plan.pop .note{color:var(--dmuted)}
+
+/* guarantees */
+.g .k{font-size:13px;font-weight:700;color:var(--mint)}
+.g h3{font-size:24px;margin-top:6px}
+.g p{margin:12px 0 0;font-size:16px;color:#C5D4DB}
+
+/* faq */
+.faq{border-top:1px solid var(--line);margin-top:30px}
+.faq div{border-bottom:1px solid var(--line)}
+.faq button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;background:transparent;border:0;padding:20px 0;min-height:56px;font:inherit;font-weight:700;font-size:18px;text-align:left;color:var(--ink);cursor:pointer}
+.faq button span+span{flex:none;font-size:26px;line-height:1;color:var(--teal)}
+.faq p{margin:0 0 20px;font-size:16px;line-height:1.6;color:var(--body);max-width:760px}
+
+/* cta + footer */
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:28px}
+.chips button{background:transparent;color:var(--dtext);border:2px solid rgba(255,255,255,.3);border-radius:999px;padding:10px 18px;min-height:44px;font:inherit;font-weight:700;cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--mint);border-color:var(--mint);color:#04141A}
+footer{background:var(--ink3);color:var(--dmuted);padding:40px 0 48px;font-size:14px}
+footer .cols{display:flex;flex-wrap:wrap;gap:28px 48px;justify-content:space-between}
+footer h4{margin:0 0 6px;color:var(--dtext);font-size:14px}
+footer a{text-decoration:none;display:block;padding:6px 0}
+footer button.lnk{background:transparent;border:0;color:var(--dmuted);font:inherit;text-decoration:underline;padding:8px 0;min-height:40px;cursor:pointer;display:block;text-align:left}
+footer .legal{margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);font-size:12px;line-height:1.6}
+
+/* modal */
+.overlay{position:fixed;inset:0;background:rgba(4,10,18,.78);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+.overlay.open{display:flex}
+.dialog{background:var(--white);color:var(--ink);border-radius:22px;max-width:640px;width:100%;max-height:86vh;overflow-y:auto;padding:30px;position:relative}
+.dialog .x{position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:12px;border:0;background:#EEF2F3;color:var(--ink);font-size:24px;line-height:1;cursor:pointer}
+.dialog h3{font-size:28px;margin-right:44px}
+.dialog h4{margin:18px 0 0;font-size:17px}
+.dialog p,.dialog li{font-size:15px;color:var(--body)}
+.dialog ul{padding-left:20px;display:flex;flex-direction:column;gap:9px;margin:14px 0 0}
+
+/* floating whatsapp */
+.fab{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:50;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+
+@media (min-width:1500px){.hero>.wrap{max-width:1320px}}
+@media (max-width:899px){
+  nav.main a:not(.btn){display:none}
+  nav.main{gap:0}
+  header.top .wrap{padding:8px 16px}
+  .brand{font-size:16px;gap:8px}
+  .brand .mark{width:32px;height:32px}
+  nav.main a.btn{padding:10px 16px}
+  .announce>.wrap>.a-long{display:none}
+  .announce .wrap{padding:0 12px}
+  .announce button{background:transparent;color:#1A1200;width:100%;min-height:44px;padding:0 8px;font-size:14px;font-weight:500}
+  .announce button .a-long{display:none}
+  .announce button .a-short{display:inline}
+}
+@media (max-width:640px){
+  .hero .cta-row .btn{flex:1 1 100%}
+  .hero .checks{font-size:15px}
+  .chat-b{padding:14px;font-size:14px}
+  .msg{max-width:92%}
+}
+@media (max-width:360px){
+  .brand{font-size:14px}
+  .hero h1{font-size:30px}
+}
+@media (max-height:600px) and (orientation:landscape){
+  .hero{min-height:0;padding:24px 0 36px}
+}
+@media (max-width:640px){
+  .sec{padding:64px 0}
+  .fab span{display:none}
+  .fab{padding:0;width:56px;border-radius:50%}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="announce">
+  <div class="wrap">
+    <span class="a-long"><strong>Founding Practice Programme:</strong> first 10 practices only. R4,950 setup and R6,950/month for your first 6 months.</span>
+    <button type="button" data-modal="founding"><span class="a-long">See what's included</span><span class="a-short"><strong>Founding offer:</strong> R4,950 setup, first 10 practices. <u>Details</u></span></button>
+  </div>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#04141A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 13l5 5L20 6"/></svg></span>
+      Patient Revenue Recovery
+    </a>
+    <nav class="main" aria-label="Main">
+      <a href="#system">The system</a>
+      <a href="#how">How it works</a>
+      <a href="#calculator">Calculator</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-mint" data-wa="audit" href="https://wa.me/27764312871" target="_blank" rel="noopener">Free audit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- Hero -->
+<section class="dark hero">
+  <div class="wrap">
+    <div style="flex:1 1 480px;min-width:0">
+      <div class="eyebrow">For private dental practices in South Africa</div>
+      <h1>Turn missed dental enquiries into booked appointments.</h1>
+      <p class="sub">24/7 enquiry response, missed-call recovery, follow-up, cancellation recovery and patient reactivation. A managed service that recovers the patients your practice is already losing.</p>
+      <div class="cta-row">
+        <a class="btn btn-mint btn-lg" data-wa="audit" href="https://wa.me/27764312871" target="_blank" rel="noopener">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#04141A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
+          Get your free Patient Leakage Audit
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#pricing">See pricing</a>
+      </div>
+      <ul class="checks">
+        <li><svg class="tick" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4FE3C1" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Free audit with a 5-minute video of your own enquiry journey</span></li>
+        <li><svg class="tick" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4FE3C1" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>The assistant handles admin only. Anything clinical goes to your team.</span></li>
+        <li><svg class="tick" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4FE3C1" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>90-day initial term, then month-to-month</span></li>
+      </ul>
+      <p style="margin:26px 0 0;font-size:15px;color:var(--dmuted)">Prefer to talk? WhatsApp or call <a href="tel:+27764312871" style="color:var(--dtext);font-weight:700">076 431 2871</a> or email <a href="mailto:denysschen.callum43@gmail.com" style="color:var(--dtext);font-weight:700">denysschen.callum43@gmail.com</a></p>
+    </div>
+
+    <div style="flex:1 1 340px;min-width:0;max-width:440px;margin:0 auto">
+      <div class="chat" role="img" aria-label="Sample WhatsApp conversation: a patient asks about veneers and books a Saturday slot; a second patient in pain is handed to a human.">
+        <div class="chat-h">
+          <div><div style="font-weight:700;font-size:15px">Example Dental Practice</div><div style="font-size:12px;color:var(--dmuted)">Virtual assistant · replies instantly</div></div>
+          <span class="pill" style="background:rgba(242,184,75,.16);color:var(--amber)">Sample</span>
+        </div>
+        <div class="chat-b">
+          <div style="align-self:center;font-size:12px;color:var(--dmuted)">Tuesday · 19:42 (after hours)</div>
+          <div class="msg in">How much are veneers? Can I book for Saturday?</div>
+          <div class="msg out">Hi, I'm the practice's virtual assistant. I can help with appointments and general practice information. Veneer treatment is planned at a consultation so the team can advise properly. I have Saturday 09:00 or 10:30. Which suits you?</div>
+          <div class="msg in">10:30 please</div>
+          <div class="msg out">Booked for Saturday 10:30. I'll send a reminder and the practice location the day before.</div>
+          <div style="height:1px;background:rgba(255,255,255,.1);margin:6px 0"></div>
+          <div class="msg in">I'm in a lot of pain, my tooth is swollen</div>
+          <div class="msg out">I'm sorry to hear that. I'm connecting you with the practice team right now.</div>
+          <span class="pill" style="align-self:center;background:var(--mint);color:#04141A">Handed to a human</span>
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--dmuted);margin:12px 4px 0;text-align:center">Example conversation. Your assistant uses your own approved information and escalation rules.</p>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <span>Built for private dental practices</span>
+    <span>POPIA-conscious consent and opt-outs</span>
+    <span>Human escalation on every clinical question</span>
+    <span>Real numbers only. No invented case studies.</span>
+  </div>
+</div>
+
+<!-- Leakage -->
+<section class="sec light">
+  <div class="wrap">
+    <div class="eyebrow">The real problem</div>
+    <h2>Your practice doesn't have an AI problem. It has a leakage problem.</h2>
+    <p class="lead">You already pay to get patients to enquire. Every step between enquiry and treatment is a place they can quietly disappear.</p>
+    <div class="row" style="gap:32px;margin-top:44px;align-items:flex-start">
+      <div class="card-w" style="flex:1 1 380px;min-width:0;padding:28px">
+        <div style="font-weight:700;font-size:17px">From enquiry to treatment</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:2px">Illustrative funnel. The audit measures yours.</div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:22px;font-size:14px">
+          <div><div class="bar-row"><span>New enquiries</span><strong>100</strong></div><div class="bar"><i style="width:100%"></i></div></div>
+          <div><div class="bar-row"><span>Adequate response</span><strong>70</strong></div><div class="bar"><i style="width:70%"></i></div></div>
+          <div><div class="bar-row"><span>Book an appointment</span><strong>50</strong></div><div class="bar"><i style="width:50%"></i></div></div>
+          <div><div class="bar-row"><span>Show up</span><strong>40</strong></div><div class="bar"><i style="width:40%"></i></div></div>
+          <div><div class="bar-row"><span>Proceed with treatment</span><strong>30</strong></div><div class="bar"><i style="width:30%;background:#B7791F"></i></div></div>
+        </div>
+        <p style="font-size:15px;color:var(--muted);margin:20px 0 0">Our job is to find the leaks and plug them.</p>
+      </div>
+      <div style="flex:1 1 440px;min-width:0">
+        <div style="font-weight:700;font-size:17px;margin-bottom:14px">The eight leaks we look for</div>
+        <div class="row" style="gap:12px" id="leaks"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- System -->
+<section class="sec white" id="system">
+  <div class="wrap">
+    <div class="eyebrow">What we install</div>
+    <h2>The Patient Revenue Recovery System</h2>
+    <p class="lead">Five parts, one goal: recovered appointments. AI sits underneath. Workflows, integrations, reporting and your team sit on top.</p>
+    <div class="row" style="margin-top:44px">
+      <div class="card sys"><div class="hd"><span class="ltr">A</span><h3>24/7 enquiry response</h3></div><p>Website and WhatsApp enquiries get an instant reply. The assistant answers approved FAQs, identifies the enquiry type, collects basic details, routes it correctly and moves the patient toward a booking.</p></div>
+      <div class="card sys"><div class="hd"><span class="ltr">B</span><h3>Missed-call recovery</h3></div><p>Nobody answered? Within a controlled timeframe the patient gets a message and the enquiry becomes a conversation instead of a lost call.</p><div style="margin-top:14px;background:var(--white);border-radius:12px;padding:12px 14px;font-size:14px;color:var(--body);font-style:italic">"Hi, this is your dental practice. We noticed we missed your call. How can we help?"</div></div>
+      <div class="card sys"><div class="hd"><span class="ltr">C</span><h3>Abandoned-enquiry recovery</h3></div><p>Someone asks about implants, gets an answer, then goes quiet. An approved, polite follow-up sequence brings them back. Never aggressive, never endless.</p><div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:8px"><span class="chip">Day 1: helpful follow-up</span><span class="chip">Day 3: answer / FAQ</span><span class="chip">Day 7: final check-in</span></div><p style="font-size:14px;color:var(--muted);margin-top:10px">Stops immediately if the patient opts out.</p></div>
+      <div class="card sys"><div class="hd"><span class="ltr">D</span><h3>Cancellation and no-show recovery</h3></div><p>A cancellation stops being lost revenue and becomes a slot to fill. The vacancy is flagged, your waiting list is notified, a suitable appointment is offered, then confirmed and reminded.</p></div>
+      <div class="card sys"><div class="hd"><span class="ltr">E</span><h3>Patient reactivation</h3></div><p>Approved recall campaigns for patients who haven't been back in 6, 12, 18 or 24 months. Often the biggest untapped pool in the practice.</p><p style="font-size:14px;color:var(--muted)">Only with proper consent or lawful basis, opt-outs, data minimisation and practice-approved messaging. Health information is special personal information under POPIA, so we never improvise here.</p></div>
+      <div class="sys" style="background:var(--ink);color:var(--dtext);border-radius:20px;padding:26px"><div class="hd"><span class="ltr" style="background:var(--mint);color:#04141A">+</span><h3>Measured and optimised</h3></div><p style="color:var(--dbody)">A revenue-recovery dashboard shows what actually happened. Monthly optimisation improves the workflows. You see results in business terms, not message counts.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Boundaries -->
+<section class="sec dark">
+  <div class="wrap">
+    <div class="eyebrow">Safe by design</div>
+    <h2>The assistant never gives medical advice.</h2>
+    <p class="lead">A hard boundary between administration and clinical care. When confidence is low, the assistant hands over to your team instead of guessing.</p>
+    <div class="row" style="margin-top:40px">
+      <div class="card-d" style="flex:1 1 340px"><div style="font-weight:700;font-size:18px;color:var(--mint)">The assistant handles</div><ul class="ul" style="font-size:16px;color:#C5D4DB"><li>Administrative questions and practice information</li><li>Booking, rescheduling and cancellation</li><li>Opening hours and location</li><li>Approved pricing information</li><li>Basic process explanations</li><li>Routing to the right person</li></ul></div>
+      <div class="card-d" style="flex:1 1 340px"><div style="font-weight:700;font-size:18px;color:var(--amber)">Your team handles</div><ul class="ul" style="font-size:16px;color:#C5D4DB"><li>Diagnosis and treatment recommendations</li><li>Emergencies and anyone in pain</li><li>Clinical interpretation</li><li>Complaints and sensitive situations</li><li>Unusual medical questions</li><li>Anyone who asks to speak to a person</li></ul></div>
+    </div>
+    <div class="card-d" style="margin-top:18px;padding:22px 26px;font-size:16px;color:#C5D4DB"><strong style="color:var(--dtext)">Always transparent:</strong> patients are told they're talking to an automated assistant. "Hi, I'm the practice's virtual assistant. I can help with appointments and general practice information. For clinical questions, I'll connect you with the practice team."</div>
+  </div>
+</section>
+
+<!-- Dashboard -->
+<section class="sec light">
+  <div class="wrap">
+    <div class="eyebrow">What you see every month</div>
+    <h2>A dashboard dentists actually care about.</h2>
+    <p class="lead">Not "how many AI messages were sent". What was recovered, and what's still leaking.</p>
+    <div class="card-w" style="margin-top:40px;padding:26px;border-radius:22px">
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between">
+        <div style="font-family:var(--display);font-weight:700;font-size:22px">Revenue Recovery Dashboard</div>
+        <span class="pill" style="background:#FFF1D6;color:#7A4B00">Sample data for illustration</span>
+      </div>
+      <div class="row" style="gap:12px;margin-top:22px" id="stats"></div>
+      <p style="margin:18px 0 0;font-size:13px;color:var(--muted)">Opportunity values are illustrative potential value, not recognised revenue and not a guarantee.</p>
+    </div>
+  </div>
+</section>
+
+<!-- How -->
+<section class="sec white" id="how">
+  <div class="wrap">
+    <div class="eyebrow">How it works</div>
+    <h2>Capture. Recover. Book. Measure.</h2>
+    <p class="lead">Typical launch is 7 to 14 business days once we have your access, information and approvals.</p>
+    <div class="row" style="margin-top:40px">
+      <div class="step"><div class="k">Day 0 to 2</div><h3>Collect</h3><p>Practitioners, services, hours, locations, FAQs, pricing, booking and cancellation rules, escalation rules, approved messaging, consent requirements, and access to your WhatsApp, website and booking system.</p></div>
+      <div class="step"><div class="k">Day 3 to 5</div><h3>Build</h3><p>Your practice knowledge base, workflows, WhatsApp setup, booking integration, escalation, tracking and reporting.</p></div>
+      <div class="step"><div class="k">Day 6 to 7</div><h3>Test</h3><p>100+ real scenarios: veneer pricing, Saturday bookings, "I'm in pain", emergencies, medical aid questions, cancellations, "Can you tell me what's wrong with my tooth?" Every scenario gets an approved response.</p></div>
+      <div class="step dk"><div class="k">Then</div><h3>Go live and improve</h3><p>Live monitoring, a monthly report, and optimisation of what's converting and what isn't.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Audit -->
+<section class="sec dark2">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:40px;align-items:center">
+    <div style="flex:1 1 460px;min-width:0">
+      <div class="eyebrow" style="color:var(--amber)">Free</div>
+      <h2>The Patient Leakage Audit</h2>
+      <p class="lead">We walk through your website, WhatsApp, phone, booking journey, Google profile, follow-up, cancellation process and reviews as a patient would. Then we send you a short video showing exactly what we found.</p>
+      <div style="margin-top:18px;background:var(--ink);border-radius:14px;padding:16px 18px;font-size:16px;font-style:italic;color:#C5D4DB">"I tested your enquiry journey at 7:42pm. There was no response available. Here's what a patient experiences…"</div>
+      <div style="margin-top:28px"><a class="btn btn-mint btn-lg" data-wa="audit" href="https://wa.me/27764312871" target="_blank" rel="noopener">Get my free audit on WhatsApp</a></div>
+    </div>
+    <div style="flex:1 1 320px;min-width:0">
+      <div style="background:var(--ink);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:26px">
+        <div style="font-weight:700;font-size:17px;color:var(--mint)">What we review</div>
+        <ul style="margin:14px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px;font-size:15px;color:#C5D4DB">
+          <li>Website</li><li>WhatsApp</li><li>Booking journey</li><li>Phone handling</li><li>Google profile</li><li>Response speed</li><li>Follow-up</li><li>Cancellations</li><li>Reviews</li><li>Patient journey</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Calculator -->
+<section class="sec light" id="calculator">
+  <div class="wrap">
+    <div class="eyebrow">Run your own numbers</div>
+    <h2>How big is the pool you're trying to recover?</h2>
+    <p class="lead">Not a promise that every lost enquiry would have booked. A way to see the pool and what it would take to cover the cost.</p>
+    <div class="row calc" style="gap:24px;margin-top:40px">
+      <div class="card-w" style="flex:1 1 420px;min-width:0;padding:28px;display:flex;flex-direction:column;gap:22px">
+        <div><label for="enq"><span>New enquiries per month</span><span id="enqL"></span></label><input id="enq" type="range" min="20" max="500" step="10" value="100"></div>
+        <div><label for="lost"><span>Share lost, missed or unanswered</span><span id="lostL"></span></label><input id="lost" type="range" min="5" max="50" step="1" value="20"></div>
+        <div><label for="val"><span>Value of a new patient to you</span><span id="valL"></span></label><input id="val" type="range" min="500" max="50000" step="500" value="3500"></div>
+        <div><label for="rec"><span>Share of the pool we recover</span><span id="recL"></span></label><input id="rec" type="range" min="5" max="60" step="1" value="25"></div>
+      </div>
+      <div style="flex:1 1 380px;min-width:0;background:var(--ink);color:var(--dtext);border-radius:20px;padding:28px" aria-live="polite">
+        <div style="font-size:14px;color:var(--dmuted)">Opportunities lost each month</div>
+        <div class="out" id="pool"></div>
+        <div style="height:1px;background:rgba(255,255,255,.12);margin:18px 0"></div>
+        <div style="font-size:14px;color:var(--dmuted)">Recovered bookings at your chosen rate</div>
+        <div style="font-family:var(--display);font-weight:700;font-size:32px" id="recovered"></div>
+        <div style="font-size:14px;color:var(--dmuted);margin-top:14px">Illustrative potential value</div>
+        <div class="out" style="color:var(--mint)"><span id="value"></span><span style="font-size:18px;font-weight:500;color:var(--dmuted)"> / month</span></div>
+        <p style="margin:18px 0 0;font-size:16px;line-height:1.5;color:#C5D4DB" id="breakeven"></p>
+        <p style="margin:14px 0 0;font-size:12px;color:var(--dmuted)">Illustrative only. Not recognised revenue, not a forecast and not a guarantee. We measure your real baseline first.</p>
+        <a class="btn btn-mint" data-wa="audit" href="https://wa.me/27764312871" target="_blank" rel="noopener" style="margin-top:20px">Measure my real numbers (free)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Deals -->
+<section class="sec white">
+  <div class="wrap">
+    <div class="eyebrow">Launch offers</div>
+    <h2>Start with a deal built for a new relationship.</h2>
+    <div class="row" style="margin-top:40px">
+      <div class="deal" style="background:var(--ink);color:var(--dtext)">
+        <span class="pill" style="align-self:flex-start;background:var(--amber);color:#1A1200;padding:5px 12px">First 10 practices only</span>
+        <h3 style="margin-top:14px;font-size:28px">Founding Practice Programme</h3>
+        <div style="margin-top:14px;font-size:15px;color:var(--dmuted)">Normal: R12,500 setup, R8,950/month (Growth)</div>
+        <div class="big" style="color:var(--mint)">R4,950 setup</div>
+        <div style="font-family:var(--display);font-weight:700;font-size:24px">R6,950/month for 6 months</div>
+        <p style="margin:14px 0 0;font-size:15px;color:var(--dbody)">Then standard Growth pricing applies. In return: monthly feedback, anonymised performance data and, only if you approve it, a case study.</p>
+        <div class="actions"><a class="btn btn-mint" data-wa="founding" href="https://wa.me/27764312871" target="_blank" rel="noopener">Apply on WhatsApp</a><button type="button" class="btn btn-ghost" data-modal="founding">Full details</button></div>
+      </div>
+      <div class="deal" style="background:var(--light)">
+        <span class="pill" style="align-self:flex-start;background:#E0F5F0;color:var(--teal);padding:5px 12px">Low-commitment start</span>
+        <h3 style="margin-top:14px;font-size:28px">30-Day Revenue Recovery Pilot</h3>
+        <div class="big" style="color:var(--teal);margin-top:14px">R7,500 setup</div>
+        <div style="font-family:var(--display);font-weight:700;font-size:24px">+ R7,500 for month one</div>
+        <p style="margin:14px 0 0;font-size:15px;color:var(--body)">After 30 days, continue at R8,950/month. Deliberately not a free trial: when you're invested, we both implement properly.</p>
+        <div class="actions"><a class="btn btn-ink" data-wa="pilot" href="https://wa.me/27764312871" target="_blank" rel="noopener">Start a pilot</a><button type="button" class="btn btn-ghost-l" data-modal="pilot">Full details</button></div>
+      </div>
+      <div class="mini"><h3 style="font-size:22px">Annual prepayment</h3><div class="big">10% off</div><p style="margin:8px 0 0;font-size:15px;color:var(--body)">Roughly two months free on Growth: R96,660 instead of R107,400 for the year.</p></div>
+      <div class="mini"><h3 style="font-size:22px">Partner referral</h3><div class="big">R2,500 credit</div><p style="margin:8px 0 0;font-size:15px;color:var(--body)">Refer another practice that signs and receive R2,500 account credit. They get R1,500 off setup.</p><a href="#referral" style="display:inline-block;margin-top:10px;font-weight:700;color:var(--teal);padding:10px 0">How referrals work</a></div>
+      <div class="mini"><h3 style="font-size:22px">More than one location</h3><div class="big">+R7,500/month</div><p style="margin:8px 0 0;font-size:15px;color:var(--body)">Each additional location on a Revenue Partner plan, instead of another full subscription.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Referral -->
+<section class="sec dark2" id="referral">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--amber)">Partner Referral Programme</div>
+    <h2>Know a practice owner? You both win.</h2>
+    <p class="lead">Dentists know dentists. When you introduce another private practice and they sign up, you earn account credit and they start with a lower setup fee.</p>
+    <div class="row" style="margin-top:40px">
+      <div class="card-d" style="flex:1 1 260px"><div style="font-size:13px;font-weight:700;color:var(--mint)">Step 1</div><h3 style="font-size:22px;margin-top:6px">Introduce a practice</h3><p style="margin:10px 0 0;font-size:15px;color:#C5D4DB">Message us on WhatsApp with the practice name and the person to contact, or ask them to mention your practice when they get in touch.</p></div>
+      <div class="card-d" style="flex:1 1 260px"><div style="font-size:13px;font-weight:700;color:var(--mint)">Step 2</div><h3 style="font-size:22px;margin-top:6px">They get a free audit</h3><p style="margin:10px 0 0;font-size:15px;color:#C5D4DB">We send them their own Patient Leakage Audit. No pressure, no obligation.</p></div>
+      <div class="card-d" style="flex:1 1 260px"><div style="font-size:13px;font-weight:700;color:var(--mint)">Step 3</div><h3 style="font-size:22px;margin-top:6px">You both get rewarded</h3><p style="margin:10px 0 0;font-size:15px;color:#C5D4DB">When they sign and their first payment clears, your credit is applied to your account.</p></div>
+    </div>
+    <div class="row" style="margin-top:18px">
+      <div style="flex:1 1 320px;background:var(--mint);color:#04141A;border-radius:20px;padding:26px"><div style="font-size:14px;font-weight:700">You receive</div><div style="font-family:var(--display);font-weight:800;font-size:40px;letter-spacing:-.02em;margin-top:4px">R2,500 account credit</div><p style="margin:8px 0 0;font-size:15px">Applied to your future invoices for every practice you refer that signs.</p></div>
+      <div style="flex:1 1 320px;background:var(--amber);color:#1A1200;border-radius:20px;padding:26px"><div style="font-size:14px;font-weight:700">They receive</div><div style="font-family:var(--display);font-weight:800;font-size:40px;letter-spacing:-.02em;margin-top:4px">R1,500 off setup</div><p style="margin:8px 0 0;font-size:15px">Off the standard setup fee of their chosen plan.</p></div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:28px">
+      <a class="btn btn-mint btn-lg" data-wa="referral" href="https://wa.me/27764312871" target="_blank" rel="noopener">Refer a practice on WhatsApp</a>
+      <button type="button" class="btn btn-ghost btn-lg" data-modal="referral">Referral terms</button>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="sec light" id="pricing">
+  <div class="wrap">
+    <div class="eyebrow">Pricing</div>
+    <h2>A managed revenue system, not software access.</h2>
+    <p class="lead">Prices in rand. Every plan starts with a 90-day initial term, then month-to-month with 30 days' written notice.</p>
+    <div class="seg" role="group" aria-label="Billing period" style="margin-top:28px">
+      <button type="button" id="bm" aria-pressed="true">Monthly</button>
+      <button type="button" id="ba" aria-pressed="false">Annual, 10% off</button>
+    </div>
+    <div class="row" style="margin-top:28px;align-items:stretch">
+      <div class="plan">
+        <div style="font-weight:700;font-size:15px;color:var(--teal)">Recovery Starter</div>
+        <div style="font-size:14px;color:var(--muted);margin-top:2px">Best for smaller practices</div>
+        <div class="price"><span id="p1">R4,950</span> <small>/month</small></div>
+        <div class="note" id="n1"></div>
+        <div style="font-size:14px;margin-top:4px">Setup: R6,500</div>
+        <ul><li>WhatsApp enquiry automation</li><li>Website enquiry automation</li><li>Missed-call recovery</li><li>Appointment request workflow</li><li>Basic follow-up and appointment reminders</li><li>Monthly report</li><li>Business-hours human handoff</li><li>1 practice, 1 primary WhatsApp number</li><li>Agreed monthly conversation volume</li></ul>
+        <a class="btn btn-ink" data-wa="starter" href="https://wa.me/27764312871" target="_blank" rel="noopener" style="margin-top:auto">Choose Starter</a>
+      </div>
+      <div class="plan pop">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span style="font-weight:700;font-size:15px;color:var(--mint)">Recovery Growth</span><span class="pill" style="background:var(--mint);color:#04141A">Most popular</span></div>
+        <div style="font-size:14px;color:var(--dmuted);margin-top:2px">Our main offer for most practices</div>
+        <div class="price"><span id="p2">R8,950</span> <small>/month</small></div>
+        <div class="note" id="n2"></div>
+        <div style="font-size:14px;margin-top:4px">Setup: R12,500 <span style="color:var(--amber)">(R4,950 for founding practices)</span></div>
+        <ul><li>Everything in Starter, plus:</li><li>24/7 AI reception</li><li>Enquiry, cancellation and no-show recovery</li><li>Patient reactivation campaigns</li><li>Waiting-list automation</li><li>CRM and booking integration</li><li>Advanced reporting and monthly optimisation</li><li>Monthly strategy call and priority support</li><li>Custom practice knowledge base</li><li>Multiple practitioners</li></ul>
+        <a class="btn btn-mint" data-wa="growth" href="https://wa.me/27764312871" target="_blank" rel="noopener" style="margin-top:auto">Choose Growth</a>
+      </div>
+      <div class="plan">
+        <div style="font-weight:700;font-size:15px;color:var(--teal)">Revenue Partner</div>
+        <div style="font-size:14px;color:var(--muted);margin-top:2px">Larger practices and groups</div>
+        <div class="price"><span id="p3">R14,950</span> <small>/month</small></div>
+        <div class="note" id="n3"></div>
+        <div style="font-size:14px;margin-top:4px">Setup: R20,000</div>
+        <ul><li>Everything in Growth, plus:</li><li>Multiple locations, numbers and channels</li><li>Advanced integrations and custom workflows</li><li>Custom reporting and management dashboard</li><li>Weekly optimisation</li><li>Dedicated account manager</li><li>Quarterly revenue review</li><li>Custom campaign management</li><li>Advanced patient reactivation</li><li>Priority incident response</li></ul>
+        <a class="btn btn-ink" data-wa="partner" href="https://wa.me/27764312871" target="_blank" rel="noopener" style="margin-top:auto">Choose Revenue Partner</a>
+      </div>
+    </div>
+    <div class="row" style="margin-top:18px">
+      <div class="card-w" style="flex:1 1 360px;border-radius:18px;padding:22px 24px"><div style="font-weight:700;font-size:17px">Groups and multi-location</div><p style="margin:8px 0 0;font-size:15px;color:var(--body)">Custom enterprise plans from R20,000 to R50,000+ per month, with a custom SLA. Custom integrations quoted separately.</p><a data-wa="multi" href="https://wa.me/27764312871" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;font-weight:700;color:var(--teal);padding:10px 0">Ask for a group quote</a></div>
+      <div class="card-w" style="flex:1 1 360px;border-radius:18px;padding:22px 24px"><div style="font-weight:700;font-size:17px">No mystery bills</div><p style="margin:8px 0 0;font-size:15px;color:var(--body)">Each plan includes an agreed monthly conversation volume (for example, 1,000 conversations a month on Growth). Additional usage is disclosed upfront and any voice usage is quoted separately before we switch it on.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Guarantees -->
+<section class="sec dark">
+  <div class="wrap">
+    <div class="eyebrow">Guarantees</div>
+    <h2 style="max-width:880px">We guarantee what we control. We won't promise what we don't.</h2>
+    <p class="lead" style="max-width:720px">No one can honestly guarantee revenue: advertising, dentist availability, pricing, treatment acceptance, patient behaviour and seasonality are outside any agency's control. So our guarantees are about delivery and activity.</p>
+    <div class="row g" style="margin-top:40px">
+      <div class="card-d" style="flex:1 1 320px"><div class="k">Guarantee 1</div><h3>Implementation Guarantee</h3><p>If we fail to launch the agreed system within 14 business days after receiving all required access, information and approvals, your next month's platform management fee is waived.</p></div>
+      <div class="card-d" style="flex:1 1 320px"><div class="k">Guarantee 2</div><h3>Recovery Activity Guarantee</h3><p>For qualified practices, after we measure a baseline: if the agreed system doesn't produce the minimum agreed number of qualified recovered booking opportunities in the first 60 days, we keep working with no management fee until it does.</p></div>
+      <div class="card-d" style="flex:1 1 320px"><div class="k">Guarantee 3</div><h3>No improvement, no long-term commitment</h3><p>A 90-day initial engagement with a clear baseline and clear KPIs. If the agreed implementation criteria aren't met, you can exit after the initial term.</p></div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:26px">
+      <button type="button" class="btn btn-mint" data-modal="guarantee">Read the guarantee terms</button>
+      <span style="font-size:14px;color:var(--dmuted)">Case studies will be published only when real and verifiable. We never manufacture testimonials.</span>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec white" id="faq">
+  <div class="wrap" style="max-width:880px">
+    <div class="eyebrow">Questions practice owners ask</div>
+    <h2>FAQ</h2>
+    <div class="faq" id="faqList"></div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="sec dark2" style="padding:88px 0">
+  <div class="wrap" style="max-width:880px;text-align:center">
+    <h2 style="font-weight:800;font-size:clamp(32px,5vw,54px);line-height:1.05;letter-spacing:-.025em;margin:0 auto">Find out what your practice is losing.</h2>
+    <p class="lead" style="font-size:19px;margin:18px auto 0;max-width:640px">Tell us what kind of practice you run and message us on WhatsApp. We'll send back your free Patient Leakage Audit.</p>
+    <div class="chips" id="chips" role="group" aria-label="Practice type"></div>
+    <div class="row" style="gap:12px;justify-content:center;margin-top:28px">
+      <a class="btn btn-mint btn-lg" id="ctaWa" data-wa="practice" href="https://wa.me/27764312871" target="_blank" rel="noopener" style="min-height:58px;font-size:18px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#04141A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
+        WhatsApp 076 431 2871
+      </a>
+      <a class="btn btn-ghost btn-lg" href="mailto:denysschen.callum43@gmail.com?subject=Free%20Patient%20Leakage%20Audit" style="min-height:58px;font-size:18px">Email us</a>
+    </div>
+    <p style="margin:20px 0 0;font-size:14px;color:var(--dmuted)">denysschen.callum43@gmail.com · No obligation. Your audit is yours to keep.</p>
+    <p style="margin:12px 0 0;font-size:15px;color:var(--dbody)">Know another practice owner? <a href="#referral" style="color:var(--amber);font-weight:700">Refer them and earn R2,500 credit.</a></p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div style="flex:1 1 300px;max-width:460px">
+        <div style="font-family:var(--display);font-weight:700;font-size:18px;color:var(--dtext)">Patient Revenue Recovery</div>
+        <p style="margin:10px 0 0;line-height:1.6">A revenue-recovery service for private dental practices, using AI, WhatsApp, automation and human escalation to recover enquiries, appointments and patients that would otherwise be lost.</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="tel:+27764312871">076 431 2871 (WhatsApp / call)</a>
+        <a href="mailto:denysschen.callum43@gmail.com">denysschen.callum43@gmail.com</a>
+        <div>Support: Mon to Fri, 09:00 to 17:00 SAST</div>
+      </div>
+      <div>
+        <h4>Policies</h4>
+        <a href="#referral">Refer a practice, earn R2,500</a>
+        <button type="button" class="lnk" data-modal="guarantee">Guarantee terms</button>
+        <button type="button" class="lnk" data-modal="privacy">Privacy and POPIA</button>
+        <button type="button" class="lnk" data-modal="terms">Service terms</button>
+      </div>
+    </div>
+    <div class="legal">We are an independent service provider and are not affiliated with or endorsed by WhatsApp or Meta. The assistant provides administrative support only and does not provide medical advice, diagnosis or treatment. Dashboard figures and calculator results on this page are illustrative and are not guarantees of revenue or results. &copy; <span id="yr">2026</span> Patient Revenue Recovery.</div>
+  </div>
+</footer>
+
+<a class="btn btn-mint fab" data-wa="audit" href="https://wa.me/27764312871" target="_blank" rel="noopener" aria-label="Message us on WhatsApp">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#04141A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
+  <span>Free audit on WhatsApp</span>
+</a>
+
+<div class="overlay" id="overlay">
+  <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dlgTitle" id="dialog">
+    <button type="button" class="x" id="dlgClose" aria-label="Close">&times;</button>
+    <div id="dlgBody"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var NUMBER = '27764312871';
+  var MSG = {
+    audit: 'Hi, I’d like a free Patient Leakage Audit for my dental practice.',
+    founding: 'Hi, I’d like to apply for the Founding Practice Programme.',
+    pilot: 'Hi, I’m interested in the 30-Day Revenue Recovery Pilot.',
+    starter: 'Hi, I’m interested in the Recovery Starter plan.',
+    growth: 'Hi, I’m interested in the Recovery Growth plan.',
+    partner: 'Hi, I’m interested in the Revenue Partner plan.',
+    multi: 'Hi, I run a group of practices and I’d like a custom quote.',
+    referral: 'Hi, I’d like to refer a practice to the Partner Referral Programme. Practice name and contact: '
+  };
+  var practice = '';
+  function waUrl(msg){ return 'https://wa.me/' + NUMBER + '?text=' + encodeURIComponent(msg); }
+  function setWaLinks(){
+    var nodes = document.querySelectorAll('[data-wa]');
+    for (var i = 0; i < nodes.length; i++){
+      var k = nodes[i].getAttribute('data-wa');
+      var msg = k === 'practice'
+        ? 'Hi, I run a ' + (practice ? practice.toLowerCase() : 'dental') + ' practice and I’d like a free Patient Leakage Audit.'
+        : MSG[k];
+      if (msg) nodes[i].setAttribute('href', waUrl(msg));
+    }
+  }
+  function fmt(n){ return 'R' + Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+  function $(id){ return document.getElementById(id); }
+
+  /* Leaks + stats */
+  var leaks = ['Nobody answers the phone.','A WhatsApp enquiry sits unanswered for two hours.','Someone asks about implants and disappears.','A patient cancels and the slot stays empty.','A slot opens up tomorrow and nobody fills it.','An old patient hasn’t returned in 18 months.','A no-show with no follow-up.','Reception is too busy to chase anyone.'];
+  $('leaks').innerHTML = leaks.map(function(t,i){ return '<div class="leak"><b>'+(i+1)+'</b><span>'+t+'</span></div>'; }).join('');
+  var stats = [['187','New enquiries'],['181','Instantly responded'],['104','Qualified'],['63','Appointments booked'],['17','Missed calls recovered'],['11','Cancelled appointments recovered'],['28','Reactivated patients'],['7.2%','No-show rate'],['91','Estimated recovered appointment opportunities']];
+  $('stats').innerHTML = stats.map(function(s){ return '<div class="stat"><b>'+s[0]+'</b><span>'+s[1]+'</span></div>'; }).join('');
+
+  /* Calculator */
+  function calc(){
+    var enq = +$('enq').value, lost = +$('lost').value, val = +$('val').value, rec = +$('rec').value;
+    var pool = enq * lost / 100, rcv = pool * rec / 100, value = rcv * val;
+    var be = Math.max(1, Math.ceil(8950 / val));
+    $('enqL').textContent = enq; $('lostL').textContent = lost + '%'; $('valL').textContent = fmt(val); $('recL').textContent = rec + '%';
+    $('pool').textContent = (Math.round(pool*10)/10) + ' potential patients';
+    $('recovered').textContent = (Math.round(rcv*10)/10) + ' per month';
+    $('value').textContent = fmt(value);
+    $('breakeven').textContent = 'At ' + fmt(val) + ' per new patient, ' + be + ' recovered patient' + (be === 1 ? '' : 's') + ' a month would cover the Growth plan (R8,950/month).';
+  }
+  ['enq','lost','val','rec'].forEach(function(id){ $(id).addEventListener('input', calc); });
+  calc();
+
+  /* Billing toggle */
+  function setBilling(annual){
+    $('bm').setAttribute('aria-pressed', String(!annual));
+    $('ba').setAttribute('aria-pressed', String(annual));
+    [[4950,'p1','n1'],[8950,'p2','n2'],[14950,'p3','n3']].forEach(function(p){
+      $(p[1]).textContent = fmt(annual ? p[0]*12*0.9/12 : p[0]);
+      $(p[2]).textContent = annual ? ('Billed ' + fmt(p[0]*12*0.9) + ' per year (save ' + fmt(p[0]*12*0.1) + ')') : '';
+    });
+  }
+  $('bm').addEventListener('click', function(){ setBilling(false); });
+  $('ba').addEventListener('click', function(){ setBilling(true); });
+
+  /* FAQ */
+  var faq = [
+    ['Is this just an AI chatbot?','No. It’s a managed revenue-recovery service. AI is the engine, but the value is in the workflows, integrations, reporting, human escalation and monthly optimisation we run for your practice.'],
+    ['Will the AI give medical advice?','Never. It handles administration: bookings, practice information, approved pricing, routing. Diagnosis, treatment advice, emergencies, complaints and anyone in pain go straight to your team.'],
+    ['Is it POPIA-compliant?','It’s built with POPIA in mind: your practice is the responsible party, we operate as your operator under a data processing addendum, and any marketing or reactivation messages need consent or another lawful basis and an opt-out. We don’t claim certification, and we recommend your own attorney reviews the agreements.'],
+    ['Do patients know it’s automated?','Yes. The assistant introduces itself as the practice’s virtual assistant and offers to connect patients with the team for anything clinical.'],
+    ['What do you need from us?','Access to your WhatsApp and website, your booking system or calendar, your FAQs, approved pricing, booking and cancellation rules, escalation rules and any consent requirements. We guide you through each step.'],
+    ['How long until we’re live?','Typically 7 to 14 business days once we have your access, information and approvals. Our Implementation Guarantee covers launch within 14 business days of receiving everything we need.'],
+    ['What if the system or internet goes down?','We design a fallback for every practice: your normal phone, reception, voicemail, email or manual WhatsApp. Our promise isn’t that AI never fails. It’s that your patient enquiry process always has a fallback.'],
+    ['What does it cost beyond the plan?','Each plan includes an agreed monthly conversation volume. Anything beyond that, and any voice usage, is disclosed and agreed in advance. You should never receive a mystery bill.'],
+    ['What’s the contract?','A 90-day initial term, then month-to-month with 30 days’ written notice. Setup fees are generally non-refundable once implementation work starts, subject to applicable law and your contract. Annual plans follow the annual agreement.'],
+    ['Do you guarantee results?','We don’t guarantee revenue, because we don’t control advertising, practitioner availability, pricing, treatment acceptance, patient behaviour, staff or seasonality. We guarantee implementation timing and recovery activity instead.'],
+    ['How does the referral programme work?','Introduce another private practice. When they sign and their first payment clears, you receive R2,500 account credit and they get R1,500 off their setup fee. Credit is applied to future invoices and isn’t paid as cash. See the referral terms for the details.'],
+    ['Which booking systems do you work with?','We work with your existing calendar or practice-management software wherever it offers an integration. We confirm exactly what’s possible during your free audit, before you commit to anything.']
+  ];
+  var openFaq = 0;
+  function renderFaq(){
+    $('faqList').innerHTML = faq.map(function(f,i){
+      var o = i === openFaq;
+      return '<div><button type="button" aria-expanded="'+o+'" aria-controls="fa'+i+'" data-faq="'+i+'"><span>'+f[0]+'</span><span aria-hidden="true">'+(o?'−':'+')+'</span></button>'+(o?'<p id="fa'+i+'">'+f[1]+'</p>':'')+'</div>';
+    }).join('');
+  }
+  $('faqList').addEventListener('click', function(e){
+    var b = e.target.closest('[data-faq]'); if (!b) return;
+    var i = +b.getAttribute('data-faq'); openFaq = (openFaq === i) ? -1 : i; renderFaq();
+    var nb = document.querySelector('[data-faq="'+i+'"]'); if (nb) nb.focus();
+  });
+  renderFaq();
+
+  /* Practice chips */
+  var types = ['General dentistry','Cosmetic dentistry','Implants','Orthodontics','Multi-dentist group'];
+  function renderChips(){
+    $('chips').innerHTML = types.map(function(t){ return '<button type="button" aria-pressed="'+(practice===t)+'" data-chip="'+t+'">'+t+'</button>'; }).join('');
+    setWaLinks();
+  }
+  $('chips').addEventListener('click', function(e){
+    var b = e.target.closest('[data-chip]'); if (!b) return;
+    var t = b.getAttribute('data-chip'); practice = (practice === t) ? '' : t; renderChips();
+    var nb = document.querySelector('[data-chip="'+t+'"]'); if (nb) nb.focus();
+  });
+  renderChips();
+
+  /* Modals */
+  var modals = {
+    referral: '<h3 id="dlgTitle">Partner Referral Programme terms</h3><p>Plain-language summary. Your signed agreement is the binding document.</p><ul><li>You receive R2,500 account credit for each new practice you refer that signs up and whose first payment clears.</li><li>The referred practice receives R1,500 off the standard setup fee of their chosen plan. This does not combine with the Founding Practice Programme setup price.</li><li>Credit is applied to your future invoices. It is not paid out as cash and cannot be transferred.</li><li>The referred practice must be a new client that has not already been in contact with us, and must name you as the referrer when they get in touch or sign up.</li><li>Referred practices must be independent of yours. Credit isn’t available for your own additional locations.</li><li>We may update or end the programme with notice. Credit already earned stays valid.</li></ul><p><a class="btn btn-ink" data-wa="referral" href="#" target="_blank" rel="noopener">Refer a practice on WhatsApp</a></p>',
+    founding: '<h3 id="dlgTitle">Founding Practice Programme</h3><p>For the first 10 practices only, on the Growth plan.</p><ul><li>Setup: R4,950 (normally R12,500)</li><li>R6,950/month for your first 6 months (normally R8,950)</li><li>After 6 months, standard Growth pricing applies. There are no lifetime discounts.</li><li>In exchange: permission to use anonymised performance data, monthly feedback, participation in product improvement, and case-study permission only if you approve it.</li><li>One offer per practice. The 90-day initial term applies.</li></ul><p><a class="btn btn-ink" data-wa="founding" href="#" target="_blank" rel="noopener">Apply on WhatsApp</a></p>',
+    pilot: '<h3 id="dlgTitle">30-Day Revenue Recovery Pilot</h3><ul><li>R7,500 setup plus R7,500 for month one.</li><li>At the end of 30 days, continue at R8,950/month on Growth.</li><li>Not a free trial: a paid pilot means both sides implement properly.</li><li>Includes the Growth system set-up and a baseline measurement.</li></ul><p><a class="btn btn-ink" data-wa="pilot" href="#" target="_blank" rel="noopener">Start a pilot</a></p>',
+    guarantee: '<h3 id="dlgTitle">Guarantee terms</h3><p>Plain-language summary. Your signed agreement is the binding document.</p><h4>Implementation Guarantee</h4><p>If we fail to launch the agreed system within 14 business days after receiving all required access, information and approvals, your next month’s platform management fee is waived.</p><h4>Recovery Activity Guarantee</h4><p>For qualified practices, after baseline measurement: if the agreed system fails to produce the minimum agreed number of qualified recovered booking opportunities during the first 60 days, we continue working at no management fee until the target is achieved, subject to your cooperation and a minimum enquiry volume.</p><h4>No improvement, no long-term commitment</h4><p>90-day initial engagement with a clear baseline and clear KPIs. If the agreed implementation criteria aren’t met, you may exit after the initial term. After the initial term the plan is month-to-month with 30 days’ written notice.</p><h4>What we don’t guarantee</h4><p>We don’t guarantee revenue, patient numbers or treatment acceptance. These depend on advertising, practitioner availability, pricing, patient behaviour, staff and seasonality, none of which we control.</p>',
+    privacy: '<h3 id="dlgTitle">Privacy and POPIA</h3><p>Plain-language summary of how we handle information. A data processing addendum is signed with each practice before any patient information is processed.</p><ul><li>Your practice is the responsible party for patient information. We act as your operator and process it only on your instructions.</li><li>Health information is special personal information under POPIA. We collect only what is needed to deliver the service.</li><li>Marketing, recall and reactivation messages are sent only where there is consent or another lawful basis, and every message includes a clear way to opt out.</li><li>Patients are told when they’re talking to an automated assistant.</li><li>We do not sell personal information.</li><li>Access is restricted, protected with multi-factor authentication and logged. Information is encrypted in transit and, where supported, at rest.</li><li>Information is retained only as long as needed to deliver the service and meet documented legal or business requirements, then securely deleted or returned as agreed.</li><li>We maintain an inventory of the third-party providers that help run the service, and notify you of any security compromise as set out in your agreement.</li><li>We don’t use real patient data for testing unless the right controls are in place.</li></ul><p>Privacy requests or questions: <a href="mailto:denysschen.callum43@gmail.com" style="color:#0B5B52;font-weight:700">denysschen.callum43@gmail.com</a>. You also have the right to complain to the Information Regulator of South Africa.</p>',
+    terms: '<h3 id="dlgTitle">Service terms</h3><p>Plain-language summary. Your signed Master Services Agreement is the binding document.</p><ul><li><strong>Term:</strong> 90-day initial term, then month-to-month with 30 days’ written notice. Annual plans follow the signed annual agreement.</li><li><strong>Setup fees:</strong> generally non-refundable once implementation work has started, subject to applicable law and your contract.</li><li><strong>Usage:</strong> each plan includes an agreed monthly volume. Additional usage and any voice usage are disclosed and agreed in advance.</li><li><strong>Support:</strong> Monday to Friday, 09:00 to 17:00 SAST. Critical incidents get a same-business-day response, other requests within 1 business day. The assistant itself runs 24/7. Our human support does not.</li><li><strong>Scope:</strong> the assistant does administrative work only. It does not diagnose, prescribe, give emergency medical instructions beyond approved routing, or make clinical decisions.</li><li><strong>Ownership:</strong> you own your patient data, practice content and patient relationships. We own our software, workflows, templates and methodology, and license them to you for the duration of the subscription.</li><li><strong>Results:</strong> we don’t guarantee revenue or specific patient numbers. Calculator and dashboard figures on this site are illustrative.</li><li><strong>Fallbacks:</strong> if the automation or internet is down, enquiries fall back to your phone, reception, voicemail, email or manual WhatsApp.</li></ul>'
+  };
+  var lastFocus = null;
+  function openModal(key, trigger){
+    $('dlgBody').innerHTML = modals[key];
+    setWaLinks();
+    lastFocus = trigger || document.activeElement;
+    $('overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    $('dlgClose').focus();
+  }
+  function closeModal(){
+    $('overlay').classList.remove('open');
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('[data-modal]');
+    if (t){ openModal(t.getAttribute('data-modal'), t); }
+  });
+  $('dlgClose').addEventListener('click', closeModal);
+  $('overlay').addEventListener('click', function(e){ if (e.target === $('overlay')) closeModal(); });
+  document.addEventListener('keydown', function(e){
+    if (!$('overlay').classList.contains('open')) return;
+    if (e.key === 'Escape'){ closeModal(); return; }
+    if (e.key === 'Tab'){
+      var f = $('dialog').querySelectorAll('a[href],button');
+      if (!f.length) return;
+      var first = f[0], last = f[f.length-1];
+      if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    }
+  });
+
+  /* Size the hero to the viewport minus the banner + header */
+  var ann = document.querySelector('.announce'), hdr = document.querySelector('header.top');
+  function setChrome(){
+    var h = (ann ? ann.offsetHeight : 0) + (hdr ? hdr.offsetHeight : 0);
+    document.documentElement.style.setProperty('--chrome', h + 'px');
+  }
+  setChrome();
+  window.addEventListener('resize', setChrome);
+  window.addEventListener('load', setChrome);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(setChrome);
+  if (window.ResizeObserver){ var ro = new ResizeObserver(setChrome); if (ann) ro.observe(ann); if (hdr) ro.observe(hdr); }
+
+  $('yr').textContent = new Date().getFullYear();
+  setWaLinks();
+})();
+</script>
+</body>
+</html>
