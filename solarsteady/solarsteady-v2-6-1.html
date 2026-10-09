@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SolarSteady — Solar Cleaning, Monitoring &amp; Estate Programmes | Johannesburg</title>
+<meta name="description" content="Solar panel cleaning, R99 solar health scan, inverter checks and estate programmes in Johannesburg. See what dirt is costing you. Documented, insured, guaranteed.">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f7f2;--card:#fff;--ink:#12201a;--mut:#58655e;--brand:#f5b301;--bi:#12201a;--navy:#0d2a24;--line:rgba(18,32,26,.14);--ok:#17794a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1613;--card:#12221d;--ink:#eef3f0;--mut:#9bb0a7;--navy:#06100d;--line:rgba(255,255,255,.14)}}
+:root[data-theme="dark"]{--bg:#0b1613;--card:#12221d;--ink:#eef3f0;--mut:#9bb0a7;--navy:#06100d;--line:rgba(255,255,255,.14)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(70px + env(safe-area-inset-top,0px))}
+*,*::before,*::after{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 'IBM Plex Sans',system-ui,sans-serif}
+h1,h2,h3{font-family:Archivo,system-ui,sans-serif;font-weight:800;line-height:1.1;letter-spacing:-.01em}
+.w{max-width:1120px;margin:0 auto;padding:0 clamp(16px,4vw,32px)}
+section{padding:clamp(40px,7vw,72px) 0}
+h2{font-size:clamp(26px,5vw,38px);margin-bottom:10px}
+.sub{color:var(--mut);max-width:640px;margin-bottom:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;background:var(--brand);color:var(--bi);padding:12px 22px;border-radius:8px;border:0;cursor:pointer;text-decoration:none;font:600 16px 'IBM Plex Sans',sans-serif;text-align:center;line-height:1.25;transition:transform .12s,filter .12s}.btn:hover{filter:brightness(1.05)}.btn:active{transform:scale(.98)}
+.btn.green{background:#25d366;color:#fff}.btn svg{width:20px;height:20px;fill:currentColor;flex:none}
+:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+.link{min-height:32px}
+.btn.alt{background:transparent;color:inherit;border:1.5px solid currentColor}
+.link{background:none;border:0;color:inherit;text-decoration:underline;cursor:pointer;font:inherit;padding:0}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;gap:12px;height:62px}.hd nav{margin-left:auto;display:flex;align-items:center}.hd .btn{min-height:42px;padding:9px 18px;font-size:15px}.menu{display:none;background:none;border:1.5px solid var(--line);color:var(--ink);width:44px;height:42px;border-radius:8px;font-size:22px;cursor:pointer;line-height:1}
+.logo{font:800 20px Archivo,sans-serif;text-decoration:none;color:var(--ink)}.logo b{color:var(--brand)}
+nav a{margin-left:20px;text-decoration:none;color:var(--ink);font-size:15px}nav a:hover{color:var(--ok)}
+@media(max-width:820px){
+ .hd{justify-content:space-between}.hd nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;margin:0;box-shadow:0 12px 24px rgba(0,0,0,.12)}
+ .hd nav.open{display:flex}.hd nav a{margin:0;padding:15px clamp(16px,4vw,32px);border-top:1px solid var(--line);font-size:16px}
+ .menu{display:block;margin-left:auto}
+}
+.promo{background:var(--brand);color:var(--bi);text-align:center;padding:9px 16px;font-size:14px;font-weight:600}
+.hero{background:var(--navy);color:#fff;padding:60px 0 52px}
+.hero h1{font-size:clamp(32px,7vw,58px);max-width:820px}.hero h1 em{color:var(--brand);font-style:normal}
+.hero p{color:#c3d3cc;max-width:600px;margin:16px 0 26px;font-size:18px}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.chips span{border:1px solid rgba(255,255,255,.25);border-radius:99px;padding:5px 12px;font-size:13px;color:#dfeae5}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(235px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+.card h3{font-size:19px;margin-bottom:6px}.card p{color:var(--mut);font-size:15px}
+.price{font:800 22px Archivo,sans-serif;margin-top:10px}.price small{font:400 13px 'IBM Plex Sans';color:var(--mut)}
+.k{display:inline-block;font-size:12px;font-weight:700;color:var(--ok);margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em}
+.plan{position:relative}.plan.top{border:2px solid var(--brand)}
+.tag{position:absolute;top:-12px;left:18px;background:var(--brand);color:var(--bi);font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px}
+.plan ul{list-style:none;padding:0;margin:14px 0 18px;font-size:15px}
+.plan li{padding:5px 0 5px 22px;position:relative}.plan li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:700}
+.plan .btn{width:100%;text-align:center}
+.band{background:var(--navy);color:#fff}.band .sub{color:#b5c8bf}.band .card{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16)}.band .card p{color:#b5c8bf}
+.deal{display:flex;gap:14px;align-items:flex-start}.deal .big{font:800 28px Archivo,sans-serif;color:var(--brand);white-space:nowrap}
+.ladder{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));counter-reset:l}
+.ladder .card{position:relative;padding-top:34px}.ladder .card::before{counter-increment:l;content:"Step " counter(l);position:absolute;top:10px;left:20px;font-size:12px;font-weight:700;color:var(--ok);text-transform:uppercase}
+.seg{display:flex;gap:6px;background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:4px;width:fit-content;margin-bottom:22px}
+.seg button{border:0;background:none;color:var(--ink);padding:8px 16px;border-radius:99px;cursor:pointer;font:600 14px 'IBM Plex Sans'}
+.seg button.on{background:var(--brand);color:var(--bi)}
+.calc{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));align-items:start}
+.out{background:var(--navy);color:#fff;border-radius:12px;padding:22px}.out .n{font:800 40px Archivo,sans-serif;color:var(--brand)}.out p{color:#b5c8bf;font-size:14px;margin-top:6px}
+.tbl{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:15px;min-width:420px}
+th,td{padding:11px 12px;text-align:left;border-bottom:1px solid var(--line)}th{font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)}
+.rep{font:13px/1.6 ui-monospace,Menlo,monospace;background:var(--card);border:1px dashed var(--line);border-radius:12px;padding:18px}
+.rep b{color:var(--ok)}
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600}details p{color:var(--mut);margin-top:8px;font-size:15px}
+footer{background:var(--navy);color:#b5c8bf;padding:36px 0;font-size:14px}footer .row{gap:14px 26px;margin-top:14px}
+dialog{border:0;border-radius:14px;padding:0;max-width:520px;width:calc(100% - 28px);background:var(--card);color:var(--ink)}
+dialog::backdrop{background:rgba(0,0,0,.6)}
+.dg{padding:24px;max-height:85vh;max-height:85dvh;overflow:auto}.dg h3{font-size:22px;margin-bottom:10px}.dg p,.dg li{color:var(--mut);font-size:15px;margin-bottom:8px}.dg ul{padding-left:18px}
+.x{float:right;background:none;border:0;font-size:26px;cursor:pointer;color:var(--ink);line-height:1}
+label{display:block;font-size:14px;font-weight:600;margin:12px 0 4px}
+input,select{width:100%;padding:11px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:16px 'IBM Plex Sans',sans-serif}
+.note{font-size:12px;color:var(--mut);margin-top:10px}
+
+html{-webkit-text-size-adjust:100%;overflow-x:hidden}.grid>*,.calc>*,.ladder>*{min-width:0}.card{overflow-wrap:break-word}body{overflow-x:hidden;padding-bottom:84px}
+img,svg,table{max-width:100%}
+.wa{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;display:flex;align-items:center;gap:8px;background:#25d366;color:#fff;text-decoration:none;font:600 15px 'IBM Plex Sans',sans-serif;padding:13px 18px;border-radius:99px;box-shadow:0 6px 18px rgba(0,0,0,.28)}
+.wa svg{width:22px;height:22px;fill:#fff;flex:none}
+.contact a{color:#fff;overflow-wrap:anywhere}
+.pick{display:grid;gap:10px;margin:16px 0 14px}
+.prev{white-space:pre-wrap;word-break:break-word;font:13px/1.5 ui-monospace,Menlo,monospace;background:var(--bg);border:1px dashed var(--line);border-radius:10px;padding:12px;color:var(--mut);margin-bottom:10px}
+.cta-end{text-align:center}.cta-end .sub{margin-inline:auto}.cta-end .row{justify-content:center}
+@media(min-width:601px) and (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.ladder{grid-template-columns:repeat(2,1fr)}.hero{padding:56px 0 48px}}
+@media(min-width:901px){.hero{padding:84px 0 72px}.hero p{font-size:19px}}
+@media(max-width:600px){
+ section{padding:40px 0}.w{padding:0 16px}
+ .hero{padding:44px 0 40px}.hero p{font-size:16px}
+ .row .btn{width:100%}.plan .btn{width:100%}
+ .hd .btn{padding:9px 14px;font-size:14px}.chips span{font-size:12px}
+ .out .n{font-size:34px}.card{padding:18px}.cta-end .row{flex-direction:column}
+ .seg{width:100%;flex-wrap:wrap;border-radius:16px}.seg button{flex:1 1 auto;padding:9px 10px;font-size:13px}
+ .deal{flex-direction:column;gap:4px}.deal .big{font-size:26px}
+ .promo{font-size:13px;padding:8px 12px}
+ .wa span{display:none}.wa{padding:14px}
+ .dg{padding:20px}
+}
+@media(max-width:360px){h2{font-size:24px}.logo{font-size:18px}.hd .btn{padding:8px 10px;font-size:13px}.menu{width:40px}.seg button{font-size:12px;padding:8px 8px}}
+@media(hover:none){.btn:hover{filter:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="promo">☀️ Launch: R99 Solar Health Scan (worth R650) · R150 off your first clean · Founding rate locked for life — first 50 homes &amp; 5 estates</div>
+<header><div class="w hd">
+<a class="logo" href="#">Solar<b>Steady</b></a>
+<nav id="nav"><a href="#calc">Calculator</a><a href="#estates">Estates</a><a href="#plans">Plans</a><a href="#refer">Referrals</a><a href="#faq">FAQ</a></nav>
+<button class="btn" data-book>I'm interested</button>
+<button class="menu" id="menu" aria-label="Open menu" aria-expanded="false" aria-controls="nav">☰</button>
+</div></header>
+
+<div class="hero"><div class="w">
+<h1>Your solar system is an investment. <em>We protect the return.</em></h1>
+<p>Monitored cleaning, inverter checks and photo-documented reports for Johannesburg homes, gated estates and small businesses. Know what your system is doing — and prove it to insurers and buyers.</p>
+<div class="row"><button class="btn" data-book data-svc="R99 Solar Health Scan">I'm interested in the R99 scan</button><a class="btn alt" href="#estates">I manage an estate</a></div>
+<p style="font-size:14px;margin:-8px 0 0;color:#9fb8ae">No forms. Tap, choose WhatsApp or email, and your message is already written.</p><div class="chips"><span>✔ Water-fed pole, no chemicals</span><span>✔ Photo report every visit</span><span>✔ Public liability insured</span><span>✔ Estate &amp; body corporate specialists</span></div>
+</div></div>
+
+<section><div class="w">
+<h2>Who we serve</h2><p class="sub">Different roofs, different needs. Pick yours.</p>
+<div class="seg" id="seg"><button class="on" data-s="0">Homeowners</button><button data-s="1">Estates &amp; trustees</button><button data-s="2">Landlords &amp; agents</button><button data-s="3">Small business</button></div>
+<div class="card" id="segc"></div>
+</div></section>
+
+<section id="calc" style="background:var(--card);border-block:1px solid var(--line)"><div class="w">
+<h2>How much is dirt costing you?</h2>
+<p class="sub">A quick, illustrative estimate. Real losses vary by roof, tilt, trees and season; our scan gives you the actual picture.</p>
+<div class="calc"><div>
+<label>Your monthly solar saving (R)</label><input id="c1" type="number" inputmode="numeric" value="1500">
+<label>Time since last clean</label>
+<select id="c2"><option value="3">Under 3 months</option><option value="7" selected>3–6 months</option><option value="12">6–12 months</option><option value="18">Over 12 months / never</option></select>
+<p class="note">Estimate uses a typical soiling-loss range of roughly 3–18% depending on time since cleaning. Not a guarantee.</p></div>
+<div class="out"><div class="n" id="c3">R0</div><p>estimated lost per month</p><div class="n" id="c4" style="font-size:28px;margin-top:12px">R0</div><p>per year — vs a Care plan at R249/month.</p><p style="margin-top:14px"><button class="btn" data-book data-svc="R99 Solar Health Scan">I'm interested — check my real number (R99)</button></p></div></div>
+</div></section>
+
+<section><div class="w">
+<h2>Start small. Stay for years.</h2><p class="sub">Every customer climbs the same easy ladder, and every step pays for itself.</p>
+<div class="ladder">
+<div class="card"><h3>R99 Solar Health Scan</h3><p>Visual inspection, inverter fault codes, monitoring review and photo summary. Loss-leader price, no obligation.</p></div>
+<div class="card"><h3>First clean</h3><p>R150 off, and your R99 scan fee is credited against it. Spotless panels, photo proof.</p></div>
+<div class="card"><h3>Care plan</h3><p>Lock in scheduled cleans, health checks and a lifetime founding rate.</p></div>
+<div class="card"><h3>Refer &amp; earn</h3><p>Neighbours, family and your estate join — you earn free cleans.</p></div>
+</div></div></section>
+
+<section id="services" class="band"><div class="w">
+<h2>Services &amp; add-ons</h2><p class="sub">“From” prices, fixed quote confirmed before we start.</p>
+<div class="grid">
+<div class="card"><h3>Panel cleaning</h3><p>Purified water, soft brush, no pressure washer.</p><div class="price">from R450 <small>/ up to 10 panels</small></div></div>
+<div class="card"><h3>Inverter &amp; system health check</h3><p>Faults, connections, isolators, battery status, thermal scan of key points.</p><div class="price">from R650</div></div>
+<div class="card"><h3>Clean + check bundle</h3><p>Our most popular one-off visit.</p><div class="price">from R950</div></div>
+<div class="card"><h3>Bird-proofing</h3><p>Mesh and spikes against nesting and droppings.</p><div class="price">from R85 <small>/ panel</small></div></div>
+<div class="card"><h3>Battery &amp; backup check</h3><p>Is your load shedding backup really ready? Capacity, wiring and settings review.</p><div class="price">from R550</div></div>
+<div class="card"><h3>Insurance &amp; sale report</h3><p>Photo-documented condition report for insurers, buyers and agents.</p><div class="price">from R350</div></div>
+<div class="card"><h3>Gutter &amp; roof sweep</h3><p>Leaves and debris cleared around arrays to protect output and prevent blockages.</p><div class="price">from R300</div></div>
+<div class="card"><h3>Gift a clean</h3><p>Service your parents' or a friend's roof. We handle the booking and the thank-you card.</p><div class="price">from R450</div></div>
+</div></div></section>
+
+<section id="estates"><div class="w">
+<h2>Estate &amp; body-corporate programmes</h2>
+<p class="sub">One decision for trustees, a whole estate of clean roofs. We run the programme: communication, scheduling, access, reporting.</p>
+<div class="grid" style="margin-bottom:22px">
+<div class="card"><span class="k">For trustees</span><h3>Zero admin</h3><p>We handle resident sign-up, access with security, and a single monthly report.</p></div>
+<div class="card"><span class="k">For residents</span><h3>Neighbour pricing</h3><p>Everyone gets volume rates, no matter their roof size.</p></div>
+<div class="card"><span class="k">For the estate</span><h3>Estate reward</h3><p>5% of programme revenue back to the estate, as a levy credit or a fund of your choice.</p></div>
+</div>
+<div class="card tbl"><table><thead><tr><th>Homes signed up</th><th>Clean discount</th><th>Extras</th></tr></thead><tbody>
+<tr><td>3–9</td><td>20% off</td><td>Free health check per home</td></tr>
+<tr><td>10–24</td><td>25% off</td><td>+ bird-proofing 10% off</td></tr>
+<tr><td>25+</td><td>30% off</td><td>+ estate reward + dedicated team day</td></tr></tbody></table></div>
+<p style="margin-top:20px" class="row"><button class="btn" data-book data-svc="Free trustee pack">I'm interested — trustee pack</button><button class="btn alt" data-book data-svc="Estate / commercial quote">I'm interested — estate quote</button></p>
+</div></section>
+
+<section id="deals" class="band"><div class="w">
+<h2>Opening deals</h2><p class="sub">We're new. These are limited, and cost us money on purpose.</p>
+<div class="grid">
+<div class="card deal"><div class="big">R99</div><div><h3>Solar Health Scan</h3><p>Normally R650. Fee credited to your first clean.</p></div></div>
+<div class="card deal"><div class="big">R150</div><div><h3>Off first clean</h3><p>Code “SUN150”.</p></div></div>
+<div class="card deal"><div class="big">LOCKED</div><div><h3>Founding rate for life</h3><p>First 50 homes keep their plan price forever, even as ours rise.</p></div></div>
+<div class="card deal"><div class="big">FREE</div><div><h3>Estate pilot day</h3><p>First 5 estates get a free demo clean for the trustees' roofs or clubhouse.</p></div></div>
+<div class="card deal"><div class="big">+1</div><div><h3>Bring-a-neighbour</h3><p>Book together on the same day and each save R100.</p></div></div>
+<div class="card deal"><div class="big">10%</div><div><h3>Pensioners &amp; frontline</h3><p>Off cleaning. ID on the day.</p></div></div>
+</div>
+<p class="note" style="color:#9fb8ae">Offers limited, not combinable unless stated, may end without notice. <button class="link" data-modal="terms">Terms</button></p>
+</div></section>
+
+<section id="plans"><div class="w">
+<h2>Care plans</h2><p class="sub">Never think about your panels again. Lock in a rate, priority booking and a yearly performance review.</p>
+<div class="seg" id="bill"><button class="on" data-b="m">Monthly</button><button data-b="a">Annual · 2 months free</button></div>
+<div class="grid">
+<div class="card plan"><h3>Clean</h3><div class="price"><span data-p="129">R129</span> <small data-u>/ month</small></div>
+<ul><li>2 cleans per year (up to 12 panels)</li><li>Photo report each visit</li><li>10% off extras</li><li>Automatic WhatsApp reminders</li></ul>
+<button class="btn alt" data-book data-svc="Clean plan">I'm interested in Clean</button></div>
+<div class="card plan top"><span class="tag">BEST VALUE</span><h3>Care</h3><div class="price"><span data-p="249">R249</span> <small data-u>/ month</small></div>
+<ul><li>4 cleans per year (up to 16 panels)</li><li>2 inverter &amp; system health checks</li><li>Annual performance report</li><li>Priority fault visit within 48 hours</li><li>15% off extras</li></ul>
+<button class="btn" data-book data-svc="Care plan">I'm interested in Care</button></div>
+<div class="card plan"><h3>Care Plus</h3><div class="price"><span data-p="399">R399</span> <small data-u>/ month</small></div>
+<ul><li>Everything in Care (up to 24 panels)</li><li>Quarterly health checks + battery review</li><li>Monitoring alerts reviewed monthly</li><li>Free bird-proofing consult</li><li>20% off extras, 24-hour priority</li></ul>
+<button class="btn alt" data-book data-svc="Care Plus plan">I'm interested in Care Plus</button></div>
+</div>
+<p class="note">Founding offer: first 2 months half price and your rate locked for life (first 50 members). Cancel with 30 days' notice. <button class="link" data-modal="terms">Plan terms</button></p>
+</div></section>
+
+<section id="refer" style="background:var(--card);border-block:1px solid var(--line)"><div class="w">
+<h2>Referral rewards</h2><p class="sub">Everyone who sends us business earns something real.</p>
+<div class="grid">
+<div class="card"><span class="k">Homeowners</span><h3>Refer 1 → R200</h3><p>You and your friend each get R200 off. Refer 3 → a free clean. Refer 5 → a free year of Clean plan.</p></div>
+<div class="card"><span class="k">Estate managers &amp; trustees</span><h3>Estate reward + R100 per home</h3><p>5% estate reward on programme revenue plus R100 for every home you bring on.</p></div>
+<div class="card"><span class="k">Installers, electricians &amp; agents</span><h3>10% partner commission</h3><p>Earn 10% on the first year of every plan you introduce. We never poach your install customers.</p></div>
+</div>
+<p style="margin-top:20px" class="row" style="align-items:center"><button class="btn" data-book data-svc="Referral partner">I'm interested in partnering</button> <button class="link" data-modal="ref">Referral terms</button></p>
+</div></section>
+
+<section><div class="w">
+<h2>What you'll receive</h2><p class="sub">Every visit ends with a clear report on your phone.</p>
+<div class="rep"><b>SOLARSTEADY VISIT REPORT</b><br>Property: 14 Example Estate, Sandton &nbsp;|&nbsp; Date: __ / __ / ____<br>Panels cleaned: 12 &nbsp;|&nbsp; Method: purified water-fed pole<br>Before/after photos: <b>attached</b><br>Inverter status: <b>OK</b> — no active fault codes<br>Isolators &amp; connections: <b>checked</b><br>Notes: Light bird fouling on north array; bird-proofing recommended.<br>Next service due: __ / __ / ____</div>
+<p class="note">Sample layout for illustration only.</p>
+</div></section>
+
+<section class="band"><div class="w">
+<h2>Our guarantees</h2>
+<div class="grid" style="margin-top:20px">
+<div class="card"><h3>✨ Spotless or we return</h3><p>Report within 48 hours and we re-clean free.</p></div>
+<div class="card"><h3>🛡 Damage-free promise</h3><p>Insured teams. If we damage it, we fix it. <button class="link" data-modal="guarantee">Details</button></p></div>
+<div class="card"><h3>🔒 Fixed-price quote</h3><p>The price you approve is the price you pay.</p></div>
+<div class="card"><h3>⏱ On time or R100 off</h3><p>Late without notice for your booked window? R100 off.</p></div>
+<div class="card"><h3>💸 No-hassle exit</h3><p>Not happy after your first plan visit? Cancel and we refund unused plan months.</p></div>
+</div></div></section>
+
+<section id="faq"><div class="w">
+<h2>Questions, answered</h2>
+<details><summary>Do I need to be home?</summary><p>Usually not. We need access and any hazards noted. Photos are sent when done.</p></details>
+<details><summary>Will cleaning void my warranty?</summary><p>We use soft brushes and purified water in line with common manufacturer guidance. Check your warranty terms if unsure; we'll help.</p></details>
+<details><summary>How often should I clean?</summary><p>Most Joburg roofs benefit from 2–4 cleans a year depending on trees, roads and birds.</p></details>
+<details><summary>Do you install or repair?</summary><p>We focus on maintenance, cleaning, checks and reporting. Faults are documented and referred to a qualified electrician or your installer.</p></details>
+<details><summary>Which areas?</summary><p>Johannesburg and surrounds incl. Sandton, Randburg, Fourways, Midrand, Roodepoort and the East Rand.</p></details>
+<details><summary>What about bad weather?</summary><p>We don't clean in heavy wind or lightning. We reschedule free.</p></details>
+</div></section>
+
+<section id="interested" class="band"><div class="w cta-end">
+<h2>Interested? Tell us in one tap.</h2>
+<p class="sub">No forms and no commitment. Your message is pre-written, just hit send and we'll follow up with you.</p>
+<div class="row"><a class="btn green" id="endWa" target="_blank" rel="noopener"><svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.4 8.6 3.4 15.5c0 2.3.6 4.4 1.700 6.300L3 29l7.400-2c1.800 1 3.800 1.500 5.600 1.500C23 28.500 28.600 22.900 28.600 16S23 3 16 3zm5.700 14.800c-.3-.2-1.800-.9-2.100-1s-.5-.2-.7.2-.8 1-1 1.200-.4.200-.7.100a8.400 8.400 0 0 1-4.200-3.700c-.3-.6.300-.5.900-1.700.1-.2 0-.4 0-.5l-1-2.300c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.100-.8.400s-1 1-1 2.500 1.100 2.900 1.200 3.100c.2.200 2.100 3.300 5.200 4.500 1.900.8 2.700.9 3.600.7.600-.1 1.800-.7 2-1.500.3-.7.300-1.300.2-1.500s-.3-.2-.6-.4z"/></svg>I'm interested — WhatsApp</a><a class="btn alt" id="endMail">✉ I'm interested — Email</a></div>
+</div></section>
+
+<footer><div class="w">
+<strong style="color:#fff;font-size:18px">SolarSteady</strong>
+<p style="margin-top:6px">Johannesburg · Mon–Sat 07:00–17:00</p><p class="contact" style="margin-top:8px">WhatsApp: <a href="#" id="ftWa" target="_blank" rel="noopener">076 431 2871</a> · Email: <a href="#" id="ftMail">denysschen.callum43@gmail.com</a></p>
+<div class="row"><button class="link" data-modal="terms">Terms</button><button class="link" data-modal="guarantee">Guarantee &amp; safety</button><button class="link" data-modal="cancel">Cancellation &amp; payment</button><button class="link" data-modal="ref">Referral terms</button><button class="link" data-modal="privacy">Privacy (POPIA)</button></div>
+<p style="margin-top:16px;font-size:12px">Prices are indicative “from” prices. Estimates are illustrative, not guarantees. © SolarSteady. [Add registered company name, VAT and insurance details.]</p>
+</div></footer>
+
+<a class="wa" id="wafab" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.4 8.6 3.4 15.5c0 2.3.6 4.4 1.7 6.3L3 29l7.4-2c1.8 1 3.800 1.500 5.600 1.500C23 28.500 28.600 22.900 28.600 16S23 3 16 3zm0 22.500c-1.800 0-3.500-.5-5-1.400l-.4-.2-4.400 1.200 1.200-4.300-.3-.4a10.300 10.300 0 0 1-1.600-5.500C5.500 9.800 10.200 5.200 16 5.200S26.500 9.800 26.500 15.500 21.800 25.500 16 25.500zm5.700-7.700c-.3-.2-1.800-.9-2.100-1s-.5-.2-.7.200-.8 1-1 1.200-.4.200-.7.100a8.400 8.400 0 0 1-4.200-3.700c-.3-.6.300-.5.900-1.700.1-.2 0-.4 0-.5l-1-2.300c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.100-.8.400s-1 1-1 2.500 1.100 2.900 1.200 3.100c.2.200 2.100 3.300 5.200 4.500 1.900.8 2.700.9 3.600.7.600-.1 1.800-.7 2-1.500.3-.7.300-1.300.2-1.500s-.3-.2-.6-.4z"/></svg><span>WhatsApp us</span></a>
+
+
+<dialog id="contact"><div class="dg"><button class="x" data-close aria-label="Close">×</button><h3>Express your interest</h3>
+<p>Choose how you'd like to reach us about <strong id="cwhat"></strong>. Your message is already written, just hit send.</p>
+<div class="pick"><a class="btn green" id="cwa" target="_blank" rel="noopener"><svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.4 8.6 3.4 15.5c0 2.3.6 4.4 1.700 6.300L3 29l7.400-2c1.800 1 3.800 1.500 5.600 1.500C23 28.500 28.600 22.900 28.600 16S23 3 16 3zm5.700 14.800c-.3-.2-1.800-.9-2.100-1s-.5-.2-.7.2-.8 1-1 1.200-.4.200-.7.100a8.400 8.400 0 0 1-4.200-3.700c-.3-.6.300-.5.900-1.700.1-.2 0-.4 0-.5l-1-2.300c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.100-.8.400s-1 1-1 2.500 1.100 2.900 1.200 3.100c.2.200 2.100 3.300 5.200 4.500 1.900.8 2.700.9 3.600.7.600-.1 1.800-.7 2-1.500.3-.7.300-1.300.2-1.500s-.3-.2-.6-.4z"/></svg>Message on WhatsApp</a><a class="btn alt" id="cmail">✉ Send an email</a></div>
+<pre class="prev" id="cprev"></pre>
+<button class="link" id="ccopy">Copy message</button>
+<p class="note">Add your name and send. We reply Mon–Sat 07:00–17:00.</p></div></dialog>
+<dialog id="terms"><div class="dg"><button class="x" data-close>×</button><h3>Terms &amp; conditions</h3>
+<ul><li>Quotes valid 14 days; changes only if panel count or access differs, confirmed with you first.</li><li>Promo codes have no cash value and cannot be combined unless stated. The R99 scan fee is credited to a clean booked within 30 days.</li><li>“Founding rate for life” applies to the first 50 plan members while the plan stays active.</li><li>Plans renew monthly (or annually if prepaid) for the registered property; unused cleans do not roll over.</li><li>We may decline unsafe roofs or damaged panels. We report faults but do not repair electrical systems unless agreed in writing.</li></ul></div></dialog>
+<dialog id="guarantee"><div class="dg"><button class="x" data-close>×</button><h3>Guarantee &amp; safety</h3>
+<ul><li>Free re-clean if reported within 48 hours.</li><li>Public liability insurance covers damage caused by our teams.</li><li>Pre-existing damage, cracked panels and faulty installs are excluded and photographed before we start.</li><li>Staff are vetted and follow working-at-heights practices.</li></ul></div></dialog>
+<dialog id="cancel"><div class="dg"><button class="x" data-close>×</button><h3>Cancellation &amp; payment</h3>
+<ul><li>Reschedule free up to 12 hours before your slot.</li><li>No-access visits: R250 fee.</li><li>Payment due on completion by EFT, card or payment link.</li><li>Plans: 30 days' notice. Annual prepay: unused full months refunded pro rata.</li></ul></div></dialog>
+<dialog id="ref"><div class="dg"><button class="x" data-close>×</button><h3>Referral terms</h3>
+<ul><li>Credits apply once the referred customer completes their first paid job.</li><li>No self-referrals or duplicate households.</li><li>Partner commission is paid monthly on received payments for 12 months.</li><li>Estate reward is paid quarterly after the estate programme invoices are settled.</li></ul></div></dialog>
+<dialog id="privacy"><div class="dg"><button class="x" data-close>×</button><h3>Privacy (POPIA)</h3>
+<p>We collect your name, contact details and address only to quote, schedule, invoice and report. We never sell your data. On-site photos are used in your reports and our quality records. You may ask to view, correct or delete your information at any time.</p></div></dialog>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s),E=encodeURIComponent;
+const segs=[["Homeowners","Protect the R100k+ you spent on solar. Scheduled cleans, an honest health check and a report you can show your insurer. We handle reminders and access; you do nothing.","I'm interested in the R99 scan","R99 Solar Health Scan"],
+["Estates &amp; trustees","One programme, many roofs. Volume pricing for residents, zero admin for you, an estate reward, and clear reporting for the board.","I'm interested in the trustee pack","Free trustee pack"],
+["Landlords &amp; agents","Keep tenants' systems performing and documented. Condition reports for sales, lettings and insurance claims, plus referral commission for agents.","I'm interested in partnering","Landlord / agent partnership"],
+["Small business","Offices, guesthouses and warehouses: maintenance SLAs, scheduled sweeps and compliance-ready reports on one monthly invoice.","I'm interested in an SLA quote","Business SLA quote"]];
+function seg(i){$('#segc').innerHTML=`<h3>${segs[i][0]}</h3><p style="margin:8px 0 14px">${segs[i][1]}</p><button class="btn" data-book data-svc="${segs[i][3]}">${segs[i][2]}</button>`;$$('#seg button').forEach((b,j)=>b.classList.toggle('on',i==j));bind()}
+$$('#seg button').forEach(b=>b.onclick=()=>seg(+b.dataset.s));
+function calc(){const v=+$('#c1').value||0,r={3:.03,7:.07,12:.12,18:.18}[$('#c2').value];const m=Math.round(v*r);$('#c3').textContent='R'+m.toLocaleString('en-ZA');$('#c4').textContent='R'+(m*12).toLocaleString('en-ZA')}
+$('#c1').oninput=calc;$('#c2').onchange=calc;calc();
+$$('#bill button').forEach(b=>b.onclick=()=>{const a=b.dataset.b=='a';$$('#bill button').forEach(x=>x.classList.toggle('on',x==b));$$('[data-p]').forEach(p=>p.textContent='R'+(a?(+p.dataset.p*10).toLocaleString('en-ZA'):p.dataset.p));$$('[data-u]').forEach(u=>u.textContent=a?'/ year':'/ month')});
+const Q=new URLSearchParams(location.search),REF=(Q.get('ref')||'').slice(0,40);
+const WA='27764312871',MAIL='denysschen.callum43@gmail.com';
+const wa=t=>'https://wa.me/'+WA+'?text='+E(t);
+const promoFor=v=>(Q.get('promo')||'').slice(0,20)||(/scan/i.test(v)?'SCAN99':/plan/i.test(v)?'FOUNDING':/estate|partner|trustee|SLA/i.test(v)?'':'SUN150');
+function msg(v){
+ v=v||'your solar cleaning services';
+ const pr=promoFor(v),biz=/trustee|estate|partner|SLA/i.test(v);
+ return "Hi SolarSteady! I'm interested in: "+v+". Please follow up with me.\n\nName:"+(biz?'\nEstate / business name:':'')+(pr?'\nPromo: '+pr:'')+(REF?'\nReferred by: '+REF:'');
+}
+const mail=(t,subj)=>'mailto:'+MAIL+'?subject='+E(subj)+'&body='+E(t.replace(/\n/g,'\r\n'));
+let cur='';
+function openContact(svc){
+ const t=msg(svc);cur=t;
+ $('#cwhat').textContent=svc||'SolarSteady';
+ $('#cprev').textContent=t;
+ $('#cwa').href=wa(t);
+ $('#cmail').href=mail(t,'SolarSteady: interested in '+(svc||'your services'));
+ $('#ccopy').textContent='Copy message';
+ $('#contact').showModal();
+}
+function bind(){$$('[data-book]').forEach(b=>b.onclick=()=>openContact(b.dataset.svc))}
+$('#ccopy').onclick=async()=>{try{await navigator.clipboard.writeText(cur)}catch(e){const a=document.createElement('textarea');a.value=cur;document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(_){}a.remove()}$('#ccopy').textContent='Copied ✓'};
+['cwa','cmail'].forEach(id=>$('#'+id).addEventListener('click',()=>setTimeout(()=>$('#contact').close(),400)));
+const menu=$('#menu'),nav=$('#nav');
+menu.onclick=()=>{const o=nav.classList.toggle('open');menu.setAttribute('aria-expanded',o);menu.textContent=o?'✕':'☰'};
+nav.addEventListener('click',e=>{if(e.target.tagName==='A'){nav.classList.remove('open');menu.setAttribute('aria-expanded',false);menu.textContent='☰'}});
+bind();seg(0);
+$$('[data-modal]').forEach(b=>b.onclick=()=>$('#'+b.dataset.modal).showModal());
+$$('[data-close]').forEach(b=>b.onclick=()=>b.closest('dialog').close());
+$$('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d)d.close()}));
+const gen=msg('your solar cleaning and R99 health scan');
+$('#wafab').href=wa(gen);$('#endWa').href=wa(gen);$('#ftWa').href=wa(gen);$('#endMail').href=mail(gen,'SolarSteady: I\'m interested');$('#ftMail').href=mail(gen,'SolarSteady: I\'m interested');
+</script>
+</body>
+</html>
