@@ -1,0 +1,2046 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SiteCare Property Services | Commercial maintenance coordination in Gauteng</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #1e2e3e;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #0b2b3c;
+    }
+
+    h2 {
+      font-size: 2.25rem;
+      margin-bottom: 1rem;
+      color: #0b2b3c;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+      color: #1e7e5c;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      background-color: #1e7e5c;
+      color: white;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 60px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background-color 0.2s, transform 0.1s;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.02);
+    }
+
+    .btn:hover {
+      background-color: #14634a;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #1e7e5c;
+      color: #1e7e5c;
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: #eef7f3;
+    }
+
+    /* Header / Nav */
+    .navbar {
+      padding: 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #deecf0;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.75rem;
+      letter-spacing: -0.02em;
+      color: #0b2b3c;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: #1e7e5c;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #2e4b5c;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #1e7e5c;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 64px 0 80px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-content {
+      flex: 1 1 500px;
+    }
+
+    .hero-content h1 {
+      margin-bottom: 24px;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #3e5e6f;
+      margin-bottom: 32px;
+      max-width: 600px;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .hero-note {
+      font-size: 0.9rem;
+      color: #6e8b9b;
+      margin-top: 16px;
+    }
+
+    .hero-visual {
+      flex: 1 1 380px;
+      background: #f0f9f5;
+      border-radius: 32px;
+      padding: 32px;
+      box-shadow: 0 20px 30px -15px rgba(0, 0, 0, 0.05);
+      border: 1px solid #cce8dd;
+    }
+
+    .hero-visual h3 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: #0d4d36;
+    }
+
+    .hero-visual ul {
+      list-style: none;
+    }
+
+    .hero-visual li {
+      padding: 10px 0;
+      border-bottom: 1px solid #c2e0d4;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+      color: #1d3e32;
+    }
+
+    .hero-visual li:last-child {
+      border-bottom: none;
+    }
+
+    .hero-visual i {
+      color: #1e7e5c;
+      font-size: 1.1rem;
+      width: 20px;
+    }
+
+    /* Sections */
+    .section {
+      padding: 80px 0;
+      border-bottom: 1px solid #deecf0;
+    }
+
+    .section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-intro {
+      max-width: 700px;
+      margin-bottom: 48px;
+      color: #3e5e6f;
+    }
+
+    /* Cards / Grid */
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 28px;
+    }
+
+    .tier-card {
+      background: #ffffff;
+      border: 1px solid #d4e6e0;
+      border-radius: 28px;
+      padding: 32px 24px;
+      transition: box-shadow 0.2s, border-color 0.2s;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    }
+
+    .tier-card:hover {
+      box-shadow: 0 16px 30px -8px rgba(0, 0, 0, 0.08);
+      border-color: #a8cdbc;
+    }
+
+    .tier-card.recommended {
+      border: 2px solid #1e7e5c;
+      position: relative;
+      background: #fbfefd;
+    }
+
+    .recommended-badge {
+      background: #1e7e5c;
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 12px;
+      border-radius: 40px;
+      display: inline-block;
+      margin-bottom: 16px;
+      align-self: flex-start;
+    }
+
+    .tier-price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0b2b3c;
+      margin: 8px 0 4px;
+    }
+
+    .tier-price span {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #6e8b9b;
+    }
+
+    .tier-name {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .tier-desc {
+      color: #4d6b7c;
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      min-height: 48px;
+    }
+
+    .tier-features {
+      list-style: none;
+      margin: 20px 0 28px;
+      flex-grow: 1;
+    }
+
+    .tier-features li {
+      padding: 8px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: #1a3d4b;
+    }
+
+    .tier-features i {
+      color: #1e7e5c;
+      margin-top: 4px;
+      font-size: 0.8rem;
+    }
+
+    .tier-scope {
+      background: #eef7f3;
+      border-radius: 16px;
+      padding: 14px 16px;
+      font-size: 0.85rem;
+      color: #1d4d3e;
+      margin: 20px 0 24px;
+    }
+
+    .tier-scope strong {
+      font-weight: 600;
+    }
+
+    /* Offers section */
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .offer-card {
+      background: #f9fdfb;
+      border: 1px solid #cde4db;
+      border-radius: 24px;
+      padding: 28px 24px;
+    }
+
+    .offer-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .offer-price {
+      font-weight: 600;
+      color: #1e7e5c;
+      margin-bottom: 16px;
+    }
+
+    .offer-card p {
+      color: #3e5e6f;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    /* Guarantees table */
+    .guarantees-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      border: 1px solid #d4e6e0;
+    }
+
+    .guarantees-table th,
+    .guarantees-table td {
+      text-align: left;
+      padding: 20px 24px;
+      border-bottom: 1px solid #d4e6e0;
+      font-size: 0.95rem;
+    }
+
+    .guarantees-table th {
+      background: #f2faf7;
+      font-weight: 600;
+      color: #0b2b3c;
+      width: 30%;
+    }
+
+    .guarantees-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Positioning list */
+    .diff-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .diff-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 1rem;
+      color: #1e3d4c;
+    }
+
+    .diff-list i {
+      color: #1e7e5c;
+      font-size: 1.3rem;
+      min-width: 24px;
+      margin-top: 2px;
+    }
+
+    /* Message block */
+    .message-block {
+      background: #0b2b3c;
+      color: white;
+      border-radius: 36px;
+      padding: 56px 48px;
+      margin: 40px 0;
+    }
+
+    .message-block h2 {
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .message-block .headline {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .message-block .subheadline {
+      font-size: 1.2rem;
+      color: #c2dfd4;
+      margin-bottom: 32px;
+      max-width: 700px;
+    }
+
+    .message-block .what-you-get {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 32px 0 40px;
+    }
+
+    .message-block .what-you-get li {
+      list-style: none;
+      display: flex;
+      gap: 10px;
+      color: #ffffff;
+      font-size: 0.95rem;
+    }
+
+    .message-block .what-you-get i {
+      color: #79c9a8;
+    }
+
+    .message-block .cta-area {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .message-block .btn {
+      background: white;
+      color: #0b2b3c;
+      font-weight: 700;
+    }
+
+    .message-block .btn:hover {
+      background: #e0f0e9;
+    }
+
+    /* Financial table */
+    .financial-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 32px 0;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid #d4e6e0;
+    }
+
+    .financial-table th {
+      background: #f0f9f5;
+      text-align: left;
+      padding: 16px 20px;
+      font-weight: 600;
+      color: #0b2b3c;
+      border-bottom: 1px solid #c2e0d4;
+    }
+
+    .financial-table td {
+      padding: 14px 20px;
+      border-bottom: 1px solid #d4e6e0;
+      color: #1e3d4c;
+    }
+
+    .financial-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Delivery steps */
+    .steps-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 32px 0;
+    }
+
+    .steps-list li {
+      background: #f7fcfa;
+      border-radius: 20px;
+      padding: 24px 20px;
+      border-left: 4px solid #1e7e5c;
+      font-weight: 500;
+      color: #1a3d4b;
+      font-size: 0.95rem;
+    }
+
+    .steps-list li i {
+      margin-right: 12px;
+      color: #1e7e5c;
+    }
+
+    /* Weeks grid */
+    .weeks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 24px;
+      margin: 32px 0;
+    }
+
+    .week-card {
+      background: #fcfefd;
+      border-radius: 24px;
+      border: 1px solid #d4e6e0;
+      padding: 24px 20px;
+    }
+
+    .week-card h4 {
+      font-size: 1.1rem;
+      color: #0b2b3c;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .week-card h4 i {
+      color: #1e7e5c;
+    }
+
+    .week-card p {
+      font-size: 0.9rem;
+      color: #3e5e6f;
+      margin-bottom: 16px;
+    }
+
+    .week-card ul {
+      list-style: none;
+      font-size: 0.85rem;
+      color: #2e4b5c;
+    }
+
+    .week-card li {
+      margin-bottom: 8px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .week-card i.fa-check {
+      color: #1e7e5c;
+      font-size: 0.75rem;
+      margin-top: 4px;
+    }
+
+    /* Final CTA */
+    .final-cta {
+      background: #e7f4ef;
+      border-radius: 36px;
+      padding: 56px 48px;
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+
+    .final-cta h2 {
+      color: #0b2b3c;
+      margin-bottom: 16px;
+    }
+
+    .final-cta p {
+      max-width: 700px;
+      margin: 0 auto 32px;
+      color: #1e3d4c;
+      font-size: 1.1rem;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 40px 0;
+      border-top: 1px solid #deecf0;
+      color: #6e8b9b;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer a {
+      color: #1e7e5c;
+      text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.25rem;
+      }
+
+      h2 {
+        font-size: 1.75rem;
+      }
+
+      .hero {
+        padding: 40px 0 56px;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+
+      .message-block {
+        padding: 40px 28px;
+      }
+
+      .message-block .headline {
+        font-size: 1.8rem;
+      }
+
+      .section {
+        padding: 56px 0;
+      }
+
+      .guarantees-table th,
+      .guarantees-table td {
+        padding: 16px;
+        font-size: 0.85rem;
+      }
+
+      .final-cta {
+        padding: 40px 24px;
+      }
+
+      .navbar {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <a href="#" class="logo">Site<span>Care</span></a>
+      <div class="nav-links">
+        <a href="#pricing">Pricing</a>
+        <a href="#offers">Free workflow review</a>
+        <a href="#guarantees">Guarantees</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+      <div class="hero-content">
+        <div class="section-label">Commercial property maintenance coordination</div>
+        <h1>One request. One point of contact. A clear record of what was done.</h1>
+        <p>SiteCare coordinates routine maintenance for small commercial properties in Gauteng. Send us the issue, review the written quote, approve the work and receive a completion record with photos where appropriate.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn">Book a workflow review <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+          <a href="#pricing" class="btn btn-outline">See packages</a>
+        </div>
+        <div class="hero-note"><i class="fas fa-check-circle" style="color: #1e7e5c;"></i> No work without your approval. No unapproved spending.</div>
+      </div>
+      <div class="hero-visual">
+        <h3>How it works</h3>
+        <ul>
+          <li><i class="fas fa-paper-plane"></i> <strong>Send the request</strong> — tell us what needs attention and where.</li>
+          <li><i class="fas fa-file-invoice"></i> <strong>Review the quote</strong> — we coordinate with a suitable contractor.</li>
+          <li><i class="fas fa-check-circle"></i> <strong>Approve the work</strong> — nothing proceeds without your approval.</li>
+          <li><i class="fas fa-clipboard-check"></i> <strong>Track completion</strong> — we follow up and provide a job record.</li>
+        </ul>
+      </div>
+    </header>
+  </div>
+
+  <!-- Pricing section -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section-label">Packages and pricing</div>
+      <h2>Simple coordination. Clear limits.</h2>
+      <div class="section-intro">Contractor labour, materials, call-outs and specialist work are separate unless explicitly included in a written agreement. All prices are proposed test prices.</div>
+
+      <div class="tiers-grid">
+        <!-- One-off -->
+        <div class="tier-card">
+          <div class="tier-name">Single Job Coordination</div>
+          <div class="tier-price">R495 <span>per job</span></div>
+          <div class="tier-desc">For a straightforward, non-emergency maintenance request.</div>
+          <ul class="tier-features">
+            <li><i class="fas fa-check"></i> Receive and clarify the request</li>
+            <li><i class="fas fa-check"></i> Find a suitable contractor</li>
+            <li><i class="fas fa-check"></i> Obtain and present a written quote</li>
+            <li><i class="fas fa-check"></i> Coordinate the approved job</li>
+            <li><i class="fas fa-check"></i> Obtain completion update and evidence</li>
+          </ul>
+          <div class="tier-scope"><strong>Note:</strong> Contractor charges are additional. Define what constitutes one job and what happens if the scope changes.</div>
+          <a href="#contact" class="btn btn-outline" style="width: 100%; text-align: center;">Coordinate one job</a>
+        </div>
+
+        <!-- Basic -->
+        <div class="tier-card">
+          <div class="tier-name">SiteCare Basic</div>
+          <div class="tier-price">R1,499 <span>/month</span></div>
+          <div class="tier-desc">Entry plan for landlords with a small number of routine requests.</div>
+          <ul class="tier-features">
+            <li><i class="fas fa-check"></i> Up to 3 coordination requests per month</li>
+            <li><i class="fas fa-check"></i> Central maintenance register</li>
+            <li><i class="fas fa-check"></i> Written quote approval</li>
+            <li><i class="fas fa-check"></i> Job status updates</li>
+            <li><i class="fas fa-check"></i> Completion records</li>
+          </ul>
+          <div class="tier-scope"><strong>Note:</strong> No unused-request rollover unless stated in the contract.</div>
+          <a href="#contact" class="btn btn-outline" style="width: 100%; text-align: center;">Start with Basic</a>
+        </div>
+
+        <!-- Plus -->
+        <div class="tier-card recommended">
+          <div class="recommended-badge">Recommended</div>
+          <div class="tier-name">SiteCare Plus</div>
+          <div class="tier-price">R3,499 <span>/month</span></div>
+          <div class="tier-desc">For property managers coordinating maintenance more regularly.</div>
+          <ul class="tier-features">
+            <li><i class="fas fa-check"></i> Everything in Basic, plus:</li>
+            <li><i class="fas fa-check"></i> Up to 8 coordination requests per month</li>
+            <li><i class="fas fa-check"></i> Priority handling during business hours</li>
+            <li><i class="fas fa-check"></i> Contractor follow-up</li>
+            <li><i class="fas fa-check"></i> Outstanding-job report</li>
+            <li><i class="fas fa-check"></i> Monthly maintenance summary</li>
+          </ul>
+          <div class="tier-scope"><strong>Best for:</strong> property managers with regular, recurring maintenance needs.</div>
+          <a href="#contact" class="btn" style="width: 100%; text-align: center;">Book a workflow review</a>
+        </div>
+
+        <!-- Portfolio -->
+        <div class="tier-card">
+          <div class="tier-name">SiteCare Portfolio</div>
+          <div class="tier-price">From R6,999 <span>/month</span></div>
+          <div class="tier-desc">For property managers with multiple sites.</div>
+          <ul class="tier-features">
+            <li><i class="fas fa-check"></i> Agreed monthly coordination capacity</li>
+            <li><i class="fas fa-check"></i> Property-by-property maintenance register</li>
+            <li><i class="fas fa-check"></i> Consolidated reporting</li>
+            <li><i class="fas fa-check"></i> Contractor and job tracking</li>
+            <li><i class="fas fa-check"></i> Monthly portfolio review</li>
+            <li><i class="fas fa-check"></i> Agreed response and escalation procedures</li>
+          </ul>
+          <div class="tier-scope"><strong>Pricing:</strong> according to number of sites, request volume, geography and service complexity.</div>
+          <a href="#contact" class="btn btn-outline" style="width: 100%; text-align: center;">Discuss Portfolio</a>
+        </div>
+      </div>
+      <p style="margin-top: 32px; font-size: 0.9rem; color: #6e8b9b;"><i class="fas fa-info-circle"></i> Important: a coordination request is not the same as an unlimited repair. We spell out request limits, business hours, emergencies, repeat visits and contractor costs.</p>
+    </div>
+  </section>
+
+  <!-- Low-risk entry offers -->
+  <section class="section" id="offers">
+    <div class="container">
+      <div class="section-label">Low-risk entry offers</div>
+      <h2>Start without the risk.</h2>
+      <div class="section-intro">We lower the barrier to trying SiteCare while keeping the service sustainable.</div>
+
+      <div class="offers-grid">
+        <div class="offer-card">
+          <h3>Free maintenance workflow review</h3>
+          <div class="offer-price">R0</div>
+          <p>We review how you currently receive requests, approve spending and track completion. You get a short list of practical process improvements.</p>
+          <p style="font-size: 0.85rem; color: #1e7e5c;"><i class="fas fa-clock"></i> No obligation. No free physical inspections.</p>
+        </div>
+        <div class="offer-card">
+          <h3>First job coordination fee waived</h3>
+          <div class="offer-price">Save R495</div>
+          <p>Waive the R495 coordination fee for the first qualifying routine job for your first five customers. You still approve and pay the contractor's quoted charges.</p>
+          <p style="font-size: 0.85rem; color: #1e7e5c;"><i class="fas fa-hand-holding-usd"></i> Limited to one job per customer.</p>
+        </div>
+        <div class="offer-card">
+          <h3>One-month pilot</h3>
+          <div class="offer-price">Custom</div>
+          <p>Coordinate a defined number of routine jobs for one month. Receive the maintenance register and completion records, then review whether a monthly plan makes sense.</p>
+          <p style="font-size: 0.85rem; color: #1e7e5c;"><i class="fas fa-file-signature"></i> No long-term commitment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guarantees -->
+  <section class="section" id="guarantees">
+    <div class="container">
+      <div class="section-label">Guarantees and trust</div>
+      <h2>We commit to what we control.</h2>
+      <div class="section-intro">Clear commitments, written down. We do not guarantee that every contractor will arrive immediately or every repair will succeed first time.</div>
+
+      <table class="guarantees-table">
+        <tr>
+          <th>Approval before spending</th>
+          <td>No contractor work or expenditure without your documented approval, except a separately agreed emergency protocol.</td>
+        </tr>
+        <tr>
+          <th>Quote transparency</th>
+          <td>Written quote and clear exclusions before approval.</td>
+        </tr>
+        <tr>
+          <th>Communication</th>
+          <td>Acknowledge requests during business hours within an agreed target, such as four business hours.</td>
+        </tr>
+        <tr>
+          <th>Job records</th>
+          <td>Record the approved scope, status, contractor and completion evidence.</td>
+        </tr>
+        <tr>
+          <th>Contractor follow-up</th>
+          <td>Follow up on missed appointments and unresolved issues.</td>
+        </tr>
+        <tr>
+          <th>Service recovery</th>
+          <td>Consider a defined service credit if SiteCare misses a commitment within its control.</td>
+        </tr>
+      </table>
+      <p style="margin-top: 24px; font-size: 0.9rem; color: #6e8b9b;">We check insurance, contracts, contractor vetting, data protection and legal responsibilities. Describing SiteCare as a coordinator does not automatically remove liability.</p>
+    </div>
+  </section>
+
+  <!-- Positioning / Who we serve -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Who we serve</div>
+      <h2>Built for small commercial portfolios.</h2>
+      <div class="section-intro">We start with property managers responsible for approximately 3–30 small commercial properties.</div>
+
+      <ul class="diff-list">
+        <li><i class="fas fa-building"></i> <span><strong>Independent property managers:</strong> coordinate repairs across multiple properties and value reliable updates, quote approval and a central maintenance register.</span></li>
+        <li><i class="fas fa-store"></i> <span><strong>Commercial landlords:</strong> owners of small retail, office and mixed-use properties who do not have an in-house facilities team.</span></li>
+        <li><i class="fas fa-map-marked-alt"></i> <span><strong>Later: multi-site small businesses:</strong> retailers, agencies and other businesses operating several premises that need a consistent maintenance process.</span></li>
+        <li><i class="fas fa-ban"></i> <span><strong>Not for us (yet):</strong> large, complex facilities contracts requiring extensive compliance documentation, formal procurement and service-level commitments.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Message block -->
+  <section class="section" style="border-bottom: none; padding-bottom: 40px;">
+    <div class="container">
+      <div class="message-block">
+        <div class="section-label" style="color: #79c9a8;">Our main message</div>
+        <div class="headline">One point of contact for routine commercial property maintenance.</div>
+        <div class="subheadline">For property managers and landlords with small commercial sites in Gauteng. Send a request. Review a written quote. Approve the work. Receive a completion record.</div>
+        
+        <ul class="what-you-get">
+          <li><i class="fas fa-check-circle"></i> Routine plumbing repairs</li>
+          <li><i class="fas fa-check-circle"></i> Doors, locks and minor building repairs</li>
+          <li><i class="fas fa-check-circle"></i> General maintenance</li>
+          <li><i class="fas fa-check-circle"></i> Selected electrical work through qualified contractors</li>
+          <li><i class="fas fa-check-circle"></i> Contractor follow-ups and maintenance records</li>
+        </ul>
+
+        <div class="cta-area">
+          <a href="#contact" class="btn">Book a maintenance workflow review <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+          <span style="color: #b8d9cc;">No work and no spending without your approval.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promotions and incentives -->
+  <section class="section" style="padding-top: 20px;">
+    <div class="container">
+      <div class="section-label">Promotions and incentives</div>
+      <h2>Simple ways to start.</h2>
+      <div style="background: #f8fbfa; border-radius: 24px; padding: 32px; border-left: 6px solid #1e7e5c;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px;">
+          <div><i class="fas fa-gift" style="color: #1e7e5c; margin-right: 8px;"></i> <strong>New-customer deal:</strong> First qualifying coordination fee waived (save R495).</div>
+          <div><i class="fas fa-search" style="color: #1e7e5c; margin-right: 8px;"></i> <strong>Low-risk entry:</strong> Free maintenance workflow review.</div>
+          <div><i class="fas fa-flask" style="color: #1e7e5c; margin-right: 8px;"></i> <strong>Pilot offer:</strong> One month with a defined request limit and no long-term commitment.</div>
+          <div><i class="fas fa-user-plus" style="color: #1e7e5c; margin-right: 8px;"></i> <strong>Referral reward:</strong> R500 service credit when a referred customer signs a monthly plan and pays their first invoice.</div>
+        </div>
+        <p style="margin-top: 24px; font-size: 0.9rem; color: #3e5e6f;">We ask for honest testimonials after completed jobs and collect proof: completion photos, approval records, timestamps, contractor attendance and genuine feedback. Permission is always obtained before publishing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Financials -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Illustrative business economics</div>
+      <h2>The critical variable is workload per request.</h2>
+      <div class="section-intro">Assume a monthly plan mix with an average fee of R3,000 per client. This is a simplified model, not a sales forecast.</div>
+
+      <table class="financial-table">
+        <thead>
+          <tr>
+            <th>Clients</th>
+            <th>Monthly revenue</th>
+            <th>Assumed operating costs</th>
+            <th>Operating surplus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>5</td><td>R15,000</td><td>R9,000</td><td>R6,000</td></tr>
+          <tr><td>10</td><td>R30,000</td><td>R16,000</td><td>R14,000</td></tr>
+          <tr><td>20</td><td>R60,000</td><td>R32,000</td><td>R28,000</td></tr>
+          <tr><td>40</td><td>R120,000</td><td>R70,000</td><td>R50,000</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size: 0.95rem; color: #1e3d4c;">If customers send too many complex jobs for a low monthly fee, revenue can grow while profit collapses. Contractor charges are paid separately by the customer.</p>
+    </div>
+  </section>
+
+  <!-- First 30 days -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">First 30 days</div>
+      <h2>A controlled launch.</h2>
+
+      <div class="weeks-grid">
+        <div class="week-card">
+          <h4><i class="fas fa-calendar-week"></i> Week 1 — Supply side</h4>
+          <ul>
+            <li><i class="fas fa-check"></i> Recruit and vet at least 3 contractors</li>
+            <li><i class="fas fa-check"></i> Agree on service areas, rates, insurance</li>
+            <li><i class="fas fa-check"></i> Document communication and escalation</li>
+          </ul>
+        </div>
+        <div class="week-card">
+          <h4><i class="fas fa-calendar-week"></i> Week 2 — Operating system</h4>
+          <ul>
+            <li><i class="fas fa-check"></i> Create request form, quote approval process</li>
+            <li><i class="fas fa-check"></i> Build job tracker and completion template</li>
+            <li><i class="fas fa-check"></i> Customer terms and secure record storage</li>
+          </ul>
+        </div>
+        <div class="week-card">
+          <h4><i class="fas fa-calendar-week"></i> Week 3 — First job</h4>
+          <ul>
+            <li><i class="fas fa-check"></i> Contact 40–50 prospects</li>
+            <li><i class="fas fa-check"></i> Offer workflow reviews</li>
+            <li><i class="fas fa-check"></i> Secure a first paid or promotional pilot</li>
+          </ul>
+        </div>
+        <div class="week-card">
+          <h4><i class="fas fa-calendar-week"></i> Week 4 — Measure & refine</h4>
+          <ul>
+            <li><i class="fas fa-check"></i> Record time spent per job</li>
+            <li><i class="fas fa-check"></i> Track customer satisfaction & reliability</li>
+            <li><i class="fas fa-check"></i> Adjust scope and pricing before scaling</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <div class="container">
+    <div class="final-cta" id="contact">
+      <h2>Start with a free maintenance workflow review.</h2>
+      <p>No obligation. We review how you receive requests, approve spending and track completion—and suggest practical improvements. Then, if it makes sense, we coordinate your first job.</p>
+      <a href="#" class="btn" style="font-size: 1.1rem; padding: 16px 36px;">Book your workflow review <i class="fas fa-arrow-right" style="margin-left: 10px;"></i></a>
+      <p style="margin-top: 24px; font-size: 0.9rem; color: #6e8b9b;">Or email <a href="mailto:hello@sitecare.co.za" style="color: #1e7e5c; text-decoration: none;">hello@sitecare.co.za</a> — we reply within four business hours.</p>
+      <p style="margin-top: 12px; font-size: 0.85rem; color: #6e8b9b;">Gauteng, South Africa · Remote-first coordination</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="container">
+    <footer class="footer">
+      <div>© 2025 SiteCare Property Services. Commercial maintenance coordination.</div>
+      <div><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">POPIA</a></div>
+    </footer>
+  </div>
+
+  <!-- Smooth scrolling -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SiteCare Property Services | Commercial maintenance coordination in Gauteng</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #1e2e3e;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #0b2b3c;
+    }
+
+    h2 {
+      font-size: 2.25rem;
+      margin-bottom: 1rem;
+      color: #0b2b3c;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+      color: #1e7e5c;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      background-color: #1e7e5c;
+      color: white;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 60px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background-color 0.2s, transform 0.1s;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.02);
+    }
+
+    .btn:hover {
+      background-color: #14634a;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #1e7e5c;
+      color: #1e7e5c;
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: #eef7f3;
+    }
+
+    /* Header / Nav */
+    .navbar {
+      padding: 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #deecf0;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.75rem;
+      letter-spacing: -0.02em;
+      color: #0b2b3c;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: #1e7e5c;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #2e4b5c;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #1e7e5c;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 64px 0 80px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-content {
+      flex: 1 1 500px;
+    }
+
+    .hero-content h1 {
+      margin-bottom: 24px;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #3e5e6f;
+      margin-bottom: 32px;
+      max-width: 600px;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .hero-note {
+      font-size: 0.9rem;
+      color: #6e8b9b;
+      margin-top: 16px;
+    }
+
+    .hero-visual {
+      flex: 1 1 380px;
+      background: #f0f9f5;
+      border-radius: 32px;
+      padding: 32px;
+      box-shadow: 0 20px 30px -15px rgba(0, 0, 0, 0.05);
+      border: 1px solid #cce8dd;
+    }
+
+    .hero-visual h3 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: #0d4d36;
+    }
+
+    .hero-visual ul {
+      list-style: none;
+    }
+
+    .hero-visual li {
+      padding: 10px 0;
+      border-bottom: 1px solid #c2e0d4;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+      color: #1d3e32;
+    }
+
+    .hero-visual li:last-child {
+      border-bottom: none;
+    }
+
+    .hero-visual i {
+      color: #1e7e5c;
+      font-size: 1.1rem;
+      width: 20px;
+    }
+
+    /* Sections */
+    .section {
+      padding: 80px 0;
+      border-bottom: 1px solid #deecf0;
+    }
+
+    .section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-intro {
+      max-width: 700px;
+      margin-bottom: 48px;
+      color: #3e5e6f;
+    }
+
+    /* Cards / Grid */
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 28px;
+    }
+
+    .tier-card {
+      background: #ffffff;
+      border: 1px solid #d4e6e0;
+      border-radius: 28px;
+      padding: 32px 24px;
+      transition: box-shadow 0.2s, border-color 0.2s;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    }
+
+    .tier-card:hover {
+      box-shadow: 0 16px 30px -8px rgba(0, 0, 0, 0.08);
+      border-color: #a8cdbc;
+    }
+
+    .tier-card.recommended {
+      border: 2px solid #1e7e5c;
+      position: relative;
+      background: #fbfefd;
+    }
+
+    .recommended-badge {
+      background: #1e7e5c;
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 12px;
+      border-radius: 40px;
+      display: inline-block;
+      margin-bottom: 16px;
+      align-self: flex-start;
+    }
+
+    .tier-price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0b2b3c;
+      margin: 8px 0 4px;
+    }
+
+    .tier-price span {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #6e8b9b;
+    }
+
+    .tier-name {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .tier-desc {
+      color: #4d6b7c;
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      min-height: 48px;
+    }
+
+    .tier-features {
+      list-style: none;
+      margin: 20px 0 28px;
+      flex-grow: 1;
+    }
+
+    .tier-features li {
+      padding: 8px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: #1a3d4b;
+    }
+
+    .tier-features i {
+      color: #1e7e5c;
+      margin-top: 4px;
+      font-size: 0.8rem;
+    }
+
+    .tier-scope {
+      background: #eef7f3;
+      border-radius: 16px;
+      padding: 14px 16px;
+      font-size: 0.85rem;
+      color: #1d4d3e;
+      margin: 20px 0 24px;
+    }
+
+    .tier-scope strong {
+      font-weight: 600;
+    }
+
+    /* Offers section */
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .offer-card {
+      background: #f9fdfb;
+      border: 1px solid #cde4db;
+      border-radius: 24px;
+      padding: 28px 24px;
+    }
+
+    .offer-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .offer-price {
+      font-weight: 600;
+      color: #1e7e5c;
+      margin-bottom: 16px;
+    }
+
+    .offer-card p {
+      color: #3e5e6f;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    /* Guarantees table */
+    .guarantees-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      border: 1px solid #d4e6e0;
+    }
+
+    .guarantees-table th,
+    .guarantees-table td {
+      text-align: left;
+      padding: 20px 24px;
+      border-bottom: 1px solid #d4e6e0;
+      font-size: 0.95rem;
+    }
+
+    .guarantees-table th {
+      background: #f2faf7;
+      font-weight: 600;
+      color: #0b2b3c;
+      width: 30%;
+    }
+
+    .guarantees-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Positioning list */
+    .diff-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .diff-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 1rem;
+      color: #1e3d4c;
+    }
+
+    .diff-list i {
+      color: #1e7e5c;
+      font-size: 1.3rem;
+      min-width: 24px;
+      margin-top: 2px;
+    }
+
+    /* Message block */
+    .message-block {
+      background: #0b2b3c;
+      color: white;
+      border-radius: 36px;
+      padding: 56px 48px;
+      margin: 40px 0;
+    }
+
+    .message-block h2 {
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .message-block .headline {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .message-block .subheadline {
+      font-size: 1.2rem;
+      color: #c2dfd4;
+      margin-bottom: 32px;
+      max-width: 700px;
+    }
+
+    .message-block .what-you-get {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 32px 0 40px;
+    }
+
+    .message-block .what-you-get li {
+      list-style: none;
+      display: flex;
+      gap: 10px;
+      color: #ffffff;
+      font-size: 0.95rem;
+    }
+
+    .message-block .what-you-get i {
+      color: #79c9a8;
+    }
+
+    .message-block .cta-area {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .message-block .btn {
+      background: white;
+      color: #0b2b3c;
+      font-weight: 700;
+    }
+
+    .message-block .btn:hover {
+      background: #e0f0e9;
+    }
+
+    /* Financial table */
+    .financial-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 32px 0;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid #d4e6e0;
+    }
+
+    .financial-table th {
+      background: #f0f9f5;
+      text-align: left;
+      padding: 16px 20px;
+      font-weight: 600;
+      color: #0b2b3c;
+      border-bottom: 1px solid #c2e0d4;
+    }
+
+    .financial-table td {
+      padding: 14px 20px;
+      border-bottom: 1px solid #d4e6e0;
+      color: #1e3d4c;
+    }
+
+    .financial-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Delivery steps */
+    .steps-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 32px 0;
+    }
+
+    .steps-list li {
+      background: #f7fcfa;
+      border-radius: 20px;
+      padding: 24px 20px;
+      border-left: 4px solid #1e7e5c;
+      font-weight: 500;
+      color: #1a3d4b;
+      font-size: 0.95rem;
+    }
+
+    .steps-list li i {
+      margin-right: 12px;
+      color: #1e7e5c;
+    }
+
+    /* Weeks grid */
+    .weeks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 24px;
+      margin: 32px 0;
+    }
+
+    .week-card {
+      background: #fcfefd;
+      border-radius: 24px;
+      border: 1px solid #d4e6e0;
+      padding: 24px 20px;
+    }
+
+    .week-card h4 {
+      font-size: 1.1rem;
+      color: #0b2b3c;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .week-card h4 i {
+      color: #1e7e5c;
+    }
+
+    .week-card p {
+      font-size: 0.9rem;
+      color: #3e5e6f;
+      margin-bottom: 16px;
+    }
+
+    .week-card ul {
+      list-style: none;
+      font-size: 0.85rem;
+      color: #2e4b5c;
+    }
+
+    .week-card li {
+      margin-bottom: 8px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .week-card i.fa-check {
+      color: #1e7e5c;
+      font-size: 0.75rem;
+      margin-top: 4px;
+    }
+
+    /* Final CTA */
+    .final-cta {
+      background: #e7f4ef;
+      border-radius: 36px;
+      padding: 56px 48px;
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+
+    .final-cta h2 {
+      color: #0b2b3c;
+      margin-bottom: 16px;
+    }
+
+    .final-cta p {
+      max-width: 700px;
+      margin: 0 auto 32px;
+      color: #1e3d4c;
+      font-size: 1.1rem;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 40px 0;
+      border-top: 1px solid #deecf0;
+      color: #6e8b9b;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer a {
+      color: #1e7e5c;
+      text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.25rem;
+      }
+
+      h2 {
+        font-size: 1.75rem;
+      }
+
+      .hero {
+        padding: 40px 0 56px;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+
+      .message-block {
+        padding: 40px 28px;
+      }
+
+      .message-block .headline {
+        font-size: 1.8rem;
+      }
+
+      .section {
+        padding: 56px 0;
+      }
+
+      .guarantees-table th,
+      .guarantees-table td {
+        padding: 16px;
+        font-size: 0.85rem;
+      }
+
+      .final-cta {
+        padding: 40px 24px;
+      }
+
+      .navbar {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <a href="#" class="logo">Site<span>Care</span></a>
+      <div class="nav-links">
+        <a href="#pricing">Pricing</a>
+        <a href="#offers">Free workflow review</a>
+        <a href="#guarantees">Guarantees</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+      <div class="hero-content">
+        <div class="section-label">Commercial property maintenance coordination</div>
+        <h1>One request. One point of contact. A clear record of what was done.</h1>
+        <p>SiteCare coordinates routine maintenance for small commercial properties in Gauteng. Send us the issue, review the written quote, approve the work and receive a completion record with photos where appropriate.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn">Book a workflow review <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+          <a href="#pricing" class="btn btn-outline">See packages</a>
+        </div>
+        <div class="hero-note"><i class="fas fa-check-circle" style="color: #1e7e5c;"></i> No work without your approval. No unapproved spending.</div>
+      </div>
+      <div class="hero-visual">
+        <h3>How it works</h3>
+        <ul>
+          <li><i class="fas fa-paper-plane"></i> <strong>Send the request</strong> — tell us what needs attention and where.</li>
+          <li><i class="fas fa-file-invoice"></i> <strong>Review the quote</strong> — we coordinate with a suitable contractor.</li>
+          <li><i class="fas fa-check-circle"></i> <strong>Approve the work</strong> — nothing proceeds without your approval.</li>
+          <li><i class="fas fa-clipboard-check"></i> <strong>Track completion</strong> — we follow up and provide a job record.</li>
+        </ul>
+      </div>
+    </header>
+  </div>
+
+  <!-- Pricing section -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section-label">Packages and pricing</div>
+      <h2>Simple coordination. Clear limits.</h2>
+      <div class="section-intro">Contractor labour, materials, call-outs and specialist work are separate unless explicitly included in a written agreement. All prices are proposed test prices.</div>
+
+      <div class="tiers-grid">
+        <!-- One-off -->
+        <div class="tier-card">
+          <div class="tier-name">Single Job Coordination</div>
+          <div class="tier-price">R495 <span>per job</span></div>
+          <div class="tier-desc">For a straightforward, non-emergency maintenance request.</div>
+          <ul class="tier-features">
+            <li><i class="fas fa-check"></i> Receive and clarify the request</li>
+            <li><i class="fas fa-check"></i> Find a suitable contractor</li>
+            <li><i class="fas fa-check"></i> Obtain and present a written quote</li>
+            <li><i class="fas fa-check"></i> Coordinate the approved job</li>
+            <li><i class="fas fa-check"></i> Obtain completion update and evidence</li>
+          </ul>
+          <div class="tier-scope"><strong>Note:</strong> Contractor charges are additional. Define what constitutes one job and what happens if the scope changes.</div>
+          <a href="#contact" class="btn btn-outline" style="width: 100%; text-align: center;">Coordinate one job</a>
+        </div>
+
+        <!-- Basic -->
+        <div class="tier-card">
+          <div class="tier-name">SiteCare Basic</div>
+          <div class="tier-price">R1,499 <span>/month</span></div>
+          <div class="tier-desc">Entry plan for landlords with a small number of routine requests.</div>
+          <ul class="tier-features">
+            <li><i class="fas fa-check"></i> Up to 3 coordination requests per month</li>
+            <li><i class="fas fa-check"></i> Central maintenance register</li>
+            <li><i class="fas fa-check"></i> Written quote approval</li>
+            <li><i class="fas fa-check"></i> Job status updates</li>
+            <li><i class="fas fa-check"></i> Completion records</li>
+          </ul>
+          <div class="tier-scope"><strong>Note:</strong> No unused-request rollover unless stated in the contract.</div>
+          <a href="#contact" class="btn btn-outline" style="width: 100%; text-align: center;">Start with Basic</a>
+        </div>
+
+        <!-- Plus -->
+        <div class="tier-card recommended">
+          <div class="recommended-badge">Recommended</div>
+          <div class="tier-name">SiteCare Plus</div>
+          <div class="tier-price">R3,499 <span>/month</span></div>
+          <div class="tier-desc">For property managers coordinating maintenance more regularly.</div>
+          <ul class="tier-features">
+            <li><i class="fas fa-check"></i> Everything in Basic, plus:</li>
+            <li><i class="fas fa-check"></i> Up to 8 coordination requests per month</li>
+            <li><i class="fas fa-check"></i> Priority handling during business hours</li>
+            <li><i class="fas fa-check"></i> Contractor follow-up</li>
+            <li><i class="fas fa-check"></i> Outstanding-job report</li>
+            <li><i class="fas fa-check"></i> Monthly maintenance summary</li>
+          </ul>
+          <div class="tier-scope"><strong>Best for:</strong> property managers with regular, recurring maintenance needs.</div>
+          <a href="#contact" class="btn" style="width: 100%; text-align: center;">Book a workflow review</a>
+        </div>
+
+        <!-- Portfolio -->
+        <div class="tier-card">
+          <div class="tier-name">SiteCare Portfolio</div>
+          <div class="tier-price">From R6,999 <span>/month</span></div>
+          <div class="tier-desc">For property managers with multiple sites.</div>
+          <ul class="tier-features">
+            <li><i class="fas fa-check"></i> Agreed monthly coordination capacity</li>
+            <li><i class="fas fa-check"></i> Property-by-property maintenance register</li>
+            <li><i class="fas fa-check"></i> Consolidated reporting</li>
+            <li><i class="fas fa-check"></i> Contractor and job tracking</li>
+            <li><i class="fas fa-check"></i> Monthly portfolio review</li>
+            <li><i class="fas fa-check"></i> Agreed response and escalation procedures</li>
+          </ul>
+          <div class="tier-scope"><strong>Pricing:</strong> according to number of sites, request volume, geography and service complexity.</div>
+          <a href="#contact" class="btn btn-outline" style="width: 100%; text-align: center;">Discuss Portfolio</a>
+        </div>
+      </div>
+      <p style="margin-top: 32px; font-size: 0.9rem; color: #6e8b9b;"><i class="fas fa-info-circle"></i> Important: a coordination request is not the same as an unlimited repair. We spell out request limits, business hours, emergencies, repeat visits and contractor costs.</p>
+    </div>
+  </section>
+
+  <!-- Low-risk entry offers -->
+  <section class="section" id="offers">
+    <div class="container">
+      <div class="section-label">Low-risk entry offers</div>
+      <h2>Start without the risk.</h2>
+      <div class="section-intro">We lower the barrier to trying SiteCare while keeping the service sustainable.</div>
+
+      <div class="offers-grid">
+        <div class="offer-card">
+          <h3>Free maintenance workflow review</h3>
+          <div class="offer-price">R0</div>
+          <p>We review how you currently receive requests, approve spending and track completion. You get a short list of practical process improvements.</p>
+          <p style="font-size: 0.85rem; color: #1e7e5c;"><i class="fas fa-clock"></i> No obligation. No free physical inspections.</p>
+        </div>
+        <div class="offer-card">
+          <h3>First job coordination fee waived</h3>
+          <div class="offer-price">Save R495</div>
+          <p>Waive the R495 coordination fee for the first qualifying routine job for your first five customers. You still approve and pay the contractor's quoted charges.</p>
+          <p style="font-size: 0.85rem; color: #1e7e5c;"><i class="fas fa-hand-holding-usd"></i> Limited to one job per customer.</p>
+        </div>
+        <div class="offer-card">
+          <h3>One-month pilot</h3>
+          <div class="offer-price">Custom</div>
+          <p>Coordinate a defined number of routine jobs for one month. Receive the maintenance register and completion records, then review whether a monthly plan makes sense.</p>
+          <p style="font-size: 0.85rem; color: #1e7e5c;"><i class="fas fa-file-signature"></i> No long-term commitment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guarantees -->
+  <section class="section" id="guarantees">
+    <div class="container">
+      <div class="section-label">Guarantees and trust</div>
+      <h2>We commit to what we control.</h2>
+      <div class="section-intro">Clear commitments, written down. We do not guarantee that every contractor will arrive immediately or every repair will succeed first time.</div>
+
+      <table class="guarantees-table">
+        <tr>
+          <th>Approval before spending</th>
+          <td>No contractor work or expenditure without your documented approval, except a separately agreed emergency protocol.</td>
+        </tr>
+        <tr>
+          <th>Quote transparency</th>
+          <td>Written quote and clear exclusions before approval.</td>
+        </tr>
+        <tr>
+          <th>Communication</th>
+          <td>Acknowledge requests during business hours within an agreed target, such as four business hours.</td>
+        </tr>
+        <tr>
+          <th>Job records</th>
+          <td>Record the approved scope, status, contractor and completion evidence.</td>
+        </tr>
+        <tr>
+          <th>Contractor follow-up</th>
+          <td>Follow up on missed appointments and unresolved issues.</td>
+        </tr>
+        <tr>
+          <th>Service recovery</th>
+          <td>Consider a defined service credit if SiteCare misses a commitment within its control.</td>
+        </tr>
+      </table>
+      <p style="margin-top: 24px; font-size: 0.9rem; color: #6e8b9b;">We check insurance, contracts, contractor vetting, data protection and legal responsibilities. Describing SiteCare as a coordinator does not automatically remove liability.</p>
+    </div>
+  </section>
+
+  <!-- Positioning / Who we serve -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Who we serve</div>
+      <h2>Built for small commercial portfolios.</h2>
+      <div class="section-intro">We start with property managers responsible for approximately 3–30 small commercial properties.</div>
+
+      <ul class="diff-list">
+        <li><i class="fas fa-building"></i> <span><strong>Independent property managers:</strong> coordinate repairs across multiple properties and value reliable updates, quote approval and a central maintenance register.</span></li>
+        <li><i class="fas fa-store"></i> <span><strong>Commercial landlords:</strong> owners of small retail, office and mixed-use properties who do not have an in-house facilities team.</span></li>
+        <li><i class="fas fa-map-marked-alt"></i> <span><strong>Later: multi-site small businesses:</strong> retailers, agencies and other businesses operating several premises that need a consistent maintenance process.</span></li>
+        <li><i class="fas fa-ban"></i> <span><strong>Not for us (yet):</strong> large, complex facilities contracts requiring extensive compliance documentation, formal procurement and service-level commitments.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Message block -->
+  <section class="section" style="border-bottom: none; padding-bottom: 40px;">
+    <div class="container">
+      <div class="message-block">
+        <div class="section-label" style="color: #79c9a8;">Our main message</div>
+        <div class="headline">One point of contact for routine commercial property maintenance.</div>
+        <div class="subheadline">For property managers and landlords with small commercial sites in Gauteng. Send a request. Review a written quote. Approve the work. Receive a completion record.</div>
+        
+        <ul class="what-you-get">
+          <li><i class="fas fa-check-circle"></i> Routine plumbing repairs</li>
+          <li><i class="fas fa-check-circle"></i> Doors, locks and minor building repairs</li>
+          <li><i class="fas fa-check-circle"></i> General maintenance</li>
+          <li><i class="fas fa-check-circle"></i> Selected electrical work through qualified contractors</li>
+          <li><i class="fas fa-check-circle"></i> Contractor follow-ups and maintenance records</li>
+        </ul>
+
+        <div class="cta-area">
+          <a href="#contact" class="btn">Book a maintenance workflow review <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+          <span style="color: #b8d9cc;">No work and no spending without your approval.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promotions and incentives -->
+  <section class="section" style="padding-top: 20px;">
+    <div class="container">
+      <div class="section-label">Promotions and incentives</div>
+      <h2>Simple ways to start.</h2>
+      <div style="background: #f8fbfa; border-radius: 24px; padding: 32px; border-left: 6px solid #1e7e5c;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px;">
+          <div><i class="fas fa-gift" style="color: #1e7e5c; margin-right: 8px;"></i> <strong>New-customer deal:</strong> First qualifying coordination fee waived (save R495).</div>
+          <div><i class="fas fa-search" style="color: #1e7e5c; margin-right: 8px;"></i> <strong>Low-risk entry:</strong> Free maintenance workflow review.</div>
+          <div><i class="fas fa-flask" style="color: #1e7e5c; margin-right: 8px;"></i> <strong>Pilot offer:</strong> One month with a defined request limit and no long-term commitment.</div>
+          <div><i class="fas fa-user-plus" style="color: #1e7e5c; margin-right: 8px;"></i> <strong>Referral reward:</strong> R500 service credit when a referred customer signs a monthly plan and pays their first invoice.</div>
+        </div>
+        <p style="margin-top: 24px; font-size: 0.9rem; color: #3e5e6f;">We ask for honest testimonials after completed jobs and collect proof: completion photos, approval records, timestamps, contractor attendance and genuine feedback. Permission is always obtained before publishing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Financials -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Illustrative business economics</div>
+      <h2>The critical variable is workload per request.</h2>
+      <div class="section-intro">Assume a monthly plan mix with an average fee of R3,000 per client. This is a simplified model, not a sales forecast.</div>
+
+      <table class="financial-table">
+        <thead>
+          <tr>
+            <th>Clients</th>
+            <th>Monthly revenue</th>
+            <th>Assumed operating costs</th>
+            <th>Operating surplus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>5</td><td>R15,000</td><td>R9,000</td><td>R6,000</td></tr>
+          <tr><td>10</td><td>R30,000</td><td>R16,000</td><td>R14,000</td></tr>
+          <tr><td>20</td><td>R60,000</td><td>R32,000</td><td>R28,000</td></tr>
+          <tr><td>40</td><td>R120,000</td><td>R70,000</td><td>R50,000</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size: 0.95rem; color: #1e3d4c;">If customers send too many complex jobs for a low monthly fee, revenue can grow while profit collapses. Contractor charges are paid separately by the customer.</p>
+    </div>
+  </section>
+
+  <!-- First 30 days -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">First 30 days</div>
+      <h2>A controlled launch.</h2>
+
+      <div class="weeks-grid">
+        <div class="week-card">
+          <h4><i class="fas fa-calendar-week"></i> Week 1 — Supply side</h4>
+          <ul>
+            <li><i class="fas fa-check"></i> Recruit and vet at least 3 contractors</li>
+            <li><i class="fas fa-check"></i> Agree on service areas, rates, insurance</li>
+            <li><i class="fas fa-check"></i> Document communication and escalation</li>
+          </ul>
+        </div>
+        <div class="week-card">
+          <h4><i class="fas fa-calendar-week"></i> Week 2 — Operating system</h4>
+          <ul>
+            <li><i class="fas fa-check"></i> Create request form, quote approval process</li>
+            <li><i class="fas fa-check"></i> Build job tracker and completion template</li>
+            <li><i class="fas fa-check"></i> Customer terms and secure record storage</li>
+          </ul>
+        </div>
+        <div class="week-card">
+          <h4><i class="fas fa-calendar-week"></i> Week 3 — First job</h4>
+          <ul>
+            <li><i class="fas fa-check"></i> Contact 40–50 prospects</li>
+            <li><i class="fas fa-check"></i> Offer workflow reviews</li>
+            <li><i class="fas fa-check"></i> Secure a first paid or promotional pilot</li>
+          </ul>
+        </div>
+        <div class="week-card">
+          <h4><i class="fas fa-calendar-week"></i> Week 4 — Measure & refine</h4>
+          <ul>
+            <li><i class="fas fa-check"></i> Record time spent per job</li>
+            <li><i class="fas fa-check"></i> Track customer satisfaction & reliability</li>
+            <li><i class="fas fa-check"></i> Adjust scope and pricing before scaling</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <div class="container">
+    <div class="final-cta" id="contact">
+      <h2>Start with a free maintenance workflow review.</h2>
+      <p>No obligation. We review how you receive requests, approve spending and track completion—and suggest practical improvements. Then, if it makes sense, we coordinate your first job.</p>
+      <a href="#" class="btn" style="font-size: 1.1rem; padding: 16px 36px;">Book your workflow review <i class="fas fa-arrow-right" style="margin-left: 10px;"></i></a>
+      <p style="margin-top: 24px; font-size: 0.9rem; color: #6e8b9b;">Or email <a href="mailto:hello@sitecare.co.za" style="color: #1e7e5c; text-decoration: none;">hello@sitecare.co.za</a> — we reply within four business hours.</p>
+      <p style="margin-top: 12px; font-size: 0.85rem; color: #6e8b9b;">Gauteng, South Africa · Remote-first coordination</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="container">
+    <footer class="footer">
+      <div>© 2025 SiteCare Property Services. Commercial maintenance coordination.</div>
+      <div><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">POPIA</a></div>
+    </footer>
+  </div>
+
+  <!-- Smooth scrolling -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
