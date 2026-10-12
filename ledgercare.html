@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LedgerCare | Monthly bookkeeping for small law firms</title>
-  <meta name="description" content="Remote monthly bookkeeping, trust account reconciliation and reporting for small South African law firms. Fixed monthly fee. POPIA-compliant. Built for practices of 2–10 fee earners.">
+  <title>LedgerCare | Monthly bookkeeping for small physiotherapy practices — launching soon</title>
+  <meta name="description" content="Remote monthly bookkeeping and medical aid remittance reconciliation for small South African physiotherapy practices. Fixed monthly fee. POPIA-compliant. Join the waitlist.">
   <meta name="theme-color" content="#0B1F2A">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230B1F2A'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='%23C89B3C' font-family='Inter,sans-serif' font-weight='700'%3EL%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +30,8 @@
       --green: #2C6E52;
       --green-soft: #E8F2ED;
       --green-deep: #1A4B36;
+      --whatsapp: #25D366;
+      --whatsapp-dark: #128C7E;
       --serif: 'Fraunces', Georgia, serif;
       --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --pad-x: clamp(20px, 5vw, 56px);
@@ -87,12 +90,58 @@
     .btn-gold:hover { background: var(--gold-deep); color: var(--paper); }
     .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
     .btn-ghost:hover { border-color: var(--ink); }
+    .btn-whatsapp {
+      background: var(--whatsapp);
+      color: white;
+      font-weight: 700;
+    }
+    .btn-whatsapp:hover {
+      background: var(--whatsapp-dark);
+      transform: translateY(-1px);
+    }
+    .btn-whatsapp i { font-size: 1.15rem; }
     .btn-link {
       background: none; border: none; color: var(--ink); padding: 0;
       border-bottom: 1px solid var(--gold); border-radius: 0;
       font-weight: 500; font-size: 0.92rem; cursor: pointer;
     }
     .btn-link:hover { color: var(--gold-deep); }
+
+    /* Waitlist banner */
+    .waitlist-banner {
+      background: linear-gradient(90deg, var(--ink) 0%, #163245 100%);
+      color: var(--paper);
+      padding: 14px 0;
+      font-size: 0.9rem;
+      text-align: center;
+      position: relative;
+      z-index: 50;
+    }
+    .waitlist-banner-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .waitlist-banner .pill {
+      background: var(--gold);
+      color: var(--ink);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 40px;
+    }
+    .waitlist-banner a {
+      color: var(--gold);
+      text-decoration: underline;
+      text-decoration-color: rgba(200, 155, 60, 0.5);
+      text-underline-offset: 3px;
+      font-weight: 600;
+    }
+    .waitlist-banner a:hover { text-decoration-color: var(--gold); }
 
     .site-header {
       position: sticky; top: 0; z-index: 100;
@@ -715,6 +764,35 @@
     .footer-bottom a { color: #93A8B3; text-decoration: none; }
     .footer-bottom a:hover { color: var(--gold); }
 
+    /* Floating WhatsApp button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--whatsapp);
+      color: white;
+      padding: 14px 22px 14px 18px;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.92rem;
+      box-shadow: 0 12px 32px -8px rgba(37, 211, 102, 0.5);
+      transition: all 0.25s ease;
+    }
+    .whatsapp-float:hover {
+      background: var(--whatsapp-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px -8px rgba(37, 211, 102, 0.6);
+    }
+    .whatsapp-float i {
+      font-size: 1.5rem;
+    }
+    .whatsapp-float span { display: inline; }
+
     .modal-backdrop {
       position: fixed; inset: 0;
       background: rgba(4, 20, 28, 0.72);
@@ -836,6 +914,9 @@
       .guarantee-table th, .guarantee-table td { padding: 18px 20px; font-size: 0.86rem; }
       .fin-table { font-size: 0.82rem; }
       .fin-table thead th, .fin-table tbody td { padding: 14px 14px; }
+      .whatsapp-float { bottom: 20px; right: 16px; padding: 12px; }
+      .whatsapp-float span { display: none; }
+      .whatsapp-float i { font-size: 1.6rem; }
     }
     @media (max-width: 520px) {
       .final-meta { gap: 20px; flex-direction: column; align-items: center; }
@@ -845,6 +926,17 @@
 </head>
 <body>
 
+  <!-- Waitlist banner -->
+  <div class="waitlist-banner">
+    <div class="container">
+      <div class="waitlist-banner-inner">
+        <span class="pill">Launching soon</span>
+        <span>LedgerCare opens for South African physiotherapy practices shortly. Join the waitlist for early access.</span>
+        <a href="https://wa.me/27764312871?text=Hi%20Callum%2C%20I%27d%20like%20to%20join%20the%20LedgerCare%20waitlist%20for%20physiotherapy%20bookkeeping." target="_blank" rel="noopener">Join the waitlist →</a>
+      </div>
+    </div>
+  </div>
+
   <header class="site-header">
     <div class="container">
       <div class="header-inner">
@@ -852,19 +944,19 @@
           <div class="brand-mark">L</div>
           <div>
             <div class="brand-name">LedgerCare</div>
-            <span class="brand-sub">Monthly books for law firms</span>
+            <span class="brand-sub">Monthly books for physios</span>
           </div>
         </a>
         <nav class="nav" id="primaryNav" aria-label="Primary navigation">
           <a href="#audience">Who we serve</a>
           <a href="#pricing">Pricing</a>
-          <a href="#offers">Free health check</a>
+          <a href="#offers">Waitlist</a>
           <a href="#guarantees">Guarantees</a>
           <a href="#contact">Contact</a>
         </nav>
         <div class="nav-cta">
-          <a href="#contact" class="btn btn-ghost" style="padding: 11px 22px; font-size: 0.88rem;">Book a call</a>
-          <a href="#pricing" class="btn btn-primary" style="padding: 11px 22px; font-size: 0.88rem;">See packages</a>
+          <a href="mailto:denysschen.callum43@gmail.com" class="btn btn-ghost" style="padding: 11px 22px; font-size: 0.88rem;">Email us</a>
+          <a href="https://wa.me/27764312871?text=Hi%20Callum%2C%20I%27d%20like%20to%20join%20the%20LedgerCare%20waitlist%20for%20physiotherapy%20bookkeeping." target="_blank" rel="noopener" class="btn btn-whatsapp" style="padding: 11px 22px; font-size: 0.88rem;"><i class="fab fa-whatsapp"></i> Join waitlist</a>
           <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
             <i class="fas fa-bars"></i>
           </button>
@@ -877,157 +969,150 @@
     <div class="container">
       <div class="hero-grid">
         <div class="hero-content">
-          <div class="eyebrow">For small South African law firms</div>
+          <div class="eyebrow">For small South African physiotherapy practices</div>
           <h1>Know where your practice stands <em>every month</em>.</h1>
-          <p class="lead">LedgerCare keeps your books organised, reconciles your trust and business accounts, tracks outstanding fees and disbursements, and gives you a monthly report you can actually use — without hiring a full-time accounts employee.</p>
+          <p class="lead">LedgerCare keeps your books organised, reconciles medical aid remittances and patient payments, tracks outstanding patient debtors, and gives you a monthly report you can actually use — without hiring a full-time accounts employee.</p>
           <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">Book your free health check <i class="fas fa-arrow-right"></i></a>
+            <a href="https://wa.me/27764312871?text=Hi%20Callum%2C%20I%27d%20like%20to%20join%20the%20LedgerCare%20waitlist%20for%20physiotherapy%20bookkeeping." target="_blank" rel="noopener" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Join the waitlist on WhatsApp</a>
             <a href="#pricing" class="btn btn-ghost">See packages</a>
           </div>
           <div class="hero-trust">
-            <span><i class="fas fa-check"></i> Trust &amp; business account reconciliation</span>
+            <span><i class="fas fa-check"></i> Medical aid remittance reconciliation</span>
             <span><i class="fas fa-check"></i> Fixed monthly fee</span>
             <span><i class="fas fa-check"></i> POPIA-compliant handling</span>
             <span><i class="fas fa-check"></i> Named point of contact</span>
           </div>
         </div>
         <aside class="hero-panel">
-          <div class="hero-panel-label">Built for legal practices</div>
+          <div class="hero-panel-label">Built for physiotherapy practices</div>
           <h3>Quiet, accurate, on time.</h3>
           <ol>
-            <li><strong>Send your records.</strong> Business and trust accounts, invoices, disbursements.</li>
-            <li><strong>We reconcile.</strong> Both accounts, monthly, with a missing-records checklist.</li>
-            <li><strong>You receive reporting.</strong> Income, expenses, outstanding fees, and cash position.</li>
-            <li><strong>We follow up.</strong> Missing records chased. Outstanding items resolved. Proof of Value delivered.</li>
+            <li><strong>Send your records.</strong> Medical aid remittances, patient payments, practice expenses, bank statements.</li>
+            <li><strong>We reconcile.</strong> Remittances against claims. Patient payments against debtors. Bank against ledger.</li>
+            <li><strong>You receive reporting.</strong> Income by practitioner, outstanding debtors, cash position, monthly P&amp;L.</li>
+            <li><strong>We follow up.</strong> Missing remittances chased. Outstanding debtors flagged. Proof of Value delivered quarterly.</li>
           </ol>
         </aside>
       </div>
     </div>
   </section>
 
-  <!-- FOCUSED AUDIENCE -->
   <section class="section section-alt section-line" id="audience">
     <div class="container">
       <div class="section-head">
         <div class="eyebrow">Who we serve</div>
-        <h2>Built for small law firms. Nothing else.</h2>
-        <p class="lead">We work exclusively with South African legal practices of 2–10 fee earners. One niche. One workflow. One set of problems we solve properly.</p>
+        <h2>Built for small physiotherapy practices. Nothing else.</h2>
+        <p class="lead">We work exclusively with South African physiotherapy practices of 1–6 physiotherapists. One niche. One workflow. One set of problems we solve properly.</p>
       </div>
 
       <div class="focus-panel">
         <div class="focus-main">
-          <h3>What we understand about legal practice</h3>
-          <p>Your bookkeeping is not generic. Trust money is regulated. Disbursements must be recoverable. Matters must be reconcilable. Month-end must reflect the practice, not just a bank balance.</p>
+          <h3>What we understand about physiotherapy practice</h3>
+          <p>Your bookkeeping is not like other small businesses. Medical aids pay late, pay short, and pay against different claim references than you expect. Patient debtors slip past 60 days. Sessions do not always match bank deposits. And you are a clinician, not a bookkeeper.</p>
           <ul class="focus-list">
-            <li><i class="fas fa-check"></i> <strong>Trust account reconciliation</strong> — separate from your business account, reconciled monthly</li>
-            <li><i class="fas fa-check"></i> <strong>Matter-based billing</strong> — retainers, hourly billing, fixed fees, and mixed models</li>
-            <li><i class="fas fa-check"></i> <strong>Disbursements and recoverable expenses</strong> — tracked so they are billed, not absorbed</li>
-            <li><i class="fas fa-check"></i> <strong>Fee earner and matter profitability</strong> — for firms that want to see where the money comes from</li>
+            <li><i class="fas fa-check"></i> <strong>Medical aid remittance reconciliation</strong> — every payment matched against claims and bank deposits</li>
+            <li><i class="fas fa-check"></i> <strong>Patient debtor tracking</strong> — outstanding patient balances aged and flagged</li>
+            <li><i class="fas fa-check"></i> <strong>Session-based billing reconciliation</strong> — sessions billed against sessions paid</li>
+            <li><i class="fas fa-check"></i> <strong>Multi-practitioner reporting</strong> — income by physiotherapist, for practices with associates</li>
             <li><i class="fas fa-check"></i> <strong>Practice-wide monthly position</strong> — one report, plain language, decisions you can act on</li>
-            <li><i class="fas fa-check"></i> <strong>LPC-consistent record-keeping</strong> — organised records, ready for review or handover</li>
+            <li><i class="fas fa-check"></i> <strong>HPCSA-consistent record-keeping</strong> — organised records, ready for review or handover</li>
           </ul>
         </div>
         <div class="focus-side">
           <div class="eyebrow">Who this is not for</div>
-          <h3 style="font-size: 1.25rem; margin-bottom: 12px;">We are not the right fit for every firm.</h3>
+          <h3 style="font-size: 1.25rem; margin-bottom: 12px;">We are not the right fit for every practice.</h3>
           <p style="font-size: 0.94rem;">We would rather say so up front than waste your time — or ours.</p>
           <ul class="not-list">
-            <li><i class="fas fa-times"></i> Firms with an in-house finance team or full-time bookkeeper</li>
+            <li><i class="fas fa-times"></i> Practices with an in-house bookkeeper or finance team</li>
             <li><i class="fas fa-times"></i> Practices that require statutory audit or independent review</li>
-            <li><i class="fas fa-times"></i> Businesses outside legal services — including other professional services</li>
-            <li><i class="fas fa-times"></i> Firms looking for a full-time employee on site, or day-to-day office presence</li>
-            <li><i class="fas fa-times"></i> Practices with high-volume litigation disbursement flows exceeding scoped transaction limits</li>
-            <li><i class="fas fa-times"></i> Multi-entity groups requiring complex consolidation at launch</li>
+            <li><i class="fas fa-times"></i> Businesses outside physiotherapy — including GPs, dentists, and hospitals</li>
+            <li><i class="fas fa-times"></i> Practices looking for a full-time employee on site</li>
+            <li><i class="fas fa-times"></i> Practices with high-volume medico-legal or RAF billing flows</li>
+            <li><i class="fas fa-times"></i> Multi-practice groups requiring complex consolidation at launch</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PRICING -->
   <section class="section" id="pricing">
     <div class="container">
       <div class="section-head">
         <div class="eyebrow">Packages and pricing</div>
         <h2>Three packages. One fixed monthly fee.</h2>
-        <p class="lead">Priced by transaction volume and the number of accounts — business and trust. Every plan includes secure document handling, a named point of contact, and a Proof of Value summary.</p>
+        <p class="lead">Priced by transaction volume and the number of practitioners. Every plan includes secure document handling, a named point of contact, and a Proof of Value summary.</p>
       </div>
 
       <div class="pricing-grid">
-        <!-- Essential -->
         <div class="plan">
           <div class="plan-name">Practice Essential</div>
-          <div class="plan-tagline">For small practices with simple finances and low transaction volumes.</div>
+          <div class="plan-tagline">For solo practitioners with simple finances and low transaction volumes.</div>
           <div class="plan-price">
             <span class="amount">R1,999</span>
             <span class="period">/ month</span>
           </div>
           <ul class="plan-features">
             <li><i class="fas fa-check"></i> Monthly bookkeeping</li>
-            <li><i class="fas fa-check"></i> Business bank reconciliation</li>
+            <li><i class="fas fa-check"></i> Bank reconciliation</li>
             <li><i class="fas fa-check"></i> Income &amp; expense summary</li>
             <li><i class="fas fa-check"></i> Digital document organisation</li>
             <li><i class="fas fa-check"></i> Missing-document checklist</li>
             <li><i class="fas fa-check"></i> Monthly completion notification</li>
             <li><i class="fas fa-check"></i> Quarterly Proof of Value</li>
           </ul>
-          <div class="plan-scope"><strong>Scope example:</strong> one practice, up to 50 transactions, business account only.</div>
-          <a href="#contact" class="btn btn-ghost plan-cta">Start with Essential</a>
+          <div class="plan-scope"><strong>Scope example:</strong> one practitioner, up to 60 transactions, business account only.</div>
+          <a href="https://wa.me/27764312871?text=Hi%20Callum%2C%20I%27d%20like%20to%20join%20the%20LedgerCare%20waitlist%20for%20the%20Essential%20plan." target="_blank" rel="noopener" class="btn btn-ghost plan-cta">Join waitlist</a>
         </div>
 
-        <!-- Insights (featured) -->
         <div class="plan plan-featured">
           <span class="plan-flag">Recommended</span>
           <div class="plan-name">Practice Insights</div>
-          <div class="plan-tagline">For growing practices that need to understand the numbers, not merely record them.</div>
+          <div class="plan-tagline">For growing practices that need medical aid remittances and patient debtors tracked properly.</div>
           <div class="plan-price">
             <span class="amount">R3,499</span>
             <span class="period">/ month</span>
           </div>
           <ul class="plan-features">
             <li><i class="fas fa-check"></i> Everything in Essential, plus:</li>
-            <li><i class="fas fa-check"></i> Trust account reconciliation</li>
-            <li><i class="fas fa-check"></i> Up to 120 transactions, two bank accounts</li>
-            <li><i class="fas fa-check"></i> Client invoice &amp; debtor tracking</li>
-            <li><i class="fas fa-check"></i> Disbursement and recoverable expense tracking</li>
+            <li><i class="fas fa-check"></i> Medical aid remittance reconciliation</li>
+            <li><i class="fas fa-check"></i> Patient debtor tracking</li>
+            <li><i class="fas fa-check"></i> Up to 120 transactions</li>
             <li><i class="fas fa-check"></i> Monthly profit-and-loss report</li>
             <li><i class="fas fa-check"></i> Cash-flow summary</li>
             <li><i class="fas fa-check"></i> Outstanding-items report</li>
             <li><i class="fas fa-check"></i> Quarterly Proof of Value</li>
           </ul>
-          <div class="plan-scope"><strong>Scope example:</strong> one practice, up to 120 transactions, business and trust accounts.</div>
-          <a href="#contact" class="btn btn-gold plan-cta">Book a health check</a>
+          <div class="plan-scope"><strong>Scope example:</strong> one practice, up to 120 transactions, remittance reconciliation and debtor tracking.</div>
+          <a href="https://wa.me/27764312871?text=Hi%20Callum%2C%20I%27d%20like%20to%20join%20the%20LedgerCare%20waitlist%20for%20the%20Insights%20plan." target="_blank" rel="noopener" class="btn btn-gold plan-cta">Join waitlist</a>
         </div>
 
-        <!-- Partner -->
         <div class="plan">
           <div class="plan-name">Practice Partner</div>
-          <div class="plan-tagline">For established practices needing management visibility.</div>
+          <div class="plan-tagline">For multi-practitioner practices needing management visibility.</div>
           <div class="plan-price">
             <span class="amount">R6,499</span>
             <span class="period">/ month</span>
           </div>
           <ul class="plan-features">
             <li><i class="fas fa-check"></i> Everything in Insights, plus:</li>
+            <li><i class="fas fa-check"></i> Up to 250 transactions</li>
+            <li><i class="fas fa-check"></i> Practitioner-level income reporting</li>
             <li><i class="fas fa-check"></i> Budget-versus-actual reporting</li>
             <li><i class="fas fa-check"></i> Rolling cash-flow forecast</li>
-            <li><i class="fas fa-check"></i> Matter or fee-earner profitability analysis</li>
             <li><i class="fas fa-check"></i> Monthly management review</li>
             <li><i class="fas fa-check"></i> Prioritised action list</li>
-            <li><i class="fas fa-check"></i> Coordination of accounting queries</li>
             <li><i class="fas fa-check"></i> Monthly Proof of Value</li>
           </ul>
-          <div class="plan-scope"><strong>Scope example:</strong> up to 250 transactions across business and trust accounts, matter-level reporting available.</div>
-          <a href="#contact" class="btn btn-ghost plan-cta">Discuss Practice Partner</a>
+          <div class="plan-scope"><strong>Scope example:</strong> up to 250 transactions across multiple practitioners, practitioner-level reporting available.</div>
+          <a href="https://wa.me/27764312871?text=Hi%20Callum%2C%20I%27d%20like%20to%20join%20the%20LedgerCare%20waitlist%20for%20the%20Partner%20plan." target="_blank" rel="noopener" class="btn btn-ghost plan-cta">Join waitlist</a>
         </div>
       </div>
 
-      <!-- Trust account note module (matches SiteCare emergency block) -->
       <div class="trust-module">
         <div class="content">
-          <h3>Trust account reconciliation</h3>
-          <p>Trust money is regulated. It needs to be reconciled separately from your business account, on a consistent basis, with a clear audit trail. LedgerCare performs trust account reconciliation under the supervision of a qualified accounting professional.</p>
-          <p>Included in Practice Insights and Practice Partner. Where a practice operates multiple trust accounts, or requires three-way reconciliation across individual matters, this is quoted per the agreed scope.</p>
+          <h3>Medical aid remittance reconciliation</h3>
+          <p>Medical aids pay late, pay short, and pay against different claim references than the practice expects. Reconciling remittances against the practice's claims and bank deposits is the single most time-consuming part of practice bookkeeping — and the part most likely to leave money unclaimed.</p>
+          <p>LedgerCare reconciles medical aid remittances monthly. Every payment is matched to a claim. Every shortfall is flagged. Every outstanding remittance is chased. Included in Practice Insights and Practice Partner.</p>
         </div>
         <div class="price">
           Included
@@ -1036,15 +1121,14 @@
       </div>
 
       <div class="pricing-note">
-        <strong>What counts as one transaction:</strong> one line item in the bank statement or ledger — a debit or credit, a bank charge, a deposit, a payment. Where a single bank entry represents multiple underlying items, it counts as one transaction at the bank level, but the underlying items still need to be supported by documentation.
+        <strong>What counts as one transaction:</strong> one line item in the bank statement or ledger — a debit or credit, a bank charge, a deposit, a payment, a medical aid remittance. Where a single bank entry represents multiple claims, it counts as one transaction at the bank level, but the underlying claims still need to be supported by documentation.
       </div>
       <div class="pricing-note" style="background: #FBF6E9; border-left-color: var(--gold); color: #6E5216;">
-        <strong>What is not included in any tier:</strong> payroll processing, VAT returns, annual financial statements, SARS submissions and tax returns, catch-up bookkeeping for prior periods, audit and assurance work, LPC trust account audits, and complex multi-entity consolidation. These are quoted separately, in writing, before any work begins.
+        <strong>What is not included in any tier:</strong> payroll processing, VAT returns, annual financial statements, SARS submissions and tax returns, catch-up bookkeeping for prior periods, audit and assurance work, HPCSA compliance submissions, and complex multi-practice consolidation. These are quoted separately, in writing, before any work begins.
       </div>
     </div>
   </section>
 
-  <!-- SCOPE DEFINITIONS -->
   <section class="scope-section">
     <div class="container">
       <div class="section-head">
@@ -1057,17 +1141,17 @@
         <div class="scope-item">
           <span class="num">01</span>
           <h4>One transaction</h4>
-          <p>One line item in the bank statement or ledger — a debit or credit, a bank charge, a deposit, a payment.</p>
+          <p>One line item in the bank statement or ledger — a debit or credit, a bank charge, a deposit, a payment, or a medical aid remittance.</p>
         </div>
         <div class="scope-item">
           <span class="num">02</span>
           <h4>One bank account</h4>
-          <p>One account at one financial institution. Trust and business accounts at the same bank count separately.</p>
+          <p>One account at one financial institution. Practice and personal accounts count separately.</p>
         </div>
         <div class="scope-item">
           <span class="num">03</span>
-          <h4>One entity</h4>
-          <p>One registered company, close corporation, partnership, or sole proprietor. Multi-entity consolidation is quoted separately.</p>
+          <h4>One practice</h4>
+          <p>One registered entity with one HPCSA practice number. Multi-practice consolidation is quoted separately.</p>
         </div>
         <div class="scope-item">
           <span class="num">04</span>
@@ -1078,33 +1162,31 @@
     </div>
   </section>
 
-  <!-- ENTRY OFFERS -->
   <section class="section section-alt section-line" id="offers">
     <div class="container">
       <div class="section-head">
-        <div class="eyebrow">Low-risk entry offers</div>
-        <h2>Start without the risk.</h2>
-        <p class="lead">Two clear ways to start. No free bookkeeping. No discounted labour. Just a conversation, and if it makes sense, a paid diagnostic.</p>
+        <div class="eyebrow">Join the waitlist</div>
+        <h2>Two ways to be first in line.</h2>
+        <p class="lead">LedgerCare opens for South African physiotherapy practices shortly. Join the waitlist now and you will be contacted first when we launch, with early access to the free health check.</p>
       </div>
 
       <div class="offer-grid">
         <div class="offer">
-          <h3>Free health check</h3>
-          <div class="offer-price">R0</div>
-          <p>We ask how you currently manage records, trust reconciliations, outstanding fees, and disbursements. You receive a short list of potential gaps and one suggested next step.</p>
-          <div class="fine"><i class="fas fa-clock"></i> Strictly 15 minutes. Not a full financial review.</div>
+          <h3>Join via WhatsApp</h3>
+          <div class="offer-price">Fastest</div>
+          <p>Tap the button and send the pre-filled message. We reply within one business day with what happens next. No obligation. No spam.</p>
+          <div class="fine"><i class="fab fa-whatsapp"></i> Opened on your device in one tap.</div>
         </div>
         <div class="offer">
-          <h3>Fixed-price diagnostic</h3>
-          <div class="offer-price">R595</div>
-          <p>We review an agreed sample of your existing records — business and trust — and produce a short written list of missing reconciliations, recordkeeping gaps, and recommended next steps.</p>
-          <div class="fine"><i class="fas fa-credit-card"></i> Credited against your first month if you sign within 14 days.</div>
+          <h3>Join via email</h3>
+          <div class="offer-price">Also fine</div>
+          <p>Email us with your practice name and province. We will add you to the waitlist and reply when we open. Your details stay with us only.</p>
+          <div class="fine"><i class="fas fa-envelope"></i> denysschen.callum43@gmail.com</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROOF OF VALUE -->
   <section class="section">
     <div class="container">
       <div class="pov">
@@ -1112,16 +1194,16 @@
           <div>
             <div class="eyebrow">Proof of Value</div>
             <h2>A record of what we delivered — not just a fee.</h2>
-            <p>Every plan includes a Proof of Value summary. It is not a testimonial. It is not marketing. It is a deliverable — a short document showing exactly what was done, suitable for your files or your partners.</p>
+            <p>Every plan includes a Proof of Value summary. It is not a testimonial. It is not marketing. It is a deliverable — a short document showing exactly what was done, suitable for your files or your partner.</p>
           </div>
           <div>
             <ul class="pov-list">
-              <li><i class="fas fa-check"></i> Business and trust records organised and reconciled</li>
+              <li><i class="fas fa-check"></i> Records organised and reconciled</li>
+              <li><i class="fas fa-check"></i> Medical aid remittances received and matched</li>
+              <li><i class="fas fa-check"></i> Patient debtors tracked and flagged</li>
               <li><i class="fas fa-check"></i> Reports completed and delivered on time</li>
-              <li><i class="fas fa-check"></i> Outstanding items and disbursements resolved or escalated</li>
-              <li><i class="fas fa-check"></i> Visibility improvements month-on-month</li>
+              <li><i class="fas fa-check"></i> Outstanding items resolved or escalated</li>
               <li><i class="fas fa-check"></i> Plain-language summary — not an audit report</li>
-              <li><i class="fas fa-check"></i> Ready for partner review or LPC handover</li>
             </ul>
           </div>
         </div>
@@ -1129,7 +1211,6 @@
     </div>
   </section>
 
-  <!-- GUARANTEES -->
   <section class="section section-alt section-line" id="guarantees">
     <div class="container">
       <div class="section-head">
@@ -1142,11 +1223,11 @@
         <tbody>
           <tr>
             <th>Clear scope</th>
-            <td>Written inclusions, exclusions, and transaction limits before work starts. Published definitions of one transaction, one bank account, and one entity.</td>
+            <td>Written inclusions, exclusions, and transaction limits before work starts. Published definitions of one transaction, one bank account, and one practice.</td>
           </tr>
           <tr>
-            <th>Trust account work</th>
-            <td>Performed by staff with specific experience in legal trust accounting, under the supervision of a qualified accounting professional.</td>
+            <th>Medical aid remittance work</th>
+            <td>Performed by staff with specific experience in physiotherapy practice bookkeeping, under the supervision of a qualified accounting professional.</td>
           </tr>
           <tr>
             <th>Fixed monthly fee</th>
@@ -1178,24 +1259,23 @@
           </tr>
           <tr>
             <th>Data protection</th>
-            <td>POPIA-compliant handling, access-controlled storage, published retention policy.</td>
+            <td>POPIA-compliant handling of patient and practice data. Access-controlled storage, published retention policy.</td>
           </tr>
         </tbody>
       </table>
 
       <p style="margin-top: 28px; font-size: 0.9rem; color: var(--ink-mute); line-height: 1.7;">
-        <strong style="color: var(--ink);">What we do not guarantee:</strong> perfect books, zero tax problems, guaranteed SARS outcomes, LPC compliance outcomes, audit-ready financial statements without a separate engagement, or recovery of outstanding debtor balances. We follow a genuine, documented process for checking work, securing data, and escalating issues. See our full <button class="btn-link" data-modal="terms">Terms of Engagement</button> for the complete framework.
+        <strong style="color: var(--ink);">What we do not guarantee:</strong> perfect books, zero tax problems, guaranteed SARS outcomes, HPCSA compliance outcomes, protection against medical scheme audits, audit-ready financial statements without a separate engagement, or recovery of outstanding patient debtor balances. LedgerCare is a bookkeeping service. See our full <button class="btn-link" data-modal="terms">Terms of Engagement</button> for the complete framework.
       </p>
     </div>
   </section>
 
-  <!-- WHY LEDGERCARE -->
   <section class="section">
     <div class="container">
       <div class="section-head">
         <div class="eyebrow">Why LedgerCare</div>
         <h2>Not the cheapest. The most accountable.</h2>
-        <p class="lead">Independent bookkeepers, traditional practices, freelancers, and accounting software all compete here. We win on focus, predictability, and follow-through — nothing else.</p>
+        <p class="lead">General bookkeepers don't understand medical aid remittances. Medical accountants charge R15,000/month. LedgerCare sits in the gap — bookkeeping built specifically for physiotherapy practices, at a price that makes sense.</p>
       </div>
 
       <div class="why-grid">
@@ -1203,7 +1283,7 @@
           <span class="num">01</span>
           <div>
             <h4>Specialist focus</h4>
-            <p>We work exclusively with small law firms. Trust accounts, disbursements, matter billing, retainers — this is what we do, not a sideline.</p>
+            <p>We work exclusively with physiotherapy practices. Medical aid remittances, patient debtors, session billing — this is what we do, not a sideline.</p>
           </div>
         </div>
         <div class="why-item">
@@ -1245,47 +1325,45 @@
     </div>
   </section>
 
-  <!-- TRUST ACCOUNT STATEMENT -->
   <section class="section" style="padding-top: 0;">
     <div class="container">
       <div class="trust-module" style="margin-top: 0;">
         <div class="content">
-          <h3>Trust accounting, done properly.</h3>
-          <p>Trust money is regulated under the Legal Practice Act and the LPC's rules. It must be reconciled separately from business money, on a consistent basis, with a clear audit trail. LedgerCare performs trust account reconciliation under the supervision of a qualified accounting professional with legal trust accounting experience.</p>
-          <p>We do not perform LPC trust account audits, and we do not certify compliance. That is the practice's own statutory obligation. We reconcile, document, and record — so that the practice is ready for any review or audit that follows.</p>
+          <h3>Patient data, handled properly.</h3>
+          <p>Patient information is special personal information under POPIA and requires heightened protection. LedgerCare handles patient data only to the extent necessary for bookkeeping and remittance reconciliation — and never for any other purpose.</p>
+          <p>We do not certify HPCSA compliance, do not audit billing practices, and do not protect against medical scheme audits. Those remain the practice's obligations. We reconcile, document, and record. Full details are in our Medical Data Statement.</p>
         </div>
         <div class="price">
-          Included
-          <small>Insights &amp; Partner</small>
+          POPIA
+          <small>Compliant</small>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROMOTIONS -->
   <section class="section section-alt section-line">
     <div class="container">
       <div class="section-head">
-        <div class="eyebrow">Promotions and incentives</div>
-        <h2>Simple ways to start and stay.</h2>
-        <p class="lead">A small number of clear incentives. No complicated loyalty schemes. No conditions hidden in fine print.</p>
+        <div class="eyebrow">Launch incentives</div>
+        <h2>Simple ways to be first in line.</h2>
+        <p class="lead">A small number of clear incentives for the practices that join the waitlist. No complicated loyalty schemes. No conditions hidden in fine print.</p>
       </div>
 
       <div class="promo-grid">
         <div class="promo-card">
-          <span class="tag">New customer</span>
-          <h4>R595 diagnostic credited</h4>
-          <p>Paid diagnostic fee credited against your first month if you sign within 14 days.</p>
+          <span class="tag">Early access</span>
+          <h4>First to be contacted</h4>
+          <p>Waitlist members are contacted first when LedgerCare opens. Before any public launch.</p>
         </div>
         <div class="promo-card">
-          <span class="tag">Entry</span>
+          <span class="tag">Free</span>
           <h4>Free 15-minute health check</h4>
-          <p>A short, structured conversation. No deliverable. No obligation.</p>
+          <p>Every waitlist member receives a free health check when we open. No deliverable. No obligation.</p>
         </div>
         <div class="promo-card">
           <span class="tag">Referral</span>
           <h4>R500 account credit</h4>
-          <p>Paid after a referred firm signs a monthly plan and pays their second monthly invoice.</p>
+          <p>Paid after a referred practice signs a monthly plan and pays their second monthly invoice.</p>
         </div>
         <div class="promo-card">
           <span class="tag">Loyalty</span>
@@ -1296,7 +1374,6 @@
     </div>
   </section>
 
-  <!-- FINANCIALS -->
   <section class="section">
     <div class="container">
       <div class="section-head">
@@ -1329,7 +1406,6 @@
     </div>
   </section>
 
-  <!-- PROCESS -->
   <section class="section section-alt section-line">
     <div class="container">
       <div class="section-head">
@@ -1342,7 +1418,7 @@
         <div class="process-step">
           <span class="n">01</span>
           <h4>Understand</h4>
-          <p>We review your practice, accounts, matter flow, and reporting needs.</p>
+          <p>We review your practice, remittance flow, patient debtor patterns, and reporting needs.</p>
         </div>
         <div class="process-step">
           <span class="n">02</span>
@@ -1357,7 +1433,7 @@
         <div class="process-step">
           <span class="n">04</span>
           <h4>Process</h4>
-          <p>Your accounting professional processes and reconciles the business and trust records.</p>
+          <p>Your accounting professional processes and reconciles the records.</p>
         </div>
         <div class="process-step">
           <span class="n">05</span>
@@ -1378,13 +1454,12 @@
     </div>
   </section>
 
-  <!-- COMPLIANCE / POPIA -->
   <section class="section">
     <div class="container">
       <div class="compliance-strip">
         <div>
           <h3>POPIA-compliant, from onboarding to archive.</h3>
-          <p>We collect only the information required to deliver the service, store it securely, restrict internal access, and retain it no longer than necessary. You can request access, correction, or deletion of your personal information at any time. Full policy and data subject rights are in our Privacy Policy.</p>
+          <p>Patient information is special personal information under POPIA. We collect only the information required to deliver the service, store it securely, restrict internal access, and retain it no longer than necessary. You can request access, correction, or deletion of patient or practice information at any time. Full policy and data subject rights are in our Privacy Policy and Medical Data Statement.</p>
         </div>
         <div class="compliance-badges">
           <span class="badge"><i class="fas fa-shield-alt"></i> POPIA aligned</span>
@@ -1395,77 +1470,77 @@
     </div>
   </section>
 
-  <!-- LAUNCH PLAN -->
   <section class="section section-alt section-line">
     <div class="container">
       <div class="section-head">
-        <div class="eyebrow">First 30 days</div>
-        <h2>A concrete launch plan.</h2>
-        <p class="lead">The first milestone is not 40 clients. It is three who pay, receive accurate work, renew, and leave a healthy margin.</p>
+        <div class="eyebrow">Launch timeline</div>
+        <h2>Where we are now.</h2>
+        <p class="lead">We are currently in the validation phase. Before we open for paying clients, we want to confirm the need, the price, and the delivery workflow with a small number of practices. Here is the plan.</p>
       </div>
 
       <div class="launch-grid">
         <div class="launch-card">
-          <span class="wk">Week 1</span>
-          <h4>Secure delivery</h4>
+          <span class="wk">Now</span>
+          <h4>Waitlist open</h4>
           <ul>
-            <li><i class="fas fa-check"></i> Identify two accounting professionals with legal trust experience</li>
-            <li><i class="fas fa-check"></i> Confirm competencies and availability</li>
-            <li><i class="fas fa-check"></i> Obtain realistic per-client delivery quotes</li>
-            <li><i class="fas fa-check"></i> Choose initial package and define transaction limits</li>
+            <li><i class="fas fa-check"></i> Conversations with physiotherapy practices across South Africa</li>
+            <li><i class="fas fa-check"></i> Confirming pricing and scope with real practitioners</li>
+            <li><i class="fas fa-check"></i> Building the accounting delivery team</li>
           </ul>
         </div>
         <div class="launch-card">
-          <span class="wk">Week 2</span>
-          <h4>Minimum sales system</h4>
+          <span class="wk">Next</span>
+          <h4>Pilot with first clients</h4>
           <ul>
-            <li><i class="fas fa-check"></i> Publish the offer and set up booking</li>
-            <li><i class="fas fa-check"></i> Prepare sample monthly report (fictional data)</li>
-            <li><i class="fas fa-check"></i> Establish written engagement terms</li>
-            <li><i class="fas fa-check"></i> Secure document handling setup</li>
+            <li><i class="fas fa-check"></i> One-month pilot with a small number of practices</li>
+            <li><i class="fas fa-check"></i> Real bookkeeping, real remittance reconciliation</li>
+            <li><i class="fas fa-check"></i> Measure cost and refine the workflow</li>
           </ul>
         </div>
         <div class="launch-card">
-          <span class="wk">Week 3</span>
-          <h4>Acquire conversations</h4>
+          <span class="wk">Then</span>
+          <h4>Full launch</h4>
           <ul>
-            <li><i class="fas fa-check"></i> Contact 40–50 small law firms in your metro</li>
-            <li><i class="fas fa-check"></i> Track replies, health checks, and objections</li>
-            <li><i class="fas fa-check"></i> Adjust message based on responses</li>
+            <li><i class="fas fa-check"></i> Waitlist members contacted first</li>
+            <li><i class="fas fa-check"></i> Monthly plans open to all new practices</li>
+            <li><i class="fas fa-check"></i> First free health checks scheduled</li>
           </ul>
         </div>
         <div class="launch-card">
-          <span class="wk">Week 4</span>
-          <h4>Test paid demand</h4>
+          <span class="wk">Later</span>
+          <h4>Expand</h4>
           <ul>
-            <li><i class="fas fa-check"></i> Aim for 2–3 paying pilot clients</li>
-            <li><i class="fas fa-check"></i> Deliver service, record actual costs and hours</li>
-            <li><i class="fas fa-check"></i> Ask if reporting justifies ongoing payment</li>
+            <li><i class="fas fa-check"></i> Additional allied health verticals</li>
+            <li><i class="fas fa-check"></i> Additional accounting professionals</li>
+            <li><i class="fas fa-check"></i> Additional service lines</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FINAL CTA -->
   <section class="final" id="contact">
     <div class="container">
-      <div class="eyebrow">Start here</div>
-      <h2>Book a free 15-minute health check.</h2>
-      <p>No obligation. We will discuss your current process, identify potential gaps, and recommend a suitable next step. The first conversation costs you fifteen minutes and nothing else.</p>
+      <div class="eyebrow">Join the waitlist</div>
+      <h2>Be first in line when LedgerCare opens.</h2>
+      <p>Send a WhatsApp message and we will add you to the waitlist. When we launch, you will be contacted first — with early access to a free 15-minute bookkeeping health check. No obligation. No spam. Your details stay with us only.</p>
       <div class="final-actions">
-        <a href="mailto:hello@ledgercare.co.za?subject=Health%20check%20request" class="btn btn-gold">Book your health check <i class="fas fa-arrow-right"></i></a>
-        <a href="mailto:hello@ledgercare.co.za" class="btn btn-ghost" style="border-color: rgba(255,255,255,0.24); color: #fff;">Email us directly</a>
+        <a href="https://wa.me/27764312871?text=Hi%20Callum%2C%20I%27d%20like%20to%20join%20the%20LedgerCare%20waitlist%20for%20physiotherapy%20bookkeeping." target="_blank" rel="noopener" class="btn btn-whatsapp" style="font-size: 1.05rem; padding: 16px 32px;">
+          <i class="fab fa-whatsapp" style="font-size: 1.3rem;"></i> Join the waitlist on WhatsApp
+        </a>
+        <a href="mailto:denysschen.callum43@gmail.com?subject=LedgerCare%20waitlist%20request" class="btn btn-ghost" style="border-color: rgba(255,255,255,0.24); color: #fff;">
+          <i class="fas fa-envelope"></i> Or email us
+        </a>
       </div>
       <div class="final-meta">
-        <span><i class="fas fa-envelope"></i> hello@ledgercare.co.za</span>
+        <span><i class="fab fa-whatsapp"></i> +27 76 431 2871</span>
+        <span><i class="fas fa-envelope"></i> denysschen.callum43@gmail.com</span>
         <span><i class="fas fa-clock"></i> Replies within one business day</span>
         <span><i class="fas fa-map-marker-alt"></i> South Africa · Remote-first</span>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
@@ -1474,17 +1549,17 @@
             <div class="brand-mark">L</div>
             <div>
               <div class="brand-name">LedgerCare</div>
-              <span class="brand-sub">Monthly books for law firms</span>
+              <span class="brand-sub">Monthly books for physios</span>
             </div>
           </a>
-          <p>Fixed-fee monthly bookkeeping and reporting for small South African law firms. Trust and business account reconciliation included.</p>
+          <p>Fixed-fee monthly bookkeeping for small South African physiotherapy practices. Medical aid remittance reconciliation and patient debtor tracking included. Launching soon.</p>
         </div>
         <div class="footer-col">
           <h5>Service</h5>
           <ul>
             <li><a href="#audience">Who we serve</a></li>
             <li><a href="#pricing">Packages</a></li>
-            <li><a href="#offers">Free health check</a></li>
+            <li><a href="#offers">Waitlist</a></li>
             <li><a href="#guarantees">Guarantees</a></li>
           </ul>
         </div>
@@ -1500,7 +1575,7 @@
         <div class="footer-col">
           <h5>Legal</h5>
           <ul>
-            <li><button data-modal="trust">Trust Account Statement</button></li>
+            <li><button data-modal="medical">Medical Data Statement</button></li>
             <li><button data-modal="cookies">Cookie Notice</button></li>
             <li><button data-modal="disclaimer">Service Disclaimer</button></li>
             <li><button data-modal="complaints">Complaints Procedure</button></li>
@@ -1508,7 +1583,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <div>© <span id="yr">2025</span> LedgerCare. All rights reserved.</div>
+        <div>© <span id="yr">2025</span> LedgerCare · Callum Denysschen · Company registration pending</div>
         <div>
           <a href="#" data-modal="privacy">Privacy</a> &nbsp;·&nbsp;
           <a href="#" data-modal="terms">Terms</a> &nbsp;·&nbsp;
@@ -1518,8 +1593,12 @@
     </div>
   </footer>
 
-  <!-- MODALS -->
-  <!-- Terms of Engagement -->
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/27764312871?text=Hi%20Callum%2C%20I%27d%20like%20to%20join%20the%20LedgerCare%20waitlist%20for%20physiotherapy%20bookkeeping." target="_blank" rel="noopener" class="whatsapp-float" aria-label="Join the waitlist on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span>Join waitlist</span>
+  </a>
+
   <div class="modal-backdrop" id="modal-terms" role="dialog" aria-modal="true" aria-labelledby="terms-title">
     <div class="modal">
       <div class="modal-head">
@@ -1531,11 +1610,11 @@
       </div>
       <div class="modal-body">
         <p><strong>Last updated:</strong> January 2025 · <strong>Applies to:</strong> all LedgerCare engagements within the Republic of South Africa.</p>
-        <div class="callout">This is a summary of our standard engagement terms. A full written engagement letter is issued to every client before work begins and takes precedence where it differs from this summary.</div>
+        <div class="callout">This is a summary of our standard engagement terms. A full written engagement letter is issued to every client before work begins and takes precedence where it differs from this summary. LedgerCare is currently pre-launch. These terms apply from the date of the first paid engagement.</div>
 
         <h4>1. Scope of Services</h4>
-        <p>LedgerCare provides remote monthly bookkeeping, bank reconciliation, trust account reconciliation, document organisation, and reporting services to small law firms. The specific services, transaction limits, deadlines, and deliverables for each client are recorded in a written engagement letter and confirmed at the start of the engagement.</p>
-        <p>Services not expressly included in the engagement letter are excluded. These typically include, but are not limited to:</p>
+        <p>LedgerCare provides remote monthly bookkeeping, bank reconciliation, medical aid remittance reconciliation, patient debtor tracking, document organisation, and reporting services to small physiotherapy practices. The specific services, transaction limits, deadlines, and deliverables for each client are recorded in a written engagement letter and confirmed at the start of the engagement.</p>
+        <p>Services not expressly included in the engagement letter are excluded. These typically include:</p>
         <ul>
           <li>Payroll processing and PAYE/UIF/SDL submissions</li>
           <li>VAT returns and VAT reconciliations</li>
@@ -1543,18 +1622,19 @@
           <li>Income tax returns and SARS submissions of any kind</li>
           <li>Catch-up bookkeeping for prior periods</li>
           <li>Audit, assurance, or attest work</li>
-          <li>Legal Practice Council compliance submissions or trust account audits</li>
-          <li>Complex multi-entity consolidations</li>
+          <li>HPCSA compliance submissions or medical scheme audit support</li>
+          <li>Medical billing, claims submission, or practice management software support</li>
+          <li>Complex multi-practice consolidations</li>
         </ul>
         <p>These services are quoted separately in writing, accepted by the client, and billed independently of the monthly retainer.</p>
 
         <h4>2. Client Responsibilities</h4>
         <p>Accurate, timely bookkeeping depends on accurate, timely source information. The client agrees to:</p>
         <ul>
-          <li>Provide complete records, bank and trust statements, and supporting documents by the agreed monthly deadline</li>
+          <li>Provide complete records, bank statements, remittance advices, and supporting documents by the agreed monthly deadline</li>
           <li>Respond to requests for missing or unclear information within a reasonable time</li>
           <li>Review and approve all reports before relying on them for any decision</li>
-          <li>Notify LedgerCare promptly of any change in practice structure, banking, trust account arrangements, VAT status, or accounting system</li>
+          <li>Notify LedgerCare promptly of any change in practice structure, banking, medical scheme arrangements, VAT status, or accounting system</li>
           <li>Maintain the security of any credentials shared with LedgerCare and rotate them on request</li>
         </ul>
         <p>Where records are incomplete or arrive late, LedgerCare may adjust delivery dates without penalty.</p>
@@ -1562,15 +1642,15 @@
         <h4>3. Scope Definitions</h4>
         <p>For the purposes of monthly transaction limits:</p>
         <ul>
-          <li><strong>One transaction</strong> is one line item in the bank statement or ledger. Where a single bank entry represents multiple underlying items, it counts as one transaction at the bank level, but the underlying items still need to be supported by documentation.</li>
-          <li><strong>One bank account</strong> is one account at one financial institution. Trust and business accounts at the same bank count separately.</li>
-          <li><strong>One entity</strong> is one registered company, close corporation, partnership, or sole proprietor. Multi-entity consolidation is quoted separately.</li>
+          <li><strong>One transaction</strong> is one line item in the bank statement or ledger, including each medical aid remittance.</li>
+          <li><strong>One bank account</strong> is one account at one financial institution. Practice and personal accounts count separately.</li>
+          <li><strong>One practice</strong> is one registered entity with one HPCSA practice number. Multi-practice consolidation is quoted separately.</li>
           <li><strong>Work beyond scope</strong> is any request requiring more than 30 minutes of additional time. It is quoted in writing before it begins.</li>
         </ul>
 
-        <h4>4. Trust Account Work</h4>
-        <p>Where trust account reconciliation is included in the engagement, LedgerCare will reconcile the trust bank account against the trust ledger on the frequency agreed in the engagement letter. This is a bookkeeping reconciliation and is not a Legal Practice Council trust audit, an assurance engagement, or a substitute for the practice's own statutory obligations.</p>
-        <p>The client remains responsible for all Legal Practice Council compliance obligations, including any trust account audit required by law.</p>
+        <h4>4. Medical Aid Remittance Work</h4>
+        <p>Where medical aid remittance reconciliation is included in the engagement, LedgerCare will reconcile medical aid remittances against the practice's claims and bank deposits on the frequency agreed in the engagement letter. This is a bookkeeping reconciliation and is not a medical billing audit, an assurance engagement, or a substitute for the practice's own statutory obligations or medical scheme obligations.</p>
+        <p>The client remains responsible for all HPCSA, BHF, and medical scheme compliance obligations, including any billing audit or forensic review required by a medical scheme.</p>
 
         <h4>5. Fees and Payment</h4>
         <p>Monthly fees are fixed and published on the pricing page at the time of engagement. The client agrees to pay by the agreed method on or before the invoice due date. Fees cover the specified monthly deliverables and transaction limits. Work exceeding agreed limits is quoted in writing before it begins.</p>
@@ -1578,31 +1658,30 @@
         <h4>6. Guarantees</h4>
         <p>LedgerCare guarantees:</p>
         <ul>
-          <li><strong>Clear scope:</strong> inclusions, exclusions, and transaction limits are written down before work starts</li>
-          <li><strong>Trust account work:</strong> performed by staff with specific experience in legal trust accounting, under supervision of a qualified accounting professional</li>
+          <li><strong>Clear scope:</strong> inclusions, exclusions, and transaction limits written down before work starts</li>
+          <li><strong>Medical aid remittance work:</strong> performed by staff with physiotherapy practice bookkeeping experience under supervision of a qualified accounting professional</li>
           <li><strong>Fixed monthly fee:</strong> no hourly billing for work within scope</li>
           <li><strong>No surprise charges:</strong> additional work requires a written quote and client approval</li>
           <li><strong>Delivery commitment:</strong> monthly deliverables completed by the agreed date if records arrive by the agreed deadline</li>
-          <li><strong>Correction policy:</strong> errors attributable to LedgerCare are corrected at no additional fee</li>
+          <li><strong>Correction policy:</strong> errors attributable to LedgerCare corrected at no additional fee</li>
           <li><strong>Communication:</strong> requests acknowledged within one business day</li>
           <li><strong>Cancellation:</strong> one month's written notice, either side. All records returned within 10 business days of final payment</li>
           <li><strong>Service recovery:</strong> a reasonable service credit for a missed commitment within our control</li>
         </ul>
-        <div class="callout callout-gold"><strong>What we do not guarantee:</strong> perfect books, zero tax problems, guaranteed SARS outcomes, Legal Practice Council compliance outcomes, audit-ready financial statements without a separate engagement, or recovery of outstanding debtor balances. LedgerCare is not a substitute for a registered tax practitioner, registered auditor, trust account auditor, or the client's own professional judgment.</div>
+        <div class="callout callout-gold"><strong>What we do not guarantee:</strong> perfect books, zero tax problems, guaranteed SARS outcomes, HPCSA compliance outcomes, protection against medical scheme audits, audit-ready financial statements without a separate engagement, or recovery of outstanding patient debtor balances. LedgerCare is a bookkeeping service.</div>
 
         <h4>7. Confidentiality</h4>
-        <p>LedgerCare treats all client financial, trust, and personal information as confidential. Information is disclosed only to the client and persons the client has authorised in writing, to service providers under written confidentiality obligations strictly necessary to deliver the service, and where required by law or a regulator with lawful authority.</p>
-        <p>This obligation survives termination of the engagement, and includes the practice's clients' information and any information subject to legal professional privilege.</p>
+        <p>LedgerCare treats all client financial, patient, and personal information as confidential. Information is disclosed only to the client and persons the client has authorised in writing, to service providers under written confidentiality obligations strictly necessary to deliver the service, and where required by law or a regulator with lawful authority. Patient information is treated as special personal information under POPIA.</p>
 
         <h4>8. Data Protection (POPIA)</h4>
-        <p>LedgerCare processes personal information in accordance with the Protection of Personal Information Act, 4 of 2013. See the <button class="btn-link" data-modal="popia">POPIA Notice</button> and <button class="btn-link" data-modal="privacy">Privacy Policy</button> for full details.</p>
+        <p>LedgerCare processes personal information in accordance with POPIA. See the <button class="btn-link" data-modal="popia">POPIA Notice</button>, <button class="btn-link" data-modal="privacy">Privacy Policy</button>, and <button class="btn-link" data-modal="medical">Medical Data Statement</button> for full details.</p>
 
         <h4>9. Limitation of Liability</h4>
         <p>To the maximum extent permitted by South African law:</p>
         <ul>
           <li>LedgerCare's total liability arising out of or in connection with the engagement is limited to the fees paid by the client in the three (3) calendar months immediately preceding the event giving rise to the claim</li>
           <li>LedgerCare is not liable for indirect, incidental, special, or consequential losses</li>
-          <li>LedgerCare is not liable for the acts or omissions of third parties, including banks, SARS, the Legal Practice Council, accounting software providers, or independent professionals engaged with the client's written consent</li>
+          <li>LedgerCare is not liable for the acts or omissions of third parties, including banks, medical schemes, SARS, HPCSA, practice management software providers, or independent professionals engaged with the client's written consent</li>
         </ul>
         <p>Nothing in these terms limits liability for fraud, wilful misconduct, or any liability that cannot be limited by law.</p>
 
@@ -1625,7 +1704,6 @@
     </div>
   </div>
 
-  <!-- Privacy Policy -->
   <div class="modal-backdrop" id="modal-privacy" role="dialog" aria-modal="true" aria-labelledby="privacy-title">
     <div class="modal">
       <div class="modal-head">
@@ -1640,24 +1718,24 @@
         <p>This Privacy Policy explains how LedgerCare ("we", "us", "our") collects, uses, shares, and protects personal information, and describes your rights under the Protection of Personal Information Act, 4 of 2013 ("POPIA").</p>
 
         <h4>1. Who we are</h4>
-        <p>LedgerCare is a remote bookkeeping and monthly reporting service for small South African law firms. We are the "responsible party" for the personal information we process to provide the service.</p>
-        <p><strong>Information Officer:</strong> The owner of LedgerCare<br>
-        <strong>Email:</strong> privacy@ledgercare.co.za</p>
+        <p>LedgerCare is a remote bookkeeping and monthly reporting service for small South African physiotherapy practices. We are the "responsible party" for the personal information we process to provide the service.</p>
+        <p><strong>Information Officer:</strong> Callum Denysschen<br>
+        <strong>Email:</strong> denysschen.callum43@gmail.com</p>
 
         <h4>2. Personal information we collect</h4>
         <ul>
-          <li><strong>Identity and contact data:</strong> name, firm name, registration number, email, phone number, business address</li>
-          <li><strong>Financial data:</strong> business and trust bank statements, transaction records, invoices, debtor and creditor information, tax reference numbers</li>
-          <li><strong>Trust data:</strong> trust ledger entries, matter references, client names where necessary for reconciliation</li>
-          <li><strong>Matter-level data (only where separately quoted):</strong> fee earner names, matter codes, disbursement records</li>
+          <li><strong>Identity and contact data:</strong> name, practice name, HPCSA number, email, phone number, business address</li>
+          <li><strong>Financial data:</strong> bank statements, transaction records, invoices, remittance advices, debtor and creditor information, tax reference numbers</li>
+          <li><strong>Patient data:</strong> patient names, medical aid scheme names, claim references, payment amounts, and outstanding balances — only where necessary for remittance reconciliation and debtor tracking</li>
+          <li><strong>Practitioner data:</strong> practitioner names and income allocations for multi-practitioner reporting</li>
           <li><strong>Technical and usage data:</strong> IP address, browser type, timestamps, and access logs</li>
           <li><strong>Communications:</strong> emails, WhatsApp messages, meeting notes, and support tickets related to your engagement</li>
         </ul>
-        <p>We do not knowingly collect information from children, and we do not collect special personal information (as defined in POPIA) except where strictly necessary and lawful.</p>
+        <p>Patient information is treated as special personal information under POPIA and receives heightened protection. We do not knowingly collect information from children, and we do not collect special personal information except where strictly necessary and lawful.</p>
 
         <h4>3. How we collect it</h4>
         <ul>
-          <li>Directly from you, when you contact us, book a health check, or engage our services</li>
+          <li>Directly from you, when you contact us, join the waitlist, or engage our services</li>
           <li>From documents and records you share with us through secure channels</li>
           <li>From your existing accountants or bookkeepers, where you have instructed them to hand over records</li>
           <li>Automatically, through our website, booking tools, and file transfer platforms</li>
@@ -1674,8 +1752,8 @@
         <h4>5. How we use it</h4>
         <ul>
           <li>To prepare monthly bookkeeping, reconciliations, and reports</li>
-          <li>To reconcile business and trust accounts as agreed</li>
-          <li>To track outstanding fees and disbursement balances</li>
+          <li>To reconcile medical aid remittances against claims and bank deposits</li>
+          <li>To track outstanding patient debtors</li>
           <li>To communicate with you about your engagement, deadlines, and missing records</li>
           <li>To invoice you and manage payments</li>
           <li>To comply with tax, statutory, and regulatory obligations</li>
@@ -1686,7 +1764,7 @@
           <li><strong>Our accounting professionals:</strong> suitably qualified bookkeepers and accountants working on your engagement under written confidentiality obligations</li>
           <li><strong>Service providers:</strong> secure file storage, e-signature, and communication tools that support the service</li>
           <li><strong>Professional advisers:</strong> our own attorneys, insurers, and auditors, where necessary</li>
-          <li><strong>Authorities:</strong> SARS, the Information Regulator, the Legal Practice Council, courts, or other regulators where we are legally compelled</li>
+          <li><strong>Authorities:</strong> SARS, the Information Regulator, HPCSA, medical schemes, courts, or other regulators where we are legally compelled</li>
         </ul>
         <p>We do not sell personal information. We do not share it for third-party marketing.</p>
 
@@ -1695,8 +1773,8 @@
 
         <h4>8. How long we keep it</h4>
         <ul>
-          <li><strong>Client engagement records:</strong> at least five (5) years after the end of the tax year to which they relate, as required by tax and company law</li>
-          <li><strong>Trust records:</strong> retained per the practice's own statutory retention obligations and our engagement letter</li>
+          <li><strong>Client engagement records:</strong> at least five (5) years after the end of the tax year to which they relate</li>
+          <li><strong>Patient data:</strong> retained only for the period necessary to deliver the service and to satisfy statutory retention obligations, then securely destroyed</li>
           <li><strong>Prospective client enquiries:</strong> up to twelve (12) months if no engagement follows</li>
           <li><strong>Website and booking logs:</strong> typically up to twelve (12) months</li>
         </ul>
@@ -1710,7 +1788,7 @@
           <li>Written confidentiality obligations for staff and contractors</li>
           <li>Procedures for detecting, reporting, and responding to security compromises</li>
         </ul>
-        <p>No system is perfectly secure. If a security compromise affects your personal information, we will notify you and the Information Regulator as required by section 22 of POPIA.</p>
+        <p>No system is perfectly secure. If a security compromise affects your personal information or patient information, we will notify you and the Information Regulator as required by section 22 of POPIA.</p>
 
         <h4>10. Your rights</h4>
         <ul>
@@ -1721,7 +1799,7 @@
           <li>Withdraw consent at any time, where processing is based on consent</li>
           <li>Lodge a complaint with the Information Regulator of South Africa</li>
         </ul>
-        <p>To exercise any of these rights, email <strong>privacy@ledgercare.co.za</strong>.</p>
+        <p>To exercise any of these rights, email <strong>denysschen.callum43@gmail.com</strong>.</p>
 
         <h4>11. Cookies and website analytics</h4>
         <p>Our website uses minimal cookies and similar technologies to operate the site and understand basic usage. See our <button class="btn-link" data-modal="cookies">Cookie Notice</button> for details.</p>
@@ -1731,8 +1809,8 @@
 
         <h4>13. Contact</h4>
         <p><strong>Information Officer</strong><br>
-        LedgerCare<br>
-        Email: privacy@ledgercare.co.za</p>
+        Callum Denysschen<br>
+        Email: denysschen.callum43@gmail.com</p>
       </div>
       <div class="modal-foot">
         <div><strong>LedgerCare</strong> · Privacy Policy · v1.0</div>
@@ -1741,7 +1819,6 @@
     </div>
   </div>
 
-  <!-- POPIA Notice -->
   <div class="modal-backdrop" id="modal-popia" role="dialog" aria-modal="true" aria-labelledby="popia-title">
     <div class="modal">
       <div class="modal-head">
@@ -1755,7 +1832,7 @@
         <p><strong>Last updated:</strong> January 2025</p>
         <p>This notice is issued in terms of section 18 of the Protection of Personal Information Act, 4 of 2013 ("POPIA").</p>
 
-        <div class="callout">LedgerCare is the responsible party for the personal information described in this notice. Where we act on behalf of a client who is a responsible party in their own right (for example, where we reconcile their trust account on their instruction), we act as an operator and process information only on that client's documented instruction.</div>
+        <div class="callout">LedgerCare is the responsible party for the personal information described in this notice. Where we act on behalf of a client who is a responsible party in their own right (for example, where we process patient data on their instruction), we act as an operator and process information only on that client's documented instruction.</div>
 
         <h4>1. What we collect</h4>
         <table>
@@ -1763,11 +1840,11 @@
             <tr><th>Category</th><th>Examples</th><th>Why</th></tr>
           </thead>
           <tbody>
-            <tr><td>Identity</td><td>Name, ID/registration number, VAT number</td><td>To identify you and fulfil statutory obligations</td></tr>
+            <tr><td>Identity</td><td>Name, HPCSA number, VAT number</td><td>To identify you and fulfil statutory obligations</td></tr>
             <tr><td>Contact</td><td>Email, phone, address</td><td>To communicate about your engagement</td></tr>
-            <tr><td>Financial</td><td>Business and trust bank statements, invoices, ledgers</td><td>To prepare bookkeeping, reconciliations, and reports</td></tr>
-            <tr><td>Trust</td><td>Trust ledger entries, matter references, client names</td><td>To reconcile trust accounts as agreed</td></tr>
-            <tr><td>Transactional</td><td>Debtor and creditor records</td><td>To track outstanding amounts and obligations</td></tr>
+            <tr><td>Financial</td><td>Bank statements, invoices, ledgers</td><td>To prepare bookkeeping, reconciliations, and reports</td></tr>
+            <tr><td>Patient</td><td>Patient names, scheme names, claim references, balances</td><td>To reconcile remittances and track debtors</td></tr>
+            <tr><td>Practitioner</td><td>Names and income allocations</td><td>To prepare practitioner-level reporting</td></tr>
             <tr><td>Technical</td><td>IP, browser, logs</td><td>To secure the service and improve quality</td></tr>
           </tbody>
         </table>
@@ -1784,7 +1861,7 @@
         <ul>
           <li>Our accounting professionals under written confidentiality obligations</li>
           <li>Service providers who support secure storage, e-signature, and communications</li>
-          <li>SARS, the Legal Practice Council, regulators, or courts where legally compelled</li>
+          <li>SARS, HPCSA, the Information Regulator, medical schemes, regulators, or courts where legally compelled</li>
         </ul>
         <p>We do not sell personal information, and we do not share it for third-party marketing.</p>
 
@@ -1792,7 +1869,7 @@
         <p>Where personal information is transferred outside South Africa, we take reasonable steps to ensure the recipient is bound by laws, binding rules, or contractual obligations that provide an adequate level of protection substantially similar to POPIA (section 72).</p>
 
         <h4>5. How long we keep it</h4>
-        <p>We keep client engagement records for at least five (5) years after the end of the tax year to which they relate. Trust records are retained in line with the practice's own statutory obligations and our engagement letter. Enquiries that do not become engagements are retained for up to twelve (12) months.</p>
+        <p>We keep client engagement records for at least five (5) years after the end of the tax year to which they relate. Patient data is retained only for the period necessary to deliver the service and satisfy statutory retention obligations. Enquiries that do not become engagements are retained for up to twelve (12) months.</p>
 
         <h4>6. Security</h4>
         <p>We apply appropriate, reasonable technical and organisational measures to secure personal information, including access control, encryption where technically feasible, secure file sharing, and written confidentiality obligations for staff and contractors.</p>
@@ -1808,7 +1885,7 @@
         </ul>
 
         <h4>8. How to exercise your rights</h4>
-        <p>Email <strong>privacy@ledgercare.co.za</strong> with your request. We may ask you to verify your identity before acting.</p>
+        <p>Email <strong>denysschen.callum43@gmail.com</strong> with your request. We may ask you to verify your identity before acting.</p>
 
         <h4>9. Information Regulator</h4>
         <p>
@@ -1820,7 +1897,8 @@
         <h4>10. Information Officer</h4>
         <p>
           <strong>Attention:</strong> Information Officer, LedgerCare<br>
-          <strong>Email:</strong> privacy@ledgercare.co.za
+          <strong>Name:</strong> Callum Denysschen<br>
+          <strong>Email:</strong> denysschen.callum43@gmail.com
         </p>
       </div>
       <div class="modal-foot">
@@ -1830,65 +1908,75 @@
     </div>
   </div>
 
-  <!-- Trust Account Statement -->
-  <div class="modal-backdrop" id="modal-trust" role="dialog" aria-modal="true" aria-labelledby="trust-title">
+  <div class="modal-backdrop" id="modal-medical" role="dialog" aria-modal="true" aria-labelledby="medical-title">
     <div class="modal">
       <div class="modal-head">
         <div>
           <div class="eyebrow">Service scope</div>
-          <h3 id="trust-title">Trust Account Statement</h3>
+          <h3 id="medical-title">Medical Data Statement</h3>
         </div>
         <button class="modal-close" data-close aria-label="Close"><i class="fas fa-times"></i></button>
       </div>
       <div class="modal-body">
         <p><strong>Last updated:</strong> January 2025</p>
-        <div class="callout">This statement explains what LedgerCare does — and does not do — with respect to trust account work for small law firms. It is published so that clients understand the scope of our service before they engage.</div>
+        <div class="callout">Patient information is special personal information under POPIA and requires heightened protection. This statement explains exactly what LedgerCare does — and does not do — with patient data and medical aid information. It is published so that practice owners understand our scope before they engage.</div>
 
-        <h4>1. What we do</h4>
-        <p>Where trust account reconciliation is included in the engagement, LedgerCare:</p>
+        <h4>1. What we do with patient data</h4>
+        <p>Where medical aid remittance reconciliation or patient debtor tracking is included in the engagement, LedgerCare:</p>
         <ul>
-          <li>Reconciles the trust bank account against the trust ledger on the frequency agreed in the engagement letter</li>
-          <li>Identifies unreconciled items and requests supporting documentation</li>
-          <li>Records the reconciliation in the monthly deliverables</li>
-          <li>Reports outstanding trust items in the outstanding-items report</li>
-          <li>Performs the work under the supervision of a qualified accounting professional with legal trust accounting experience</li>
+          <li>Uses patient names, medical aid scheme names, claim references, and payment amounts to reconcile remittances against bank deposits</li>
+          <li>Tracks outstanding patient balances against ageing categories</li>
+          <li>Flags shortfalls, unpaid claims, and old debtors in the monthly reporting</li>
+          <li>Stores patient data in secure, access-controlled systems under the same standards as all other client information</li>
+          <li>Processes patient data only on the practice's documented instruction, as an operator</li>
         </ul>
 
         <h4>2. What we do not do</h4>
         <ul>
-          <li>We do not perform Legal Practice Council trust account audits</li>
-          <li>We do not certify LPC compliance</li>
-          <li>We do not replace the practice's own statutory obligations under the Legal Practice Act</li>
-          <li>We do not carry professional liability for trust account compliance outcomes</li>
-          <li>We do not perform three-way reconciliation across individual matters unless separately quoted</li>
+          <li>We do not submit medical claims to medical schemes</li>
+          <li>We do not perform HPCSA compliance audits</li>
+          <li>We do not audit billing practices or coding</li>
+          <li>We do not protect against medical scheme audits or forensic reviews</li>
+          <li>We do not certify compliance with the HPCSA, BHF, or any medical scheme</li>
+          <li>We do not use patient data for any purpose other than delivering the bookkeeping engagement</li>
+          <li>We do not share patient data with any third party except under the terms of the Privacy Policy</li>
         </ul>
 
         <h4>3. What the practice remains responsible for</h4>
         <ul>
-          <li>Compliance with the Legal Practice Act and LPC rules</li>
-          <li>Any trust account audit required by law</li>
-          <li>Authorising and monitoring all trust account transactions</li>
-          <li>Notifying LedgerCare immediately of any suspected trust account irregularity</li>
-          <li>Maintaining internal controls and segregation of duties where required</li>
+          <li>Compliance with the HPCSA Code of Conduct and all practice standards</li>
+          <li>Accurate billing and coding of clinical services</li>
+          <li>Any medical scheme audit, forensic review, or billing query</li>
+          <li>Patient consent and records management for clinical purposes</li>
+          <li>Notifying LedgerCare immediately of any suspected data breach affecting patient information</li>
         </ul>
 
-        <h4>4. Multiple trust accounts and three-way reconciliation</h4>
-        <p>Where a practice operates multiple trust accounts, or requires three-way reconciliation across individual matters, this is quoted per the agreed scope, in writing, before any work begins.</p>
+        <h4>4. POPIA and patient data</h4>
+        <p>Patient information is treated as special personal information under POPIA. This means it receives heightened protection. LedgerCare processes patient data:</p>
+        <ul>
+          <li>Only on the practice's documented instruction</li>
+          <li>Only to the extent necessary for the bookkeeping engagement</li>
+          <li>Only for the period necessary to deliver the service and satisfy statutory retention obligations</li>
+          <li>Under written confidentiality obligations from staff and contractors</li>
+          <li>With access controls and encryption where technically feasible</li>
+        </ul>
 
-        <h4>5. Access and confidentiality</h4>
-        <p>Trust data is treated as confidential and subject to the same access control, encryption, and retention standards as all other client information. Legal professional privilege is respected and never waived without the client's written instruction.</p>
+        <h4>5. Data subject rights</h4>
+        <p>Patients whose data is processed by LedgerCare retain all their rights under POPIA. Where a patient requests access, correction, or deletion, the practice will be the primary point of contact. LedgerCare will cooperate with the practice to fulfil the request within POPIA timeframes.</p>
 
-        <h4>6. Contact</h4>
-        <p>Questions about this statement: <strong>hello@ledgercare.co.za</strong></p>
+        <h4>6. Security incidents</h4>
+        <p>If a security compromise affects patient information, LedgerCare will notify the practice and the Information Regulator as required by section 22 of POPIA, and will cooperate fully with the practice's response.</p>
+
+        <h4>7. Contact</h4>
+        <p>Questions about this statement: <strong>denysschen.callum43@gmail.com</strong></p>
       </div>
       <div class="modal-foot">
-        <div><strong>LedgerCare</strong> · Trust Account Statement · v1.0</div>
+        <div><strong>LedgerCare</strong> · Medical Data Statement · v1.0</div>
         <button class="btn-link" data-close>Close</button>
       </div>
     </div>
   </div>
 
-  <!-- Cookie Notice -->
   <div class="modal-backdrop" id="modal-cookies" role="dialog" aria-modal="true" aria-labelledby="cookies-title">
     <div class="modal">
       <div class="modal-head">
@@ -1925,7 +2013,7 @@
         <p>You can control cookies through your browser settings. Blocking strictly necessary cookies may affect site function.</p>
 
         <h4>4. Contact</h4>
-        <p>Questions: <strong>privacy@ledgercare.co.za</strong></p>
+        <p>Questions: <strong>denysschen.callum43@gmail.com</strong></p>
       </div>
       <div class="modal-foot">
         <div><strong>LedgerCare</strong> · Cookie Notice · v1.0</div>
@@ -1934,7 +2022,6 @@
     </div>
   </div>
 
-  <!-- Service Disclaimer -->
   <div class="modal-backdrop" id="modal-disclaimer" role="dialog" aria-modal="true" aria-labelledby="disclaimer-title">
     <div class="modal">
       <div class="modal-head">
@@ -1948,12 +2035,13 @@
         <p><strong>Last updated:</strong> January 2025</p>
 
         <h4>1. Nature of services</h4>
-        <p>LedgerCare provides bookkeeping, bank reconciliation, trust account reconciliation, document organisation, and reporting services for small law firms. We do not provide:</p>
+        <p>LedgerCare provides bookkeeping, bank reconciliation, medical aid remittance reconciliation, patient debtor tracking, document organisation, and reporting services for small physiotherapy practices. We do not provide:</p>
         <ul>
+          <li>Medical billing, claims submission, or practice management software support</li>
+          <li>HPCSA compliance submissions or audit support</li>
           <li>Audit, review, assurance, or trust account audit services</li>
           <li>Tax advice, tax opinions, or tax return submissions</li>
           <li>Legal advice</li>
-          <li>Legal Practice Council compliance submissions</li>
           <li>Investment advice or financial planning</li>
           <li>Payroll processing under a service that is not separately agreed in writing</li>
         </ul>
@@ -1962,14 +2050,14 @@
         <h4>2. Reliance on information provided</h4>
         <p>Our work depends on the accuracy and completeness of the records and information you provide. We do not independently verify the truthfulness or completeness of source documents. Where information is missing or unclear, we will request it and mark it as outstanding.</p>
 
-        <h4>3. Trust account work</h4>
-        <p>Where trust account reconciliation is included, it is a bookkeeping reconciliation between the trust bank account and the trust ledger. It is not a Legal Practice Council trust audit, an assurance engagement, or a substitute for the practice's own statutory obligations.</p>
+        <h4>3. Medical aid remittance work</h4>
+        <p>Where medical aid remittance reconciliation is included, it is a bookkeeping reconciliation between the practice's claims, bank deposits, and medical scheme remittances. It is not a medical billing audit, an assurance engagement, or a substitute for the practice's own statutory or medical scheme obligations. It does not protect against medical scheme audits or forensic reviews.</p>
 
-        <h4>4. No guarantee of SARS or third-party outcomes</h4>
-        <p>We do not control and cannot guarantee the outcome of any SARS assessment, bank query, insurance claim, Legal Practice Council review, or third-party decision.</p>
+        <h4>4. No guarantee of SARS, HPCSA, or third-party outcomes</h4>
+        <p>We do not control and cannot guarantee the outcome of any SARS assessment, medical scheme query, HPCSA review, patient debtor recovery, or third-party decision.</p>
 
         <h4>5. Not a substitute for professional advice</h4>
-        <p>Nothing in our reports, summaries, or communications constitutes tax, legal, or investment advice. Decisions based on our reports should be made with the input of the appropriate qualified professional.</p>
+        <p>Nothing in our reports, summaries, or communications constitutes tax, legal, medical, or investment advice. Decisions based on our reports should be made with the input of the appropriate qualified professional.</p>
 
         <h4>6. Forward-looking statements</h4>
         <p>Cash-flow forecasts, budgets, and projections are estimates based on assumptions. They are not guarantees of future performance.</p>
@@ -1978,7 +2066,7 @@
         <p>Our liability is limited as set out in our <button class="btn-link" data-modal="terms">Terms of Engagement</button>. In summary, liability is capped at the fees paid in the three (3) months preceding the event giving rise to the claim, and we are not liable for indirect or consequential losses.</p>
 
         <h4>8. Contact</h4>
-        <p>Questions about this disclaimer: <strong>hello@ledgercare.co.za</strong></p>
+        <p>Questions about this disclaimer: <strong>denysschen.callum43@gmail.com</strong></p>
       </div>
       <div class="modal-foot">
         <div><strong>LedgerCare</strong> · Service Disclaimer · v1.0</div>
@@ -1987,7 +2075,6 @@
     </div>
   </div>
 
-  <!-- Complaints Procedure -->
   <div class="modal-backdrop" id="modal-complaints" role="dialog" aria-modal="true" aria-labelledby="complaints-title">
     <div class="modal">
       <div class="modal-head">
@@ -2002,9 +2089,9 @@
         <p>We would rather hear about a problem early than lose a client quietly. This procedure explains how to raise a concern and what you can expect from us in response.</p>
 
         <h4>1. How to raise a complaint</h4>
-        <p>Email <strong>complaints@ledgercare.co.za</strong> with:</p>
+        <p>Email <strong>denysschen.callum43@gmail.com</strong> with:</p>
         <ul>
-          <li>Your name and firm</li>
+          <li>Your name and practice</li>
           <li>The date the issue arose</li>
           <li>A short description of the problem</li>
           <li>The outcome you are seeking</li>
