@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LedgerCare | Monthly bookkeeping & insights for contractors</title>
+  <!-- Google Fonts for clean typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #1a2e3b;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-size: 2.25rem;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+      color: #2a7f62;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      background-color: #2a7f62;
+      color: white;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 60px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background-color 0.2s, transform 0.1s;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.02);
+    }
+
+    .btn:hover {
+      background-color: #1f5e49;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #2a7f62;
+      color: #2a7f62;
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: #f0f7f4;
+    }
+
+    /* Header / Nav */
+    .navbar {
+      padding: 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #e8edf2;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.75rem;
+      letter-spacing: -0.02em;
+      color: #0e2b3a;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: #2a7f62;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #2e4b5c;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #2a7f62;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 64px 0 80px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-content {
+      flex: 1 1 500px;
+    }
+
+    .hero-content h1 {
+      margin-bottom: 24px;
+      color: #0e2b3a;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #3e5e6f;
+      margin-bottom: 32px;
+      max-width: 600px;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .hero-note {
+      font-size: 0.9rem;
+      color: #6e8b9b;
+      margin-top: 16px;
+    }
+
+    .hero-visual {
+      flex: 1 1 380px;
+      background: #eef6f2;
+      border-radius: 32px;
+      padding: 32px;
+      box-shadow: 0 20px 30px -15px rgba(0, 0, 0, 0.05);
+      border: 1px solid #d9e9e1;
+    }
+
+    .hero-visual h3 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: #1a4d3e;
+    }
+
+    .hero-visual ul {
+      list-style: none;
+    }
+
+    .hero-visual li {
+      padding: 10px 0;
+      border-bottom: 1px solid #d0e3da;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+      color: #1d3e32;
+    }
+
+    .hero-visual li:last-child {
+      border-bottom: none;
+    }
+
+    .hero-visual i {
+      color: #2a7f62;
+      font-size: 1.1rem;
+      width: 20px;
+    }
+
+    /* Sections */
+    .section {
+      padding: 80px 0;
+      border-bottom: 1px solid #e8edf2;
+    }
+
+    .section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-intro {
+      max-width: 700px;
+      margin-bottom: 48px;
+      color: #3e5e6f;
+    }
+
+    /* Pricing tiers */
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 28px;
+    }
+
+    .tier-card {
+      background: #ffffff;
+      border: 1px solid #dfe9e4;
+      border-radius: 28px;
+      padding: 32px 24px;
+      transition: box-shadow 0.2s, border-color 0.2s;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    }
+
+    .tier-card:hover {
+      box-shadow: 0 16px 30px -8px rgba(0, 0, 0, 0.08);
+      border-color: #c0d9cf;
+    }
+
+    .tier-card.recommended {
+      border: 2px solid #2a7f62;
+      position: relative;
+      background: #fcfefd;
+    }
+
+    .recommended-badge {
+      background: #2a7f62;
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 12px;
+      border-radius: 40px;
+      display: inline-block;
+      margin-bottom: 16px;
+      align-self: flex-start;
+    }
+
+    .tier-price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0e2b3a;
+      margin: 8px 0 4px;
+    }
+
+    .tier-price span {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #6e8b9b;
+    }
+
+    .tier-name {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .tier-desc {
+      color: #4d6b7c;
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      min-height: 48px;
+    }
+
+    .tier-features {
+      list-style: none;
+      margin: 20px 0 28px;
+      flex-grow: 1;
+    }
+
+    .tier-features li {
+      padding: 8px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: #1a3d4b;
+    }
+
+    .tier-features i {
+      color: #2a7f62;
+      margin-top: 4px;
+      font-size: 0.8rem;
+    }
+
+    .tier-scope {
+      background: #f1f7f4;
+      border-radius: 16px;
+      padding: 14px 16px;
+      font-size: 0.85rem;
+      color: #1d4d3e;
+      margin: 20px 0 24px;
+    }
+
+    .tier-scope strong {
+      font-weight: 600;
+    }
+
+    /* Offers section */
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .offer-card {
+      background: #f9fcfb;
+      border: 1px solid #d7e8e0;
+      border-radius: 24px;
+      padding: 28px 24px;
+    }
+
+    .offer-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .offer-price {
+      font-weight: 600;
+      color: #2a7f62;
+      margin-bottom: 16px;
+    }
+
+    .offer-card p {
+      color: #3e5e6f;
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    /* Guarantees table */
+    .guarantees-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e0eae5;
+    }
+
+    .guarantees-table th,
+    .guarantees-table td {
+      text-align: left;
+      padding: 20px 24px;
+      border-bottom: 1px solid #e0eae5;
+      font-size: 0.95rem;
+    }
+
+    .guarantees-table th {
+      background: #f5faf8;
+      font-weight: 600;
+      color: #0e2b3a;
+      width: 30%;
+    }
+
+    .guarantees-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Positioning list */
+    .diff-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .diff-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 1rem;
+      color: #1e3d4c;
+    }
+
+    .diff-list i {
+      color: #2a7f62;
+      font-size: 1.3rem;
+      min-width: 24px;
+      margin-top: 2px;
+    }
+
+    /* Marketing message block */
+    .message-block {
+      background: #0e2b3a;
+      color: white;
+      border-radius: 36px;
+      padding: 56px 48px;
+      margin: 40px 0;
+    }
+
+    .message-block h2 {
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .message-block .headline {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .message-block .subheadline {
+      font-size: 1.2rem;
+      color: #d0e3da;
+      margin-bottom: 32px;
+      max-width: 700px;
+    }
+
+    .message-block .what-you-get {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 32px 0 40px;
+    }
+
+    .message-block .what-you-get li {
+      list-style: none;
+      display: flex;
+      gap: 10px;
+      color: #ffffff;
+      font-size: 0.95rem;
+    }
+
+    .message-block .what-you-get i {
+      color: #7fc9af;
+    }
+
+    .message-block .cta-area {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .message-block .btn {
+      background: white;
+      color: #0e2b3a;
+      font-weight: 700;
+    }
+
+    .message-block .btn:hover {
+      background: #e0f0e9;
+    }
+
+    /* Financial table */
+    .financial-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 32px 0;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid #e0eae5;
+    }
+
+    .financial-table th {
+      background: #f3f9f6;
+      text-align: left;
+      padding: 16px 20px;
+      font-weight: 600;
+      color: #0e2b3a;
+      border-bottom: 1px solid #d0e3da;
+    }
+
+    .financial-table td {
+      padding: 14px 20px;
+      border-bottom: 1px solid #e0eae5;
+      color: #1e3d4c;
+    }
+
+    .financial-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Delivery steps */
+    .steps-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 32px 0;
+    }
+
+    .steps-list li {
+      background: #f7fbf9;
+      border-radius: 20px;
+      padding: 24px 20px;
+      border-left: 4px solid #2a7f62;
+      font-weight: 500;
+      color: #1a3d4b;
+      font-size: 0.95rem;
+    }
+
+    .steps-list li i {
+      margin-right: 12px;
+      color: #2a7f62;
+    }
+
+    /* First 30 days grid */
+    .weeks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 24px;
+      margin: 32px 0;
+    }
+
+    .week-card {
+      background: #fcfefd;
+      border-radius: 24px;
+      border: 1px solid #dfe9e4;
+      padding: 24px 20px;
+    }
+
+    .week-card h4 {
+      font-size: 1.1rem;
+      color: #0e2b3a;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .week-card h4 i {
+      color: #2a7f62;
+    }
+
+    .week-card p {
+      font-size: 0.9rem;
+      color: #3e5e6f;
+      margin-bottom: 16px;
+    }
+
+    .week-card ul {
+      list-style: none;
+      font-size: 0.85rem;
+      color: #2e4b5c;
+    }
+
+    .week-card li {
+      margin-bottom: 8px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .week-card i.fa-check {
+      color: #2a7f62;
+      font-size: 0.75rem;
+      margin-top: 4px;
+    }
+
+    /* Final recommendation */
+    .final-cta {
+      background: #e9f3ef;
+      border-radius: 36px;
+      padding: 56px 48px;
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+
+    .final-cta h2 {
+      color: #0e2b3a;
+      margin-bottom: 16px;
+    }
+
+    .final-cta p {
+      max-width: 700px;
+      margin: 0 auto 32px;
+      color: #1e3d4c;
+      font-size: 1.1rem;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 40px 0;
+      border-top: 1px solid #e8edf2;
+      color: #6e8b9b;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer a {
+      color: #2a7f62;
+      text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.25rem;
+      }
+
+      h2 {
+        font-size: 1.75rem;
+      }
+
+      .hero {
+        padding: 40px 0 56px;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+
+      .message-block {
+        padding: 40px 28px;
+      }
+
+      .message-block .headline {
+        font-size: 1.8rem;
+      }
+
+      .section {
+        padding: 56px 0;
+      }
+
+      .guarantees-table th,
+      .guarantees-table td {
+        padding: 16px;
+        font-size: 0.85rem;
+      }
+
+      .final-cta {
+        padding: 40px 24px;
+      }
+
+      .navbar {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <a href="#" class="logo">Ledger<span>Care</span></a>
+      <div class="nav-links">
+        <a href="#pricing">Pricing</a>
+        <a href="#offers">Free health check</a>
+        <a href="#guarantees">Guarantees</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+      <div class="hero-content">
+        <div class="section-label">For South African contractors</div>
+        <h1>Know where your contracting business stands every month.</h1>
+        <p>LedgerCare helps you keep your books organised, track outstanding invoices, and understand your monthly financial position—without hiring a full-time accounts employee.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn">Book your free health check <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+          <a href="#pricing" class="btn btn-outline">See packages</a>
+        </div>
+        <div class="hero-note"><i class="fas fa-check-circle" style="color: #2a7f62;"></i> No obligation. 15 minutes. Real insights.</div>
+      </div>
+      <div class="hero-visual">
+        <h3>What you get every month</h3>
+        <ul>
+          <li><i class="fas fa-check-circle"></i> Monthly bookkeeping & reconciliations</li>
+          <li><i class="fas fa-check-circle"></i> Clear income & expense reporting</li>
+          <li><i class="fas fa-check-circle"></i> Outstanding customer invoice visibility</li>
+          <li><i class="fas fa-check-circle"></i> Missing records checklist</li>
+          <li><i class="fas fa-check-circle"></i> Fixed-scope packages & dedicated contact</li>
+        </ul>
+      </div>
+    </header>
+  </div>
+
+  <!-- Pricing section -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section-label">Simple, predictable pricing</div>
+      <h2>Three packages. No hidden fees.</h2>
+      <div class="section-intro">Price by monthly transaction volume, accounts and complexity—not just headcount. All packages include secure document handling and a named point of contact.</div>
+
+      <div class="tiers-grid">
+        <!-- Tier 1 -->
+        <div class="tier-card">
+          <div class="tier-name">Books Essential</div>
+          <div class="tier-price">R1,499 <span>/month</span></div>
+          <div class="tier-desc">Entry plan for small businesses with simple finances and low transaction volumes.</div>
+          <ul class="tier-features">
+            <li><i class="fas fa-check"></i> Monthly bookkeeping</li>
+            <li><i class="fas fa-check"></i> Bank reconciliation (agreed accounts)</li>
+            <li><i class="fas fa-check"></i> Income & expense summary</li>
+            <li><i class="fas fa-check"></i> Digital document organisation</li>
+            <li><i class="fas fa-check"></i> Missing-document checklist</li>
+            <li><i class="fas fa-check"></i> Monthly completion notification</li>
+          </ul>
+          <div class="tier-scope"><strong>Scope example:</strong> one entity, up to 60 transactions and one bank account per month.</div>
+          <a href="#contact" class="btn btn-outline" style="width: 100%; text-align: center;">Start with Essential</a>
+        </div>
+
+        <!-- Tier 2 -->
+        <div class="tier-card recommended">
+          <div class="recommended-badge">Recommended</div>
+          <div class="tier-name">Books & Business Insights</div>
+          <div class="tier-price">R2,999 <span>/month</span></div>
+          <div class="tier-desc">For growing contractors who need to understand their numbers, not merely record them.</div>
+          <ul class="tier-features">
+            <li><i class="fas fa-check"></i> Everything in Essential, plus:</li>
+            <li><i class="fas fa-check"></i> Higher transaction allowance</li>
+            <li><i class="fas fa-check"></i> Customer invoice & debtor tracking</li>
+            <li><i class="fas fa-check"></i> Supplier & creditor tracking</li>
+            <li><i class="fas fa-check"></i> Monthly profit-and-loss report</li>
+            <li><i class="fas fa-check"></i> Cash-flow summary</li>
+            <li><i class="fas fa-check"></i> Outstanding-items report</li>
+          </ul>
+          <div class="tier-scope"><strong>Scope example:</strong> one entity, up to 150 transactions and two bank accounts per month.</div>
+          <a href="#contact" class="btn" style="width: 100%; text-align: center;">Book a health check</a>
+        </div>
+
+        <!-- Tier 3 -->
+        <div class="tier-card">
+          <div class="tier-name">Finance Partner</div>
+          <div class="tier-price">R5,999 <span>/month</span></div>
+          <div class="tier-desc">For established businesses needing more management visibility.</div>
+          <ul class="tier-features">
+            <li><i class="fas fa-check"></i> Everything in Tier 2, plus:</li>
+            <li><i class="fas fa-check"></i> Budget-versus-actual reporting</li>
+            <li><i class="fas fa-check"></i> Rolling cash-flow forecast</li>
+            <li><i class="fas fa-check"></i> Job/service-line profitability analysis</li>
+            <li><i class="fas fa-check"></i> Monthly management review</li>
+            <li><i class="fas fa-check"></i> Prioritised action list</li>
+            <li><i class="fas fa-check"></i> Coordination of accounting queries</li>
+          </ul>
+          <div class="tier-scope"><strong>Scope example:</strong> up to 300 transactions, subject to account complexity and agreed reporting.</div>
+          <a href="#contact" class="btn btn-outline" style="width: 100%; text-align: center;">Discuss Finance Partner</a>
+        </div>
+      </div>
+      <p style="margin-top: 32px; font-size: 0.9rem; color: #6e8b9b;"><i class="fas fa-info-circle"></i> Transaction limits are starting assumptions. Payroll, annual accounts, tax returns, catch-up bookkeeping, audit work and complex VAT work are quoted separately.</p>
+    </div>
+  </section>
+
+  <!-- Low-risk entry offers -->
+  <section class="section" id="offers">
+    <div class="container">
+      <div class="section-label">Low-risk entry offers</div>
+      <h2>Start without the risk.</h2>
+      <div class="section-intro">We reduce your risk without giving away hours of free professional work. Choose the first step that fits.</div>
+
+      <div class="offers-grid">
+        <div class="offer-card">
+          <h3>Free 15-min health check</h3>
+          <div class="offer-price">R0</div>
+          <p>We ask how you manage records, reconciliations and outstanding invoices. You get a short list of potential gaps and a suggested next step.</p>
+          <p style="font-size: 0.85rem; color: #2a7f62;"><i class="fas fa-clock"></i> Strict 15-minute limit. No full financial review.</p>
+        </div>
+        <div class="offer-card">
+          <h3>Fixed-price diagnostic</h3>
+          <div class="offer-price">R495</div>
+          <p>Review an agreed sample of existing records. Get a short list of missing reconciliations, recordkeeping gaps and recommended next steps.</p>
+          <p style="font-size: 0.85rem; color: #2a7f62;"><i class="fas fa-credit-card"></i> Credit R495 against first month if you sign within 14 days.</p>
+        </div>
+        <div class="offer-card">
+          <h3>First-month pilot</h3>
+          <div class="offer-price">Normal fee</div>
+          <p>One month of bookkeeping under a written scope, with agreed transaction limit and deliverables. No long-term commitment.</p>
+          <p style="font-size: 0.85rem; color: #2a7f62;"><i class="fas fa-file-signature"></i> Paid monthly pilot. We prove delivery.</p>
+        </div>
+      </div>
+      <p style="font-weight: 500; color: #1e3d4c;"><i class="fas fa-check-circle" style="color: #2a7f62;"></i> My choice: free health check to start conversations, R495 diagnostic for real problems, paid monthly pilot to prove delivery.</p>
+    </div>
+  </section>
+
+  <!-- Guarantees -->
+  <section class="section" id="guarantees">
+    <div class="container">
+      <div class="section-label">Guarantees that build trust</div>
+      <h2>We guarantee what we control.</h2>
+      <div class="section-intro">No vague promises. Clear commitments, written down.</div>
+
+      <table class="guarantees-table">
+        <tr>
+          <th>Clear scope</th>
+          <td>Written inclusions, exclusions and transaction limits before work starts.</td>
+        </tr>
+        <tr>
+          <th>No surprise charges</th>
+          <td>Additional work requires a written quote and your approval.</td>
+        </tr>
+        <tr>
+          <th>Delivery commitment</th>
+          <td>Monthly deliverables completed by an agreed date if records arrive by the agreed deadline.</td>
+        </tr>
+        <tr>
+          <th>Correction policy</th>
+          <td>Correct errors attributable to our service without an additional service fee.</td>
+        </tr>
+        <tr>
+          <th>Communication</th>
+          <td>Acknowledge requests within one business day.</td>
+        </tr>
+        <tr>
+          <th>Cancellation</th>
+          <td>Month-to-month after any disclosed initial setup or pilot terms.</td>
+        </tr>
+        <tr>
+          <th>Service recovery</th>
+          <td>A reasonable service credit for a missed commitment caused by our team, subject to clear terms.</td>
+        </tr>
+      </table>
+      <p style="margin-top: 24px; font-size: 0.9rem; color: #6e8b9b;">We do not promise perfect books, zero tax problems or guaranteed compliance. We follow a genuine process for checking work, securing data and escalating issues.</p>
+    </div>
+  </section>
+
+  <!-- Positioning -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Why LedgerCare</div>
+      <h2>Not the cheapest. The most accountable.</h2>
+      <div class="section-intro">Competitors include independent bookkeepers, traditional practices, freelancers and software. We win on focus, predictability and follow-through.</div>
+
+      <ul class="diff-list">
+        <li><i class="fas fa-hard-hat"></i> <span><strong>Specialist focus:</strong> we understand the recurring admin problems of contractors.</span></li>
+        <li><i class="fas fa-tag"></i> <span><strong>Predictable pricing:</strong> monthly plans with explicit limits instead of vague hourly charges.</span></li>
+        <li><i class="fas fa-chart-line"></i> <span><strong>Useful reporting:</strong> show owners what they earned, what remains unpaid and what needs attention.</span></li>
+        <li><i class="fas fa-laptop-house"></i> <span><strong>Low-friction service:</strong> remote onboarding, secure document collection, single point of contact.</span></li>
+        <li><i class="fas fa-user-check"></i> <span><strong>Accountability:</strong> a named person follows up on missing records and unresolved questions.</span></li>
+      </ul>
+      <p style="margin-top: 32px; font-weight: 500; color: #1e3d4c;">The defensible part is not merely recording transactions. It is consistently delivering accurate records, useful reporting and reliable follow-through.</p>
+    </div>
+  </section>
+
+  <!-- Marketing message -->
+  <section class="section" style="border-bottom: none; padding-bottom: 40px;">
+    <div class="container">
+      <div class="message-block">
+        <div class="section-label" style="color: #7fc9af;">Our main message</div>
+        <div class="headline">Know where your contracting business stands every month.</div>
+        <div class="subheadline">LedgerCare helps South African contractors keep their books organised, track outstanding invoices and understand their monthly financial position—without hiring a full-time accounts employee.</div>
+        
+        <ul class="what-you-get">
+          <li><i class="fas fa-check-circle"></i> Monthly bookkeeping and reconciliations</li>
+          <li><i class="fas fa-check-circle"></i> Clear income and expense reporting</li>
+          <li><i class="fas fa-check-circle"></i> Visibility into outstanding customer invoices</li>
+          <li><i class="fas fa-check-circle"></i> Checklist of missing records and unresolved items</li>
+          <li><i class="fas fa-check-circle"></i> Fixed-scope monthly packages</li>
+          <li><i class="fas fa-check-circle"></i> Remote service with dedicated point of contact</li>
+        </ul>
+
+        <div class="cta-area">
+          <a href="#contact" class="btn">Book your health check <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+          <span style="color: #b8d9cc;">No obligation. We will discuss your process and recommend a next step.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Short outreach message -->
+  <section class="section" style="padding-top: 20px;">
+    <div class="container">
+      <div style="background: #f8fbfa; border-radius: 24px; padding: 32px; border-left: 6px solid #2a7f62;">
+        <div class="section-label" style="margin-bottom: 8px;">Short outreach message</div>
+        <p style="font-size: 1.05rem; color: #1e3d4c;">Hi, I run LedgerCare, a bookkeeping and monthly reporting service for small contractors. We help business owners keep records organised, track outstanding invoices and understand monthly numbers without employing a full-time accounts person.</p>
+        <p style="font-size: 1.05rem; color: #1e3d4c; margin-top: 16px;">I'm offering a free 15-minute bookkeeping health check to a small number of local businesses. Would that be useful for your business? There is no obligation to sign up.</p>
+        <p style="margin-top: 20px; font-size: 0.9rem; color: #6e8b9b;"><i class="fas fa-info-circle"></i> Only claim that you already run an established service if that is true. Otherwise, present it as a new service you are launching.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer acquisition -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Customer acquisition strategy</div>
+      <h2>Start with direct outreach.</h2>
+      <div class="section-intro">Don't spend heavily on advertising. Build conversations first.</div>
+
+      <div class="weeks-grid">
+        <div class="week-card">
+          <h4><i class="fas fa-bullhorn"></i> Direct outreach</h4>
+          <p>Build a list of local electricians, plumbers, HVAC contractors and maintenance companies. Contact owners with a short, relevant message. Aim for conversations, not mass spam.</p>
+        </div>
+        <div class="week-card">
+          <h4><i class="fas fa-handshake"></i> Referral partners</h4>
+          <p>Develop relationships with business consultants, software implementers and other professionals who encounter small businesses needing better financial administration.</p>
+        </div>
+        <div class="week-card">
+          <h4><i class="fas fa-search"></i> Search presence</h4>
+          <p>Build a simple website and Google Business Profile. Explain the niche, packages, service area and booking process. Publish useful content for contractors.</p>
+        </div>
+        <div class="week-card">
+          <h4><i class="fas fa-users"></i> Customer referrals</h4>
+          <p>Once satisfied, ask whether they know another contractor who needs help. Consider a transparent service credit after a referred customer becomes a paying client.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Financials -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">What the business could look like financially</div>
+      <h2>The crucial number is surplus.</h2>
+      <div class="section-intro">Illustrative monthly scenarios using an average fee of R2,999 per client. These are hypothetical, before tax and owner salary.</div>
+
+      <table class="financial-table">
+        <thead>
+          <tr>
+            <th>Paying clients</th>
+            <th>Monthly revenue</th>
+            <th>Assumed delivery cost per client</th>
+            <th>Overhead</th>
+            <th>Operating surplus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>5</td><td>R14,995</td><td>R1,500</td><td>R2,000</td><td>R495</td></tr>
+          <tr><td>10</td><td>R29,990</td><td>R1,350</td><td>R3,000</td><td>R13,490</td></tr>
+          <tr><td>20</td><td>R59,980</td><td>R1,350</td><td>R5,000</td><td>R20,980</td></tr>
+          <tr><td>40</td><td>R119,960</td><td>R1,250</td><td>R10,000</td><td>R59,960</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size: 0.95rem; color: #1e3d4c; font-weight: 500;">Notice: five clients do not automatically produce a good income. Pricing, workload, staff costs and retention determine whether the business is worth scaling.</p>
+    </div>
+  </section>
+
+  <!-- Delivery & compliance -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Delivery & compliance</div>
+      <h2>A repeatable process, every client.</h2>
+      <div class="section-intro">Before accepting a client, we establish a clear workflow.</div>
+
+      <ul class="steps-list">
+        <li><i class="fas fa-check-circle"></i> Understand the business, accounts, transaction volume and reporting needs.</li>
+        <li><i class="fas fa-check-circle"></i> Agree on scope, price, deadlines and exclusions in writing.</li>
+        <li><i class="fas fa-check-circle"></i> Collect records through a secure, access-controlled process.</li>
+        <li><i class="fas fa-check-circle"></i> Have the accounting professional process and reconcile records.</li>
+        <li><i class="fas fa-check-circle"></i> Review the work and resolve missing information.</li>
+        <li><i class="fas fa-check-circle"></i> Deliver agreed reports and explain outstanding issues.</li>
+        <li><i class="fas fa-check-circle"></i> Invoice monthly and follow up on renewal and service quality.</li>
+      </ul>
+      <p style="margin-top: 24px; font-size: 0.9rem; color: #6e8b9b;">We confirm relevant requirements for the actual services we sell. Tax practitioner registration, audit work and other regulated activities have specific rules. We use suitably qualified professionals, protect client financial information and comply with POPIA.</p>
+    </div>
+  </section>
+
+  <!-- First 30 days -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">The first 30 days</div>
+      <h2>A concrete launch plan.</h2>
+
+      <div class="weeks-grid">
+        <div class="week-card">
+          <h4><i class="fas fa-calendar-week"></i> Week 1 — Secure delivery</h4>
+          <ul>
+            <li><i class="fas fa-check"></i> Find two potential accounting professionals</li>
+            <li><i class="fas fa-check"></i> Confirm competencies and availability</li>
+            <li><i class="fas fa-check"></i> Obtain realistic per-client delivery quotes</li>
+            <li><i class="fas fa-check"></i> Choose initial package and define limits</li>
+          </ul>
+        </div>
+        <div class="week-card">
+          <h4><i class="fas fa-calendar-week"></i> Week 2 — Minimum sales system</h4>
+          <ul>
+            <li><i class="fas fa-check"></i> Publish the offer and set up booking</li>
+            <li><i class="fas fa-check"></i> Prepare sample monthly report (fictional data)</li>
+            <li><i class="fas fa-check"></i> Establish written engagement terms</li>
+            <li><i class="fas fa-check"></i> Secure document handling</li>
+          </ul>
+        </div>
+        <div class="week-card">
+          <h4><i class="fas fa-calendar-week"></i> Week 3 — Acquire conversations</h4>
+          <ul>
+            <li><i class="fas fa-check"></i> Contact 40–50 suitable businesses</li>
+            <li><i class="fas fa-check"></i> Track replies, health checks, objections</li>
+            <li><i class="fas fa-check"></i> Adjust message based on responses</li>
+          </ul>
+        </div>
+        <div class="week-card">
+          <h4><i class="fas fa-calendar-week"></i> Week 4 — Test paid demand</h4>
+          <ul>
+            <li><i class="fas fa-check"></i> Aim for 2–3 paying pilot clients</li>
+            <li><i class="fas fa-check"></i> Deliver service, record actual costs</li>
+            <li><i class="fas fa-check"></i> Ask if reporting justifies ongoing payment</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final recommendation & CTA -->
+  <div class="container">
+    <div class="final-cta" id="contact">
+      <h2>Start with a free 15-minute health check.</h2>
+      <p>No obligation. We’ll discuss your current process, identify potential gaps and recommend a suitable next step. First milestone isn’t 40 clients—it’s three who pay, receive accurate work, renew and leave a healthy margin.</p>
+      <a href="#" class="btn" style="font-size: 1.1rem; padding: 16px 36px;">Book your health check <i class="fas fa-arrow-right" style="margin-left: 10px;"></i></a>
+      <p style="margin-top: 24px; font-size: 0.9rem; color: #6e8b9b;">Or email <a href="mailto:hello@ledgercare.co.za" style="color: #2a7f62; text-decoration: none;">hello@ledgercare.co.za</a> — we reply within one business day.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="container">
+    <footer class="footer">
+      <div>© 2025 LedgerCare. For South African contractors.</div>
+      <div><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">POPIA</a></div>
+    </footer>
+  </div>
+
+  <!-- Smooth scrolling (optional) -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
