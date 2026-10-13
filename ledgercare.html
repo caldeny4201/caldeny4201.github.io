@@ -4,17 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LedgerCare | Monthly bookkeeping for small physiotherapy practices — launching soon</title>
-  <meta name="description" content="Remote monthly bookkeeping and medical aid remittance reconciliation for small South African physiotherapy practices. Fixed monthly fee. POPIA-compliant. Join the waitlist.">
+  <title>LedgerCare | Monthly bookkeeping for professional services firms</title>
+  <meta name="description" content="Remote monthly bookkeeping, reporting and financial clarity for small professional services firms in South Africa. Fixed monthly fee. No hourly billing. POPIA-compliant.">
   <meta name="theme-color" content="#0B1F2A">
+
+  <!-- Favicon placeholder -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230B1F2A'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='%23C89B3C' font-family='Inter,sans-serif' font-weight='700'%3EL%3C/text%3E%3C/svg%3E">
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <style>
     :root {
+      /* Colour system */
       --ink: #0B1F2A;
       --ink-soft: #1E3D4C;
       --ink-mute: #4D6B7C;
@@ -24,24 +31,35 @@
       --paper: #FFFFFF;
       --paper-warm: #FAF8F4;
       --paper-green: #F2F7F4;
+
       --gold: #C89B3C;
       --gold-soft: #E5D3A3;
       --gold-deep: #9C7824;
+
       --green: #2C6E52;
       --green-soft: #E8F2ED;
       --green-deep: #1A4B36;
-      --whatsapp: #25D366;
-      --whatsapp-dark: #128C7E;
+
+      --danger: #A33A2C;
+
+      /* Type */
       --serif: 'Fraunces', Georgia, serif;
       --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      /* Spacing */
       --pad-x: clamp(20px, 5vw, 56px);
       --max: 1240px;
+
+      /* Shadow */
       --shadow-sm: 0 1px 2px rgba(11, 31, 42, 0.04);
       --shadow-md: 0 4px 16px -4px rgba(11, 31, 42, 0.08);
       --shadow-lg: 0 24px 60px -24px rgba(11, 31, 42, 0.18);
     }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
+
     body {
       font-family: var(--sans);
       font-size: 16px;
@@ -49,7 +67,10 @@
       color: var(--ink);
       background: var(--paper);
       -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
+
+    /* ---------- Typography ---------- */
     h1, h2, h3, h4, .serif {
       font-family: var(--serif);
       font-weight: 500;
@@ -57,11 +78,14 @@
       letter-spacing: -0.02em;
       color: var(--ink);
     }
+
     h1 { font-size: clamp(2.4rem, 5.2vw, 4rem); font-weight: 600; letter-spacing: -0.03em; }
     h2 { font-size: clamp(1.9rem, 3.4vw, 2.75rem); font-weight: 500; }
     h3 { font-size: clamp(1.25rem, 2vw, 1.55rem); font-weight: 500; }
     h4 { font-size: 1.1rem; font-weight: 600; font-family: var(--sans); letter-spacing: -0.01em; }
+
     p { color: var(--ink-soft); }
+
     .eyebrow {
       font-family: var(--sans);
       font-size: 0.78rem;
@@ -74,339 +98,237 @@
       gap: 10px;
       margin-bottom: 20px;
     }
-    .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--gold); }
-    .lead { font-size: clamp(1.05rem, 1.4vw, 1.2rem); color: var(--ink-mute); line-height: 1.65; }
-    .container { max-width: var(--max); margin: 0 auto; padding-left: var(--pad-x); padding-right: var(--pad-x); }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .lead {
+      font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+      color: var(--ink-mute);
+      line-height: 1.65;
+    }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding-left: var(--pad-x);
+      padding-right: var(--pad-x);
+    }
+
+    /* ---------- Buttons ---------- */
     .btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-family: var(--sans); font-weight: 600; font-size: 0.95rem;
-      padding: 14px 26px; border-radius: 2px; text-decoration: none;
-      border: 1px solid transparent; cursor: pointer;
-      transition: all 0.2s ease; letter-spacing: -0.01em; white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 14px 26px;
+      border-radius: 2px;
+      text-decoration: none;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
     }
-    .btn-primary { background: var(--ink); color: var(--paper); }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--paper);
+    }
     .btn-primary:hover { background: #04141C; transform: translateY(-1px); }
-    .btn-gold { background: var(--gold); color: var(--ink); }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--ink);
+    }
     .btn-gold:hover { background: var(--gold-deep); color: var(--paper); }
-    .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--line);
+    }
     .btn-ghost:hover { border-color: var(--ink); }
-    .btn-whatsapp {
-      background: var(--whatsapp);
-      color: white;
-      font-weight: 700;
-    }
-    .btn-whatsapp:hover {
-      background: var(--whatsapp-dark);
-      transform: translateY(-1px);
-    }
-    .btn-whatsapp i { font-size: 1.15rem; }
+
     .btn-link {
-      background: none; border: none; color: var(--ink); padding: 0;
-      border-bottom: 1px solid var(--gold); border-radius: 0;
-      font-weight: 500; font-size: 0.92rem; cursor: pointer;
+      background: none;
+      border: none;
+      color: var(--ink);
+      padding: 0;
+      border-bottom: 1px solid var(--gold);
+      border-radius: 0;
+      font-weight: 500;
+      font-size: 0.92rem;
     }
     .btn-link:hover { color: var(--gold-deep); }
 
-    /* Waitlist banner */
-    .waitlist-banner {
-      background: linear-gradient(90deg, var(--ink) 0%, #163245 100%);
-      color: var(--paper);
-      padding: 14px 0;
-      font-size: 0.9rem;
-      text-align: center;
-      position: relative;
-      z-index: 50;
-    }
-    .waitlist-banner-inner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .waitlist-banner .pill {
-      background: var(--gold);
-      color: var(--ink);
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 40px;
-    }
-    .waitlist-banner a {
-      color: var(--gold);
-      text-decoration: underline;
-      text-decoration-color: rgba(200, 155, 60, 0.5);
-      text-underline-offset: 3px;
-      font-weight: 600;
-    }
-    .waitlist-banner a:hover { text-decoration-color: var(--gold); }
-
+    /* ---------- Header ---------- */
     .site-header {
-      position: sticky; top: 0; z-index: 100;
+      position: sticky;
+      top: 0;
+      z-index: 100;
       background: rgba(255, 255, 255, 0.94);
       backdrop-filter: saturate(180%) blur(14px);
       -webkit-backdrop-filter: saturate(180%) blur(14px);
       border-bottom: 1px solid var(--line);
     }
+
     .header-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 18px 0; gap: 32px;
-    }
-    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
-    .brand-mark {
-      width: 38px; height: 38px; background: var(--ink); border-radius: 2px;
-      display: grid; place-items: center;
-      font-family: var(--serif); font-weight: 700; font-size: 1.4rem;
-      color: var(--gold); flex-shrink: 0;
-    }
-    .brand-name {
-      font-family: var(--serif); font-weight: 600; font-size: 1.35rem;
-      letter-spacing: -0.02em; color: var(--ink); line-height: 1;
-    }
-    .brand-sub {
-      display: block; font-family: var(--sans); font-size: 0.68rem;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--ink-faint); font-weight: 500; margin-top: 3px;
-    }
-    .nav { display: flex; gap: 34px; align-items: center; }
-    .nav a {
-      text-decoration: none; color: var(--ink-soft);
-      font-size: 0.92rem; font-weight: 500;
-      position: relative; transition: color 0.15s;
-    }
-    .nav a:hover { color: var(--ink); }
-    .nav a:hover::after {
-      content: ""; position: absolute; bottom: -8px; left: 0; right: 0;
-      height: 1px; background: var(--gold);
-    }
-    .nav-cta { display: flex; align-items: center; gap: 14px; }
-    .menu-toggle {
-      display: none; background: none; border: 1px solid var(--line);
-      padding: 8px 12px; border-radius: 2px; cursor: pointer; font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      gap: 32px;
     }
 
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      background: var(--ink);
+      border-radius: 2px;
+      display: grid;
+      place-items: center;
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .brand-name {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .brand-sub {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      font-weight: 500;
+      margin-top: 3px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--ink-soft);
+      font-size: 0.92rem;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.15s;
+    }
+
+    .nav a:hover { color: var(--ink); }
+    .nav a:hover::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--line);
+      padding: 8px 12px;
+      border-radius: 2px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    /* ---------- Hero ---------- */
     .hero {
       padding: clamp(56px, 8vw, 100px) 0 clamp(56px, 8vw, 96px);
-      position: relative; overflow: hidden;
+      position: relative;
+      overflow: hidden;
       background:
         radial-gradient(1200px 600px at 100% -10%, rgba(200, 155, 60, 0.06), transparent 60%),
         radial-gradient(900px 500px at -10% 100%, rgba(44, 110, 82, 0.05), transparent 55%);
     }
+
     .hero-grid {
-      display: grid; grid-template-columns: 1.15fr 0.85fr;
-      gap: clamp(32px, 5vw, 72px); align-items: center;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: clamp(32px, 5vw, 72px);
+      align-items: center;
     }
+
     .hero h1 { margin-bottom: 24px; }
     .hero h1 em { font-style: italic; color: var(--gold-deep); font-weight: 500; }
+
     .hero .lead { margin-bottom: 36px; max-width: 560px; }
-    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 20px; }
-    .hero-trust {
-      display: flex; flex-wrap: wrap; gap: 22px;
-      padding-top: 24px; border-top: 1px solid var(--line);
-      font-size: 0.86rem; color: var(--ink-mute);
-    }
-    .hero-trust span { display: inline-flex; align-items: center; gap: 8px; }
-    .hero-trust i { color: var(--green); font-size: 0.85rem; }
-    .hero-panel {
-      background: var(--ink); color: var(--paper);
-      border-radius: 3px; padding: 40px 36px;
-      box-shadow: var(--shadow-lg); position: relative;
-    }
-    .hero-panel::before {
-      content: ""; position: absolute; inset: 8px;
-      border: 1px solid rgba(200, 155, 60, 0.28); border-radius: 2px;
-      pointer-events: none;
-    }
-    .hero-panel-label {
-      font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--gold); font-weight: 600; margin-bottom: 22px;
-    }
-    .hero-panel h3 {
-      color: var(--paper); font-size: 1.5rem;
-      margin-bottom: 22px; font-family: var(--serif);
-    }
-    .hero-panel ol { list-style: none; counter-reset: step; }
-    .hero-panel li {
-      padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      display: flex; align-items: flex-start; gap: 14px;
-      font-size: 0.93rem; color: #D5E0E5; line-height: 1.5;
-      counter-increment: step;
-    }
-    .hero-panel li:last-child { border-bottom: none; padding-bottom: 0; }
-    .hero-panel li::before {
-      content: counter(step, decimal-leading-zero);
-      font-family: var(--serif);
-      color: var(--gold);
-      font-size: 0.9rem;
-      font-weight: 600;
-      flex-shrink: 0;
-      min-width: 24px;
-      padding-top: 2px;
-    }
 
-    .section { padding: clamp(64px, 9vw, 108px) 0; }
-    .section-alt { background: var(--paper-warm); }
-    .section-line { border-top: 1px solid var(--line); }
-    .section-head { max-width: 720px; margin-bottom: 56px; }
-    .section-head h2 { margin-bottom: 20px; }
-    .section-head p { font-size: 1.05rem; }
-
-    .focus-panel {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      border: 1px solid var(--line);
-      background: var(--paper);
-    }
-    .focus-main {
-      padding: clamp(36px, 5vw, 56px);
-      border-right: 1px solid var(--line);
-    }
-    .focus-side {
-      padding: clamp(36px, 5vw, 56px);
-      background: var(--paper-warm);
-    }
-    .focus-panel h3 {
-      font-family: var(--serif);
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 16px;
-      color: var(--ink);
-    }
-    .focus-panel p { font-size: 0.98rem; line-height: 1.7; }
-    .focus-list {
-      list-style: none;
-      margin-top: 24px;
-    }
-    .focus-list li {
-      padding: 12px 0;
-      border-bottom: 1px solid var(--line);
+    .hero-actions {
       display: flex;
       gap: 14px;
-      font-size: 0.94rem;
-      color: var(--ink-soft);
-      line-height: 1.55;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
     }
-    .focus-list li:last-child { border-bottom: none; }
-    .focus-list i {
-      color: var(--green);
-      margin-top: 5px;
-      font-size: 0.8rem;
-      flex-shrink: 0;
-    }
-    .focus-side .eyebrow { color: var(--ink-faint); }
-    .focus-side .eyebrow::before { background: var(--ink-faint); }
-    .not-list { list-style: none; margin-top: 20px; }
-    .not-list li {
-      padding: 10px 0;
+
+    .hero-trust {
       display: flex;
-      gap: 12px;
-      font-size: 0.92rem;
+      flex-wrap: wrap;
+      gap: 22px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      font-size: 0.86rem;
       color: var(--ink-mute);
-      line-height: 1.55;
-      align-items: flex-start;
-    }
-    .not-list i {
-      color: var(--ink-faint);
-      margin-top: 5px;
-      font-size: 0.75rem;
-      flex-shrink: 0;
     }
 
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-      gap: 24px; align-items: stretch;
+    .hero-trust span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
-    .plan {
-      background: var(--paper); border: 1px solid var(--line);
-      padding: 40px 32px; display: flex; flex-direction: column;
-      transition: all 0.25s ease; position: relative; border-radius: 3px;
-    }
-    .plan:hover { border-color: var(--ink-faint); box-shadow: var(--shadow-md); }
-    .plan-featured {
-      background: var(--ink); color: var(--paper);
-      border-color: var(--ink); box-shadow: var(--shadow-lg);
-    }
-    .plan-featured:hover { transform: translateY(-3px); }
-    .plan-flag {
-      position: absolute; top: -1px; left: 32px;
-      background: var(--gold); color: var(--ink);
-      font-size: 0.68rem; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      padding: 6px 12px;
-    }
-    .plan-name {
-      font-family: var(--serif); font-size: 1.4rem;
-      font-weight: 600; margin-bottom: 6px; color: var(--ink);
-    }
-    .plan-featured .plan-name { color: var(--paper); }
-    .plan-tagline {
-      font-size: 0.88rem; color: var(--ink-mute);
-      margin-bottom: 28px; min-height: 42px; line-height: 1.5;
-    }
-    .plan-featured .plan-tagline { color: #A9BCC5; }
-    .plan-price {
-      display: flex; align-items: baseline; gap: 6px;
-      margin-bottom: 28px; padding-bottom: 28px;
-      border-bottom: 1px solid var(--line);
-    }
-    .plan-featured .plan-price { border-bottom-color: rgba(255,255,255,0.12); }
-    .plan-price .amount {
-      font-family: var(--serif); font-size: 2.6rem;
-      font-weight: 600; letter-spacing: -0.02em;
-      color: var(--ink); line-height: 1;
-    }
-    .plan-featured .plan-price .amount { color: var(--paper); }
-    .plan-price .period { font-size: 0.85rem; color: var(--ink-faint); }
-    .plan-features { list-style: none; flex-grow: 1; margin-bottom: 32px; }
-    .plan-features li {
-      padding: 9px 0; display: flex; align-items: flex-start;
-      gap: 12px; font-size: 0.92rem; color: var(--ink-soft); line-height: 1.5;
-    }
-    .plan-featured .plan-features li { color: #C7D5DB; }
-    .plan-features li i {
-      color: var(--green); margin-top: 5px;
-      font-size: 0.72rem; flex-shrink: 0;
-    }
-    .plan-featured .plan-features li i { color: var(--gold); }
-    .plan-scope {
-      background: var(--paper-green); padding: 14px 16px;
-      font-size: 0.82rem; color: var(--green-deep);
-      margin-bottom: 24px; border-left: 2px solid var(--green); line-height: 1.5;
-    }
-    .plan-featured .plan-scope {
-      background: rgba(200, 155, 60, 0.12);
-      color: var(--gold-soft);
-      border-left-color: var(--gold);
-    }
-    .plan-cta { width: 100%; text-align: center; justify-content: center; }
-    .plan-featured .btn-ghost {
-      border-color: rgba(255,255,255,0.24); color: var(--paper);
-    }
-    .plan-featured .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
-    .pricing-note {
-      margin-top: 40px; padding: 20px 24px;
-      background: var(--paper-green); border-left: 3px solid var(--green);
-      font-size: 0.88rem; color: var(--green-deep); line-height: 1.6;
-    }
-    .pricing-note + .pricing-note { margin-top: 16px; }
 
-    .trust-module {
-      margin-top: 32px;
-      padding: 32px 36px;
+    .hero-trust i { color: var(--green); font-size: 0.85rem; }
+
+    /* Hero panel */
+    .hero-panel {
       background: var(--ink);
       color: var(--paper);
       border-radius: 3px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 32px;
-      align-items: center;
+      padding: 40px 36px;
+      box-shadow: var(--shadow-lg);
       position: relative;
     }
-    .trust-module::before {
+
+    .hero-panel::before {
       content: "";
       position: absolute;
       inset: 8px;
@@ -414,510 +336,983 @@
       border-radius: 2px;
       pointer-events: none;
     }
-    .trust-module .content { position: relative; }
-    .trust-module h3 {
-      font-family: var(--serif);
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--paper);
-      margin-bottom: 10px;
-    }
-    .trust-module p {
-      color: #C7D5DB;
-      font-size: 0.94rem;
-      line-height: 1.6;
-      max-width: 620px;
-    }
-    .trust-module p + p {
-      margin-top: 10px;
-      font-size: 0.86rem;
-      color: #A9BCC5;
-    }
-    .trust-module .price {
-      font-family: var(--serif);
-      font-size: 2rem;
-      font-weight: 600;
-      color: var(--gold);
-      line-height: 1;
-      text-align: right;
-      position: relative;
-      white-space: nowrap;
-    }
-    .trust-module .price small {
-      display: block;
-      font-family: var(--sans);
-      font-size: 0.78rem;
-      font-weight: 500;
-      color: #A9BCC5;
-      letter-spacing: 0.06em;
+
+    .hero-panel-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      margin-top: 8px;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 22px;
     }
 
-    .offer-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-    }
-    .offer {
-      padding: 36px 30px; border: 1px solid var(--line);
-      background: var(--paper); transition: border-color 0.2s; border-radius: 3px;
-    }
-    .offer:hover { border-color: var(--gold); }
-    .offer-price {
-      font-family: var(--serif); font-size: 1.9rem;
-      font-weight: 600; color: var(--ink);
-      margin: 8px 0 16px; letter-spacing: -0.02em;
-    }
-    .offer h3 { font-family: var(--serif); font-size: 1.25rem; margin-bottom: 4px; }
-    .offer p { font-size: 0.92rem; color: var(--ink-mute); margin-bottom: 16px; line-height: 1.55; }
-    .offer .fine {
-      font-size: 0.8rem; color: var(--gold-deep);
-      display: flex; gap: 8px; align-items: flex-start;
-      padding-top: 14px; border-top: 1px solid var(--line-soft);
+    .hero-panel h3 {
+      color: var(--paper);
+      font-size: 1.5rem;
+      margin-bottom: 22px;
+      font-family: var(--serif);
     }
 
-    .pov {
-      background: var(--ink); color: var(--paper);
-      padding: clamp(48px, 7vw, 80px) clamp(32px, 5vw, 64px);
-      position: relative; overflow: hidden; border-radius: 3px;
-    }
-    .pov::before {
-      content: ""; position: absolute; top: 0; right: 0;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(200,155,60,0.12), transparent 70%);
-      pointer-events: none;
-    }
-    .pov-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: clamp(32px, 5vw, 64px); align-items: center; position: relative;
-    }
-    .pov h2 { color: var(--paper); margin-bottom: 20px; }
-    .pov .eyebrow { color: var(--gold); }
-    .pov .eyebrow::before { background: var(--gold); }
-    .pov p { color: #C7D5DB; font-size: 1.02rem; }
-    .pov-list { list-style: none; margin-top: 28px; }
-    .pov-list li {
-      padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.09);
-      display: flex; gap: 14px; font-size: 0.94rem;
-      color: #D5E0E5; line-height: 1.5;
-    }
-    .pov-list li:last-child { border-bottom: none; }
-    .pov-list i {
-      color: var(--gold); margin-top: 5px;
-      font-size: 0.8rem; flex-shrink: 0;
+    .hero-panel ul { list-style: none; }
+
+    .hero-panel li {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.93rem;
+      color: #D5E0E5;
+      line-height: 1.45;
     }
 
-    .guarantee-table {
-      width: 100%; border-collapse: collapse;
-      background: var(--paper); border: 1px solid var(--line);
-    }
-    .guarantee-table tr { border-bottom: 1px solid var(--line); }
-    .guarantee-table tr:last-child { border-bottom: none; }
-    .guarantee-table th {
-      text-align: left; padding: 24px 28px;
-      font-family: var(--sans); font-size: 0.88rem;
-      font-weight: 600; color: var(--ink);
-      background: var(--paper-warm); width: 30%;
-      vertical-align: top; letter-spacing: -0.005em;
-    }
-    .guarantee-table td {
-      padding: 24px 28px; font-size: 0.92rem;
-      color: var(--ink-soft); line-height: 1.55;
+    .hero-panel li:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .hero-panel li i {
+      color: var(--gold);
+      font-size: 0.85rem;
+      margin-top: 6px;
+      flex-shrink: 0;
     }
 
-    .why-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px 48px; margin-top: 12px;
-    }
-    .why-item { display: flex; gap: 18px; align-items: flex-start; }
-    .why-item .num {
-      font-family: var(--serif); font-size: 1.6rem;
-      font-weight: 600; color: var(--gold);
-      line-height: 1; min-width: 36px; padding-top: 4px;
-    }
-    .why-item h4 {
-      font-family: var(--serif); font-size: 1.15rem;
-      font-weight: 600; margin-bottom: 8px; letter-spacing: -0.01em;
-    }
-    .why-item p { font-size: 0.92rem; color: var(--ink-mute); line-height: 1.6; }
+    /* ---------- Section scaffolding ---------- */
+    .section { padding: clamp(64px, 9vw, 108px) 0; }
+    .section-alt { background: var(--paper-warm); }
+    .section-line { border-top: 1px solid var(--line); }
 
-    .promo-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-    }
-    .promo-card {
-      background: var(--paper); border: 1px solid var(--line);
-      padding: 28px 24px; border-top: 3px solid var(--gold);
-    }
-    .promo-card .tag {
-      font-size: 0.72rem; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--gold-deep); margin-bottom: 12px; display: block;
-    }
-    .promo-card h4 {
-      font-family: var(--serif); font-size: 1.1rem;
-      font-weight: 600; margin-bottom: 10px; color: var(--ink);
-    }
-    .promo-card p { font-size: 0.9rem; color: var(--ink-mute); line-height: 1.55; }
+    .section-head { max-width: 720px; margin-bottom: 56px; }
+    .section-head h2 { margin-bottom: 20px; }
+    .section-head p { font-size: 1.05rem; }
 
-    .process {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 0; border: 1px solid var(--line);
-    }
-    .process-step {
-      padding: 32px 26px; border-right: 1px solid var(--line);
-      position: relative; background: var(--paper);
-    }
-    .process-step:last-child { border-right: none; }
-    .process-step .n {
-      font-family: var(--serif); font-size: 2rem;
-      font-weight: 600; color: var(--gold);
-      line-height: 1; margin-bottom: 14px; display: block;
-    }
-    .process-step h4 {
-      font-size: 0.98rem; font-weight: 600;
-      margin-bottom: 8px; color: var(--ink);
-    }
-    .process-step p { font-size: 0.86rem; color: var(--ink-mute); line-height: 1.55; }
-
-    .fin-table {
-      width: 100%; border-collapse: collapse;
-      background: var(--paper); border: 1px solid var(--line); font-size: 0.93rem;
-    }
-    .fin-table thead th {
-      background: var(--ink); color: var(--paper);
-      text-align: left; padding: 18px 22px;
-      font-family: var(--sans); font-size: 0.78rem;
-      font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
-    }
-    .fin-table tbody td {
-      padding: 18px 22px; border-bottom: 1px solid var(--line);
-      color: var(--ink-soft);
-    }
-    .fin-table tbody tr:last-child td { border-bottom: none; }
-    .fin-table tbody tr:nth-child(even) { background: var(--paper-warm); }
-    .fin-table tbody tr.highlight td {
-      background: var(--paper-green); font-weight: 600; color: var(--ink);
-    }
-    .fin-note {
-      margin-top: 24px; font-size: 0.9rem; color: var(--ink-mute);
-      line-height: 1.6; padding-left: 20px; border-left: 2px solid var(--gold);
-    }
-
-    .launch-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px; margin-top: 12px;
-    }
-    .launch-card {
-      padding: 30px 26px; background: var(--paper);
-      border: 1px solid var(--line); border-radius: 3px;
-    }
-    .launch-card .wk {
-      font-family: var(--serif); font-size: 0.82rem;
-      font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--gold-deep); margin-bottom: 8px; display: block;
-    }
-    .launch-card h4 {
-      font-family: var(--serif); font-size: 1.15rem;
-      font-weight: 600; margin-bottom: 16px; color: var(--ink);
-    }
-    .launch-card ul { list-style: none; }
-    .launch-card li {
-      padding: 7px 0; display: flex; gap: 10px;
-      font-size: 0.88rem; color: var(--ink-soft); line-height: 1.5;
-    }
-    .launch-card li i {
-      color: var(--green); margin-top: 5px;
-      font-size: 0.7rem; flex-shrink: 0;
-    }
-
-    .scope-section {
-      background: var(--paper-warm);
-      padding: clamp(64px, 9vw, 108px) 0;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-    .scope-grid {
+    /* ---------- Audience ---------- */
+    .audience-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-      margin-top: 32px;
-    }
-    .scope-item {
-      background: var(--paper);
-      padding: 28px 24px;
+      gap: 1px;
+      background: var(--line);
       border: 1px solid var(--line);
-      border-top: 3px solid var(--green);
     }
-    .scope-item .num {
+
+    .audience-item {
+      background: var(--paper);
+      padding: 36px 32px;
+      transition: background 0.2s;
+    }
+
+    .audience-item:hover { background: var(--paper-green); }
+
+    .audience-item .num {
       font-family: var(--serif);
       font-size: 0.85rem;
       font-weight: 600;
       color: var(--gold-deep);
       letter-spacing: 0.08em;
-      margin-bottom: 12px;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .audience-item i.icon {
+      font-size: 1.5rem;
+      color: var(--green);
+      margin-bottom: 20px;
       display: block;
     }
-    .scope-item h4 {
+
+    .audience-item h4 {
       font-family: var(--serif);
-      font-size: 1.05rem;
+      font-size: 1.2rem;
       font-weight: 600;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       color: var(--ink);
     }
-    .scope-item p {
-      font-size: 0.88rem;
+
+    .audience-item p {
+      font-size: 0.92rem;
       color: var(--ink-mute);
       line-height: 1.55;
     }
 
-    .compliance-strip {
-      background: var(--paper-green); border: 1px solid #CFE2D8;
-      padding: 40px 40px; border-radius: 3px;
-      display: grid; grid-template-columns: 1fr auto;
-      gap: 32px; align-items: center;
+    /* ---------- Pricing ---------- */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 24px;
+      align-items: stretch;
     }
-    .compliance-strip h3 {
-      font-family: var(--serif); font-size: 1.35rem;
-      font-weight: 600; margin-bottom: 10px; color: var(--green-deep);
-    }
-    .compliance-strip p {
-      color: var(--green-deep); font-size: 0.94rem; opacity: 0.88;
-    }
-    .compliance-badges { display: flex; gap: 10px; flex-wrap: wrap; }
-    .badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 8px 14px; background: var(--paper);
-      border: 1px solid #CFE2D8; font-size: 0.78rem;
-      font-weight: 600; color: var(--green-deep);
-      border-radius: 2px; letter-spacing: 0.02em;
-    }
-    .badge i { color: var(--green); }
 
-    .final {
-      background: var(--ink); color: var(--paper);
-      padding: clamp(64px, 9vw, 120px) 0;
-      text-align: center; position: relative; overflow: hidden;
+    .plan {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+      position: relative;
+      border-radius: 3px;
     }
-    .final::before {
-      content: ""; position: absolute; inset: 0;
-      background: radial-gradient(800px 400px at 50% 0%, rgba(200,155,60,0.10), transparent 70%);
+
+    .plan:hover {
+      border-color: var(--ink-faint);
+      box-shadow: var(--shadow-md);
+    }
+
+    .plan-featured {
+      background: var(--ink);
+      color: var(--paper);
+      border-color: var(--ink);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .plan-featured:hover { transform: translateY(-3px); }
+
+    .plan-flag {
+      position: absolute;
+      top: -1px;
+      left: 32px;
+      background: var(--gold);
+      color: var(--ink);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+    }
+
+    .plan-name {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+
+    .plan-featured .plan-name { color: var(--paper); }
+
+    .plan-tagline {
+      font-size: 0.88rem;
+      color: var(--ink-mute);
+      margin-bottom: 28px;
+      min-height: 42px;
+      line-height: 1.5;
+    }
+
+    .plan-featured .plan-tagline { color: #A9BCC5; }
+
+    .plan-price {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .plan-featured .plan-price { border-bottom-color: rgba(255,255,255,0.12); }
+
+    .plan-price .amount {
+      font-family: var(--serif);
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .plan-featured .plan-price .amount { color: var(--paper); }
+
+    .plan-price .period {
+      font-size: 0.85rem;
+      color: var(--ink-faint);
+    }
+
+    .plan-features {
+      list-style: none;
+      flex-grow: 1;
+      margin-bottom: 32px;
+    }
+
+    .plan-features li {
+      padding: 9px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+
+    .plan-featured .plan-features li { color: #C7D5DB; }
+
+    .plan-features li i {
+      color: var(--green);
+      margin-top: 5px;
+      font-size: 0.72rem;
+      flex-shrink: 0;
+    }
+
+    .plan-featured .plan-features li i { color: var(--gold); }
+
+    .plan-scope {
+      background: var(--paper-green);
+      padding: 14px 16px;
+      font-size: 0.82rem;
+      color: var(--green-deep);
+      margin-bottom: 24px;
+      border-left: 2px solid var(--green);
+      line-height: 1.5;
+    }
+
+    .plan-featured .plan-scope {
+      background: rgba(200, 155, 60, 0.12);
+      color: var(--gold-soft);
+      border-left-color: var(--gold);
+    }
+
+    .plan-cta { width: 100%; text-align: center; justify-content: center; }
+
+    .plan-featured .btn-ghost {
+      border-color: rgba(255,255,255,0.24);
+      color: var(--paper);
+    }
+
+    .plan-featured .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    .pricing-note {
+      margin-top: 40px;
+      padding: 20px 24px;
+      background: var(--paper-green);
+      border-left: 3px solid var(--green);
+      font-size: 0.88rem;
+      color: var(--green-deep);
+      line-height: 1.6;
+    }
+
+    /* ---------- Offers ---------- */
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .offer {
+      padding: 36px 30px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      transition: border-color 0.2s;
+      border-radius: 3px;
+    }
+
+    .offer:hover { border-color: var(--gold); }
+
+    .offer-price {
+      font-family: var(--serif);
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 8px 0 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .offer h3 { font-family: var(--serif); font-size: 1.25rem; margin-bottom: 4px; }
+
+    .offer p { font-size: 0.92rem; color: var(--ink-mute); margin-bottom: 16px; line-height: 1.55; }
+
+    .offer .fine {
+      font-size: 0.8rem;
+      color: var(--gold-deep);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      padding-top: 14px;
+      border-top: 1px solid var(--line-soft);
+    }
+
+    /* ---------- Proof of Value ---------- */
+    .pov {
+      background: var(--ink);
+      color: var(--paper);
+      padding: clamp(48px, 7vw, 80px) clamp(32px, 5vw, 64px);
+      position: relative;
+      overflow: hidden;
+      border-radius: 3px;
+    }
+
+    .pov::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(200,155,60,0.12), transparent 70%);
       pointer-events: none;
     }
+
+    .pov-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(32px, 5vw, 64px);
+      align-items: center;
+      position: relative;
+    }
+
+    .pov h2 { color: var(--paper); margin-bottom: 20px; }
+    .pov .eyebrow { color: var(--gold); }
+    .pov .eyebrow::before { background: var(--gold); }
+    .pov p { color: #C7D5DB; font-size: 1.02rem; }
+
+    .pov-list {
+      list-style: none;
+      margin-top: 28px;
+    }
+
+    .pov-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.09);
+      display: flex;
+      gap: 14px;
+      font-size: 0.94rem;
+      color: #D5E0E5;
+      line-height: 1.5;
+    }
+
+    .pov-list li:last-child { border-bottom: none; }
+
+    .pov-list i {
+      color: var(--gold);
+      margin-top: 5px;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    /* ---------- Guarantees table ---------- */
+    .guarantee-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--paper);
+      border: 1px solid var(--line);
+    }
+
+    .guarantee-table tr { border-bottom: 1px solid var(--line); }
+    .guarantee-table tr:last-child { border-bottom: none; }
+
+    .guarantee-table th {
+      text-align: left;
+      padding: 24px 28px;
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink);
+      background: var(--paper-warm);
+      width: 30%;
+      vertical-align: top;
+      letter-spacing: -0.005em;
+    }
+
+    .guarantee-table td {
+      padding: 24px 28px;
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+
+    /* ---------- Why / Differentiators ---------- */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px 48px;
+      margin-top: 12px;
+    }
+
+    .why-item { display: flex; gap: 18px; align-items: flex-start; }
+
+    .why-item .num {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+      min-width: 36px;
+      padding-top: 4px;
+    }
+
+    .why-item h4 {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .why-item p {
+      font-size: 0.92rem;
+      color: var(--ink-mute);
+      line-height: 1.6;
+    }
+
+    /* ---------- Promotions ---------- */
+    .promo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .promo-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 28px 24px;
+      border-top: 3px solid var(--gold);
+    }
+
+    .promo-card .tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .promo-card h4 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--ink);
+    }
+
+    .promo-card p {
+      font-size: 0.9rem;
+      color: var(--ink-mute);
+      line-height: 1.55;
+    }
+
+    /* ---------- Steps / process ---------- */
+    .process {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0;
+      border: 1px solid var(--line);
+    }
+
+    .process-step {
+      padding: 32px 26px;
+      border-right: 1px solid var(--line);
+      position: relative;
+      background: var(--paper);
+    }
+
+    .process-step:last-child { border-right: none; }
+
+    .process-step .n {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .process-step h4 {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+
+    .process-step p {
+      font-size: 0.86rem;
+      color: var(--ink-mute);
+      line-height: 1.55;
+    }
+
+    /* ---------- Financials ---------- */
+    .fin-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      font-size: 0.93rem;
+    }
+
+    .fin-table thead th {
+      background: var(--ink);
+      color: var(--paper);
+      text-align: left;
+      padding: 18px 22px;
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .fin-table tbody td {
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--line);
+      color: var(--ink-soft);
+    }
+
+    .fin-table tbody tr:last-child td { border-bottom: none; }
+    .fin-table tbody tr:nth-child(even) { background: var(--paper-warm); }
+
+    .fin-table tbody tr.highlight td { background: var(--paper-green); font-weight: 600; color: var(--ink); }
+
+    .fin-note {
+      margin-top: 24px;
+      font-size: 0.9rem;
+      color: var(--ink-mute);
+      line-height: 1.6;
+      padding-left: 20px;
+      border-left: 2px solid var(--gold);
+    }
+
+    /* ---------- 30-day grid ---------- */
+    .launch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 12px;
+    }
+
+    .launch-card {
+      padding: 30px 26px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 3px;
+    }
+
+    .launch-card .wk {
+      font-family: var(--serif);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .launch-card h4 {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--ink);
+    }
+
+    .launch-card ul { list-style: none; }
+
+    .launch-card li {
+      padding: 7px 0;
+      display: flex;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+
+    .launch-card li i {
+      color: var(--green);
+      margin-top: 5px;
+      font-size: 0.7rem;
+      flex-shrink: 0;
+    }
+
+    /* ---------- Compliance / POPIA strip ---------- */
+    .compliance-strip {
+      background: var(--paper-green);
+      border: 1px solid #CFE2D8;
+      padding: 40px 40px;
+      border-radius: 3px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .compliance-strip h3 {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--green-deep);
+    }
+
+    .compliance-strip p {
+      color: var(--green-deep);
+      font-size: 0.94rem;
+      opacity: 0.88;
+    }
+
+    .compliance-badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      background: var(--paper);
+      border: 1px solid #CFE2D8;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--green-deep);
+      border-radius: 2px;
+      letter-spacing: 0.02em;
+    }
+
+    .badge i { color: var(--green); }
+
+    /* ---------- Final CTA ---------- */
+    .final {
+      background: var(--ink);
+      color: var(--paper);
+      padding: clamp(64px, 9vw, 120px) 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(800px 400px at 50% 0%, rgba(200,155,60,0.10), transparent 70%);
+      pointer-events: none;
+    }
+
     .final .container { position: relative; }
+
     .final .eyebrow { justify-content: center; color: var(--gold); }
     .final .eyebrow::before { background: var(--gold); }
+
     .final h2 {
-      color: var(--paper); margin-bottom: 20px;
+      color: var(--paper);
+      margin-bottom: 20px;
       font-size: clamp(2rem, 4vw, 3rem);
-      max-width: 780px; margin-left: auto; margin-right: auto;
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
     }
+
     .final p {
-      color: #A9BCC5; font-size: 1.05rem;
-      max-width: 620px; margin: 0 auto 40px; line-height: 1.65;
+      color: #A9BCC5;
+      font-size: 1.05rem;
+      max-width: 620px;
+      margin: 0 auto 40px;
+      line-height: 1.65;
     }
+
     .final-actions {
-      display: flex; gap: 14px; justify-content: center;
-      flex-wrap: wrap; margin-bottom: 40px;
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
     }
+
     .final-meta {
-      padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1);
-      display: flex; justify-content: center; gap: 40px;
-      flex-wrap: wrap; font-size: 0.85rem; color: #7A93A3;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+      color: #7A93A3;
     }
-    .final-meta span { display: inline-flex; align-items: center; gap: 8px; }
+
+    .final-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
     .final-meta i { color: var(--gold); font-size: 0.8rem; }
 
+    /* ---------- Footer ---------- */
     .site-footer {
-      background: #04141C; color: #7A93A3;
-      padding: 64px 0 32px; font-size: 0.9rem;
+      background: #04141C;
+      color: #7A93A3;
+      padding: 64px 0 32px;
+      font-size: 0.9rem;
     }
+
     .footer-top {
-      display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr;
-      gap: 48px; padding-bottom: 48px;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
       border-bottom: 1px solid rgba(255,255,255,0.07);
     }
+
     .footer-brand .brand-mark { background: transparent; border: 1px solid var(--gold); }
     .footer-brand .brand-name { color: var(--paper); }
     .footer-brand .brand-sub { color: #7A93A3; }
+
     .footer-brand p {
-      color: #7A93A3; font-size: 0.88rem;
-      margin-top: 20px; max-width: 320px; line-height: 1.6;
+      color: #7A93A3;
+      font-size: 0.88rem;
+      margin-top: 20px;
+      max-width: 320px;
+      line-height: 1.6;
     }
+
     .footer-col h5 {
-      font-family: var(--sans); font-size: 0.75rem;
-      font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--paper); margin-bottom: 20px;
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--paper);
+      margin-bottom: 20px;
     }
+
     .footer-col ul { list-style: none; }
+
     .footer-col li { margin-bottom: 12px; }
+
     .footer-col a, .footer-col button {
-      color: #93A8B3; text-decoration: none; font-size: 0.88rem;
-      background: none; border: none; cursor: pointer; padding: 0;
-      font-family: var(--sans); text-align: left; transition: color 0.15s;
+      color: #93A8B3;
+      text-decoration: none;
+      font-size: 0.88rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      font-family: var(--sans);
+      text-align: left;
+      transition: color 0.15s;
     }
+
     .footer-col a:hover, .footer-col button:hover { color: var(--gold); }
+
     .footer-bottom {
-      padding-top: 32px; display: flex; justify-content: space-between;
-      flex-wrap: wrap; gap: 20px; font-size: 0.82rem; color: #5C7480;
+      padding-top: 32px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 0.82rem;
+      color: #5C7480;
     }
+
     .footer-bottom a { color: #93A8B3; text-decoration: none; }
     .footer-bottom a:hover { color: var(--gold); }
 
-    /* Floating WhatsApp button */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      z-index: 200;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: var(--whatsapp);
-      color: white;
-      padding: 14px 22px 14px 18px;
-      border-radius: 60px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.92rem;
-      box-shadow: 0 12px 32px -8px rgba(37, 211, 102, 0.5);
-      transition: all 0.25s ease;
-    }
-    .whatsapp-float:hover {
-      background: var(--whatsapp-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 16px 40px -8px rgba(37, 211, 102, 0.6);
-    }
-    .whatsapp-float i {
-      font-size: 1.5rem;
-    }
-    .whatsapp-float span { display: inline; }
-
+    /* ---------- Modal system ---------- */
     .modal-backdrop {
-      position: fixed; inset: 0;
+      position: fixed;
+      inset: 0;
       background: rgba(4, 20, 28, 0.72);
-      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-      z-index: 1000; display: none; align-items: flex-start;
-      justify-content: center; padding: 40px 20px;
-      overflow-y: auto; animation: fadeIn 0.2s ease;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 1000;
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 40px 20px;
+      overflow-y: auto;
+      animation: fadeIn 0.2s ease;
     }
+
     .modal-backdrop.active { display: flex; }
+
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     @keyframes slideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
     .modal {
-      background: var(--paper); max-width: 820px; width: 100%;
-      border-radius: 3px; box-shadow: var(--shadow-lg);
+      background: var(--paper);
+      max-width: 820px;
+      width: 100%;
+      border-radius: 3px;
+      box-shadow: var(--shadow-lg);
       animation: slideUp 0.3s ease;
       max-height: calc(100vh - 80px);
-      display: flex; flex-direction: column; overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
     }
+
     .modal-head {
-      padding: 32px 40px 24px; border-bottom: 1px solid var(--line);
-      display: flex; justify-content: space-between;
-      align-items: flex-start; gap: 24px;
-      flex-shrink: 0; background: var(--paper);
+      padding: 32px 40px 24px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      flex-shrink: 0;
+      background: var(--paper);
     }
+
     .modal-head .eyebrow { margin-bottom: 10px; }
+
     .modal-head h3 {
-      font-family: var(--serif); font-size: 1.75rem;
-      font-weight: 600; letter-spacing: -0.02em; line-height: 1.2;
+      font-family: var(--serif);
+      font-size: 1.75rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
     }
+
     .modal-close {
-      background: none; border: 1px solid var(--line);
-      width: 36px; height: 36px; border-radius: 2px;
-      cursor: pointer; color: var(--ink-soft); font-size: 1rem;
-      display: grid; place-items: center; flex-shrink: 0;
+      background: none;
+      border: 1px solid var(--line);
+      width: 36px;
+      height: 36px;
+      border-radius: 2px;
+      cursor: pointer;
+      color: var(--ink-soft);
+      font-size: 1rem;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
       transition: all 0.15s;
     }
+
     .modal-close:hover { border-color: var(--ink); color: var(--ink); }
+
     .modal-body {
-      padding: 32px 40px 40px; overflow-y: auto;
-      color: var(--ink-soft); font-size: 0.94rem; line-height: 1.7;
+      padding: 32px 40px 40px;
+      overflow-y: auto;
+      color: var(--ink-soft);
+      font-size: 0.94rem;
+      line-height: 1.7;
     }
+
     .modal-body h4 {
-      font-family: var(--serif); font-size: 1.15rem;
-      font-weight: 600; margin-top: 28px; margin-bottom: 12px;
-      color: var(--ink); letter-spacing: -0.01em;
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-top: 28px;
+      margin-bottom: 12px;
+      color: var(--ink);
+      letter-spacing: -0.01em;
     }
+
     .modal-body h4:first-child { margin-top: 0; }
+
     .modal-body p { margin-bottom: 14px; color: var(--ink-soft); }
     .modal-body ul, .modal-body ol { margin: 12px 0 20px 20px; }
     .modal-body li { margin-bottom: 8px; color: var(--ink-soft); }
     .modal-body strong { color: var(--ink); font-weight: 600; }
-    .modal-body a {
-      color: var(--green-deep); text-decoration: underline;
-      text-decoration-color: var(--gold); text-underline-offset: 3px;
-    }
+    .modal-body a { color: var(--green-deep); text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
     .modal-body a:hover { color: var(--gold-deep); }
+
     .modal-body .callout {
-      background: var(--paper-green); border-left: 3px solid var(--green);
-      padding: 20px 24px; margin: 20px 0; font-size: 0.92rem;
-      color: var(--green-deep); line-height: 1.6;
+      background: var(--paper-green);
+      border-left: 3px solid var(--green);
+      padding: 20px 24px;
+      margin: 20px 0;
+      font-size: 0.92rem;
+      color: var(--green-deep);
+      line-height: 1.6;
     }
+
     .modal-body .callout-gold {
-      background: #FBF6E9; border-left-color: var(--gold); color: #6E5216;
+      background: #FBF6E9;
+      border-left-color: var(--gold);
+      color: #6E5216;
     }
+
     .modal-body table {
-      width: 100%; border-collapse: collapse; margin: 20px 0;
-      font-size: 0.88rem; border: 1px solid var(--line);
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.88rem;
+      border: 1px solid var(--line);
     }
-    .modal-body table th, .modal-body table td {
-      padding: 12px 16px; text-align: left;
-      border-bottom: 1px solid var(--line); vertical-align: top;
+
+    .modal-body table th,
+    .modal-body table td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
     }
+
     .modal-body table th {
-      background: var(--paper-warm); font-weight: 600;
-      color: var(--ink); font-size: 0.82rem;
-      letter-spacing: 0.02em; text-transform: uppercase;
+      background: var(--paper-warm);
+      font-weight: 600;
+      color: var(--ink);
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
     }
+
     .modal-body table tr:last-child td { border-bottom: none; }
+
     .modal-foot {
-      padding: 20px 40px; border-top: 1px solid var(--line);
-      background: var(--paper-warm); font-size: 0.82rem;
-      color: var(--ink-faint); display: flex;
-      justify-content: space-between; gap: 16px;
-      flex-wrap: wrap; flex-shrink: 0;
+      padding: 20px 40px;
+      border-top: 1px solid var(--line);
+      background: var(--paper-warm);
+      font-size: 0.82rem;
+      color: var(--ink-faint);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      flex-shrink: 0;
     }
+
     .modal-foot strong { color: var(--ink-soft); }
 
+    /* ---------- Responsive ---------- */
     @media (max-width: 960px) {
       .hero-grid { grid-template-columns: 1fr; }
       .hero-panel { order: 2; }
       .pov-grid { grid-template-columns: 1fr; }
-      .focus-panel { grid-template-columns: 1fr; }
-      .focus-main { border-right: none; border-bottom: 1px solid var(--line); }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
       .compliance-strip { grid-template-columns: 1fr; }
       .guarantee-table th { width: 40%; }
-      .trust-module { grid-template-columns: 1fr; }
-      .trust-module .price { text-align: left; }
     }
+
     @media (max-width: 780px) {
       .nav { display: none; }
       .nav-cta .btn-ghost { display: none; }
       .menu-toggle { display: inline-flex; align-items: center; gap: 8px; }
       .nav.mobile-open {
-        display: flex; flex-direction: column; position: absolute;
-        top: 100%; left: 0; right: 0; background: var(--paper);
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--paper);
         border-bottom: 1px solid var(--line);
-        padding: 24px var(--pad-x); gap: 20px;
-        align-items: flex-start; box-shadow: var(--shadow-md);
+        padding: 24px var(--pad-x);
+        gap: 20px;
+        align-items: flex-start;
+        box-shadow: var(--shadow-md);
       }
       .header-inner { position: relative; }
+
       .footer-top { grid-template-columns: 1fr; gap: 32px; }
+
       .process { grid-template-columns: 1fr; }
       .process-step { border-right: none; border-bottom: 1px solid var(--line); }
       .process-step:last-child { border-bottom: none; }
+
       .modal-head, .modal-body, .modal-foot { padding-left: 24px; padding-right: 24px; }
       .modal { max-height: calc(100vh - 40px); }
       .modal-backdrop { padding: 20px 12px; }
-      .guarantee-table th, .guarantee-table td { padding: 18px 20px; font-size: 0.86rem; }
+
+      .guarantee-table th, .guarantee-table td {
+        padding: 18px 20px;
+        font-size: 0.86rem;
+      }
+
       .fin-table { font-size: 0.82rem; }
       .fin-table thead th, .fin-table tbody td { padding: 14px 14px; }
-      .whatsapp-float { bottom: 20px; right: 16px; padding: 12px; }
-      .whatsapp-float span { display: none; }
-      .whatsapp-float i { font-size: 1.6rem; }
     }
+
     @media (max-width: 520px) {
       .final-meta { gap: 20px; flex-direction: column; align-items: center; }
       .brand-sub { display: none; }
@@ -926,17 +1321,7 @@
 </head>
 <body>
 
-  <!-- Waitlist banner -->
-  <div class="waitlist-banner">
-    <div class="container">
-      <div class="waitlist-banner-inner">
-        <span class="pill">Launching soon</span>
-        <span>LedgerCare opens for South African physiotherapy practices shortly. Join the waitlist for early access.</span>
-        <a href="https://wa.me/27764312871?text=Hi%20Callum%2C%20I%27d%20like%20to%20join%20the%20LedgerCare%20waitlist%20for%20physiotherapy%20bookkeeping." target="_blank" rel="noopener">Join the waitlist →</a>
-      </div>
-    </div>
-  </div>
-
+  <!-- ============ HEADER ============ -->
   <header class="site-header">
     <div class="container">
       <div class="header-inner">
@@ -944,19 +1329,21 @@
           <div class="brand-mark">L</div>
           <div>
             <div class="brand-name">LedgerCare</div>
-            <span class="brand-sub">Monthly books for physios</span>
+            <span class="brand-sub">Monthly books · Clear reporting</span>
           </div>
         </a>
+
         <nav class="nav" id="primaryNav" aria-label="Primary navigation">
           <a href="#audience">Who we serve</a>
           <a href="#pricing">Pricing</a>
-          <a href="#offers">Waitlist</a>
+          <a href="#offers">Free health check</a>
           <a href="#guarantees">Guarantees</a>
           <a href="#contact">Contact</a>
         </nav>
+
         <div class="nav-cta">
-          <a href="mailto:denysschen.callum43@gmail.com" class="btn btn-ghost" style="padding: 11px 22px; font-size: 0.88rem;">Email us</a>
-          <a href="https://wa.me/27764312871?text=Hi%20Callum%2C%20I%27d%20like%20to%20join%20the%20LedgerCare%20waitlist%20for%20physiotherapy%20bookkeeping." target="_blank" rel="noopener" class="btn btn-whatsapp" style="padding: 11px 22px; font-size: 0.88rem;"><i class="fab fa-whatsapp"></i> Join waitlist</a>
+          <a href="#contact" class="btn btn-ghost" style="padding: 11px 22px; font-size: 0.88rem;">Book a call</a>
+          <a href="#pricing" class="btn btn-primary" style="padding: 11px 22px; font-size: 0.88rem;">See packages</a>
           <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
             <i class="fas fa-bars"></i>
           </button>
@@ -965,228 +1352,207 @@
     </div>
   </header>
 
+  <!-- ============ HERO ============ -->
   <section class="hero">
     <div class="container">
       <div class="hero-grid">
         <div class="hero-content">
-          <div class="eyebrow">For small South African physiotherapy practices</div>
-          <h1>Know where your practice stands <em>every month</em>.</h1>
-          <p class="lead">LedgerCare keeps your books organised, reconciles medical aid remittances and patient payments, tracks outstanding patient debtors, and gives you a monthly report you can actually use — without hiring a full-time accounts employee.</p>
+          <div class="eyebrow">For South African professional services firms</div>
+          <h1>Know where your firm stands <em>every month</em>.</h1>
+          <p class="lead">LedgerCare keeps your books organised, reconciles your accounts, tracks who owes you money, and gives you a monthly report you can actually understand — without hiring a full-time accounts employee.</p>
           <div class="hero-actions">
-            <a href="https://wa.me/27764312871?text=Hi%20Callum%2C%20I%27d%20like%20to%20join%20the%20LedgerCare%20waitlist%20for%20physiotherapy%20bookkeeping." target="_blank" rel="noopener" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Join the waitlist on WhatsApp</a>
+            <a href="#contact" class="btn btn-primary">Book your free health check <i class="fas fa-arrow-right"></i></a>
             <a href="#pricing" class="btn btn-ghost">See packages</a>
           </div>
           <div class="hero-trust">
-            <span><i class="fas fa-check"></i> Medical aid remittance reconciliation</span>
-            <span><i class="fas fa-check"></i> Fixed monthly fee</span>
+            <span><i class="fas fa-check"></i> Fixed monthly fee — no hourly billing</span>
             <span><i class="fas fa-check"></i> POPIA-compliant handling</span>
             <span><i class="fas fa-check"></i> Named point of contact</span>
           </div>
         </div>
+
         <aside class="hero-panel">
-          <div class="hero-panel-label">Built for physiotherapy practices</div>
+          <div class="hero-panel-label">What you get every month</div>
           <h3>Quiet, accurate, on time.</h3>
-          <ol>
-            <li><strong>Send your records.</strong> Medical aid remittances, patient payments, practice expenses, bank statements.</li>
-            <li><strong>We reconcile.</strong> Remittances against claims. Patient payments against debtors. Bank against ledger.</li>
-            <li><strong>You receive reporting.</strong> Income by practitioner, outstanding debtors, cash position, monthly P&amp;L.</li>
-            <li><strong>We follow up.</strong> Missing remittances chased. Outstanding debtors flagged. Proof of Value delivered quarterly.</li>
-          </ol>
+          <ul>
+            <li><i class="fas fa-check"></i> Monthly bookkeeping and bank reconciliations</li>
+            <li><i class="fas fa-check"></i> Clear income and expense reporting</li>
+            <li><i class="fas fa-check"></i> Outstanding client invoice visibility</li>
+            <li><i class="fas fa-check"></i> Missing-records checklist</li>
+            <li><i class="fas fa-check"></i> Quarterly Proof of Value summary</li>
+            <li><i class="fas fa-check"></i> A named person who follows up</li>
+          </ul>
         </aside>
       </div>
     </div>
   </section>
 
+  <!-- ============ AUDIENCE ============ -->
   <section class="section section-alt section-line" id="audience">
     <div class="container">
       <div class="section-head">
         <div class="eyebrow">Who we serve</div>
-        <h2>Built for small physiotherapy practices. Nothing else.</h2>
-        <p class="lead">We work exclusively with South African physiotherapy practices of 1–6 physiotherapists. One niche. One workflow. One set of problems we solve properly.</p>
+        <h2>Small professional services firms that bill for their time.</h2>
+        <p class="lead">We work best with firms of 2–15 people who already know their numbers matter — but don't have an in-house finance function to produce them.</p>
       </div>
 
-      <div class="focus-panel">
-        <div class="focus-main">
-          <h3>What we understand about physiotherapy practice</h3>
-          <p>Your bookkeeping is not like other small businesses. Medical aids pay late, pay short, and pay against different claim references than you expect. Patient debtors slip past 60 days. Sessions do not always match bank deposits. And you are a clinician, not a bookkeeper.</p>
-          <ul class="focus-list">
-            <li><i class="fas fa-check"></i> <strong>Medical aid remittance reconciliation</strong> — every payment matched against claims and bank deposits</li>
-            <li><i class="fas fa-check"></i> <strong>Patient debtor tracking</strong> — outstanding patient balances aged and flagged</li>
-            <li><i class="fas fa-check"></i> <strong>Session-based billing reconciliation</strong> — sessions billed against sessions paid</li>
-            <li><i class="fas fa-check"></i> <strong>Multi-practitioner reporting</strong> — income by physiotherapist, for practices with associates</li>
-            <li><i class="fas fa-check"></i> <strong>Practice-wide monthly position</strong> — one report, plain language, decisions you can act on</li>
-            <li><i class="fas fa-check"></i> <strong>HPCSA-consistent record-keeping</strong> — organised records, ready for review or handover</li>
-          </ul>
+      <div class="audience-grid">
+        <div class="audience-item">
+          <span class="num">01</span>
+          <i class="fas fa-gavel icon"></i>
+          <h4>Law firms &amp; attorneys</h4>
+          <p>Small practices with retainers, disbursements, and matter-based billing.</p>
         </div>
-        <div class="focus-side">
-          <div class="eyebrow">Who this is not for</div>
-          <h3 style="font-size: 1.25rem; margin-bottom: 12px;">We are not the right fit for every practice.</h3>
-          <p style="font-size: 0.94rem;">We would rather say so up front than waste your time — or ours.</p>
-          <ul class="not-list">
-            <li><i class="fas fa-times"></i> Practices with an in-house bookkeeper or finance team</li>
-            <li><i class="fas fa-times"></i> Practices that require statutory audit or independent review</li>
-            <li><i class="fas fa-times"></i> Businesses outside physiotherapy — including GPs, dentists, and hospitals</li>
-            <li><i class="fas fa-times"></i> Practices looking for a full-time employee on site</li>
-            <li><i class="fas fa-times"></i> Practices with high-volume medico-legal or RAF billing flows</li>
-            <li><i class="fas fa-times"></i> Multi-practice groups requiring complex consolidation at launch</li>
-          </ul>
+        <div class="audience-item">
+          <span class="num">02</span>
+          <i class="fas fa-bullhorn icon"></i>
+          <h4>Marketing &amp; creative agencies</h4>
+          <p>Branding, digital, and creative studios with project and retainer revenue.</p>
+        </div>
+        <div class="audience-item">
+          <span class="num">03</span>
+          <i class="fas fa-briefcase icon"></i>
+          <h4>Management &amp; HR consultancies</h4>
+          <p>Advisory firms billing by project, retainer, or engagement.</p>
+        </div>
+        <div class="audience-item">
+          <span class="num">04</span>
+          <i class="fas fa-drafting-compass icon"></i>
+          <h4>Architecture &amp; engineering</h4>
+          <p>Professional consultancies with progress billing and subconsultant costs.</p>
+        </div>
+        <div class="audience-item">
+          <span class="num">05</span>
+          <i class="fas fa-laptop-code icon"></i>
+          <h4>IT &amp; software firms</h4>
+          <p>Development shops and IT services businesses with subscription or project revenue.</p>
+        </div>
+        <div class="audience-item">
+          <span class="num">06</span>
+          <i class="fas fa-user-tie icon"></i>
+          <h4>Other professional practices</h4>
+          <p>Any small firm that bills for expertise and wants clarity on monthly numbers.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ============ PRICING ============ -->
   <section class="section" id="pricing">
     <div class="container">
       <div class="section-head">
         <div class="eyebrow">Packages and pricing</div>
         <h2>Three packages. One fixed monthly fee.</h2>
-        <p class="lead">Priced by transaction volume and the number of practitioners. Every plan includes secure document handling, a named point of contact, and a Proof of Value summary.</p>
+        <p class="lead">Priced by transaction volume, accounts, and complexity — not headcount. Every plan includes secure document handling, a named point of contact, and a Proof of Value summary.</p>
       </div>
 
       <div class="pricing-grid">
+        <!-- Essential -->
         <div class="plan">
-          <div class="plan-name">Practice Essential</div>
-          <div class="plan-tagline">For solo practitioners with simple finances and low transaction volumes.</div>
+          <div class="plan-name">Books Essential</div>
+          <div class="plan-tagline">For small firms with simple finances and low transaction volumes.</div>
           <div class="plan-price">
             <span class="amount">R1,999</span>
             <span class="period">/ month</span>
           </div>
           <ul class="plan-features">
             <li><i class="fas fa-check"></i> Monthly bookkeeping</li>
-            <li><i class="fas fa-check"></i> Bank reconciliation</li>
+            <li><i class="fas fa-check"></i> Bank reconciliation (one account)</li>
             <li><i class="fas fa-check"></i> Income &amp; expense summary</li>
             <li><i class="fas fa-check"></i> Digital document organisation</li>
             <li><i class="fas fa-check"></i> Missing-document checklist</li>
             <li><i class="fas fa-check"></i> Monthly completion notification</li>
             <li><i class="fas fa-check"></i> Quarterly Proof of Value</li>
           </ul>
-          <div class="plan-scope"><strong>Scope example:</strong> one practitioner, up to 60 transactions, business account only.</div>
-          <a href="https://wa.me/27764312871?text=Hi%20Callum%2C%20I%27d%20like%20to%20join%20the%20LedgerCare%20waitlist%20for%20the%20Essential%20plan." target="_blank" rel="noopener" class="btn btn-ghost plan-cta">Join waitlist</a>
+          <div class="plan-scope"><strong>Scope example:</strong> one entity, up to 50 transactions and one bank account per month.</div>
+          <a href="#contact" class="btn btn-ghost plan-cta">Start with Essential</a>
         </div>
 
+        <!-- Insights (featured) -->
         <div class="plan plan-featured">
           <span class="plan-flag">Recommended</span>
-          <div class="plan-name">Practice Insights</div>
-          <div class="plan-tagline">For growing practices that need medical aid remittances and patient debtors tracked properly.</div>
+          <div class="plan-name">Books &amp; Business Insights</div>
+          <div class="plan-tagline">For growing firms who need to understand their numbers, not merely record them.</div>
           <div class="plan-price">
             <span class="amount">R3,499</span>
             <span class="period">/ month</span>
           </div>
           <ul class="plan-features">
             <li><i class="fas fa-check"></i> Everything in Essential, plus:</li>
-            <li><i class="fas fa-check"></i> Medical aid remittance reconciliation</li>
-            <li><i class="fas fa-check"></i> Patient debtor tracking</li>
-            <li><i class="fas fa-check"></i> Up to 120 transactions</li>
+            <li><i class="fas fa-check"></i> 120 transactions, two bank accounts</li>
+            <li><i class="fas fa-check"></i> Client invoice &amp; debtor tracking</li>
+            <li><i class="fas fa-check"></i> Supplier &amp; creditor tracking</li>
             <li><i class="fas fa-check"></i> Monthly profit-and-loss report</li>
             <li><i class="fas fa-check"></i> Cash-flow summary</li>
             <li><i class="fas fa-check"></i> Outstanding-items report</li>
             <li><i class="fas fa-check"></i> Quarterly Proof of Value</li>
           </ul>
-          <div class="plan-scope"><strong>Scope example:</strong> one practice, up to 120 transactions, remittance reconciliation and debtor tracking.</div>
-          <a href="https://wa.me/27764312871?text=Hi%20Callum%2C%20I%27d%20like%20to%20join%20the%20LedgerCare%20waitlist%20for%20the%20Insights%20plan." target="_blank" rel="noopener" class="btn btn-gold plan-cta">Join waitlist</a>
+          <div class="plan-scope"><strong>Scope example:</strong> one entity, up to 120 transactions and two bank accounts per month.</div>
+          <a href="#contact" class="btn btn-gold plan-cta">Book a health check</a>
         </div>
 
+        <!-- Finance Partner -->
         <div class="plan">
-          <div class="plan-name">Practice Partner</div>
-          <div class="plan-tagline">For multi-practitioner practices needing management visibility.</div>
+          <div class="plan-name">Finance Partner</div>
+          <div class="plan-tagline">For established firms needing management visibility.</div>
           <div class="plan-price">
             <span class="amount">R6,499</span>
             <span class="period">/ month</span>
           </div>
           <ul class="plan-features">
             <li><i class="fas fa-check"></i> Everything in Insights, plus:</li>
-            <li><i class="fas fa-check"></i> Up to 250 transactions</li>
-            <li><i class="fas fa-check"></i> Practitioner-level income reporting</li>
             <li><i class="fas fa-check"></i> Budget-versus-actual reporting</li>
             <li><i class="fas fa-check"></i> Rolling cash-flow forecast</li>
+            <li><i class="fas fa-check"></i> Service-line profitability</li>
             <li><i class="fas fa-check"></i> Monthly management review</li>
             <li><i class="fas fa-check"></i> Prioritised action list</li>
+            <li><i class="fas fa-check"></i> Coordination of accounting queries</li>
             <li><i class="fas fa-check"></i> Monthly Proof of Value</li>
           </ul>
-          <div class="plan-scope"><strong>Scope example:</strong> up to 250 transactions across multiple practitioners, practitioner-level reporting available.</div>
-          <a href="https://wa.me/27764312871?text=Hi%20Callum%2C%20I%27d%20like%20to%20join%20the%20LedgerCare%20waitlist%20for%20the%20Partner%20plan." target="_blank" rel="noopener" class="btn btn-ghost plan-cta">Join waitlist</a>
-        </div>
-      </div>
-
-      <div class="trust-module">
-        <div class="content">
-          <h3>Medical aid remittance reconciliation</h3>
-          <p>Medical aids pay late, pay short, and pay against different claim references than the practice expects. Reconciling remittances against the practice's claims and bank deposits is the single most time-consuming part of practice bookkeeping — and the part most likely to leave money unclaimed.</p>
-          <p>LedgerCare reconciles medical aid remittances monthly. Every payment is matched to a claim. Every shortfall is flagged. Every outstanding remittance is chased. Included in Practice Insights and Practice Partner.</p>
-        </div>
-        <div class="price">
-          Included
-          <small>Insights &amp; Partner</small>
+          <div class="plan-scope"><strong>Scope example:</strong> up to 250 transactions, subject to account complexity and agreed reporting.</div>
+          <a href="#contact" class="btn btn-ghost plan-cta">Discuss Finance Partner</a>
         </div>
       </div>
 
       <div class="pricing-note">
-        <strong>What counts as one transaction:</strong> one line item in the bank statement or ledger — a debit or credit, a bank charge, a deposit, a payment, a medical aid remittance. Where a single bank entry represents multiple claims, it counts as one transaction at the bank level, but the underlying claims still need to be supported by documentation.
-      </div>
-      <div class="pricing-note" style="background: #FBF6E9; border-left-color: var(--gold); color: #6E5216;">
-        <strong>What is not included in any tier:</strong> payroll processing, VAT returns, annual financial statements, SARS submissions and tax returns, catch-up bookkeeping for prior periods, audit and assurance work, HPCSA compliance submissions, and complex multi-practice consolidation. These are quoted separately, in writing, before any work begins.
+        <strong>What is not included in any tier:</strong> payroll processing, VAT returns, annual financial statements, SARS submissions, catch-up bookkeeping for prior periods, audit and assurance work, and complex multi-entity consolidation. These are quoted separately, in writing, before any work begins.
       </div>
     </div>
   </section>
 
-  <section class="scope-section">
-    <div class="container">
-      <div class="section-head">
-        <div class="eyebrow">Scope definitions</div>
-        <h2>Every word that matters, defined in writing.</h2>
-        <p class="lead">Vague scope is how bookkeeping engagements break down. We publish our definitions so both parties know exactly what is included, and what is quoted separately.</p>
-      </div>
-
-      <div class="scope-grid">
-        <div class="scope-item">
-          <span class="num">01</span>
-          <h4>One transaction</h4>
-          <p>One line item in the bank statement or ledger — a debit or credit, a bank charge, a deposit, a payment, or a medical aid remittance.</p>
-        </div>
-        <div class="scope-item">
-          <span class="num">02</span>
-          <h4>One bank account</h4>
-          <p>One account at one financial institution. Practice and personal accounts count separately.</p>
-        </div>
-        <div class="scope-item">
-          <span class="num">03</span>
-          <h4>One practice</h4>
-          <p>One registered entity with one HPCSA practice number. Multi-practice consolidation is quoted separately.</p>
-        </div>
-        <div class="scope-item">
-          <span class="num">04</span>
-          <h4>Work beyond scope</h4>
-          <p>Any request requiring more than 30 minutes of additional time is quoted in writing before it begins.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <!-- ============ ENTRY OFFERS ============ -->
   <section class="section section-alt section-line" id="offers">
     <div class="container">
       <div class="section-head">
-        <div class="eyebrow">Join the waitlist</div>
-        <h2>Two ways to be first in line.</h2>
-        <p class="lead">LedgerCare opens for South African physiotherapy practices shortly. Join the waitlist now and you will be contacted first when we launch, with early access to the free health check.</p>
+        <div class="eyebrow">Low-risk entry offers</div>
+        <h2>Start without the risk.</h2>
+        <p class="lead">We reduce your risk without giving away hours of unpaid professional work. Choose the first step that fits your situation.</p>
       </div>
 
       <div class="offer-grid">
         <div class="offer">
-          <h3>Join via WhatsApp</h3>
-          <div class="offer-price">Fastest</div>
-          <p>Tap the button and send the pre-filled message. We reply within one business day with what happens next. No obligation. No spam.</p>
-          <div class="fine"><i class="fab fa-whatsapp"></i> Opened on your device in one tap.</div>
+          <h3>Free health check</h3>
+          <div class="offer-price">R0</div>
+          <p>We ask how you currently manage records, reconciliations, and outstanding invoices. You get a short list of potential gaps and one suggested next step.</p>
+          <div class="fine"><i class="fas fa-clock"></i> Strictly 15 minutes. Not a full financial review.</div>
         </div>
         <div class="offer">
-          <h3>Join via email</h3>
-          <div class="offer-price">Also fine</div>
-          <p>Email us with your practice name and province. We will add you to the waitlist and reply when we open. Your details stay with us only.</p>
-          <div class="fine"><i class="fas fa-envelope"></i> denysschen.callum43@gmail.com</div>
+          <h3>Fixed-price diagnostic</h3>
+          <div class="offer-price">R595</div>
+          <p>We review an agreed sample of your existing records and produce a short written list of missing reconciliations, recordkeeping gaps, and recommended next steps.</p>
+          <div class="fine"><i class="fas fa-credit-card"></i> Credited against your first month if you sign within 14 days.</div>
+        </div>
+        <div class="offer">
+          <h3>First-month pilot</h3>
+          <div class="offer-price">Normal fee</div>
+          <p>One month of bookkeeping under a written scope with an agreed transaction limit. You receive all deliverables. No long-term commitment.</p>
+          <div class="fine"><i class="fas fa-file-signature"></i> Paid pilot at the normal monthly fee.</div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ============ PROOF OF VALUE ============ -->
   <section class="section">
     <div class="container">
       <div class="pov">
@@ -1194,16 +1560,15 @@
           <div>
             <div class="eyebrow">Proof of Value</div>
             <h2>A record of what we delivered — not just a fee.</h2>
-            <p>Every plan includes a Proof of Value summary. It is not a testimonial. It is not marketing. It is a deliverable — a short document showing exactly what was done, suitable for your files or your partner.</p>
+            <p>Every plan includes a Proof of Value summary. It is not a testimonial. It is not marketing. It is a deliverable — a short document showing exactly what was done.</p>
           </div>
           <div>
             <ul class="pov-list">
-              <li><i class="fas fa-check"></i> Records organised and reconciled</li>
-              <li><i class="fas fa-check"></i> Medical aid remittances received and matched</li>
-              <li><i class="fas fa-check"></i> Patient debtors tracked and flagged</li>
+              <li><i class="fas fa-check"></i> Records organised and reconciled during the period</li>
               <li><i class="fas fa-check"></i> Reports completed and delivered on time</li>
               <li><i class="fas fa-check"></i> Outstanding items resolved or escalated</li>
-              <li><i class="fas fa-check"></i> Plain-language summary — not an audit report</li>
+              <li><i class="fas fa-check"></i> Visibility improvements month-on-month</li>
+              <li><i class="fas fa-check"></i> Simple, plain-language summary — not an audit report</li>
             </ul>
           </div>
         </div>
@@ -1211,6 +1576,7 @@
     </div>
   </section>
 
+  <!-- ============ GUARANTEES ============ -->
   <section class="section section-alt section-line" id="guarantees">
     <div class="container">
       <div class="section-head">
@@ -1223,11 +1589,7 @@
         <tbody>
           <tr>
             <th>Clear scope</th>
-            <td>Written inclusions, exclusions, and transaction limits before work starts. Published definitions of one transaction, one bank account, and one practice.</td>
-          </tr>
-          <tr>
-            <th>Medical aid remittance work</th>
-            <td>Performed by staff with specific experience in physiotherapy practice bookkeeping, under the supervision of a qualified accounting professional.</td>
+            <td>Written inclusions, exclusions, and transaction limits before work starts.</td>
           </tr>
           <tr>
             <th>Fixed monthly fee</th>
@@ -1239,11 +1601,11 @@
           </tr>
           <tr>
             <th>Correction policy</th>
-            <td>Errors attributable to LedgerCare corrected at no additional fee.</td>
+            <td>Errors attributable to our service are corrected without an additional fee.</td>
           </tr>
           <tr>
             <th>Communication</th>
-            <td>Requests acknowledged within one business day.</td>
+            <td>We acknowledge requests within one business day.</td>
           </tr>
           <tr>
             <th>Named contact</th>
@@ -1251,31 +1613,28 @@
           </tr>
           <tr>
             <th>Cancellation</th>
-            <td>One month's written notice, either side. All records returned in an agreed format within 10 business days of final payment.</td>
+            <td>Month-to-month after any disclosed initial setup or pilot terms.</td>
           </tr>
           <tr>
             <th>Service recovery</th>
             <td>A reasonable service credit for a missed commitment caused by our team, subject to clear terms.</td>
           </tr>
-          <tr>
-            <th>Data protection</th>
-            <td>POPIA-compliant handling of patient and practice data. Access-controlled storage, published retention policy.</td>
-          </tr>
         </tbody>
       </table>
 
       <p style="margin-top: 28px; font-size: 0.9rem; color: var(--ink-mute); line-height: 1.7;">
-        <strong style="color: var(--ink);">What we do not guarantee:</strong> perfect books, zero tax problems, guaranteed SARS outcomes, HPCSA compliance outcomes, protection against medical scheme audits, audit-ready financial statements without a separate engagement, or recovery of outstanding patient debtor balances. LedgerCare is a bookkeeping service. See our full <button class="btn-link" data-modal="terms">Terms of Engagement</button> for the complete framework.
+        <strong style="color: var(--ink);">What we do not guarantee:</strong> perfect books, zero tax problems, guaranteed SARS outcomes, or recovery of outstanding debtor balances. We follow a genuine, documented process for checking work, securing data, and escalating issues. See our full <button class="btn-link" data-modal="terms">Terms of Engagement</button> for the complete guarantee framework.
       </p>
     </div>
   </section>
 
+  <!-- ============ WHY LEDGERCARE ============ -->
   <section class="section">
     <div class="container">
       <div class="section-head">
         <div class="eyebrow">Why LedgerCare</div>
         <h2>Not the cheapest. The most accountable.</h2>
-        <p class="lead">General bookkeepers don't understand medical aid remittances. Medical accountants charge R15,000/month. LedgerCare sits in the gap — bookkeeping built specifically for physiotherapy practices, at a price that makes sense.</p>
+        <p class="lead">Independent bookkeepers, traditional practices, freelancers, and software all compete here. We win on focus, predictability, and follow-through — nothing else.</p>
       </div>
 
       <div class="why-grid">
@@ -1283,7 +1642,7 @@
           <span class="num">01</span>
           <div>
             <h4>Specialist focus</h4>
-            <p>We work exclusively with physiotherapy practices. Medical aid remittances, patient debtors, session billing — this is what we do, not a sideline.</p>
+            <p>We understand professional services firms — retainers, project billing, disbursements, subconsultants, and the reporting that actually matters.</p>
           </div>
         </div>
         <div class="why-item">
@@ -1297,83 +1656,69 @@
           <span class="num">03</span>
           <div>
             <h4>Useful reporting</h4>
-            <p>We show you what the practice earned, what remains unpaid, and where the numbers need attention. Not a data dump — a decision tool.</p>
+            <p>We show you what you earned, what remains unpaid, and what needs attention. Not a data dump — a decision tool.</p>
           </div>
         </div>
         <div class="why-item">
           <span class="num">04</span>
           <div>
             <h4>Low-friction service</h4>
-            <p>Remote onboarding, secure document collection, and a single point of contact. No office visits, no courier runs, no change to how your practice runs.</p>
+            <p>Remote onboarding, secure document collection, and a single point of contact. No office visits, no courier runs.</p>
           </div>
         </div>
         <div class="why-item">
           <span class="num">05</span>
           <div>
             <h4>Named accountability</h4>
-            <p>A specific person follows up on missing records and unresolved questions — not a shared inbox or a rotating team.</p>
+            <p>A specific person follows up on missing records and unresolved questions — not a shared inbox.</p>
           </div>
         </div>
         <div class="why-item">
           <span class="num">06</span>
           <div>
             <h4>Proof of Value</h4>
-            <p>A deliverable showing exactly what was done during the period. It makes partner review simple, and it makes quiet months visible.</p>
+            <p>A deliverable showing exactly what was done during the period. It makes renewal conversations simple, and it makes quiet months visible.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" style="padding-top: 0;">
-    <div class="container">
-      <div class="trust-module" style="margin-top: 0;">
-        <div class="content">
-          <h3>Patient data, handled properly.</h3>
-          <p>Patient information is special personal information under POPIA and requires heightened protection. LedgerCare handles patient data only to the extent necessary for bookkeeping and remittance reconciliation — and never for any other purpose.</p>
-          <p>We do not certify HPCSA compliance, do not audit billing practices, and do not protect against medical scheme audits. Those remain the practice's obligations. We reconcile, document, and record. Full details are in our Medical Data Statement.</p>
-        </div>
-        <div class="price">
-          POPIA
-          <small>Compliant</small>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <!-- ============ PROMOTIONS ============ -->
   <section class="section section-alt section-line">
     <div class="container">
       <div class="section-head">
-        <div class="eyebrow">Launch incentives</div>
-        <h2>Simple ways to be first in line.</h2>
-        <p class="lead">A small number of clear incentives for the practices that join the waitlist. No complicated loyalty schemes. No conditions hidden in fine print.</p>
+        <div class="eyebrow">Promotions and incentives</div>
+        <h2>Simple ways to start.</h2>
+        <p class="lead">A small number of clear incentives. No complicated loyalty schemes. No conditions hidden in fine print.</p>
       </div>
 
       <div class="promo-grid">
         <div class="promo-card">
-          <span class="tag">Early access</span>
-          <h4>First to be contacted</h4>
-          <p>Waitlist members are contacted first when LedgerCare opens. Before any public launch.</p>
+          <span class="tag">New customer</span>
+          <h4>R595 diagnostic credited</h4>
+          <p>Paid diagnostic fee credited against your first month if you sign within 14 days.</p>
         </div>
         <div class="promo-card">
-          <span class="tag">Free</span>
+          <span class="tag">Entry</span>
           <h4>Free 15-minute health check</h4>
-          <p>Every waitlist member receives a free health check when we open. No deliverable. No obligation.</p>
+          <p>A short, structured conversation. No deliverable. No obligation.</p>
+        </div>
+        <div class="promo-card">
+          <span class="tag">Pilot</span>
+          <h4>First-month pilot</h4>
+          <p>One month at the normal fee, written scope, defined transaction limit, no long-term commitment.</p>
         </div>
         <div class="promo-card">
           <span class="tag">Referral</span>
           <h4>R500 account credit</h4>
-          <p>Paid after a referred practice signs a monthly plan and pays their second monthly invoice.</p>
-        </div>
-        <div class="promo-card">
-          <span class="tag">Loyalty</span>
-          <h4>Annual loyalty credit</h4>
-          <p>Considered for annual prepayment after cash flow and delivery costs are established. Not yet published.</p>
+          <p>Paid after a referred firm signs a monthly plan and pays their second monthly invoice.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ============ FINANCIALS ============ -->
   <section class="section">
     <div class="container">
       <div class="section-head">
@@ -1406,11 +1751,12 @@
     </div>
   </section>
 
+  <!-- ============ PROCESS ============ -->
   <section class="section section-alt section-line">
     <div class="container">
       <div class="section-head">
         <div class="eyebrow">How we work</div>
-        <h2>Seven steps. Every month.</h2>
+        <h2>A repeatable process, every client.</h2>
         <p class="lead">Before we accept a client, we establish the workflow. The same seven steps run every month, so nothing depends on memory or goodwill.</p>
       </div>
 
@@ -1418,7 +1764,7 @@
         <div class="process-step">
           <span class="n">01</span>
           <h4>Understand</h4>
-          <p>We review your practice, remittance flow, patient debtor patterns, and reporting needs.</p>
+          <p>We review your business, accounts, transaction volume, and reporting needs.</p>
         </div>
         <div class="process-step">
           <span class="n">02</span>
@@ -1454,12 +1800,13 @@
     </div>
   </section>
 
+  <!-- ============ COMPLIANCE / POPIA ============ -->
   <section class="section">
     <div class="container">
       <div class="compliance-strip">
         <div>
           <h3>POPIA-compliant, from onboarding to archive.</h3>
-          <p>Patient information is special personal information under POPIA. We collect only the information required to deliver the service, store it securely, restrict internal access, and retain it no longer than necessary. You can request access, correction, or deletion of patient or practice information at any time. Full policy and data subject rights are in our Privacy Policy and Medical Data Statement.</p>
+          <p>We collect only the information required to deliver the service, store it securely, restrict internal access, and retain it no longer than necessary. You can request access, correction, or deletion of your personal information at any time. Full policy and data subject rights are in our Privacy Policy.</p>
         </div>
         <div class="compliance-badges">
           <span class="badge"><i class="fas fa-shield-alt"></i> POPIA aligned</span>
@@ -1470,77 +1817,77 @@
     </div>
   </section>
 
+  <!-- ============ LAUNCH PLAN ============ -->
   <section class="section section-alt section-line">
     <div class="container">
       <div class="section-head">
-        <div class="eyebrow">Launch timeline</div>
-        <h2>Where we are now.</h2>
-        <p class="lead">We are currently in the validation phase. Before we open for paying clients, we want to confirm the need, the price, and the delivery workflow with a small number of practices. Here is the plan.</p>
+        <div class="eyebrow">First 30 days</div>
+        <h2>A concrete launch plan.</h2>
+        <p class="lead">The first milestone is not 40 clients. It is three who pay, receive accurate work, renew, and leave a healthy margin.</p>
       </div>
 
       <div class="launch-grid">
         <div class="launch-card">
-          <span class="wk">Now</span>
-          <h4>Waitlist open</h4>
+          <span class="wk">Week 1</span>
+          <h4>Secure delivery</h4>
           <ul>
-            <li><i class="fas fa-check"></i> Conversations with physiotherapy practices across South Africa</li>
-            <li><i class="fas fa-check"></i> Confirming pricing and scope with real practitioners</li>
-            <li><i class="fas fa-check"></i> Building the accounting delivery team</li>
+            <li><i class="fas fa-check"></i> Find two potential accounting professionals</li>
+            <li><i class="fas fa-check"></i> Confirm competencies and availability</li>
+            <li><i class="fas fa-check"></i> Obtain realistic per-client delivery quotes</li>
+            <li><i class="fas fa-check"></i> Choose initial package and define limits</li>
           </ul>
         </div>
         <div class="launch-card">
-          <span class="wk">Next</span>
-          <h4>Pilot with first clients</h4>
+          <span class="wk">Week 2</span>
+          <h4>Minimum sales system</h4>
           <ul>
-            <li><i class="fas fa-check"></i> One-month pilot with a small number of practices</li>
-            <li><i class="fas fa-check"></i> Real bookkeeping, real remittance reconciliation</li>
-            <li><i class="fas fa-check"></i> Measure cost and refine the workflow</li>
+            <li><i class="fas fa-check"></i> Publish the offer and set up booking</li>
+            <li><i class="fas fa-check"></i> Prepare sample monthly report (fictional data)</li>
+            <li><i class="fas fa-check"></i> Establish written engagement terms</li>
+            <li><i class="fas fa-check"></i> Secure document handling setup</li>
           </ul>
         </div>
         <div class="launch-card">
-          <span class="wk">Then</span>
-          <h4>Full launch</h4>
+          <span class="wk">Week 3</span>
+          <h4>Acquire conversations</h4>
           <ul>
-            <li><i class="fas fa-check"></i> Waitlist members contacted first</li>
-            <li><i class="fas fa-check"></i> Monthly plans open to all new practices</li>
-            <li><i class="fas fa-check"></i> First free health checks scheduled</li>
+            <li><i class="fas fa-check"></i> Contact 40–50 suitable firms</li>
+            <li><i class="fas fa-check"></i> Track replies, health checks, and objections</li>
+            <li><i class="fas fa-check"></i> Adjust message based on responses</li>
           </ul>
         </div>
         <div class="launch-card">
-          <span class="wk">Later</span>
-          <h4>Expand</h4>
+          <span class="wk">Week 4</span>
+          <h4>Test paid demand</h4>
           <ul>
-            <li><i class="fas fa-check"></i> Additional allied health verticals</li>
-            <li><i class="fas fa-check"></i> Additional accounting professionals</li>
-            <li><i class="fas fa-check"></i> Additional service lines</li>
+            <li><i class="fas fa-check"></i> Aim for 2–3 paying pilot clients</li>
+            <li><i class="fas fa-check"></i> Deliver service, record actual costs and hours</li>
+            <li><i class="fas fa-check"></i> Ask if reporting justifies ongoing payment</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ============ FINAL CTA ============ -->
   <section class="final" id="contact">
     <div class="container">
-      <div class="eyebrow">Join the waitlist</div>
-      <h2>Be first in line when LedgerCare opens.</h2>
-      <p>Send a WhatsApp message and we will add you to the waitlist. When we launch, you will be contacted first — with early access to a free 15-minute bookkeeping health check. No obligation. No spam. Your details stay with us only.</p>
+      <div class="eyebrow">Start here</div>
+      <h2>Book a free 15-minute health check.</h2>
+      <p>No obligation. We will discuss your current process, identify potential gaps, and recommend a suitable next step. The first conversation costs you fifteen minutes and nothing else.</p>
       <div class="final-actions">
-        <a href="https://wa.me/27764312871?text=Hi%20Callum%2C%20I%27d%20like%20to%20join%20the%20LedgerCare%20waitlist%20for%20physiotherapy%20bookkeeping." target="_blank" rel="noopener" class="btn btn-whatsapp" style="font-size: 1.05rem; padding: 16px 32px;">
-          <i class="fab fa-whatsapp" style="font-size: 1.3rem;"></i> Join the waitlist on WhatsApp
-        </a>
-        <a href="mailto:denysschen.callum43@gmail.com?subject=LedgerCare%20waitlist%20request" class="btn btn-ghost" style="border-color: rgba(255,255,255,0.24); color: #fff;">
-          <i class="fas fa-envelope"></i> Or email us
-        </a>
+        <a href="mailto:hello@ledgercare.co.za?subject=Health%20check%20request" class="btn btn-gold">Book your health check <i class="fas fa-arrow-right"></i></a>
+        <a href="mailto:hello@ledgercare.co.za" class="btn btn-ghost" style="border-color: rgba(255,255,255,0.24); color: #fff;">Email us directly</a>
       </div>
       <div class="final-meta">
-        <span><i class="fab fa-whatsapp"></i> +27 76 431 2871</span>
-        <span><i class="fas fa-envelope"></i> denysschen.callum43@gmail.com</span>
+        <span><i class="fas fa-envelope"></i> hello@ledgercare.co.za</span>
         <span><i class="fas fa-clock"></i> Replies within one business day</span>
         <span><i class="fas fa-map-marker-alt"></i> South Africa · Remote-first</span>
       </div>
     </div>
   </section>
 
+  <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
@@ -1549,17 +1896,17 @@
             <div class="brand-mark">L</div>
             <div>
               <div class="brand-name">LedgerCare</div>
-              <span class="brand-sub">Monthly books for physios</span>
+              <span class="brand-sub">Monthly books · Clear reporting</span>
             </div>
           </a>
-          <p>Fixed-fee monthly bookkeeping for small South African physiotherapy practices. Medical aid remittance reconciliation and patient debtor tracking included. Launching soon.</p>
+          <p>Fixed-fee monthly bookkeeping and reporting for small professional services firms in South Africa.</p>
         </div>
         <div class="footer-col">
           <h5>Service</h5>
           <ul>
             <li><a href="#audience">Who we serve</a></li>
             <li><a href="#pricing">Packages</a></li>
-            <li><a href="#offers">Waitlist</a></li>
+            <li><a href="#offers">Free health check</a></li>
             <li><a href="#guarantees">Guarantees</a></li>
           </ul>
         </div>
@@ -1575,15 +1922,15 @@
         <div class="footer-col">
           <h5>Legal</h5>
           <ul>
-            <li><button data-modal="medical">Medical Data Statement</button></li>
             <li><button data-modal="cookies">Cookie Notice</button></li>
             <li><button data-modal="disclaimer">Service Disclaimer</button></li>
+            <li><button data-modal="paia">PAIA Manual</button></li>
             <li><button data-modal="complaints">Complaints Procedure</button></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <div>© <span id="yr">2025</span> LedgerCare · Callum Denysschen · Company registration pending</div>
+        <div>© <span id="yr">2025</span> LedgerCare. All rights reserved.</div>
         <div>
           <a href="#" data-modal="privacy">Privacy</a> &nbsp;·&nbsp;
           <a href="#" data-modal="terms">Terms</a> &nbsp;·&nbsp;
@@ -1593,12 +1940,8 @@
     </div>
   </footer>
 
-  <!-- Floating WhatsApp -->
-  <a href="https://wa.me/27764312871?text=Hi%20Callum%2C%20I%27d%20like%20to%20join%20the%20LedgerCare%20waitlist%20for%20physiotherapy%20bookkeeping." target="_blank" rel="noopener" class="whatsapp-float" aria-label="Join the waitlist on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-    <span>Join waitlist</span>
-  </a>
-
+  <!-- ============ MODALS ============ -->
+  <!-- Terms of Engagement -->
   <div class="modal-backdrop" id="modal-terms" role="dialog" aria-modal="true" aria-labelledby="terms-title">
     <div class="modal">
       <div class="modal-head">
@@ -1610,11 +1953,12 @@
       </div>
       <div class="modal-body">
         <p><strong>Last updated:</strong> January 2025 · <strong>Applies to:</strong> all LedgerCare engagements within the Republic of South Africa.</p>
-        <div class="callout">This is a summary of our standard engagement terms. A full written engagement letter is issued to every client before work begins and takes precedence where it differs from this summary. LedgerCare is currently pre-launch. These terms apply from the date of the first paid engagement.</div>
+
+        <div class="callout">This is a summary of our standard engagement terms. A full written engagement letter is issued to every client before work begins and takes precedence where it differs from this summary.</div>
 
         <h4>1. Scope of Services</h4>
-        <p>LedgerCare provides remote monthly bookkeeping, bank reconciliation, medical aid remittance reconciliation, patient debtor tracking, document organisation, and reporting services to small physiotherapy practices. The specific services, transaction limits, deadlines, and deliverables for each client are recorded in a written engagement letter and confirmed at the start of the engagement.</p>
-        <p>Services not expressly included in the engagement letter are excluded. These typically include:</p>
+        <p>LedgerCare provides remote monthly bookkeeping, bank reconciliation, document organisation, and reporting services. The specific services, transaction limits, deadlines, and deliverables for each client are recorded in a written engagement letter and confirmed at the start of the engagement.</p>
+        <p>Services not expressly included in the engagement letter are excluded. These typically include, but are not limited to:</p>
         <ul>
           <li>Payroll processing and PAYE/UIF/SDL submissions</li>
           <li>VAT returns and VAT reconciliations</li>
@@ -1622,80 +1966,72 @@
           <li>Income tax returns and SARS submissions of any kind</li>
           <li>Catch-up bookkeeping for prior periods</li>
           <li>Audit, assurance, or attest work</li>
-          <li>HPCSA compliance submissions or medical scheme audit support</li>
-          <li>Medical billing, claims submission, or practice management software support</li>
-          <li>Complex multi-practice consolidations</li>
+          <li>Complex multi-entity consolidations</li>
         </ul>
         <p>These services are quoted separately in writing, accepted by the client, and billed independently of the monthly retainer.</p>
 
         <h4>2. Client Responsibilities</h4>
         <p>Accurate, timely bookkeeping depends on accurate, timely source information. The client agrees to:</p>
         <ul>
-          <li>Provide complete records, bank statements, remittance advices, and supporting documents by the agreed monthly deadline</li>
+          <li>Provide complete records, bank statements, and supporting documents by the agreed monthly deadline</li>
           <li>Respond to requests for missing or unclear information within a reasonable time</li>
           <li>Review and approve all reports before relying on them for any decision</li>
-          <li>Notify LedgerCare promptly of any change in practice structure, banking, medical scheme arrangements, VAT status, or accounting system</li>
+          <li>Notify LedgerCare promptly of any change in business structure, banking, VAT status, or accounting system</li>
           <li>Maintain the security of any credentials shared with LedgerCare and rotate them on request</li>
         </ul>
         <p>Where records are incomplete or arrive late, LedgerCare may adjust delivery dates without penalty.</p>
 
-        <h4>3. Scope Definitions</h4>
-        <p>For the purposes of monthly transaction limits:</p>
-        <ul>
-          <li><strong>One transaction</strong> is one line item in the bank statement or ledger, including each medical aid remittance.</li>
-          <li><strong>One bank account</strong> is one account at one financial institution. Practice and personal accounts count separately.</li>
-          <li><strong>One practice</strong> is one registered entity with one HPCSA practice number. Multi-practice consolidation is quoted separately.</li>
-          <li><strong>Work beyond scope</strong> is any request requiring more than 30 minutes of additional time. It is quoted in writing before it begins.</li>
-        </ul>
-
-        <h4>4. Medical Aid Remittance Work</h4>
-        <p>Where medical aid remittance reconciliation is included in the engagement, LedgerCare will reconcile medical aid remittances against the practice's claims and bank deposits on the frequency agreed in the engagement letter. This is a bookkeeping reconciliation and is not a medical billing audit, an assurance engagement, or a substitute for the practice's own statutory obligations or medical scheme obligations.</p>
-        <p>The client remains responsible for all HPCSA, BHF, and medical scheme compliance obligations, including any billing audit or forensic review required by a medical scheme.</p>
-
-        <h4>5. Fees and Payment</h4>
+        <h4>3. Fees and Payment</h4>
         <p>Monthly fees are fixed and published on the pricing page at the time of engagement. The client agrees to pay by the agreed method on or before the invoice due date. Fees cover the specified monthly deliverables and transaction limits. Work exceeding agreed limits is quoted in writing before it begins.</p>
+        <p>Once a written quote for additional work has been accepted, it becomes payable whether or not the client subsequently decides to proceed with the underlying matter, except where the engagement letter states otherwise.</p>
 
-        <h4>6. Guarantees</h4>
+        <h4>4. Guarantees</h4>
         <p>LedgerCare guarantees:</p>
         <ul>
-          <li><strong>Clear scope:</strong> inclusions, exclusions, and transaction limits written down before work starts</li>
-          <li><strong>Medical aid remittance work:</strong> performed by staff with physiotherapy practice bookkeeping experience under supervision of a qualified accounting professional</li>
+          <li><strong>Clear scope:</strong> inclusions, exclusions, and transaction limits are written down before work starts</li>
           <li><strong>Fixed monthly fee:</strong> no hourly billing for work within scope</li>
           <li><strong>No surprise charges:</strong> additional work requires a written quote and client approval</li>
           <li><strong>Delivery commitment:</strong> monthly deliverables completed by the agreed date if records arrive by the agreed deadline</li>
-          <li><strong>Correction policy:</strong> errors attributable to LedgerCare corrected at no additional fee</li>
+          <li><strong>Correction policy:</strong> errors attributable to LedgerCare are corrected at no additional fee</li>
           <li><strong>Communication:</strong> requests acknowledged within one business day</li>
-          <li><strong>Cancellation:</strong> one month's written notice, either side. All records returned within 10 business days of final payment</li>
+          <li><strong>Cancellation:</strong> month-to-month after any disclosed initial setup or pilot terms</li>
           <li><strong>Service recovery:</strong> a reasonable service credit for a missed commitment within our control</li>
         </ul>
-        <div class="callout callout-gold"><strong>What we do not guarantee:</strong> perfect books, zero tax problems, guaranteed SARS outcomes, HPCSA compliance outcomes, protection against medical scheme audits, audit-ready financial statements without a separate engagement, or recovery of outstanding patient debtor balances. LedgerCare is a bookkeeping service.</div>
 
-        <h4>7. Confidentiality</h4>
-        <p>LedgerCare treats all client financial, patient, and personal information as confidential. Information is disclosed only to the client and persons the client has authorised in writing, to service providers under written confidentiality obligations strictly necessary to deliver the service, and where required by law or a regulator with lawful authority. Patient information is treated as special personal information under POPIA.</p>
+        <div class="callout callout-gold"><strong>What we do not guarantee:</strong> perfect books, zero tax problems, guaranteed SARS outcomes, audit-ready financial statements without a separate engagement, or recovery of outstanding debtor balances. LedgerCare is not a substitute for a registered tax practitioner, registered auditor, or the client's own professional judgment.</div>
 
-        <h4>8. Data Protection (POPIA)</h4>
-        <p>LedgerCare processes personal information in accordance with POPIA. See the <button class="btn-link" data-modal="popia">POPIA Notice</button>, <button class="btn-link" data-modal="privacy">Privacy Policy</button>, and <button class="btn-link" data-modal="medical">Medical Data Statement</button> for full details.</p>
+        <h4>5. Confidentiality</h4>
+        <p>LedgerCare treats all client financial and personal information as confidential. Information is disclosed only:</p>
+        <ul>
+          <li>To the client and persons the client has authorised in writing</li>
+          <li>To service providers under written confidentiality obligations strictly necessary to deliver the service</li>
+          <li>Where required by law, court order, or a regulator with lawful authority</li>
+        </ul>
+        <p>This obligation survives termination of the engagement.</p>
 
-        <h4>9. Limitation of Liability</h4>
+        <h4>6. Data Protection (POPIA)</h4>
+        <p>LedgerCare processes personal information in accordance with the Protection of Personal Information Act, 4 of 2013 ("POPIA"). See the <button class="btn-link" data-modal="popia">POPIA Notice</button> and <button class="btn-link" data-modal="privacy">Privacy Policy</button> for full details of our processing purposes, retention, and data subject rights.</p>
+
+        <h4>7. Limitation of Liability</h4>
         <p>To the maximum extent permitted by South African law:</p>
         <ul>
-          <li>LedgerCare's total liability arising out of or in connection with the engagement is limited to the fees paid by the client in the three (3) calendar months immediately preceding the event giving rise to the claim</li>
-          <li>LedgerCare is not liable for indirect, incidental, special, or consequential losses</li>
-          <li>LedgerCare is not liable for the acts or omissions of third parties, including banks, medical schemes, SARS, HPCSA, practice management software providers, or independent professionals engaged with the client's written consent</li>
+          <li>LedgerCare's total liability arising out of or in connection with the engagement, whether in contract, delict, or otherwise, is limited to the fees paid by the client in the three (3) calendar months immediately preceding the event giving rise to the claim</li>
+          <li>LedgerCare is not liable for indirect, incidental, special, or consequential losses, including loss of profit, loss of opportunity, or loss of data arising from client-side systems</li>
+          <li>LedgerCare is not liable for the acts or omissions of third parties, including banks, SARS, accounting software providers, or independent professionals engaged with the client's written consent</li>
         </ul>
         <p>Nothing in these terms limits liability for fraud, wilful misconduct, or any liability that cannot be limited by law.</p>
 
-        <h4>10. Termination</h4>
+        <h4>8. Termination</h4>
         <p>Either party may terminate the engagement on one (1) calendar month's written notice, or as otherwise provided in the engagement letter. Fees for work completed up to the termination date remain payable. On termination, LedgerCare will return or securely destroy client records as instructed, subject to statutory retention obligations.</p>
 
-        <h4>11. Dispute Resolution</h4>
-        <p>Parties will first attempt good-faith resolution within 30 days. If unresolved, the dispute will be referred to mediation and, failing that, to arbitration under the rules of the Arbitration Foundation of Southern Africa (AFSA). Nothing prevents either party from seeking urgent interim relief from a competent court.</p>
+        <h4>9. Dispute Resolution</h4>
+        <p>Parties will first attempt to resolve any dispute through good-faith discussion within 30 days. If unresolved, the dispute will be referred to mediation, and failing that, to arbitration in accordance with the rules of the Arbitration Foundation of Southern Africa (AFSA). This clause does not prevent either party from seeking urgent interim relief from a competent court.</p>
 
-        <h4>12. Governing Law</h4>
-        <p>These terms are governed by the laws of the Republic of South Africa.</p>
+        <h4>10. Governing Law</h4>
+        <p>These terms are governed by the laws of the Republic of South Africa. The parties consent to the jurisdiction of the South African courts.</p>
 
-        <h4>13. Amendments</h4>
-        <p>LedgerCare may amend these terms from time to time. Material changes will be communicated to clients in writing at least fourteen (14) days before taking effect.</p>
+        <h4>11. Amendments</h4>
+        <p>LedgerCare may amend these terms from time to time. Material changes will be communicated to clients in writing at least fourteen (14) days before taking effect. Continued use of the service after that date constitutes acceptance.</p>
       </div>
       <div class="modal-foot">
         <div><strong>LedgerCare</strong> · Terms of Engagement · v1.0</div>
@@ -1704,6 +2040,7 @@
     </div>
   </div>
 
+  <!-- Privacy Policy -->
   <div class="modal-backdrop" id="modal-privacy" role="dialog" aria-modal="true" aria-labelledby="privacy-title">
     <div class="modal">
       <div class="modal-head">
@@ -1715,56 +2052,58 @@
       </div>
       <div class="modal-body">
         <p><strong>Last updated:</strong> January 2025</p>
-        <p>This Privacy Policy explains how LedgerCare ("we", "us", "our") collects, uses, shares, and protects personal information, and describes your rights under the Protection of Personal Information Act, 4 of 2013 ("POPIA").</p>
+        <p>This Privacy Policy explains how LedgerCare ("we", "us", "our") collects, uses, shares, and protects personal information, and describes your rights under the Protection of Personal Information Act, 4 of 2013 ("POPIA") and other applicable South African law.</p>
 
         <h4>1. Who we are</h4>
-        <p>LedgerCare is a remote bookkeeping and monthly reporting service for small South African physiotherapy practices. We are the "responsible party" for the personal information we process to provide the service.</p>
-        <p><strong>Information Officer:</strong> Callum Denysschen<br>
-        <strong>Email:</strong> denysschen.callum43@gmail.com</p>
+        <p>LedgerCare is a remote bookkeeping and monthly reporting service operating in South Africa. We are the "responsible party" for the personal information we process to provide the service.</p>
+        <p><strong>Information Officer:</strong> The owner of LedgerCare<br>
+        <strong>Email:</strong> privacy@ledgercare.co.za</p>
 
         <h4>2. Personal information we collect</h4>
+        <p>We collect information that is necessary to deliver bookkeeping and reporting services. This typically includes:</p>
         <ul>
-          <li><strong>Identity and contact data:</strong> name, practice name, HPCSA number, email, phone number, business address</li>
-          <li><strong>Financial data:</strong> bank statements, transaction records, invoices, remittance advices, debtor and creditor information, tax reference numbers</li>
-          <li><strong>Patient data:</strong> patient names, medical aid scheme names, claim references, payment amounts, and outstanding balances — only where necessary for remittance reconciliation and debtor tracking</li>
-          <li><strong>Practitioner data:</strong> practitioner names and income allocations for multi-practitioner reporting</li>
-          <li><strong>Technical and usage data:</strong> IP address, browser type, timestamps, and access logs</li>
+          <li><strong>Identity and contact data:</strong> name, business name, registration number, email, phone number, business address</li>
+          <li><strong>Financial data:</strong> bank statements, transaction records, invoices, debtor and creditor information, tax reference numbers</li>
+          <li><strong>Payroll data (only where the client engages us for a separate quoted service):</strong> employee names, ID numbers, remuneration, deductions</li>
+          <li><strong>Technical and usage data:</strong> IP address, browser type, timestamps, and access logs generated by our booking system and secure file transfer tools</li>
           <li><strong>Communications:</strong> emails, WhatsApp messages, meeting notes, and support tickets related to your engagement</li>
         </ul>
-        <p>Patient information is treated as special personal information under POPIA and receives heightened protection. We do not knowingly collect information from children, and we do not collect special personal information except where strictly necessary and lawful.</p>
+        <p>We do not knowingly collect information from children, and we do not collect special personal information (as defined in POPIA) except where strictly necessary and lawful.</p>
 
         <h4>3. How we collect it</h4>
         <ul>
-          <li>Directly from you, when you contact us, join the waitlist, or engage our services</li>
+          <li>Directly from you, when you contact us, book a health check, or engage our services</li>
           <li>From documents and records you share with us through secure channels</li>
           <li>From your existing accountants or bookkeepers, where you have instructed them to hand over records</li>
           <li>Automatically, through our website, booking tools, and file transfer platforms</li>
         </ul>
 
         <h4>4. Why we process it (lawful basis)</h4>
+        <p>We process personal information on the following bases under POPIA:</p>
         <ul>
           <li><strong>To perform a contract:</strong> delivering the bookkeeping and reporting services you have engaged us for</li>
           <li><strong>To comply with legal obligations:</strong> tax, company, and record-keeping laws</li>
-          <li><strong>For legitimate interests:</strong> protecting our systems, preventing fraud, improving service quality</li>
+          <li><strong>For legitimate interests:</strong> protecting our systems, preventing fraud, improving our service quality, and communicating with you about your engagement</li>
           <li><strong>With your consent:</strong> for optional marketing communications and certain referrals</li>
         </ul>
 
         <h4>5. How we use it</h4>
         <ul>
           <li>To prepare monthly bookkeeping, reconciliations, and reports</li>
-          <li>To reconcile medical aid remittances against claims and bank deposits</li>
-          <li>To track outstanding patient debtors</li>
+          <li>To track outstanding invoices and debtor balances</li>
           <li>To communicate with you about your engagement, deadlines, and missing records</li>
           <li>To invoice you and manage payments</li>
           <li>To comply with tax, statutory, and regulatory obligations</li>
+          <li>To detect, prevent, and investigate fraud, security incidents, or misuse</li>
         </ul>
 
         <h4>6. Who we share it with</h4>
+        <p>We share personal information only where necessary, and only with parties bound by confidentiality:</p>
         <ul>
           <li><strong>Our accounting professionals:</strong> suitably qualified bookkeepers and accountants working on your engagement under written confidentiality obligations</li>
           <li><strong>Service providers:</strong> secure file storage, e-signature, and communication tools that support the service</li>
           <li><strong>Professional advisers:</strong> our own attorneys, insurers, and auditors, where necessary</li>
-          <li><strong>Authorities:</strong> SARS, the Information Regulator, HPCSA, medical schemes, courts, or other regulators where we are legally compelled</li>
+          <li><strong>Authorities:</strong> SARS, the Information Regulator, courts, or other regulators where we are legally compelled</li>
         </ul>
         <p>We do not sell personal information. We do not share it for third-party marketing.</p>
 
@@ -1772,15 +2111,16 @@
         <p>Some of our service providers may store data outside South Africa. Where this occurs, we take reasonable steps to ensure the recipient is subject to laws, binding rules, or contractual obligations that provide an adequate level of protection substantially similar to POPIA.</p>
 
         <h4>8. How long we keep it</h4>
+        <p>We retain personal information only as long as necessary for the purposes described above, and to satisfy legal retention obligations. In practice:</p>
         <ul>
-          <li><strong>Client engagement records:</strong> at least five (5) years after the end of the tax year to which they relate</li>
-          <li><strong>Patient data:</strong> retained only for the period necessary to deliver the service and to satisfy statutory retention obligations, then securely destroyed</li>
+          <li><strong>Client engagement records:</strong> at least five (5) years after the end of the tax year to which they relate, as required by tax and company law</li>
           <li><strong>Prospective client enquiries:</strong> up to twelve (12) months if no engagement follows</li>
           <li><strong>Website and booking logs:</strong> typically up to twelve (12) months</li>
         </ul>
         <p>When retention is no longer justified, information is securely destroyed or de-identified.</p>
 
         <h4>9. How we secure it</h4>
+        <p>We take reasonable, appropriate technical and organisational measures to protect personal information, including:</p>
         <ul>
           <li>Access control, unique credentials, and the principle of least privilege</li>
           <li>Encrypted storage and encrypted transfer where technically feasible</li>
@@ -1788,9 +2128,10 @@
           <li>Written confidentiality obligations for staff and contractors</li>
           <li>Procedures for detecting, reporting, and responding to security compromises</li>
         </ul>
-        <p>No system is perfectly secure. If a security compromise affects your personal information or patient information, we will notify you and the Information Regulator as required by section 22 of POPIA.</p>
+        <p>No system is perfectly secure. If a security compromise affects your personal information, we will notify you and the Information Regulator as required by section 22 of POPIA.</p>
 
         <h4>10. Your rights</h4>
+        <p>Under POPIA you have the right to:</p>
         <ul>
           <li>Be notified that we collect your personal information, and why</li>
           <li>Request access to the personal information we hold about you</li>
@@ -1799,7 +2140,7 @@
           <li>Withdraw consent at any time, where processing is based on consent</li>
           <li>Lodge a complaint with the Information Regulator of South Africa</li>
         </ul>
-        <p>To exercise any of these rights, email <strong>denysschen.callum43@gmail.com</strong>.</p>
+        <p>To exercise any of these rights, email <strong>privacy@ledgercare.co.za</strong>. We respond within a reasonable time and, in any event, within the periods prescribed by POPIA.</p>
 
         <h4>11. Cookies and website analytics</h4>
         <p>Our website uses minimal cookies and similar technologies to operate the site and understand basic usage. See our <button class="btn-link" data-modal="cookies">Cookie Notice</button> for details.</p>
@@ -1808,9 +2149,10 @@
         <p>We may update this Privacy Policy from time to time. The current version is always published on our website with a revised "last updated" date.</p>
 
         <h4>13. Contact</h4>
+        <p>For any privacy-related question, request, or complaint:</p>
         <p><strong>Information Officer</strong><br>
-        Callum Denysschen<br>
-        Email: denysschen.callum43@gmail.com</p>
+        LedgerCare<br>
+        Email: privacy@ledgercare.co.za</p>
       </div>
       <div class="modal-foot">
         <div><strong>LedgerCare</strong> · Privacy Policy · v1.0</div>
@@ -1819,6 +2161,7 @@
     </div>
   </div>
 
+  <!-- POPIA Notice -->
   <div class="modal-backdrop" id="modal-popia" role="dialog" aria-modal="true" aria-labelledby="popia-title">
     <div class="modal">
       <div class="modal-head">
@@ -1830,9 +2173,9 @@
       </div>
       <div class="modal-body">
         <p><strong>Last updated:</strong> January 2025</p>
-        <p>This notice is issued in terms of section 18 of the Protection of Personal Information Act, 4 of 2013 ("POPIA").</p>
+        <p>This notice is issued in terms of section 18 of the Protection of Personal Information Act, 4 of 2013 ("POPIA"). It explains, in plain language, what personal information LedgerCare collects, why, and what rights you have.</p>
 
-        <div class="callout">LedgerCare is the responsible party for the personal information described in this notice. Where we act on behalf of a client who is a responsible party in their own right (for example, where we process patient data on their instruction), we act as an operator and process information only on that client's documented instruction.</div>
+        <div class="callout">LedgerCare is the responsible party for the personal information described in this notice. Where we act on behalf of a client who is a responsible party in their own right (for example, where we process payroll on their instruction), we act as an operator and process information only on that client's documented instruction.</div>
 
         <h4>1. What we collect</h4>
         <table>
@@ -1840,11 +2183,10 @@
             <tr><th>Category</th><th>Examples</th><th>Why</th></tr>
           </thead>
           <tbody>
-            <tr><td>Identity</td><td>Name, HPCSA number, VAT number</td><td>To identify you and fulfil statutory obligations</td></tr>
+            <tr><td>Identity</td><td>Name, ID/registration number, VAT number</td><td>To identify you and fulfil statutory obligations</td></tr>
             <tr><td>Contact</td><td>Email, phone, address</td><td>To communicate about your engagement</td></tr>
             <tr><td>Financial</td><td>Bank statements, invoices, ledgers</td><td>To prepare bookkeeping, reconciliations, and reports</td></tr>
-            <tr><td>Patient</td><td>Patient names, scheme names, claim references, balances</td><td>To reconcile remittances and track debtors</td></tr>
-            <tr><td>Practitioner</td><td>Names and income allocations</td><td>To prepare practitioner-level reporting</td></tr>
+            <tr><td>Transactional</td><td>Debtor and creditor records</td><td>To track outstanding amounts and obligations</td></tr>
             <tr><td>Technical</td><td>IP, browser, logs</td><td>To secure the service and improve quality</td></tr>
           </tbody>
         </table>
@@ -1855,13 +2197,14 @@
           <li>To comply with South African tax, company, and record-keeping law</li>
           <li>To protect our systems and prevent fraud</li>
           <li>To communicate with you about your engagement</li>
+          <li>With your consent, to send you occasional service updates</li>
         </ul>
 
         <h4>3. Who we share it with</h4>
         <ul>
           <li>Our accounting professionals under written confidentiality obligations</li>
           <li>Service providers who support secure storage, e-signature, and communications</li>
-          <li>SARS, HPCSA, the Information Regulator, medical schemes, regulators, or courts where legally compelled</li>
+          <li>SARS, regulators, or courts where legally compelled</li>
         </ul>
         <p>We do not sell personal information, and we do not share it for third-party marketing.</p>
 
@@ -1869,7 +2212,7 @@
         <p>Where personal information is transferred outside South Africa, we take reasonable steps to ensure the recipient is bound by laws, binding rules, or contractual obligations that provide an adequate level of protection substantially similar to POPIA (section 72).</p>
 
         <h4>5. How long we keep it</h4>
-        <p>We keep client engagement records for at least five (5) years after the end of the tax year to which they relate. Patient data is retained only for the period necessary to deliver the service and satisfy statutory retention obligations. Enquiries that do not become engagements are retained for up to twelve (12) months.</p>
+        <p>We keep client engagement records for at least five (5) years after the end of the tax year to which they relate, as required by South African tax and company law. Enquiries that do not become engagements are retained for up to twelve (12) months.</p>
 
         <h4>6. Security</h4>
         <p>We apply appropriate, reasonable technical and organisational measures to secure personal information, including access control, encryption where technically feasible, secure file sharing, and written confidentiality obligations for staff and contractors.</p>
@@ -1885,9 +2228,10 @@
         </ul>
 
         <h4>8. How to exercise your rights</h4>
-        <p>Email <strong>denysschen.callum43@gmail.com</strong> with your request. We may ask you to verify your identity before acting.</p>
+        <p>Email <strong>privacy@ledgercare.co.za</strong> with your request. We may ask you to verify your identity before acting. We respond within a reasonable time and, where applicable, within the periods prescribed by POPIA.</p>
 
         <h4>9. Information Regulator</h4>
+        <p>If you are not satisfied with our response, you may lodge a complaint with the Information Regulator of South Africa:</p>
         <p>
           <strong>Website:</strong> inforegulator.org.za<br>
           <strong>Email:</strong> complaints.IR@justice.gov.za<br>
@@ -1897,8 +2241,7 @@
         <h4>10. Information Officer</h4>
         <p>
           <strong>Attention:</strong> Information Officer, LedgerCare<br>
-          <strong>Name:</strong> Callum Denysschen<br>
-          <strong>Email:</strong> denysschen.callum43@gmail.com
+          <strong>Email:</strong> privacy@ledgercare.co.za
         </p>
       </div>
       <div class="modal-foot">
@@ -1908,75 +2251,7 @@
     </div>
   </div>
 
-  <div class="modal-backdrop" id="modal-medical" role="dialog" aria-modal="true" aria-labelledby="medical-title">
-    <div class="modal">
-      <div class="modal-head">
-        <div>
-          <div class="eyebrow">Service scope</div>
-          <h3 id="medical-title">Medical Data Statement</h3>
-        </div>
-        <button class="modal-close" data-close aria-label="Close"><i class="fas fa-times"></i></button>
-      </div>
-      <div class="modal-body">
-        <p><strong>Last updated:</strong> January 2025</p>
-        <div class="callout">Patient information is special personal information under POPIA and requires heightened protection. This statement explains exactly what LedgerCare does — and does not do — with patient data and medical aid information. It is published so that practice owners understand our scope before they engage.</div>
-
-        <h4>1. What we do with patient data</h4>
-        <p>Where medical aid remittance reconciliation or patient debtor tracking is included in the engagement, LedgerCare:</p>
-        <ul>
-          <li>Uses patient names, medical aid scheme names, claim references, and payment amounts to reconcile remittances against bank deposits</li>
-          <li>Tracks outstanding patient balances against ageing categories</li>
-          <li>Flags shortfalls, unpaid claims, and old debtors in the monthly reporting</li>
-          <li>Stores patient data in secure, access-controlled systems under the same standards as all other client information</li>
-          <li>Processes patient data only on the practice's documented instruction, as an operator</li>
-        </ul>
-
-        <h4>2. What we do not do</h4>
-        <ul>
-          <li>We do not submit medical claims to medical schemes</li>
-          <li>We do not perform HPCSA compliance audits</li>
-          <li>We do not audit billing practices or coding</li>
-          <li>We do not protect against medical scheme audits or forensic reviews</li>
-          <li>We do not certify compliance with the HPCSA, BHF, or any medical scheme</li>
-          <li>We do not use patient data for any purpose other than delivering the bookkeeping engagement</li>
-          <li>We do not share patient data with any third party except under the terms of the Privacy Policy</li>
-        </ul>
-
-        <h4>3. What the practice remains responsible for</h4>
-        <ul>
-          <li>Compliance with the HPCSA Code of Conduct and all practice standards</li>
-          <li>Accurate billing and coding of clinical services</li>
-          <li>Any medical scheme audit, forensic review, or billing query</li>
-          <li>Patient consent and records management for clinical purposes</li>
-          <li>Notifying LedgerCare immediately of any suspected data breach affecting patient information</li>
-        </ul>
-
-        <h4>4. POPIA and patient data</h4>
-        <p>Patient information is treated as special personal information under POPIA. This means it receives heightened protection. LedgerCare processes patient data:</p>
-        <ul>
-          <li>Only on the practice's documented instruction</li>
-          <li>Only to the extent necessary for the bookkeeping engagement</li>
-          <li>Only for the period necessary to deliver the service and satisfy statutory retention obligations</li>
-          <li>Under written confidentiality obligations from staff and contractors</li>
-          <li>With access controls and encryption where technically feasible</li>
-        </ul>
-
-        <h4>5. Data subject rights</h4>
-        <p>Patients whose data is processed by LedgerCare retain all their rights under POPIA. Where a patient requests access, correction, or deletion, the practice will be the primary point of contact. LedgerCare will cooperate with the practice to fulfil the request within POPIA timeframes.</p>
-
-        <h4>6. Security incidents</h4>
-        <p>If a security compromise affects patient information, LedgerCare will notify the practice and the Information Regulator as required by section 22 of POPIA, and will cooperate fully with the practice's response.</p>
-
-        <h4>7. Contact</h4>
-        <p>Questions about this statement: <strong>denysschen.callum43@gmail.com</strong></p>
-      </div>
-      <div class="modal-foot">
-        <div><strong>LedgerCare</strong> · Medical Data Statement · v1.0</div>
-        <button class="btn-link" data-close>Close</button>
-      </div>
-    </div>
-  </div>
-
+  <!-- Cookie Notice -->
   <div class="modal-backdrop" id="modal-cookies" role="dialog" aria-modal="true" aria-labelledby="cookies-title">
     <div class="modal">
       <div class="modal-head">
@@ -1996,7 +2271,7 @@
             <tr><th>Type</th><th>Purpose</th><th>Consent required?</th></tr>
           </thead>
           <tbody>
-            <tr><td>Strictly necessary</td><td>Site function, form security, session handling</td><td>No</td></tr>
+            <tr><td>Strictly necessary</td><td>Site function, form security, session handling</td><td>No — required to operate the site</td></tr>
             <tr><td>Preference</td><td>Remembering choices such as language or region</td><td>Yes</td></tr>
             <tr><td>Analytics</td><td>Aggregated, non-identifying statistics about site usage</td><td>Yes</td></tr>
           </tbody>
@@ -2005,15 +2280,15 @@
         <h4>2. What we do not use</h4>
         <ul>
           <li>Third-party advertising cookies</li>
-          <li>Cross-site tracking pixels</li>
+          <li>Cross-site tracking pixels for advertising purposes</li>
           <li>Data brokers or list-selling tools</li>
         </ul>
 
         <h4>3. Managing cookies</h4>
-        <p>You can control cookies through your browser settings. Blocking strictly necessary cookies may affect site function.</p>
+        <p>You can control cookies through your browser settings. Blocking strictly necessary cookies may affect the functioning of the website. Blocking analytics or preference cookies does not affect your ability to use the service.</p>
 
         <h4>4. Contact</h4>
-        <p>Questions: <strong>denysschen.callum43@gmail.com</strong></p>
+        <p>Questions about this notice: <strong>privacy@ledgercare.co.za</strong></p>
       </div>
       <div class="modal-foot">
         <div><strong>LedgerCare</strong> · Cookie Notice · v1.0</div>
@@ -2022,6 +2297,7 @@
     </div>
   </div>
 
+  <!-- Service Disclaimer -->
   <div class="modal-backdrop" id="modal-disclaimer" role="dialog" aria-modal="true" aria-labelledby="disclaimer-title">
     <div class="modal">
       <div class="modal-head">
@@ -2035,38 +2311,33 @@
         <p><strong>Last updated:</strong> January 2025</p>
 
         <h4>1. Nature of services</h4>
-        <p>LedgerCare provides bookkeeping, bank reconciliation, medical aid remittance reconciliation, patient debtor tracking, document organisation, and reporting services for small physiotherapy practices. We do not provide:</p>
+        <p>LedgerCare provides bookkeeping, bank reconciliation, document organisation, and reporting services. We do not provide:</p>
         <ul>
-          <li>Medical billing, claims submission, or practice management software support</li>
-          <li>HPCSA compliance submissions or audit support</li>
-          <li>Audit, review, assurance, or trust account audit services</li>
+          <li>Audit, review, or assurance services</li>
           <li>Tax advice, tax opinions, or tax return submissions</li>
           <li>Legal advice</li>
           <li>Investment advice or financial planning</li>
-          <li>Payroll processing under a service that is not separately agreed in writing</li>
+          <li>Payroll processing under a service that is not separately and expressly agreed in writing</li>
         </ul>
         <p>Where a client requires these services, we will refer them to suitably qualified professionals, or quote for a scoped service where we are competent and lawfully able to perform it.</p>
 
         <h4>2. Reliance on information provided</h4>
-        <p>Our work depends on the accuracy and completeness of the records and information you provide. We do not independently verify the truthfulness or completeness of source documents. Where information is missing or unclear, we will request it and mark it as outstanding.</p>
+        <p>Our work depends on the accuracy and completeness of the records and information you provide. We do not independently verify the truthfulness or completeness of source documents. Where information is missing or unclear, we will request it and mark it as outstanding — but we cannot produce a report as complete if the underlying records are incomplete.</p>
 
-        <h4>3. Medical aid remittance work</h4>
-        <p>Where medical aid remittance reconciliation is included, it is a bookkeeping reconciliation between the practice's claims, bank deposits, and medical scheme remittances. It is not a medical billing audit, an assurance engagement, or a substitute for the practice's own statutory or medical scheme obligations. It does not protect against medical scheme audits or forensic reviews.</p>
+        <h4>3. No guarantee of SARS or third-party outcomes</h4>
+        <p>We do not control and cannot guarantee the outcome of any SARS assessment, bank query, insurance claim, or third-party decision. Reports we produce may be used to support those processes, but the outcome depends on factors outside our control.</p>
 
-        <h4>4. No guarantee of SARS, HPCSA, or third-party outcomes</h4>
-        <p>We do not control and cannot guarantee the outcome of any SARS assessment, medical scheme query, HPCSA review, patient debtor recovery, or third-party decision.</p>
+        <h4>4. Not a substitute for professional advice</h4>
+        <p>Nothing in our reports, summaries, or communications constitutes tax, legal, or investment advice. Decisions based on our reports should be made with the input of the appropriate qualified professional.</p>
 
-        <h4>5. Not a substitute for professional advice</h4>
-        <p>Nothing in our reports, summaries, or communications constitutes tax, legal, medical, or investment advice. Decisions based on our reports should be made with the input of the appropriate qualified professional.</p>
+        <h4>5. Forward-looking statements</h4>
+        <p>Cash-flow forecasts, budgets, and projections are estimates based on assumptions. They are not guarantees of future performance. Actual results will differ.</p>
 
-        <h4>6. Forward-looking statements</h4>
-        <p>Cash-flow forecasts, budgets, and projections are estimates based on assumptions. They are not guarantees of future performance.</p>
-
-        <h4>7. Limitation of liability</h4>
+        <h4>6. Limitation of liability</h4>
         <p>Our liability is limited as set out in our <button class="btn-link" data-modal="terms">Terms of Engagement</button>. In summary, liability is capped at the fees paid in the three (3) months preceding the event giving rise to the claim, and we are not liable for indirect or consequential losses.</p>
 
-        <h4>8. Contact</h4>
-        <p>Questions about this disclaimer: <strong>denysschen.callum43@gmail.com</strong></p>
+        <h4>7. Contact</h4>
+        <p>Questions about this disclaimer: <strong>hello@ledgercare.co.za</strong></p>
       </div>
       <div class="modal-foot">
         <div><strong>LedgerCare</strong> · Service Disclaimer · v1.0</div>
@@ -2075,6 +2346,77 @@
     </div>
   </div>
 
+  <!-- PAIA Manual -->
+  <div class="modal-backdrop" id="modal-paia" role="dialog" aria-modal="true" aria-labelledby="paia-title">
+    <div class="modal">
+      <div class="modal-head">
+        <div>
+          <div class="eyebrow">Legal</div>
+          <h3 id="paia-title">PAIA Manual</h3>
+        </div>
+        <button class="modal-close" data-close aria-label="Close"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Last updated:</strong> January 2025</p>
+        <p>This manual is published in terms of section 51 of the Promotion of Access to Information Act, 2 of 2000 ("PAIA").</p>
+
+        <h4>1. Particulars of the body</h4>
+        <p>
+          <strong>Name:</strong> LedgerCare<br>
+          <strong>Nature of business:</strong> Remote bookkeeping and monthly reporting service<br>
+          <strong>Head of body:</strong> Owner<br>
+          <strong>Information Officer:</strong> Owner<br>
+          <strong>Email:</strong> paia@ledgercare.co.za<br>
+          <strong>Postal address:</strong> Available on request
+        </p>
+
+        <h4>2. Guide by the Information Regulator</h4>
+        <p>The Information Regulator has published a guide on how to use PAIA, available at <a href="https://www.justice.gov.za/inforeg/" target="_blank" rel="noopener">justice.gov.za/inforeg</a>. Any person may request this guide from the Information Regulator.</p>
+
+        <h4>3. Records available without a formal request</h4>
+        <p>The following categories of records are available on our website without a PAIA request:</p>
+        <ul>
+          <li>Service descriptions and pricing</li>
+          <li>Terms of Engagement</li>
+          <li>Privacy Policy</li>
+          <li>POPIA Notice</li>
+          <li>Cookie Notice</li>
+          <li>Service Disclaimer</li>
+          <li>Complaints Procedure</li>
+        </ul>
+
+        <h4>4. Records held (subject to a formal PAIA request)</h4>
+        <ul>
+          <li>Company registration and statutory records</li>
+          <li>Tax records (own)</li>
+          <li>Financial records (own)</li>
+          <li>Client engagement records (subject to client confidentiality and POPIA)</li>
+          <li>Employment records</li>
+          <li>Insurance and professional indemnity records</li>
+        </ul>
+        <p>Records relating to third parties may be withheld or redacted where disclosure would breach confidentiality, POPIA, or another applicable law.</p>
+
+        <h4>5. How to request access</h4>
+        <p>Requests must be made on Form 2 of the PAIA regulations and submitted to <strong>paia@ledgercare.co.za</strong>. Prescribed fees apply. If a request is refused, the requester will be given written reasons and informed of the right to complain to the Information Regulator or apply to a court.</p>
+
+        <h4>6. Remedies</h4>
+        <p>If a request is refused, the requester may:</p>
+        <ul>
+          <li>Complain to the Information Regulator</li>
+          <li>Apply to a court for appropriate relief</li>
+        </ul>
+
+        <h4>7. Availability of this manual</h4>
+        <p>This manual is available on our website and on request from the Information Officer.</p>
+      </div>
+      <div class="modal-foot">
+        <div><strong>LedgerCare</strong> · PAIA Manual · v1.0</div>
+        <button class="btn-link" data-close>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Complaints Procedure -->
   <div class="modal-backdrop" id="modal-complaints" role="dialog" aria-modal="true" aria-labelledby="complaints-title">
     <div class="modal">
       <div class="modal-head">
@@ -2089,31 +2431,32 @@
         <p>We would rather hear about a problem early than lose a client quietly. This procedure explains how to raise a concern and what you can expect from us in response.</p>
 
         <h4>1. How to raise a complaint</h4>
-        <p>Email <strong>denysschen.callum43@gmail.com</strong> with:</p>
+        <p>Email <strong>complaints@ledgercare.co.za</strong> with:</p>
         <ul>
-          <li>Your name and practice</li>
+          <li>Your name and firm</li>
           <li>The date the issue arose</li>
           <li>A short description of the problem</li>
           <li>The outcome you are seeking</li>
         </ul>
+        <p>If the matter concerns personal information, please also see the <button class="btn-link" data-modal="popia">POPIA Notice</button>.</p>
 
         <h4>2. What happens next</h4>
         <ul>
           <li><strong>Within 1 business day:</strong> we acknowledge your complaint</li>
-          <li><strong>Within 5 business days:</strong> we provide an initial response</li>
-          <li><strong>Within 20 business days:</strong> we provide a substantive response, or an explanation of why more time is needed</li>
+          <li><strong>Within 5 business days:</strong> we provide an initial response, including an indication of what further investigation is needed</li>
+          <li><strong>Within 20 business days:</strong> we provide a substantive response, or an explanation of why more time is needed and when you can expect a final answer</li>
         </ul>
 
         <h4>3. Escalation</h4>
-        <p>If you are not satisfied with our response, you may escalate in writing to the owner. If the matter remains unresolved, you may refer it to:</p>
+        <p>If you are not satisfied with our response, you may escalate the matter in writing to the owner. If the matter remains unresolved, you may refer it to:</p>
         <ul>
-          <li>Mediation or arbitration under our <button class="btn-link" data-modal="terms">Terms of Engagement</button></li>
-          <li>The Information Regulator of South Africa, for personal information matters</li>
+          <li>Mediation or arbitration in terms of our <button class="btn-link" data-modal="terms">Terms of Engagement</button></li>
+          <li>The Information Regulator of South Africa, for complaints about personal information</li>
           <li>A competent court, for any other legal remedy</li>
         </ul>
 
         <h4>4. Service recovery</h4>
-        <p>Where we have missed a commitment within our control, we may offer a reasonable service credit.</p>
+        <p>Where we have missed a commitment within our control, we may offer a reasonable service credit. The decision is made on the facts of each case, taking into account the impact on you and the effort required to remedy the matter.</p>
 
         <h4>5. Record keeping</h4>
         <p>We keep a record of all complaints, our responses, and the resolution, for quality improvement and for statutory purposes.</p>
@@ -2125,9 +2468,13 @@
     </div>
   </div>
 
+  <!-- ============ SCRIPTS ============ -->
   <script>
     (function() {
+      // Year
       document.getElementById('yr').textContent = new Date().getFullYear();
+
+      // Mobile menu
       const menuToggle = document.getElementById('menuToggle');
       const primaryNav = document.getElementById('primaryNav');
       menuToggle.addEventListener('click', () => {
@@ -2136,25 +2483,35 @@
         menuToggle.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
       });
 
+      // Modal system
       const modals = document.querySelectorAll('.modal-backdrop');
+
       function openModal(id) {
         const el = document.getElementById('modal-' + id);
         if (!el) return;
         el.classList.add('active');
         document.body.style.overflow = 'hidden';
+        // focus first close button
         const closeBtn = el.querySelector('[data-close]');
         if (closeBtn) closeBtn.focus();
       }
+
       function closeModal(el) {
         el.classList.remove('active');
-        if (!document.querySelector('.modal-backdrop.active')) document.body.style.overflow = '';
+        if (!document.querySelector('.modal-backdrop.active')) {
+          document.body.style.overflow = '';
+        }
       }
+
+      // Trigger buttons (any [data-modal])
       document.querySelectorAll('[data-modal]').forEach(btn => {
         btn.addEventListener('click', (e) => {
           e.preventDefault();
           openModal(btn.getAttribute('data-modal'));
         });
       });
+
+      // Close buttons
       document.querySelectorAll('[data-close]').forEach(btn => {
         btn.addEventListener('click', (e) => {
           e.preventDefault();
@@ -2162,17 +2519,23 @@
           if (modal) closeModal(modal);
         });
       });
+
+      // Click backdrop to close
       modals.forEach(modal => {
         modal.addEventListener('click', (e) => {
           if (e.target === modal) closeModal(modal);
         });
       });
+
+      // ESC to close
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
           const active = document.querySelector('.modal-backdrop.active');
           if (active) closeModal(active);
         }
       });
+
+      // Smooth scroll for anchor links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
           const href = this.getAttribute('href');
