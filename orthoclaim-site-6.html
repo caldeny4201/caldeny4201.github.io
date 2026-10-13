@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>OrthoClaim — Claims recovery for orthopaedic surgeons</title>
+<meta name="description" content="OrthoClaim recovers denied pre-auths, modifier short-pays, implant billing rejections and unbilled follow-ups for private orthopaedic surgeons in South Africa. No recovery, no fee on Lite.">
+<meta property="og:type" content="website"><meta property="og:title" content="OrthoClaim: recover what the schemes owe your ortho practice"><meta property="og:description" content="Pre-auth, modifier and implant billing recovery for orthopaedic surgeons. You pay 20% of what we recover on Lite."><meta property="og:locale" content="en_ZA">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22%3E%3Ccircle cx=%2224%22 cy=%2224%22 r=%2224%22 fill=%22%230e7c7b%22/%3E%3Cg transform=%22rotate%28-45 24 24%29%22 fill=%22%23fff%22%3E%3Crect x=%2214%22 y=%2221%22 width=%2220%22 height=%226%22 rx=%223%22/%3E%3Ccircle cx=%2213%22 cy=%2220%22 r=%224.5%22/%3E%3Ccircle cx=%2213%22 cy=%2228%22 r=%224.5%22/%3E%3Ccircle cx=%2235%22 cy=%2220%22 r=%224.5%22/%3E%3Ccircle cx=%2235%22 cy=%2228%22 r=%224.5%22/%3E%3C/g%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"OrthoClaim","description":"Medical claims recovery for private orthopaedic surgeons","email":"orthoclaim.sa@gmail.com","telephone":"+27764312871","areaServed":"ZA","founder":"Callum Denysschen"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f4;--panel:#fff;--ink:#12262e;--mute:#53676f;--line:#cfd9dd;--acc:#0e7c7b;--acc-ink:#fff;--warn:#b86a12;--warn-bg:#fbf0e0;--ok-bg:#dcf1ee;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1a20;--panel:#14262e;--ink:#e6eef1;--mute:#93a8b0;--line:#264049;--acc:#3fc1bd;--acc-ink:#07191c;--warn:#f0a85a;--warn-bg:#3a2a14;--ok-bg:#12403f}}
+:root[data-theme="dark"]{--bg:#0d1a20;--panel:#14262e;--ink:#e6eef1;--mute:#93a8b0;--line:#264049;--acc:#3fc1bd;--acc-ink:#07191c;--warn:#f0a85a;--warn-bg:#3a2a14;--ok-bg:#12403f}
+*{box-sizing:border-box}html{scroll-padding-top:70px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 "Schibsted Grotesk",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}h1,h2,h3{line-height:1.1;margin:0;letter-spacing:-.02em}
+h1{font-size:clamp(2.2rem,6vw,4rem);font-weight:900}h2{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;max-width:20ch}h3{font-size:1.15rem;font-weight:700}
+p{margin:0 0 1em;max-width:62ch}.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+section{padding:72px 0;border-top:1px solid var(--line)}.lede{color:var(--mute);font-size:1.1rem;margin-top:14px}
+.btn{display:inline-block;padding:13px 20px;border-radius:6px;font-weight:700;text-decoration:none;border:2px solid var(--acc);cursor:pointer;font:inherit;font-weight:700}
+.btn.p{background:var(--acc);color:var(--acc-ink)}.btn.s{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn:focus-visible,a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--warn);outline-offset:3px}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+header .wrap{display:flex;align-items:center;gap:22px;height:60px}.logo{font-weight:900;font-size:1.15rem;text-decoration:none;display:flex;gap:8px;align-items:center}
+.logo i{width:26px;height:26px;border-radius:50%;background:var(--acc);display:inline-block;position:relative}.logo i:after{content:"";position:absolute;inset:7px;border-radius:50%;background:var(--bg)}
+nav{display:flex;gap:20px;margin-left:auto;font-size:.95rem}nav a{text-decoration:none;color:var(--mute)}nav a:hover{color:var(--ink)}
+header .btn{padding:8px 14px;font-size:.9rem}
+.hero{padding:56px 0 72px;border:0}.hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.hero .lede{max-width:52ch}.cta{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0}
+.signals{list-style:none;padding:0;margin:0;display:grid;gap:6px;color:var(--mute);font-size:.95rem}.signals li:before{content:"✓ ";color:var(--acc);font-weight:900}
+.ledger{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;font-variant-numeric:tabular-nums;box-shadow:0 2px 0 var(--line)}
+.ledger h3{padding:14px 16px;border-bottom:1px solid var(--line);font-size:.95rem;color:var(--mute);font-weight:500}
+.row{display:grid;grid-template-columns:1fr auto auto;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line);align-items:center;font-size:.95rem}
+.row b{font-weight:700}.row small{display:block;color:var(--mute);font-size:.8rem}
+.tag{font-size:.78rem;font-weight:700;padding:3px 8px;border-radius:4px;white-space:nowrap}.d{background:var(--warn-bg);color:var(--warn);text-decoration:line-through;text-decoration-thickness:1px}.r{background:var(--ok-bg);color:var(--acc)}
+.total{display:flex;justify-content:space-between;padding:14px 16px;font-weight:800;background:var(--ok-bg);font-size:1.05rem}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px;counter-reset:s;padding:0;list-style:none}
+.steps li{counter-increment:s;border-top:3px solid var(--acc);padding-top:10px}.steps li:before{content:counter(s);font-weight:900;color:var(--acc)}.steps b{display:block}.steps span{color:var(--mute);font-size:.92rem}
+table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:28px;font-size:.97rem}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}th{font-weight:700;background:color-mix(in srgb,var(--line) 40%,transparent)}td:first-child{font-weight:700;width:34%}
+.scroll{overflow-x:auto}.scroll table{min-width:520px}
+.two{display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:start}
+.not{border:2px dashed var(--line);border-radius:10px;padding:22px;margin-top:28px}.not ul{margin:10px 0 0;padding-left:20px;color:var(--mute)}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;align-items:stretch}
+.tier{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:26px;display:flex;flex-direction:column}
+.tier.rec{border:2px solid var(--acc);position:relative}.tier.rec:before{content:"Recommended";position:absolute;top:-13px;left:20px;background:var(--acc);color:var(--acc-ink);font-size:.78rem;font-weight:700;padding:3px 10px;border-radius:4px}
+.price{font-size:1.9rem;font-weight:900;margin:12px 0 2px;letter-spacing:-.02em}.price small{font-size:1rem;font-weight:500;color:var(--mute)}
+.tier ul{padding-left:18px;color:var(--mute);margin:14px 0}.tier .for{font-weight:500}.tier .avg{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);font-size:.9rem;color:var(--mute)}
+.excl{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;padding:0;list-style:none}.excl li{border:1px solid var(--line);border-radius:99px;padding:4px 12px;font-size:.88rem;color:var(--mute)}
+.rules{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px}.rules div{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px}.rules b{display:block}.rules span{color:var(--mute);font-size:.94rem}
+.card2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:32px}.card2>div{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:24px}
+.card2 .big{font-size:2rem;font-weight:900;color:var(--acc)}
+.flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:22px 0}.flow span{padding:8px 14px;border-radius:6px;background:var(--panel);border:1px solid var(--line);font-weight:700;font-size:.92rem}.flow span:first-child{background:var(--warn-bg);color:var(--warn)}.flow span:last-child{background:var(--ok-bg);color:var(--acc)}
+.gl{columns:2;column-gap:36px;margin-top:28px}.gl div{break-inside:avoid;padding:12px 0;border-bottom:1px solid var(--line)}.gl b{display:block}.gl span{color:var(--mute);font-size:.95rem}
+details{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin-top:22px}summary{font-weight:700;cursor:pointer}details ul{color:var(--mute);margin:10px 0 0;padding-left:20px}
+.proc{list-style:none;padding:0;margin:30px 0 0;counter-reset:p;border-left:3px solid var(--acc)}
+.proc li{counter-increment:p;padding:10px 0 10px 24px;position:relative;display:grid;grid-template-columns:1fr auto;gap:12px;border-bottom:1px solid var(--line)}
+.proc li:before{content:counter(p);position:absolute;left:-15px;top:10px;width:27px;height:27px;border-radius:50%;background:var(--acc);color:var(--acc-ink);font-weight:900;font-size:.85rem;display:grid;place-items:center}
+.proc b{font-weight:700}.proc em{font-style:normal;color:var(--mute);font-size:.9rem;white-space:nowrap}
+.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}.tl div{border-top:3px solid var(--line);padding-top:12px}.tl .now{border-color:var(--acc)}.tl ul{padding-left:18px;color:var(--mute);font-size:.93rem}
+.final{background:var(--ink);color:var(--bg);border:0}.final h2{max-width:22ch}.final .lede{color:inherit;opacity:.8}.final .btn.s{color:var(--bg);border-color:var(--bg)}.final .btn.p{background:var(--acc);color:var(--acc-ink);border-color:var(--acc)}
+.final a.c{color:inherit}
+footer{padding:48px 0 32px;font-size:.92rem;color:var(--mute)}footer .cols{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:28px}
+footer h4{margin:0 0 10px;color:var(--ink);font-size:.95rem}footer ul{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+footer button{all:unset;cursor:pointer;text-decoration:underline;text-underline-offset:3px}footer button:focus-visible{outline:3px solid var(--warn)}
+.fine{margin-top:32px;padding-top:16px;border-top:1px solid var(--line)}
+dialog{max-width:560px;width:calc(100% - 32px);border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink);padding:26px}dialog::backdrop{background:rgba(5,15,20,.6)}dialog h3{margin-bottom:12px}
+@media (max-width:860px){nav{display:none}header .btn{margin-left:auto}.hero .grid,.two,.tiers,.card2,.rules,.tl,footer .cols{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.gl{columns:1}section{padding:52px 0}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.dark{--panel:#1a3640;--ink:#e6eef1;--mute:#a7bcc3;--line:#35565f;--acc:#3fc1bd;--acc-ink:#07191c;--warn:#f0a85a;--warn-bg:#3a2a14;--ok-bg:#12403f;background:#0f232b;color:var(--ink)}
+.fit{border:2px solid var(--warn);background:var(--warn-bg)}.fit h3{color:var(--warn)}
+.ex{font-size:.9rem;color:var(--mute);border-left:3px solid var(--acc);padding-left:10px;margin:12px 0 0}
+.badges li{background:var(--ok-bg);color:var(--acc);border-color:transparent;font-weight:700}
+dialog{max-width:680px;max-height:85vh;overflow:auto}dialog h4{margin:16px 0 4px;font-size:1rem}dialog p{max-width:none;font-size:.95rem;margin:0 0 .5em}.meta{color:var(--mute);font-size:.82rem}
+.fine a{float:right}
+@media print{header,.cta,.fine a,dialog,.btn{display:none!important}body{background:#fff;color:#000}section,.dark{padding:20px 0;background:#fff;color:#000;--ink:#000;--mute:#333;--panel:#fff;--line:#999}.final{background:#fff;color:#000}}
+.byline{display:flex;align-items:center;gap:16px;margin-top:20px}.photo{width:84px;height:84px;border-radius:50%;background:var(--ok-bg);color:var(--acc);display:grid;place-items:center;font-weight:900;font-size:1.5rem;overflow:hidden;flex:none;border:2px solid var(--acc)}.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.logo svg{width:30px;height:30px;flex:none}.logo svg .c{fill:var(--acc)}.logo svg .b{fill:var(--bg)}.logo span{font-weight:500;letter-spacing:-.02em}.logo span b{font-weight:900}
+.hero{position:relative;overflow:hidden}.hero>.wrap{position:relative;z-index:1}.hero:before{content:"";position:absolute;right:-140px;top:-90px;width:560px;height:560px;background:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22%3E%3Ccircle cx=%2224%22 cy=%2224%22 r=%2224%22 fill=%22%230e7c7b%22/%3E%3Cg transform=%22rotate%28-45 24 24%29%22 fill=%22%23f4f9f9%22%3E%3Crect x=%2214%22 y=%2221%22 width=%2220%22 height=%226%22 rx=%223%22/%3E%3Ccircle cx=%2213%22 cy=%2220%22 r=%224.5%22/%3E%3Ccircle cx=%2213%22 cy=%2228%22 r=%224.5%22/%3E%3Ccircle cx=%2235%22 cy=%2220%22 r=%224.5%22/%3E%3Ccircle cx=%2235%22 cy=%2228%22 r=%224.5%22/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat;opacity:.09;pointer-events:none}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="#top"><svg viewBox="0 0 48 48" aria-hidden="true"><circle class="c" cx="24" cy="24" r="24"/><g class="b" transform="rotate(-45 24 24)"><rect x="14" y="21" width="20" height="6" rx="3"/><circle cx="13" cy="20" r="4.5"/><circle cx="13" cy="28" r="4.5"/><circle cx="35" cy="20" r="4.5"/><circle cx="35" cy="28" r="4.5"/></g></svg><span><b>Ortho</b>Claim</span></a>
+<nav aria-label="Main"><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#guarantees">Guarantees</a><a href="#contact">Contact</a></nav>
+<a class="btn p" href="#contact">Join waitlist</a>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap grid">
+<div>
+<h1>Recover the R50k–R200k your ortho practice loses every month.</h1>
+<p class="lede">OrthoClaim audits your claims, finds denied pre-auths, modifier errors, implant billing rejections and unbilled follow-ups, and recovers what the schemes owe you. On Lite you pay 20% of what we recover. If we recover nothing, you pay nothing.</p>
+<div class="cta"><a class="btn p" href="https://wa.me/27764312871?text=Hi%20OrthoClaim%2C%20please%20add%20me%20to%20the%20waitlist." target="_blank" rel="noopener">Join waitlist on WhatsApp</a><a class="btn s" href="#pricing">See packages</a></div>
+<ul class="signals"><li>20% of recovery only on Lite</li><li>Pre-auth, modifier and implant recovery</li><li>POPIA-compliant handling</li><li>A named point of contact</li></ul>
+</div>
+<div class="ledger" aria-label="Example of a recovered claim ledger">
+<h3>Example: one month's recovery ledger</h3>
+<div class="row"><div><b>Knee replacement, pre-auth</b><small>Denied: medical necessity</small></div><span class="tag d">R86,000</span><span class="tag r">Recovered</span></div>
+<div class="row"><div><b>Bilateral hand procedure</b><small>Modifier short-pay</small></div><span class="tag d">R14,200</span><span class="tag r">Recovered</span></div>
+<div class="row"><div><b>Spinal implant billing</b><small>Rejected: billed separately</small></div><span class="tag d">R32,500</span><span class="tag r">Recovered</span></div>
+<div class="row"><div><b>6 post-op follow-ups</b><small>Never billed</small></div><span class="tag d">R6,000</span><span class="tag r">Recovered</span></div>
+<div class="total"><span>Recovered</span><span>R138,700</span></div>
+<p class="meta" style="padding:10px 16px;margin:0">Illustrative example. Your recovery depends on your claims and schemes.</p>
+</div>
+<ol class="steps" id="how" style="grid-column:1/-1">
+<li><b>Send your claims</b><span>Last 3 months of claim data, remittance advices and scheme correspondence.</span></li>
+<li><b>We audit</b><span>Pre-auth denials, modifier errors, implant billing, unbilled follow-ups.</span></li>
+<li><b>We recover</b><span>We chase the schemes and resubmit correctly. You see every claim.</span></li>
+<li><b>You pay 20%</b><span>Only on what we recover. No retainer on Lite.</span></li>
+</ol>
+</div></section>
+
+<section id="founder"><div class="wrap two">
+<div>
+<h2>Why I built OrthoClaim.</h2>
+<p class="lede">I'm Callum. I'm not a surgeon and I'm not a biller. I got tired of watching small ortho practices lose money they'd already earned.</p>
+<p>I spent time looking at how private practices actually get paid in South Africa. The pattern was the same everywhere. A procedure is done. A claim goes in. The scheme pays late, pays short, or denies it outright. The practice is too busy treating patients to chase R45 short-pays or appeal a pre-auth denial, so the money is written off, forgotten or absorbed.</p>
+<p>I built OrthoClaim to be the one who chases it. Not a billing bureau and not a software product: a recovery service that does one thing, getting back what the schemes already owe you, and only charges when we recover it.</p>
+<p>I'm bringing in billing specialists who know ortho coding, scheme rules and pre-auth appeals. I'm the accountability layer and they bring the expertise. You get both.</p>
+<div class="byline">
+<p style="margin:0"><b>Callum Denysschen</b><br><span style="color:var(--mute)">Founder, OrthoClaim</span></p></div>
+</div>
+<div class="not" style="margin:0">
+<h3>How this works</h3>
+<ul>
+<li>You deal with one person, not a call centre</li>
+<li>Billing work is done by specialists with ortho claims experience</li>
+<li>You pay for recovery, not for effort</li>
+<li>If we recover nothing, you pay nothing on Lite</li>
+</ul>
+</div>
+</div></section>
+
+<section id="audience"><div class="wrap">
+<h2>Built for orthopaedic surgeons. Nothing else.</h2>
+<p class="lede">We work only with private-practice orthopaedic surgeons: 1–3 surgeons per practice, billing R500k–R2m a month. One niche, one workflow, one set of problems solved properly.</p>
+<h3 style="margin-top:36px">What we understand about ortho practice</h3>
+<div class="scroll"><table><thead><tr><th>What goes wrong</th><th>What it costs</th></tr></thead><tbody>
+<tr><td>Pre-auth denials</td><td>Procedure delayed or cancelled. R30k–R150k lost per denial.</td></tr>
+<tr><td>Modifier errors</td><td>Bilateral procedures billed wrong. 20–40% short-paid.</td></tr>
+<tr><td>Implant billing rejections</td><td>Implants billed separately, often rejected. R10k–R50k per surgery.</td></tr>
+<tr><td>Unbilled follow-ups</td><td>Post-op visits missed. R500–R1,500 per visit.</td></tr>
+<tr><td>"Medical necessity" rejections</td><td>Scheme says the procedure isn't necessary. Appeal required.</td></tr>
+<tr><td>60–120 day payment cycles</td><td>Cash flow crunch.</td></tr></tbody></table></div>
+<div class="not fit"><h3>We are not the right fit for every practice.</h3><p style="margin:6px 0 0;color:var(--mute)">We'd rather say so up front than waste your time, or ours.</p>
+<ul><li>Practices with in-house billing teams</li><li>Hospital-based surgeons</li><li>Surgeons billing under R200k a month</li><li>Practices outside the Gauteng, Western Cape and KZN metros</li><li>Surgeons under forensic audit</li><li>Multi-practice groups</li></ul></div>
+</div></section>
+
+<section id="pricing"><div class="wrap">
+<h2>Three tiers. You pay for recovery, not for time.</h2>
+<p class="lede">Every tier includes secure document handling, a named point of contact and a Quarterly Recovery Report. No hidden charges. No hourly billing.</p>
+<div class="tiers">
+<div class="tier"><h3>Recovery Lite</h3><div class="price">20% <small>of recovery</small></div><div class="for">For surgeons who want to test the model. R2,500 minimum in any month a fee is due.</div><p class="ex">Scope example: one surgeon, claims audited once, recovery on what we find.</p>
+<ul><li>Claims audit</li><li>Recovery</li><li>Quarterly report</li><li><b>No recovery, no fee</b></li></ul></div>
+<div class="tier rec"><h3>Recovery Standard</h3><div class="price">R9,000/mo <small>+ 15%</small></div><div class="for">For ongoing recovery and prevention.</div><p class="ex">Scope example: one surgeon, every month audited, denials caught early.</p>
+<ul><li>Everything in Lite</li><li>Ongoing audits</li><li>Early denial detection</li><li>Monthly reporting</li></ul><div class="avg">Average total: R16,350/month</div></div>
+<div class="tier"><h3>Recovery Partner</h3><div class="price">R18,000/mo <small>+ 12%</small></div><div class="for">For practices with 3+ surgeons billing over R1.5m a month.</div><p class="ex">Scope example: three surgeons, one consolidated monthly audit and report.</p>
+<ul><li>Everything in Standard</li><li>Priority handling</li><li>Monthly review</li><li>Consolidated reporting</li></ul><div class="avg">Average total: R27,600/month</div></div>
+</div>
+<div class="rules">
+<div><b>No recovery, no fee</b><span>Applies to Recovery Lite only. On Standard and Partner the retainer applies regardless.</span></div>
+<div><b>What counts as recovery</b><span>A claim previously denied or short-paid, then appealed, corrected or resubmitted, resulting in payment you would not otherwise have received.</span></div>
+<div><b>R25,000 minimum threshold</b><span>We proceed only if the audit finds at least R25,000 recoverable. Below that, you keep the audit free.</span></div>
+<div><b>Pre-auth clause</b><span>Covers pre-procedure denials (appealed so the procedure can proceed) and post-procedure denials (appealed and recovered).</span></div>
+<div><b>Scope terms</b><span>Claim, procedure, surgeon and beyond-scope are defined in writing in the <a href="#scope">scope definitions</a>.</span></div>
+<div><b>Scheme boundary</b><span>We audit, appeal and recover. You stay the billing entity; we do not submit claims.</span></div>
+</div>
+<details><summary>What is not included in any tier</summary><ul><li>Medical billing software or practice management software support</li><li>Scheme contract negotiation</li><li>Legal appeals or disputes</li><li>Compliance submissions beyond recovery evidence</li><li>Audit defence and HPCSA compliance</li><li>Tax returns or VAT</li></ul></details>
+</div></section>
+
+<section id="preauth" class="dark"><div class="wrap two"><div>
+<h2>Pre-auth denials are where the money is lost.</h2>
+<p class="lede">A major ortho procedure can be delayed or cancelled at pre-auth: R30k–R150k lost per denial. Most practices write it off and reschedule. We appeal the denial, resubmit with correct coding and recover the fee. If the patient is already booked, we rescue the pre-auth before surgery.</p>
+<div class="flow" aria-label="Pre-auth process"><span>Denied</span><span>Review</span><span>Correct coding</span><span>Appeal</span><span>Resubmit</span><span>Paid</span></div>
+<p>Included in every tier. It is the main driver of the recovery fee.</p>
+<a class="btn p" href="#offers">Start with a free audit</a></div>
+<div class="not" style="margin:0"><h3>What we do not do</h3><ul><li>Clinical decisions: the surgeon's responsibility</li><li>Scheme contract negotiation: beyond scope</li><li>Legal action: referred to an attorney</li><li>HPCSA compliance: a separate service</li></ul></div>
+</div></section>
+
+<section id="scope"><div class="wrap">
+<h2>Every word that matters, defined in writing.</h2>
+<p class="lede">Vague scope is how recovery engagements break down. We publish our definitions so both sides know what is included and what is quoted separately.</p>
+<div class="gl">
+<div><b>One claim</b><span>One submission to one scheme for one procedure or consultation.</span></div>
+<div><b>One procedure</b><span>One surgical event, one pre-auth, one claim line.</span></div>
+<div><b>One surgeon</b><span>One HPCSA-registered orthopaedic surgeon.</span></div>
+<div><b>Beyond scope</b><span>Any recovery requiring legal action or scheme contract renegotiation. Quoted separately in writing.</span></div>
+</div></div></section>
+
+<section id="offers"><div class="wrap">
+<h2>Two ways to start. No obligation.</h2>
+<div class="card2">
+<div><div class="big">R0</div><h3>Free claims audit</h3><p style="margin-top:8px">Send your last 3 months of claim data. We review it for pre-auth denials, modifier errors, implant billing and unbilled follow-ups, and send you a short written summary. This is a conversation, not a recovery engagement. If we find nothing, you've lost nothing.</p></div>
+<div><div class="big">R2,500</div><h3>Paid diagnostic</h3><p style="margin-top:8px">A deeper review of 6 months of claims, with a written report showing recoverable amounts per category. Credited against your first recovery fee if you proceed.</p></div>
+</div>
+<div class="cta"><a class="btn p" href="https://wa.me/27764312871?text=Hi%20OrthoClaim%2C%20I%27d%20like%20a%20free%20claims%20audit." target="_blank" rel="noopener">Join waitlist on WhatsApp</a><a class="btn s" href="mailto:orthoclaim.sa@gmail.com">Email us</a></div>
+</div></section>
+
+<section id="promotions"><div class="wrap">
+<h2>Simple ways to start.</h2>
+<div class="tiers">
+<div class="tier"><h3>Free claims audit</h3><div class="price">R0</div><p>Last 3 months of claim data reviewed, short written summary produced.</p></div>
+<div class="tier"><h3>No recovery, no fee</h3><div class="price">Lite</div><p>On Recovery Lite you only pay on what we recover.</p></div>
+<div class="tier"><h3>Referral reward</h3><div class="price">R2,500</div><p>Paid after a surgeon you referred receives their second monthly invoice.</p></div>
+</div></div></section>
+
+<section id="proof"><div class="wrap two"><div>
+<h2>A record of what we recovered, not just a fee.</h2>
+<p class="lede">Every plan includes a Quarterly Recovery Report. It isn't a testimonial or marketing. It's a deliverable that shows exactly what was recovered, suitable for your files or your partner.</p><a class="btn s" href="mailto:orthoclaim.sa@gmail.com?subject=Sample%20Recovery%20Report">Request a sample report</a></div>
+<div class="ledger"><h3>The report shows, per scheme and per claim</h3>
+<div class="row" style="grid-template-columns:1fr"><span>Claims submitted and recovered</span></div>
+<div class="row" style="grid-template-columns:1fr"><span>Pre-auth denials appealed and reversed</span></div>
+<div class="row" style="grid-template-columns:1fr"><span>Modifier corrections resubmitted</span></div>
+<div class="row" style="grid-template-columns:1fr"><span>Implant billing reworked</span></div>
+<div class="row" style="grid-template-columns:1fr"><span>Unbilled follow-ups captured</span></div>
+<div class="row" style="grid-template-columns:1fr"><span>Outstanding claims tracked</span></div>
+<div class="total"><span>Recovered rand value</span><span>per category</span></div></div>
+</div></section>
+
+<section id="guarantees"><div class="wrap">
+<h2>We guarantee what we control.</h2>
+<p class="lede">No vague promises. Clear commitments, written down before work begins.</p>
+<div class="gl">
+<div><b>No recovery, no fee</b><span>On Recovery Lite, you pay nothing unless we recover.</span></div>
+<div><b>Percentage of recovery only</b><span>20% / 15% / 12%. No hidden charges.</span></div>
+<div><b>Scheme experience</b><span>Recovery by staff experienced with Discovery, Bonitas, Momentum, Medihelp, Fedhealth and GEMS.</span></div>
+<div><b>Fixed monthly retainer</b><span>On Standard and Partner. No hourly billing.</span></div>
+<div><b>Delivery commitment</b><span>Quarterly Recovery Report delivered by an agreed date.</span></div>
+<div><b>Correction policy</b><span>Errors attributable to OrthoClaim are corrected at no additional fee.</span></div>
+<div><b>Communication</b><span>Requests acknowledged within one business day.</span></div>
+<div><b>Named contact</b><span>One person. Unresolved issues escalate to the owner.</span></div>
+<div><b>Cancellation</b><span>One month's written notice. Recovery in progress continues to completion.</span></div>
+<div><b>Service recovery</b><span>Reasonable service credit for missed commitments within our control.</span></div>
+<div><b>Data protection</b><span>POPIA-compliant handling of patient, claim and scheme data.</span></div>
+<div><b>Minimum threshold protection</b><span>If the audit finds under R25,000 recoverable, you keep it free.</span></div>
+</div>
+<details><summary>What we do not guarantee</summary><ul><li>That every claim will be recovered</li><li>Scheme outcomes or approval times</li><li>Specific recovery amounts</li><li>Protection against scheme audits</li><li>Billing software outcomes or HPCSA compliance outcomes</li><li>Audit-ready financial statements</li><li>Recovery of patient debtor balances</li></ul></details>
+</div></section>
+
+<section id="why"><div class="wrap">
+<h2>Not the cheapest. The most accountable.</h2>
+<p class="lede">General billing companies don't understand ortho coding. Medical accountants charge R15,000 a month. OrthoClaim sits in the gap: recovery built specifically for orthopaedic surgeons.</p>
+<div class="gl">
+<div><b>Specialist focus</b><span>Pre-auth denials, modifiers and implants are what we do, not a sideline.</span></div>
+<div><b>Performance pricing</b><span>You pay for recovery, not time. No recovery, no fee on Lite.</span></div>
+<div><b>Measurable ROI</b><span>What was recovered, per claim and per scheme. A decision tool, not a data dump.</span></div>
+<div><b>Low-friction service</b><span>Remote onboarding, secure document collection, one point of contact. No office visits or courier runs.</span></div>
+<div><b>Named accountability</b><span>A specific person follows up your claims, not a shared inbox.</span></div>
+<div><b>Proof of value</b><span>The quarterly report makes partner review simple and quiet months visible.</span></div>
+</div></div></section>
+
+<section id="process"><div class="wrap">
+<h2>Seven steps. Every month.</h2>
+<p class="lede">Before we accept a client, we establish the workflow. The same seven steps run every month, so nothing depends on memory or goodwill.</p>
+<ol class="proc">
+<li><span><b>Receive</b> claims data, remittance advices and scheme correspondence</span><em>Surgeon · monthly</em></li>
+<li><span><b>Audit</b> pre-auths, modifiers, implant billing, follow-ups, outstanding claims</span><em>OrthoClaim · monthly</em></li>
+<li><span><b>Quantify</b> what is recoverable per category, in writing</span><em>OrthoClaim · monthly</em></li>
+<li><span><b>Agree</b> which claims to chase, at what rate, on what timeline</span><em>Both · monthly</em></li>
+<li><span><b>Recover</b> appeal denials, resubmit correctly, chase outstanding claims</span><em>OrthoClaim · weekly</em></li>
+<li><span><b>Report</b> per claim, per outcome, with recovered amounts</span><em>OrthoClaim · quarterly</em></li>
+<li><span><b>Invoice</b> 20% (Lite), retainer + 15% (Standard) or retainer + 12% (Partner)</span><em>OrthoClaim · monthly</em></li>
+</ol></div></section>
+
+<section id="popia"><div class="wrap two"><div>
+<h2>POPIA-compliant, from onboarding to archive.</h2></div>
+<div><p>Patient information is special personal information under POPIA. We collect only what is needed to recover claims, store it securely, restrict internal access and keep it no longer than necessary. You can request access, correction or deletion of patient or practice information at any time. See our <button class="lnk" data-m="privacy" style="all:unset;cursor:pointer;text-decoration:underline">Privacy Policy</button> and <button data-m="billing" style="all:unset;cursor:pointer;text-decoration:underline">Medical Billing Data Statement</button>.</p>
+<ul class="excl badges"><li>✓ POPIA aligned</li><li>Encrypted storage</li><li>Access controlled</li></ul></div>
+</div></section>
+
+<section id="launch"><div class="wrap">
+<h2>Where we are now.</h2>
+<p class="lede">We're in the validation phase. Before we open for paying clients, we want to confirm the need, the price and the delivery workflow with a small number of practices.</p>
+<div class="tl">
+<div class="now"><h3>Now</h3><ul><li>Waitlist open</li><li>Conversations with ortho surgeons</li><li>Confirming pricing and scope</li><li>Building the billing delivery team</li></ul></div>
+<div><h3>Next</h3><ul><li>One-month pilot with a few practices</li><li>Real recovery and remittance reconciliation</li><li>Measure cost, refine workflow</li></ul></div>
+<div><h3>Then</h3><ul><li>Waitlist members contacted first</li><li>Monthly plans open to new practices</li><li>First free claims audits scheduled</li></ul></div>
+<div><h3>Later</h3><ul><li>Other surgical specialties</li><li>More billing specialists</li><li>More service lines</li></ul></div>
+</div></div></section>
+
+<section class="final" id="contact"><div class="wrap">
+<h2>Be first in line when OrthoClaim opens.</h2>
+<p class="lede">Send a WhatsApp message and we'll add you to the waitlist. When we launch, you'll be contacted first, with early access to a free 3-month claims audit. No obligation. No spam. Your details stay with us.</p>
+<div class="cta"><a class="btn p" href="https://wa.me/27764312871?text=Hi%20OrthoClaim%2C%20please%20add%20me%20to%20the%20waitlist." target="_blank" rel="noopener">Join the waitlist on WhatsApp</a><a class="btn s" href="mailto:orthoclaim.sa@gmail.com">Email us directly</a></div>
+<p>WhatsApp <a class="c" href="https://wa.me/27764312871">+27 76 431 2871</a> · <a class="c" href="mailto:orthoclaim.sa@gmail.com">orthoclaim.sa@gmail.com</a><br>Replies within 1 business day. South Africa, remote-first.</p>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+<div class="cols">
+<div><a class="logo" href="#top" style="color:var(--ink)"><svg viewBox="0 0 48 48" aria-hidden="true"><circle class="c" cx="24" cy="24" r="24"/><g class="b" transform="rotate(-45 24 24)"><rect x="14" y="21" width="20" height="6" rx="3"/><circle cx="13" cy="20" r="4.5"/><circle cx="13" cy="28" r="4.5"/><circle cx="35" cy="20" r="4.5"/><circle cx="35" cy="28" r="4.5"/></g></svg><span><b>Ortho</b>Claim</span></a><p style="margin-top:10px">Revenue recovery for ortho surgeons. We find the money you're losing to denied claims, short-pays and unbilled procedures.</p></div>
+<div><h4>Service</h4><ul><li><a href="#how">How it works</a></li><li><a href="#audience">Who we serve</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#offers">Free claims audit</a></li><li><a href="#guarantees">Guarantees</a></li></ul></div>
+<div><h4>Company</h4><ul><li><a href="#contact">Contact</a></li><li><button data-m="terms">Terms of Engagement</button></li><li><button data-m="privacy">Privacy Policy</button></li><li><button data-m="popia">POPIA Notice</button></li></ul></div>
+<div><h4>Legal</h4><ul><li><button data-m="billing">Medical Billing Data Statement</button></li><li><button data-m="cookie">Cookie Notice</button></li><li><button data-m="disclaimer">Service Disclaimer</button></li><li><button data-m="complaints">Complaints Procedure</button></li></ul></div>
+</div>
+<div class="fine"><a href="#top">Back to top ↑</a>© 2026 OrthoClaim · Callum Denysschen · Company registration pending</div>
+</div></footer>
+
+<dialog id="dlg" aria-labelledby="dt"><h3 id="dt"></h3><div id="db" aria-live="polite"></div><p style="margin-top:18px"><button class="btn s" id="close" type="button">Close</button></p></dialog>
+
+<script>
+var M={
+terms:["Terms of Engagement",[
+["Parties and scope","OrthoClaim (operated by Callum Denysschen, company registration pending) provides claims audit, appeal and recovery services to private-practice orthopaedic surgeons (the Client). The services are those described on this site and in the signed engagement letter. If the two conflict, the signed letter prevails."],
+["Services","We audit claim data, quantify what is recoverable, agree a list of claims with you, appeal denials, resubmit corrected claims, chase outstanding payments and report on outcomes. This includes pre-procedure denials (appealed so the procedure can proceed) and post-procedure denials (appealed and recovered)."],
+["Scheme boundary","The Client remains the billing entity. We do not submit original claims or make clinical decisions. Every appeal or resubmission is sent in the Client's name and only after the Client has approved the claims at the Agree step. Coding corrections are limited to what the clinical record supports."],
+["Fees","Recovery Lite: 20% of Recovery; where a fee is due in a month the minimum is R2,500, and no fee is due in a month with no Recovery. Recovery Standard: R9,000 per month plus 15% of Recovery. Recovery Partner: R18,000 per month plus 12% of Recovery. Retainers apply whether or not anything is recovered. Fees exclude VAT where applicable. No hourly billing."],
+["What counts as Recovery","A claim previously denied or short-paid that is successfully appealed, corrected or resubmitted and results in payment the Client would not otherwise have received. Recovery is counted when the scheme pays, and is verified against remittance advices."],
+["Invoicing and payment","Fees are invoiced monthly and are payable within the period in the engagement letter (14 days unless agreed otherwise). Schemes pay recovered amounts to the Client directly; we never receive or hold Client funds."],
+["Minimum threshold","We proceed with recovery only if the audit identifies at least R25,000 in recoverable claims. Below that, the Client keeps the audit at no charge."],
+["Client responsibilities","The Client will supply complete and accurate claim data, remittance advices and correspondence on time; tell us promptly if a chased claim is paid or settled; not resubmit or settle agreed claims separately without telling us; and tell us before engagement, or as soon as known, of any scheme audit, forensic review or HPCSA investigation."],
+["Reporting and communication","We acknowledge requests within one business day. A Quarterly Recovery Report is delivered by an agreed date, showing recovery per claim, scheme and category."],
+["Term and cancellation","Either party may cancel on one month's written notice. Recovery in progress continues to completion, and fees remain payable on claims identified and agreed before cancellation."],
+["Not included","Medical billing or practice management software support; scheme contract negotiation; legal appeals or disputes; compliance submissions beyond recovery evidence; audit defence; HPCSA compliance; tax returns or VAT. Anything beyond scope is quoted separately in writing before work begins."],
+["No guarantee of outcome","We do not guarantee that any claim will be recovered, nor any scheme outcome, timeline or amount. Scheme decisions are made by the schemes."],
+["Errors and liability","Errors attributable to OrthoClaim are corrected at no additional fee, and reasonable service credit applies for missed commitments within our control. To the extent the law allows, our total liability is limited to the fees paid in the three months before the claim arose, and we are not liable for indirect or consequential loss. Nothing limits liability that cannot lawfully be limited."],
+["Confidentiality and data","Both parties keep the other's confidential information confidential. Patient and claim data is handled under our Privacy Policy, POPIA Notice and Medical Billing Data Statement, and the data-processing terms in the engagement letter."],
+["Ownership","Reports and recovery records belong to the Client. We keep our methods, templates and know-how."],
+["Disputes and governing law","We will try to resolve disputes in good faith through the Complaints Procedure, then independent mediation, before any court action. South African law governs, and the courts of South Africa have jurisdiction."],
+["Changes","We may update these terms with 30 days' written notice. Changes do not affect work already agreed."]]],
+privacy:["Privacy Policy",[
+["Who we are","OrthoClaim, operated by Callum Denysschen (company registration pending), is the responsible party for personal information collected through this website, and acts as an operator for patient and claim data processed on behalf of our Clients. Information Officer: Callum Denysschen, orthoclaim.sa@gmail.com."],
+["What we collect","From website visitors and waitlist members: name, practice, email, WhatsApp number and your message. From Clients: practice and billing details, claim data, remittance advices, scheme correspondence and the patient information those contain (name, medical scheme and membership number, dependant code, dates of service, procedure and ICD-10 codes), plus invoicing details."],
+["Why we use it","To respond to enquiries, run the waitlist, audit and recover claims, report to you, invoice you and meet legal obligations. We do not use patient or claim data for marketing."],
+["Data minimisation","We ask for only what recovery needs. Clinical notes are requested only where an appeal requires clinical motivation, and that motivation is written or approved by the surgeon."],
+["Who we share it with","Schemes, only as needed to pursue an agreed claim and in the Client's name; and service providers that host, secure or transmit data for us, under written confidentiality terms. We do not sell personal information."],
+["Messaging","WhatsApp and email suit enquiries. Please do not send patient information that way. We will give you a secure upload link at onboarding."],
+["Cross-border transfers","Some providers may store data outside South Africa. We transfer personal information abroad only where the recipient is bound to equivalent protection, as POPIA section 72 requires."],
+["Security","Encryption in transit and at rest, access limited to named personnel who have signed confidentiality undertakings, and access logging."],
+["Retention","Client data is returned or securely deleted within 90 days of the engagement ending, unless the law requires longer. Waitlist details are kept until you ask us to delete them, or for 24 months without contact."],
+["Your rights","You may ask us to confirm what we hold, and to access, correct or delete it, or object to processing. Email orthoclaim.sa@gmail.com. For patient data, please contact the surgeon's practice first; we will assist the practice."],
+["Security incidents","If personal information is compromised we will notify the affected Client without delay so that the Information Regulator and affected people can be notified as POPIA section 22 requires."],
+["Complaints","Contact us first. You may also complain to the Information Regulator: complaints.IR@justice.gov.za, inforeg.org.za."],
+["Changes","We will post updates here and change the date above."]]],
+popia:["POPIA Notice",[
+["Roles","The surgeon (the Client) is the responsible party for patient information in their practice. OrthoClaim is an operator under POPIA section 20 and processes that information only on the Client's written instruction, under a written operator agreement as section 21 requires."],
+["Special personal information","Claim data contains health information and scheme membership details, which are special personal information under sections 26 and 27. We process it only to administer payment of the practice's claims, on the Client's authority under the health-information provisions of the Act (section 32), and for no other purpose."],
+["Minimality and purpose","We process only the information needed for the agreed recovery work, and only for that purpose (sections 10 and 13)."],
+["Security safeguards","Appropriate technical and organisational measures under section 19: encryption, access control, confidentiality undertakings and logging."],
+["Operator duties","We treat information as confidential, do not disclose it except as the Client instructs or law requires, and tell the Client immediately if we suspect unauthorised access (sections 21 and 22)."],
+["Data subject rights","Patients may request access, correction or deletion of their information (sections 23 to 25) or object to processing. Requests go to the surgeon's practice. We will help the practice respond within five business days of being told of a request."],
+["Retention","Records are returned or securely destroyed within 90 days of the engagement ending, unless the law requires longer retention (section 14)."],
+["Cross-border transfer","Only where section 72 conditions are met."],
+["Information Officer","Callum Denysschen, orthoclaim.sa@gmail.com."],
+["Information Regulator","Complaints may be lodged at complaints.IR@justice.gov.za or inforeg.org.za."]]],
+billing:["Medical Billing Data Statement",[
+["What we receive","Claim data, remittance advices, pre-authorisation records and scheme correspondence for the periods the Client chooses to share, and the patient identifiers in them."],
+["What we do with it","Audit for pre-auth denials, modifier errors, implant billing rejections and unbilled follow-ups; quantify recoverable amounts; prepare appeals and corrected resubmissions for the Client's approval; track outcomes; produce reports."],
+["What we do not do","We do not submit original claims, alter clinical records, assign codes the clinical record does not support, make clinical decisions, receive scheme payments, or negotiate scheme contracts. We do not sell or share claim data for marketing."],
+["Authority","Communications with schemes are made in the Client's name and only for claims the Client has approved. We keep a record of each submission."],
+["Storage and access","Encrypted storage, named-personnel access only, activity logged."],
+["End of engagement","Data is returned or securely deleted within 90 days, as the Client chooses, unless the law requires longer retention."]]],
+cookie:["Cookie Notice",[
+["Cookies","This website does not use tracking, analytics or advertising cookies and does not store information in your browser."],
+["Third parties","The page loads fonts from Google Fonts, which may receive your IP address. WhatsApp and email links open other services, which have their own policies."],
+["Changes","If we add analytics we will update this notice and ask for consent first."]]],
+disclaimer:["Service Disclaimer",[
+["What we are","OrthoClaim is a claims recovery service. It is not a medical billing bureau, tax practitioner, attorney, financial adviser or HPCSA compliance adviser, and does not give clinical, legal or tax advice."],
+["No guarantee","We do not guarantee recovery of any claim, scheme outcomes, approval times or specific amounts."],
+["Illustrative figures","Amounts on this site, including the ledger example, the R50k to R200k range and average monthly totals, are illustrative. They are not promises or a forecast for your practice."],
+["Schemes","Medical scheme names describe where our team has experience. OrthoClaim is not affiliated with, endorsed by or acting for any scheme."],
+["Your responsibility","The surgeon remains responsible for the accuracy of claims, clinical documentation and compliance with scheme rules and professional regulations."],
+["General information","This site is general information, not advice, and is not an offer capable of acceptance. Services are provided under a signed engagement letter."]]],
+complaints:["Complaints Procedure",[
+["How to complain","Email orthoclaim.sa@gmail.com with your name, practice and what went wrong. WhatsApp +27 76 431 2871 also works."],
+["Acknowledgement","We acknowledge every complaint within one business day."],
+["Investigation","Your named contact investigates, and unresolved issues escalate to the owner. We reply in writing within 10 business days with our findings and what we will do."],
+["Remedies","Correction of errors at no additional fee, and reasonable service credit for missed commitments within our control."],
+["If still unresolved","Either party may refer the matter to independent mediation. Data-protection complaints may go to the Information Regulator: complaints.IR@justice.gov.za."],
+["Records","We keep a record of every complaint and outcome, and no one is penalised for complaining."]]]};
+var d=document.getElementById("dlg");
+document.addEventListener("click",function(e){var b=e.target.closest("[data-m]");if(!b)return;var m=M[b.dataset.m],h='<p class="meta">Last updated 13 October 2026</p>';m[1].forEach(function(x,i){h+="<h4>"+(i+1)+". "+x[0]+"</h4><p>"+x[1]+"</p>"});h+='<p class="meta" style="margin-top:16px">Prepared for launch. To be reviewed by a South African attorney before the first client engagement.</p>';document.getElementById("dt").textContent=m[0];document.getElementById("db").innerHTML=h;d.showModal()});
+document.getElementById("close").onclick=function(){d.close()};
+d.addEventListener("click",function(e){if(e.target===d)d.close()});
+</script>
+</body>
+</html>
