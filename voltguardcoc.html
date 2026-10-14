@@ -8,6 +8,8 @@
 <meta property="og:title" content="Voltguard Electrical: a CoC today, so the transfer doesn't slip">
 <meta property="og:description" content="Same-day Certificates of Compliance for estate agents. Fixed prices for the CoC and any repairs.">
 <meta property="og:type" content="website">
+<meta name="theme-color" content="#ffd23f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%2314181f'/%3E%3Cpath d='M16 16H38L58 74L50 90Z' fill='%23fff'/%3E%3Cpath d='M86 16H62L42 60H58L44 90L78 46H64Z' fill='%23ffd23f'/%3E%3C/svg%3E">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Electrician","name":"Voltguard Electrical","telephone":"+27764312871","email":"callum@voltguardelectrical.co.za","areaServed":["Sandton","Bryanston","Fourways","Rivonia","Morningside","Randburg","Rosebank","Parktown"],"openingHours":"Mo-Sa 07:00-18:00"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,7 +39,14 @@ a{color:inherit}
 .alt{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 header{position:sticky;top:0;z-index:20;background:var(--yel);border-bottom:2px solid var(--ink);padding-top:env(safe-area-inset-top,0)}
 .hd{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
-.logo{font:800 1.1rem 'Bricolage Grotesque',sans-serif;text-decoration:none}
+.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;line-height:1}
+.logo svg{height:34px;width:auto;flex:none}
+.logo .wm{display:flex;flex-direction:column;font:800 1.2rem/1 'Bricolage Grotesque',sans-serif;letter-spacing:.01em;text-transform:uppercase}
+.logo .wm small{font:600 .56rem/1 Figtree,sans-serif;letter-spacing:.42em;margin-top:5px}
+.mk-v{fill:var(--mv,#14181f)}.mk-b{fill:var(--mb,#ffd23f)}
+header .logo svg{--mv:#14181f;--mb:#fff}
+footer .logo{color:#fff}footer .logo svg{--mv:#fff;--mb:#ffd23f}
+footer .logo .wm{font-size:1.1rem}
 nav{display:none;gap:22px;font-size:.92rem;font-weight:500}
 nav a{text-decoration:none}nav a:hover{text-decoration:underline}
 @media(min-width:900px){nav{display:flex}}
@@ -133,8 +142,9 @@ dialog::backdrop{background:rgba(20,24,31,.7)}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="vg-mark" viewBox="0 0 100 100"><path class="mk-v" d="M0 0H27L52 76L43 100Z"/><path class="mk-b" d="M100 0H66L40 56H58L38 100L82 40H62Z"/></symbol></svg>
 <header><div class="w hd">
-  <a class="logo" href="#top">⚡ Voltguard Electrical</a>
+  <a class="logo" href="#top" aria-label="Voltguard Electrical, home"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#vg-mark"/></svg><span class="wm">Voltguard<small>Electrical</small></span></a>
   <nav><a href="#pricing">Pricing</a><a href="#fails">If it fails</a><a href="#guarantees">Guarantees</a><a href="#who">Your electrician</a><a href="#faq">FAQ</a></nav>
   <a class="btn" href="https://wa.me/27764312871?text=Hi%20Voltguard%2C%20I%27m%20an%20estate%20agent%20and%20I%20need%20a%20CoC.">Book a CoC</a>
 </div></header>
@@ -304,7 +314,7 @@ dialog::backdrop{background:rgba(20,24,31,.7)}
 
 <footer><div class="w">
   <div class="fg">
-    <div><b>⚡ Voltguard Electrical</b>Certificates of Compliance for estate agents.<br>Sandton, Johannesburg. Mon to Sat, 7am to 6pm.</div>
+    <div><a class="logo" href="#top" aria-label="Voltguard Electrical, back to top" style="text-decoration:none;margin-bottom:10px"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#vg-mark"/></svg><span class="wm">Voltguard<small>Electrical</small></span></a><br>Certificates of Compliance for estate agents.<br>Sandton, Johannesburg. Mon to Sat, 7am to 6pm.</div>
     <div><b>Contact</b><a href="tel:+27764312871">076 431 2871</a><br><a href="mailto:callum@voltguardelectrical.co.za">callum@voltguardelectrical.co.za</a></div>
     <div><b>Policies</b><button class="lb" data-d="terms">Terms, payment and cancellation</button><br><button class="lb" data-d="privacy">Privacy (POPIA)</button></div>
   </div>
