@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SchemeWater | Water-system care for sectional-title schemes</title>
+<meta name="description" content="Inspection, photo reports, written repair quotes and planned maintenance for the water equipment of sectional-title schemes in northern Johannesburg. Free 15-minute review.">
+<meta name="theme-color" content="#0b6a8a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SchemeWater | Know your scheme's water system">
+<meta property="og:description" content="Photo reports, written quotes and planned maintenance for sectional-title schemes in northern Johannesburg.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b6a8a'/%3E%3Cpath d='M16 6c4 5 7 8.5 7 12a7 7 0 0 1-14 0c0-3.5 3-7 7-12z' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout concept: the page reads like a site-inspection report. A sample report sits in the hero, the offer is a three-step ladder, and every boundary is stated plainly. */
+:root {
+  color-scheme: light;
+  --bg: #f2f6f6;
+  --surface: #ffffff;
+  --ink: #0d2a33;
+  --muted: #4d6670;
+  --line: #cfdcde;
+  --accent: #0b6a8a;
+  --accent-ink: #ffffff;
+  --ok: #1d7a4b;
+  --watch: #a86a00;
+  --act: #b3321f;
+  --pending: #5b6b73;
+  --font-display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b1c22; --surface: #12292f; --ink: #e6f0f1; --muted: #9db4ba; --line: #24424a;
+    --accent: #5cc0de; --accent-ink: #06222b; --ok: #52c58a; --watch: #e5a43c; --act: #ff8a75; --pending: #9db4ba;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b1c22; --surface: #12292f; --ink: #e6f0f1; --muted: #9db4ba; --line: #24424a;
+  --accent: #5cc0de; --accent-ink: #06222b; --ok: #52c58a; --watch: #e5a43c; --act: #ff8a75; --pending: #9db4ba;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 17px; line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0;
+}
+.wrap { max-width: 1040px; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.12; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2rem, 6vw, 3.4rem); font-weight: 800; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.5rem, 4vw, 2.1rem); font-weight: 700; letter-spacing: -0.01em; }
+h3 { font-size: 1.15rem; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--accent); }
+.label { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+header.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 18px; border-bottom: 1px solid var(--line); }
+.brand { font-family: var(--font-display); font-weight: 800; font-size: 1.25rem; letter-spacing: -0.01em; }
+.brand span { color: var(--accent); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 46px; padding: 10px 20px; border-radius: 6px; font-family: var(--font-display); font-weight: 700; font-size: 1rem; text-decoration: none; border: 2px solid var(--accent); cursor: pointer; }
+.btn.primary { background: var(--accent); color: var(--accent-ink); }
+.btn.ghost { background: transparent; color: var(--accent); }
+.btn.small { min-height: 40px; padding: 6px 14px; font-size: 0.95rem; }
+
+.hero { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 40px; padding-block: 44px 52px; align-items: start; }
+.hero > * { min-width: 0; }
+.hero p.lead { font-size: 1.15rem; color: var(--muted); margin-top: 18px; max-width: 34em; }
+.hero .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.hero .note { margin-top: 14px; font-size: 0.95rem; color: var(--muted); }
+
+.report { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px; }
+.report header { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; padding-bottom: 12px; border-bottom: 2px solid var(--ink); }
+.report h3 { font-size: 1.05rem; }
+.rows { margin: 0; padding: 0; list-style: none; }
+.rows li { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 11px 0; border-bottom: 1px solid var(--line); }
+.rows li:last-child { border-bottom: 0; }
+.rows .item { font-weight: 600; }
+.rows .detail { grid-column: 1; font-size: 0.92rem; color: var(--muted); }
+.chip { grid-row: 1; grid-column: 2; align-self: start; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; border: 1.5px solid currentColor; }
+.chip.ok { color: var(--ok); } .chip.watch { color: var(--watch); } .chip.act { color: var(--act); } .chip.pending { color: var(--pending); }
+.report footer { padding-top: 12px; border-top: 2px solid var(--ink); font-size: 0.85rem; color: var(--muted); }
+
+section { padding-block: 52px; border-top: 1px solid var(--line); }
+section > .wrap > h2 { margin-top: 8px; }
+.intro { color: var(--muted); max-width: 40em; margin-top: 14px; }
+.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 28px; }
+.grid3 > div { min-width: 0; }
+.grid3 p { color: var(--muted); margin-top: 8px; }
+
+.ladder { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 28px; align-items: stretch; }
+.step { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 22px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.step.main { border: 2px solid var(--accent); }
+.price { font-family: var(--font-display); font-weight: 800; font-size: 2rem; letter-spacing: -0.02em; }
+.price small { font-size: 0.95rem; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+.step ul { margin: 4px 0 0; padding-left: 1.1em; color: var(--muted); }
+.step li { margin-top: 5px; }
+.step .tag { color: var(--accent); }
+.fine { margin-top: 18px; font-size: 0.95rem; color: var(--muted); max-width: 46em; }
+
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 28px; }
+.two > div { min-width: 0; }
+.two ul { margin: 12px 0 0; padding-left: 1.1em; }
+.two li { margin-top: 7px; }
+
+ol.process { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 0; counter-reset: s; }
+ol.process li { counter-increment: s; display: grid; grid-template-columns: 44px 1fr; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+ol.process li::before { content: counter(s); font-family: var(--font-mono); font-weight: 500; color: var(--accent); border: 1.5px solid var(--accent); border-radius: 50%; width: 36px; height: 36px; display: grid; place-items: center; }
+ol.process strong { font-family: var(--font-display); }
+ol.process span { color: var(--muted); display: block; }
+
+.bounds { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 40px; margin: 28px 0 0; padding: 0; list-style: none; }
+.bounds li { padding: 14px 0; border-top: 1px solid var(--line); min-width: 0; }
+.bounds b { font-family: var(--font-display); display: block; }
+.bounds span { color: var(--muted); }
+
+details { border-top: 1px solid var(--line); padding: 14px 0; }
+details:last-of-type { border-bottom: 1px solid var(--line); }
+summary { cursor: pointer; font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; }
+details p { color: var(--muted); margin-top: 8px; max-width: 44em; }
+
+.contact { background: var(--ink); color: var(--bg); border-radius: 6px; padding: 32px; margin-block: 8px 52px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px; align-items: center; }
+.contact > * { min-width: 0; }
+.contact h2 { color: var(--bg); }
+.contact p { margin-top: 10px; opacity: 0.85; }
+.contact .number { font-family: var(--font-mono); font-size: 1.3rem; margin: 0 0 12px; opacity: 1; user-select: all; }
+.contact .btn.primary { background: var(--bg); color: var(--ink); border-color: var(--bg); }
+.contact .btn.ghost { color: var(--bg); border-color: var(--bg); }
+.contact .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+footer.page { padding-block: 0 36px; font-size: 0.88rem; color: var(--muted); }
+
+@media (max-width: 820px) {
+  .hero, .two, .contact, .bounds { grid-template-columns: 1fr; }
+  .grid3, .ladder { grid-template-columns: 1fr; }
+  .hero { gap: 28px; padding-block: 30px 36px; }
+  section { padding-block: 40px; }
+  .contact { padding: 24px; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+/* legal + conversion layer */
+mark.ph{background:#fff3b0;color:#14213d;padding:0 4px;border-radius:3px;font-weight:600}
+.legal-links{display:flex;flex-wrap:wrap;gap:6px 18px;margin:14px 0 4px;padding:0;list-style:none}
+.legal-links button,.linkbtn{background:none;border:0;padding:6px 0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer;min-height:36px}
+dialog.lg{width:min(760px,calc(100vw - 24px));max-height:88vh;padding:0;border:1px solid var(--line);border-radius:10px;background:var(--card,var(--surface));color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+dialog.lg::backdrop{background:rgba(5,12,25,.6)}
+dialog.lg>div{display:flex;flex-direction:column;max-height:88vh}
+.lg header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:18px 20px 12px;border-bottom:1px solid var(--line)}
+.lg header h2{font-size:1.35rem}.lg header small{display:block;color:var(--mut,var(--muted));font-size:.8rem;margin-top:4px}
+.lg .x{min-width:44px;min-height:44px;border:1px solid var(--line);border-radius:6px;background:transparent;color:inherit;font-size:1.3rem;cursor:pointer}
+.lg .tabs{display:flex;gap:6px;overflow-x:auto;padding:10px 20px;border-bottom:1px solid var(--line)}
+.lg .tabs button{white-space:nowrap;min-height:40px;padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:transparent;color:inherit;font:inherit;font-size:.9rem;cursor:pointer}
+.lg .tabs button[aria-selected=true]{background:var(--navy,var(--accent));color:#fff;border-color:transparent}
+.lg .body{overflow:auto;padding:6px 20px 24px;font-size:.96rem;line-height:1.65}
+.lg .doc{display:none}.lg .doc.on{display:block}
+.lg .body h3{font-size:1.02rem;margin:22px 0 6px}.lg .body p,.lg .body li{margin:0 0 8px}.lg .body ul{padding-left:20px;margin:0 0 8px}
+.lg .sum{border-left:4px solid var(--amber,var(--accent));padding:8px 12px;margin:14px 0;background:rgba(127,127,127,.08);border-radius:0 6px 6px 0}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:50;display:none;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--navy,var(--ink));box-shadow:0 -6px 20px rgba(0,0,0,.25)}
+.sticky-cta a{display:flex;width:100%}
+@media(max-width:720px){.sticky-cta.show{display:block}body{padding-bottom:76px}}
+.tool{border:1px solid var(--line);border-radius:10px;background:var(--card,var(--surface));padding:22px;margin:0 auto 56px;max-width:1080px}
+.tool h2{margin:6px 0 8px}.tool .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:16px 0}
+.tool label{display:block;font-size:.88rem;color:var(--mut,var(--muted));margin-bottom:4px}
+.tool input[type=number],.tool select{width:100%;min-height:46px;padding:8px 10px;border:1px solid var(--line);border-radius:6px;font:inherit;background:var(--bg,var(--paper));color:var(--ink)}
+.tool .out{padding:14px;border-radius:8px;background:rgba(127,127,127,.09);margin:8px 0 14px}
+.tool .out b{font-size:1.5rem;font-family:var(--d,var(--font-display))}
+.tool .chk label{display:flex;gap:10px;align-items:flex-start;color:var(--ink);font-size:1rem;margin:0 0 10px;min-height:32px}
+.tool .chk input{width:22px;height:22px;margin-top:3px;flex:none}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">Scheme<span>Water</span></div>
+    <a class="btn ghost small" id="wa-top" href="#" target="_blank" rel="noopener">WhatsApp us</a>
+  </header>
+
+  <div class="hero">
+    <div>
+      <p class="label">Johannesburg north · Sectional-title schemes</p>
+      <h1 style="margin-top:12px">Know your scheme's water system. Know what needs attention.</h1>
+      <p class="lead">We help managing agents and trustees inspect, document and maintain shared water equipment: tanks, pumps and backup supply. You get a photo report, written quotes and a maintenance plan. You decide what gets done.</p>
+      <div class="cta">
+        <a class="btn primary" id="wa-hero" href="#" target="_blank" rel="noopener">Book a free 15-minute review</a>
+        <a class="btn ghost" href="#offer">See the offer</a>
+      </div>
+      <p class="note">No obligation. The review is a call about your scheme, not a sales pitch for repairs.</p>
+    </div>
+
+    <aside class="report" aria-label="Example inspection report layout">
+      <header>
+        <div>
+          <p class="label">Water Resilience Check</p>
+          <h3>Scheme inspection report</h3>
+        </div>
+        <p class="label">Example layout</p>
+      </header>
+      <ul class="rows">
+        <li><span class="item">Storage tank 1 · 10,000 L</span><span class="chip ok">OK</span><span class="detail">Lid, insect screen and overflow in place.</span></li>
+        <li><span class="item">Storage tank 2 · 10,000 L</span><span class="chip act">Act</span><span class="detail">Float valve sticking. Quote attached.</span></li>
+        <li><span class="item">Booster pump</span><span class="chip watch">Watch</span><span class="detail">3.4 bar at outlet. Noise on start-up.</span></li>
+        <li><span class="item">Backup supply</span><span class="chip watch">Watch</span><span class="detail">Bypass valve not labelled.</span></li>
+        <li><span class="item">Water sample (optional)</span><span class="chip pending">Add-on</span><span class="detail">Lab result reported as received.</span></li>
+      </ul>
+      <footer>Sample layout with made-up readings. It does not describe a real scheme.</footer>
+    </aside>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="label">The problem</p>
+    <h2>When water equipment fails, trustees need clear records and a practical plan.</h2>
+    <p class="intro">Many Gauteng properties now depend on their own tanks, pumps or boreholes. <a href="https://businesstech.co.za/news/government/811627/households-forking-out-up-to-r120000-for-another-basic-need-in-south-africa/" target="_blank" rel="noopener">BusinessTech reported</a> households spending between R15,000 and R120,000 on them. The Borehole Water Association estimates Gauteng residents drilled about 10,000 boreholes in the past decade, <a href="https://www.timeslive.co.za/news/south-africa/2026-08-11-johannesburgs-water-crisis-angers-voters-drives-rich-off-grid/" target="_blank" rel="noopener">as reported by Reuters</a>. Once installed, the equipment still needs looking after.</p>
+    <div class="grid3">
+      <div><h3>Thin records</h3><p>It can be hard to say when the tanks were last cleaned or the pump last serviced.</p></div>
+      <div><h3>Repairs arrive as surprises</h3><p>A fault can become an emergency call-out and a quote the trustees have little time to compare.</p></div>
+      <div><h3>Trustees need a plan on paper</h3><p>Sectional-title schemes are expected to keep a 10-year maintenance plan and report on it to owners each year. Dated water-system records give the managing agent something real to put in it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="offer">
+  <div class="wrap">
+    <p class="label">The offer</p>
+    <h2>Start small. Keep going only if it is useful.</h2>
+    <p class="intro">Three steps, each with a fixed scope. Nothing is repaired until the trustees approve a written quote.</p>
+    <div class="ladder">
+      <div class="step">
+        <span class="label tag">Step 1</span>
+        <h3>Free scheme review</h3>
+        <p class="price">R0 <small>· 15 minutes</small></p>
+        <ul>
+          <li>A call about your scheme's tanks, pumps and recent problems.</li>
+          <li>We tell you if a check makes sense.</li>
+          <li>No site visit and no pressure.</li>
+        </ul>
+      </div>
+      <div class="step main">
+        <span class="label tag">Step 2</span>
+        <h3>Water Resilience Check</h3>
+        <p class="price">R1,950 <small>· once-off, indicative</small></p>
+        <ul>
+          <li>Site inspection of tanks, pumps, pressure and backup supply.</li>
+          <li>Standard scope: up to 2 tanks and 1 pump set on one site in our service area. Larger schemes are quoted.</li>
+          <li>Photo report with an equipment register and each item marked OK, Watch or Act.</li>
+          <li>Written quote for every fix you ask us to price.</li>
+          <li>Optional water sample, priced on request. Results reported as received.</li>
+          <li>Fee credited to your first care-plan month if you start within 30 days.</li>
+        </ul>
+      </div>
+      <div class="step">
+        <span class="label tag">Step 3</span>
+        <h3>Care plan</h3>
+        <p class="price">From R2,500 <small>/ month, indicative</small></p>
+        <ul>
+          <li>Planned visits to agreed equipment only, usually quarterly. Schedule confirmed per system after the check.</li>
+          <li>Maintenance register with next service dates.</li>
+          <li>Photo report for trustees after each visit.</li>
+          <li>Not included: repairs, consumables and emergency call-outs. These are quoted or charged separately, only with your approval.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">What affects the price: number of tanks and pumps, site size, access and travel. Larger schemes cost more instead of getting a thinner inspection. Care plan prices are confirmed in writing after the check. All prices are indicative until you have a written quote.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label">The report</p>
+    <h2>A report trustees can circulate and act on.</h2>
+    <p class="intro">The report is the product. It gives the managing agent a record, and the trustees a clear list of what to decide.</p>
+    <div class="two">
+      <div>
+        <h3>In every report</h3>
+        <ul>
+          <li>Equipment register: tanks, pumps, valves and backup systems.</li>
+          <li>Dated photographs and observations.</li>
+          <li>OK, Watch or Act status for each item.</li>
+          <li>Prioritised recommended actions.</li>
+          <li>Written quotes where you ask for them.</li>
+          <li>Maintenance history and next inspection dates.</li>
+          <li>Limitations, including anything we could not inspect.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>What the labels mean</h3>
+        <ul>
+          <li><b>OK:</b> no action needed at the time of inspection.</li>
+          <li><b>Watch:</b> not urgent. Monitor it or plan for it.</li>
+          <li><b>Act:</b> a fix is recommended soon. The report says what we saw and the suggested next step.</li>
+        </ul>
+        <p style="margin-top:14px;color:var(--muted);font-size:.95rem">A status label is an observation. It is not an engineering certificate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label">How it works</p>
+    <h2>From first call to a written plan.</h2>
+    <ol class="process">
+      <li><div><strong>Review call</strong><span>15 minutes on your scheme and what has gone wrong before.</span></div></li>
+      <li><div><strong>Site visit</strong><span>A registered plumbing contractor inspects the system with us.</span></div></li>
+      <li><div><strong>Report and quotes</strong><span>Photos, a status for each item, and written quotes for any fixes.</span></div></li>
+      <li><div><strong>Trustees decide</strong><span>You approve, reject or defer each quote. We do not start work on our own.</span></div></li>
+      <li><div><strong>Care plan, if wanted</strong><span>Scheduled servicing and a register, with 30 days' notice to cancel.</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label">Ground rules</p>
+    <h2>What we do and what we don't.</h2>
+    <ul class="bounds">
+      <li><b>Written approval first</b><span>No repair starts without a signed quote from the trustees or managing agent.</span></li>
+      <li><b>No promises about municipal supply</b><span>We look after your equipment. We cannot control City water pressure or outages.</span></li>
+      <li><b>Water results as received</b><span>We report what the lab returns. We do not certify water as safe to drink.</span></li>
+      <li><b>Fixed scope, in writing</b><span>Each step lists what is included. Anything extra is quoted and approved first.</span></li>
+      <li><b>Your data stays with the service</b><span>We use scheme contact details only to run the work, and handle them under POPIA.</span></li>
+      <li><b>Easy exit</b><span>Care plans cancel with 30 days' written notice.</span></li>
+      <li><b>Clear responsibility</b><span>Who does the work, who invoices you and who is responsible for workmanship is set out in writing before any visit.</span></li>
+      <li><b>Report on the agreed date</b><span>We agree a report date before the visit. If we miss it through our own error, we credit part of the check fee.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label">Questions</p>
+    <h2>Before you book.</h2>
+    <div style="margin-top:24px">
+      <details><summary>Who does the physical work?</summary><p>A registered plumbing contractor works under a written scope. We coordinate the visit, write the report and manage the quotes.</p></details>
+      <details><summary>Does this replace our 10-year maintenance plan?</summary><p>No. That plan is prepared by a building maintenance professional. Our report gives you dated, photographed records of the water equipment to feed into it.</p></details>
+      <details><summary>Do you replace our current maintenance contractor?</summary><p>Not necessarily. The check gives you a record and quotes you can compare. You can use your current contractor for any repair.</p></details>
+      <details><summary>What does R1,950 cover, and what changes the price?</summary><p>A defined inspection and report for up to 2 tanks and 1 pump set on one site in our service area. Larger schemes, longer travel or difficult access are quoted. Water sampling is an optional add-on priced on request. The fee is credited against your first care-plan month if you start within 30 days. Pricing is indicative until confirmed in writing.</p></details>
+      <details><summary>Does this fix municipal outages?</summary><p>No. It shows how well your own storage, pumps and backup supply will cope when the City supply fails.</p></details>
+      <details><summary>Do you cover solar and other systems?</summary><p>Not yet. We start with water so we can do one thing properly. Ask us if you have another system you are worried about.</p></details>
+      <details><summary>I manage several schemes. Can you do all of them?</summary><p>We start with one scheme so you can see the report and the quotes. If it is useful, we agree pricing for the rest of your portfolio afterwards.</p></details>
+      <details><summary>Which areas do you cover?</summary><p>Sandton, Bryanston, Fourways, Rivonia and Randburg. Ask us about schemes nearby.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="tool" id="ready"><p class="label">60-second self-check</p><h2>How ready is your scheme’s water system?</h2><p>Tick what is true today. The more you can’t tick, the more a dated photo report helps.</p>
+<div class="chk" style="margin-top:14px">
+<label><input type="checkbox"> We know how many hours our tanks last when the City supply fails.</label>
+<label><input type="checkbox"> Every pump has a dated service record from the last 12 months.</label>
+<label><input type="checkbox"> We have photos of tanks, pumps and backup supply from this year.</label>
+<label><input type="checkbox"> Trustees have seen written quotes to compare, not a single repair price.</label>
+<label><input type="checkbox"> Someone owns a plan for what happens during a long outage.</label></div>
+<div class="out" aria-live="polite"><b id="rs">0 of 5</b> <span id="rt">Most schemes start here. A report gives you the missing records.</span></div>
+<a class="btn primary" id="rwa" href="#" target="_blank" rel="noopener">Send my result on WhatsApp</a></section>
+<section id="privacy">
+  <div class="wrap">
+    <p class="label">Privacy</p>
+    <h2>How information is handled.</h2>
+    <p class="intro">A short summary. The written terms contain the full detail.</p>
+    <ul class="bounds">
+      <li><b>What we collect</b><span>Contact details for the managing agent and trustees, the scheme name, site access details and photographs of the water equipment.</span></li>
+      <li><b>Why</b><span>Only to arrange the visit, write the report and prepare quotes.</span></li>
+      <li><b>Who sees it</b><span>Us, the contractor who attends the site and, if you add a water sample, the laboratory. It is not sold or used for unrelated marketing.</span></li>
+      <li><b>How long we keep it</b><span>While the service runs. We then delete or return it when you ask, unless the law requires us to keep it.</span></li>
+      <li><b>Your rights</b><span>Ask to see, correct or delete information we hold. You can also complain to the <a href="https://inforegulator.org.za/" target="_blank" rel="noopener">Information Regulator</a>.</span></li>
+      <li><b>Opt-outs</b><span>Tell us to stop contacting you and we will, straight away.</span></li>
+    </ul>
+  </div>
+<p style="margin-top:16px"><button class="linkbtn" type="button" data-legal="privacy"><b>Read the full Privacy Policy</b></button> · <button class="linkbtn" type="button" data-legal="terms"><b>Terms of Service</b></button></p></section>
+
+<div class="wrap">
+  <div class="contact">
+    <div>
+      <h2>Book a free 15-minute scheme review.</h2>
+      <p>Tell us the scheme name, the number of units and what has gone wrong with the water. We reply on WhatsApp.</p>
+    </div>
+    <div>
+      <p class="number" id="phone">076 431 2871</p>
+      <div class="actions">
+        <a class="btn primary" id="wa-bottom" href="#" target="_blank" rel="noopener">Open WhatsApp</a>
+        <button class="btn ghost" type="button" id="copy">Copy number</button>
+      </div>
+      <p id="copied" class="label" style="margin-top:10px;opacity:.85" aria-live="polite"></p>
+    </div>
+  </div>
+  <footer class="page"><div style="margin-top:10px">Registered as <mark class="ph">[Registered company name]</mark> · Reg. no. <mark class="ph">[Reg. no.]</mark> · <mark class="ph">[Address]</mark> · Information Officer: <mark class="ph">[Name, email]</mark></div><ul class="legal-links"><li><button type="button" data-legal="privacy">Privacy Policy</button></li><li><button type="button" data-legal="terms">Terms of Service</button></li><li><button type="button" data-legal="disclaimer">Disclaimer</button></li><li><button type="button" data-legal="cookies">Website &amp; cookies</button></li></ul>Prices are indicative and confirmed in a written quote before any work starts. By messaging us you agree that we may use your details to respond and run the service. See the <a href="#privacy">privacy summary</a> or read our full legal terms below.</footer>
+</div>
+
+<script>
+(function () {
+  var NUMBER_INTL = "27764312871";
+var cb=document.querySelectorAll("#ready input");
+function rd(){var n=0;cb.forEach(function(c){if(c.checked)n++});document.getElementById("rs").textContent=n+" of 5";
+document.getElementById("rt").textContent=n>=4?"Good position. A report can confirm it and document it for your records.":n>=2?"Partly covered. A report would close the gaps trustees ask about.":"Most schemes start here. A report gives you the missing records.";
+document.getElementById("rwa").href="https://wa.me/"+NUMBER_INTL+"?text="+encodeURIComponent("Hi, I manage a scheme in Johannesburg. Our water-readiness self-check score is "+n+" of 5. I'd like a free 15-minute review. Scheme name: ")}
+cb.forEach(function(c){c.addEventListener("change",rd)});rd();
+  var msg = "Hi, I manage a scheme in Johannesburg and would like a free 15-minute water-system review. Scheme name: ";
+  var href = "https://wa.me/" + NUMBER_INTL + "?text=" + encodeURIComponent(msg);
+  ["wa-top", "wa-hero", "wa-bottom"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.href = href;
+  });
+  var btn = document.getElementById("copy");
+  var out = document.getElementById("copied");
+  var num = document.getElementById("phone");
+  function fallback() {
+    var r = document.createRange(); r.selectNodeContents(num);
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    out.textContent = "Number selected. Copy it from your device menu.";
+  }
+  btn.addEventListener("click", function () {
+    try {
+      navigator.clipboard.writeText(num.textContent.trim()).then(
+        function () { out.textContent = "Number copied."; },
+        fallback
+      );
+    } catch (e) { fallback(); }
+  });
+})();
+</script>
+<dialog class="lg" id="lg" aria-labelledby="lgt"><div><header><div><h2 id="lgt">SchemeWater legal</h2><small>South African law applies. Highlighted items are filled in before use.</small></div><button class="x" type="button" aria-label="Close" id="lgx">&times;</button></header><div class="tabs" role="tablist"><button role="tab" data-t="privacy" aria-selected="false">Privacy</button><button role="tab" data-t="terms" aria-selected="false">Terms</button><button role="tab" data-t="disclaimer" aria-selected="false">Disclaimer</button><button role="tab" data-t="cookies" aria-selected="false">Website & cookies</button></div><div class="body"><section class="doc" id="d-privacy" role="tabpanel"><p class="k">Last updated 21 October 2026</p><div class="sum"><b>In short:</b> We collect the minimum, use it only to run the service you asked for, never sell it, secure it, and delete or return it when you ask. This policy follows the Protection of Personal Information Act 4 of 2013 (POPIA).</div><h3>1. Who we are</h3><p>SchemeWater is operated by <mark class="ph">[Registered company name]</mark> (reg. no. <mark class="ph">[Reg. no.]</mark>, <mark class="ph">[address]</mark>), the “responsible party” for information about our own prospects and clients. Information Officer: <mark class="ph">[Name]</mark>, <mark class="ph">[privacy email]</mark>.</p><h3>2. What we collect</h3><ul><li><b>Contacts:</b> managing agent and trustee names, phone, email, WhatsApp number.</li><li><b>Scheme data:</b> scheme name, address, number of units, site access arrangements and codes.</li><li><b>Inspection records:</b> photographs of tanks, pumps and plant (we aim to avoid people, number plates and unit interiors), readings, observations, quotes and invoices.</li><li><b>Water samples (optional):</b> sampling location and laboratory results.</li></ul><h3>3. Why we use it (purpose and lawful basis)</h3><ul><li>To arrange visits, perform the inspection, prepare reports and quotes (steps at your request / contract performance).</li><li>To run maintenance plans and keep a service register (contract performance).</li><li>To invoice and meet legal duties (legal obligation).</li><li>Because scheme residents’ information may appear incidentally, we keep it to what is necessary and the scheme or its agent remains responsible for its own residents’ data.</li></ul><p>We do not use it for unrelated purposes, automated decisions with legal effect, or profiling.</p><h3>4. Who we share it with</h3><ul><li>Us and our team.</li><li>The registered plumbing contractor who attends site, only the details needed for access and scope.</li><li>The accredited laboratory, if you add a water sample.</li><li>Cloud storage, messaging and email providers, accountants and advisers as operators.</li><li>Never sold and never used for unrelated marketing.</li></ul><p>We only share with operators who are bound in writing to protect it and use it on our instructions. We disclose information if the law, a court or a regulator requires it.</p><h3>5. Sending information outside South Africa</h3><p>Our messaging, storage and email tools may process data on servers outside South Africa. We use providers with adequate protection and only transfer as POPIA section 72 permits.</p><h3>6. How we protect it</h3><ul><li>Access limited to people who need it, with unique logins and two-step verification where available.</li><li>Devices and accounts protected; files kept in access-controlled storage, not shared drives or open chat groups.</li><li>Subcontractors sign confidentiality and data-protection terms before receiving any information.</li><li>If we suspect a breach, we investigate promptly, tell you and the Information Regulator where POPIA requires, and explain what was affected.</li></ul><h3>7. How long we keep it</h3><p>We keep scheme records while the service runs, and for the period needed to support warranties and disputes (up to 3 years after the last service unless you ask us to delete or return them sooner and the law allows). Access codes are removed from our systems within 30 days of the service ending.</p><p>Invoices and tax records are kept for five years as South African law requires. After that we delete or de-identify the information.</p><h3>8. Your rights</h3><ul><li>Ask whether we hold your information, and for a copy.</li><li>Ask us to correct, update or delete it.</li><li>Object to processing, or withdraw consent (this does not affect past lawful use).</li><li>Ask us to stop contacting you.</li><li>Complain to the <a href="https://inforegulator.org.za/" target="_blank" rel="noopener">Information Regulator</a> (complaints.IR@inforegulator.org.za).</li></ul><p>We respond within 30 days and do not charge for reasonable requests.</p><h3>9. Children</h3><p>Our services are for businesses and schemes. We do not knowingly collect information about children.</p><h3>10. Changes</h3><p>We will update the date above when this policy changes and tell active clients of material changes.</p></section><section class="doc" id="d-terms" role="tabpanel"><p class="k">Last updated 21 October 2026</p><div class="sum"><b>In short:</b> Plain-language summary: a defined inspection and photo report (R1,950, indicative), optional care plan (from R2,500 a month, indicative), written quotes, your decision on every repair, 30 days’ notice to cancel.</div><h3>1. Who is who</h3><p>SchemeWater coordinates the visit, prepares the report and manages quotes. A registered plumbing contractor performs physical work under a written scope. Where the contractor contracts with the scheme directly for repairs, that contract governs the repair work and its warranty.</p><h3>2. Free review</h3><p>The 15-minute call is free and without obligation. It is a discussion of your scheme, not an inspection or advice on compliance.</p><h3>3. Inspection scope and fee</h3><ul><li>R1,950 (indicative until confirmed in writing) covers a defined inspection and report for up to 2 tanks and 1 pump set on one site within our service area.</li><li>Larger schemes, extra travel, difficult access, or additional equipment are quoted before work starts.</li><li>Water sampling is an optional add-on, priced on request.</li><li>If you begin a care plan within 30 days, the inspection fee is credited against the first month.</li><li>VAT: <mark class="ph">[VAT status]</mark>. Payment is due before the visit unless agreed otherwise.</li></ul><h3>4. Site access and safety</h3><ul><li>The scheme must authorise access in writing (a trustee resolution, managing-agent instruction or signed access form) and tell us about hazards, confined spaces, working at height and security rules.</li><li>We may postpone or stop work if conditions are unsafe. Cancellations with less than 24 hours’ notice may be charged for call-out costs incurred.</li><li>The scheme maintains its own public-liability cover; our contractor holds <mark class="ph">[insurance confirmation — e.g. public liability to R__ million]</mark>.</li></ul><h3>5. Quotes and approvals</h3><p>No repair, replacement or extra work is done without your written approval of a quote. Quotes are valid for 14 days unless stated. Costs that arise from concealed defects discovered during approved work will be quoted before continuing wherever practicable.</p><h3>6. Care plans</h3><ul><li>From R2,500 a month (indicative), invoiced monthly in advance, covering the scheduled visits and register stated in the plan.</li><li>Either party may cancel with 30 days’ written notice. Repairs are quoted separately.</li><li>We do not replace your 10-year maintenance plan or any professional engineer’s, building-maintenance or compliance advice.</li></ul><h3>7. What our reports are and are not</h3><p>Status labels (such as OK, Watch or Action) are visual observations on the day. They are not engineering certificates, compliance certificates, structural assessments or guarantees that equipment will work. We report laboratory results as received and do not certify water as safe to drink. Municipal supply outages and network faults are outside our control.</p><h3>8. Contractor warranty and defects</h3><p>Workmanship and materials are warranted by the contractor performing the work, on the terms of the written scope or quote and applicable law. Report suspected defects in writing promptly, with photographs, and allow reasonable opportunity to inspect and remedy.</p><h3>9. Liability</h3><ul><li>We are not liable for indirect or consequential loss, including loss of rental income, lost levies, supply interruptions or third-party claims.</li><li>Our total liability on any claim is limited to the fees you paid in the three months before the claim arose, except for fraud, gross negligence or where the law does not allow limitation.</li><li>The scheme remains responsible for statutory, insurance and body-corporate compliance decisions.</li></ul><h3>10. Termination</h3><p>Either party may terminate immediately for material breach not remedied within 7 days. Accrued fees stay payable. Data, confidentiality, liability and payment clauses survive.</p><h3>General terms</h3><ul><li><b>Entire agreement.</b> These terms and your signed or WhatsApp-confirmed order form are the whole agreement. Changes must be in writing by both parties.</li><li><b>Notices.</b> By WhatsApp or email to the details you gave us; effective when sent during business hours.</li><li><b>Force majeure.</b> Neither party is liable for delays caused by events beyond reasonable control, including load-shedding, utility failure, severe weather or platform outages.</li><li><b>Assignment.</b> You may not transfer the agreement without our written consent.</li><li><b>Severability.</b> If a provision is unenforceable, the rest continues.</li><li><b>Consumer rights.</b> Where the Consumer Protection Act 68 of 2008 or other law applies, nothing here limits rights you cannot lawfully waive.</li><li><b>Electronic communication.</b> Under the Electronic Communications and Transactions Act 25 of 2002, WhatsApp and email confirmations are valid written records.</li><li><b>Governing law and disputes.</b> South African law applies. We try to resolve disputes in good faith and, failing that, by mediation before litigation. The Gauteng courts have jurisdiction.</li></ul></section><section class="doc" id="d-disclaimer" role="tabpanel"><p class="k">Last updated 21 October 2026</p><div class="sum"><b>In short:</b> Our reports are dated, photographed observations. They are not engineering, compliance or water-safety certificates.</div><h3>Not professional certification</h3><p>We are not a firm of consulting engineers, a laboratory or a regulator. Inspections are non-invasive and limited to what is visible and accessible on the day. Hidden or inaccessible defects, underground pipes and structural elements are outside scope.</p><h3>Water quality</h3><p>Laboratory results are reported exactly as received from the accredited lab, for the sample taken, at the time taken. Water quality can change. We do not certify water as safe to drink.</p><h3>Resilience and municipal supply</h3><p>Our report shows how your own storage, pumps and backup supply may cope when City supply fails. We cannot prevent or predict municipal outages.</p><h3>Examples and statistics</h3><p>The sample report uses made-up readings. News and statistics cited on this page are third-party reports and not our own findings. Prices are indicative until confirmed in writing.</p><h3>Your decisions</h3><p>You decide what repairs happen, with whom, and when. Our quotes are for comparison; you may use any qualified contractor.</p></section><section class="doc" id="d-cookies" role="tabpanel"><p class="k">Last updated 21 October 2026</p><div class="sum"><b>In short:</b> This website does not run advertising or tracking cookies. Messages go through WhatsApp, which has its own privacy rules.</div><h3>What this website does</h3><p>The SchemeWater page is a static information page. We do not use analytics, advertising pixels, remarketing or fingerprinting. If we add analytics later, we will use privacy-friendly settings and update this notice first.</p><h3>Third parties</h3><ul><li><b>Google Fonts</b> loads typefaces; Google may receive your IP address and browser details when it does.</li><li><b>WhatsApp (Meta)</b>: when you tap a WhatsApp button, you leave this site. Meta’s terms and privacy policy govern that chat. We only see what you send us.</li><li><b>Information Regulator link</b> opens the regulator’s site.</li></ul><h3>Your choices</h3><p>You can block third-party requests in your browser, or contact us by another method on request. Questions: <mark class="ph">[privacy email]</mark>.</p><h3>Direct marketing</h3><p>We do not send bulk or unsolicited marketing. We reply to messages you start, and if you opt in to updates you can say “stop” at any time and we will stop at once (POPIA section 69).</p></section></div></div></dialog><div class="sticky-cta"><a class="btn primary" id="wa-sticky" href="#" target="_blank" rel="noopener">Book a free 15-minute review</a></div>
+<script>
+(function(){var d=document.getElementById("lg");if(!d)return;var last;
+function show(t){document.querySelectorAll(".lg .doc").forEach(function(x){x.classList.toggle("on",x.id==="d-"+t)});
+document.querySelectorAll(".lg .tabs button").forEach(function(b){b.setAttribute("aria-selected",b.dataset.t===t)});d.querySelector(".body").scrollTop=0}
+function open(t){last=document.activeElement;show(t);if(!d.open)d.showModal();try{history.replaceState(null,"","#"+t)}catch(e){}}
+document.querySelectorAll("[data-legal]").forEach(function(b){b.addEventListener("click",function(e){e.preventDefault();open(b.dataset.legal)})});
+document.querySelectorAll(".lg .tabs button").forEach(function(b){b.addEventListener("click",function(){show(b.dataset.t)})});
+document.getElementById("lgx").addEventListener("click",function(){d.close()});
+d.addEventListener("click",function(e){if(e.target===d)d.close()});
+d.addEventListener("close",function(){if(last)last.focus();try{history.replaceState(null,"",location.pathname)}catch(e){}});
+var h=location.hash.slice(1);if(["privacy-policy","terms","disclaimer","cookies"].indexOf(h)>-1)open(h==="privacy-policy"?"privacy":h);
+var s=document.querySelector(".sticky-cta");if(s){var hero=document.querySelector(".hero");function f(){s.classList.toggle("show",scrollY>(hero?hero.offsetHeight:400))}addEventListener("scroll",f,{passive:true});f()}})();</script>
+</body>
+</html>
