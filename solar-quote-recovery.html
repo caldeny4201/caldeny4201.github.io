@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Solar Quote Recovery | We recover the solar quotes that are going cold</title>
+<meta name="description" content="Quote recovery partner for South African solar installers. We follow up open and aged quotes by WhatsApp and email so fewer quoted jobs go cold. Book a free 15-minute Lead Leak Audit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F7F6; --surface:#FFFFFF; --ink:#102A2A; --muted:#4A5F5E; --line:#D6DEDC;
+  --brand:#12403F; --brand-ink:#FFFFFF; --sun:#F2B705; --sun-ink:#102A2A;
+  --cold:#6E8FA6; --warm:#C97A00; --wa:#1FA855; --wa-ink:#FFFFFF;
+  color-scheme:light;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px); box-sizing:border-box;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0C1B1B; --surface:#132727; --ink:#EAF1EF; --muted:#9DB3B0; --line:#26403F;
+    --brand:#F2B705; --brand-ink:#102A2A; --sun:#F2B705; --sun-ink:#102A2A;
+    --cold:#7FA3BA; --warm:#F2B705; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0C1B1B; --surface:#132727; --ink:#EAF1EF; --muted:#9DB3B0; --line:#26403F;
+  --brand:#F2B705; --brand-ink:#102A2A; --cold:#7FA3BA; --warm:#F2B705; color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-text-size-adjust:100%}
+h1,h2,h3{font-family:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;line-height:1.1;margin:0;letter-spacing:-.02em}
+h1{font-size:clamp(2.1rem,7vw,3.9rem);font-weight:800}
+h2{font-size:clamp(1.6rem,4.5vw,2.4rem);font-weight:700;margin-bottom:.6em}
+h3{font-size:1.15rem;font-weight:700;margin-bottom:.3em}
+p{margin:0 0 1em;max-width:62ch}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+section{padding:64px 0}
+.alt{background:var(--surface);border-block:1px solid var(--line)}
+.muted{color:var(--muted)}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.logo{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo i{width:18px;height:18px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 4px color-mix(in srgb,var(--sun) 30%,transparent)}
+nav a{margin-left:18px;text-decoration:none;font-weight:600;font-size:.95rem}
+nav a.hide-sm{display:none}
+@media(min-width:760px){nav a.hide-sm{display:inline}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:10px;font-weight:600;text-decoration:none;border:2px solid transparent;font-size:1.02rem;min-height:48px}
+.btn-wa{background:var(--wa);color:var(--wa-ink)}
+.btn-wa:hover{filter:brightness(1.08)}
+.btn-ghost{border-color:var(--ink)}
+.btn svg{width:22px;height:22px;fill:currentColor;flex:none}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.small{font-size:.9rem;color:var(--muted);margin-top:12px}
+
+/* hero */
+.hero{padding:48px 0 64px}
+.hero-grid{display:grid;gap:40px}
+@media(min-width:900px){.hero-grid{grid-template-columns:1.1fr .9fr;align-items:center}}
+.hero p.lead{font-size:1.18rem;margin-top:20px}
+
+/* quote ledger (the memorable element) */
+.ledger{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;font-size:.95rem}
+.ledger h3{font-size:.95rem;color:var(--muted);font-weight:600;font-family:"Source Sans 3",sans-serif;letter-spacing:0;margin-bottom:10px}
+.row{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:12px 0;border-top:1px solid var(--line);align-items:center}
+.row b{font-weight:600}
+.row .age{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.85rem}
+.bar{grid-column:1/-1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.bar span{display:block;height:100%;border-radius:3px}
+.tag{font-size:.8rem;font-weight:600;padding:2px 9px;border-radius:99px;border:1px solid currentColor;justify-self:end}
+.cold .bar span{background:var(--cold);width:100%}.cold .tag{color:var(--cold)}
+.warm .bar span{background:var(--warm);width:55%}.warm .tag{color:var(--warm)}
+.booked .bar span{background:var(--wa);width:18%}.booked .tag{color:var(--wa)}
+.ledger small{display:block;margin-top:10px;color:var(--muted);font-size:.8rem}
+@media(prefers-reduced-motion:no-preference){
+  .bar span{animation:fill 1.4s ease-out both}
+  @keyframes fill{from{width:0}}
+}
+
+/* grids */
+.grid2,.grid3{display:grid;gap:20px}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}.grid3{grid-template-columns:repeat(3,1fr)}}
+.box{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:22px}
+.alt .box{background:var(--bg)}
+.yes{border-left:5px solid var(--wa)}
+.no{border-left:5px solid var(--cold)}
+ul.tick{list-style:none;padding:0;margin:0}
+ul.tick li{padding:6px 0 6px 26px;position:relative}
+ul.tick li::before{content:"";position:absolute;left:2px;top:.85em;width:10px;height:10px;border-radius:50%;background:var(--sun)}
+ul.tick.no-l li::before{background:var(--cold)}
+
+/* steps */
+ol.steps{list-style:none;padding:0;margin:0;display:grid;gap:16px;counter-reset:s}
+@media(min-width:760px){ol.steps{grid-template-columns:repeat(4,1fr)}}
+ol.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px}
+ol.steps li::before{content:counter(s);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--sun);color:var(--sun-ink);font-weight:800;font-family:"Bricolage Grotesque",sans-serif;margin-bottom:12px}
+
+/* offer */
+.offer{display:grid;gap:20px}
+@media(min-width:760px){.offer{grid-template-columns:1fr 1fr}}
+.price{font-family:"Bricolage Grotesque",sans-serif;font-size:2rem;font-weight:800;letter-spacing:-.02em}
+.price small{font-family:"Source Sans 3",sans-serif;font-size:.95rem;font-weight:400;color:var(--muted)}
+.featured{border:2px solid var(--brand)}
+
+/* faq */
+details{border-top:1px solid var(--line);padding:16px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px;min-height:32px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.4rem;line-height:1}
+details[open] summary::after{content:"\2212"}
+details p{margin:10px 0 0}
+
+/* final cta */
+.final{background:var(--brand);color:var(--brand-ink);text-align:left}
+.final .muted,.final .small{color:inherit;opacity:.85}
+.final .btn-ghost{border-color:currentColor}
+
+footer{padding:32px 0 110px;font-size:.9rem;color:var(--muted)}
+
+/* sticky mobile CTA */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:1px solid var(--line)}
+.sticky .btn{width:100%;justify-content:center}
+@media(min-width:900px){.sticky{display:none}footer{padding-bottom:32px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top"><i></i>Solar Quote Recovery</a>
+    <nav>
+      <a class="hide-sm" href="#how">How it works</a>
+      <a class="hide-sm" href="#offer">Pilot</a>
+      <a class="hide-sm" href="#faq">FAQ</a>
+      <a href="https://wa.me/27764312871?text=Hi%2C%20I%27d%20like%20to%20book%20the%20free%2015-minute%20Lead%20Leak%20Audit." rel="noopener">WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>We recover the solar quotes that are going cold.</h1>
+      <p class="lead">You already paid to get those enquiries and site visits. We follow up your open and aged quotes, consistently, so fewer quoted jobs go quiet.</p>
+      <div class="cta-row">
+        <a class="btn btn-wa" href="https://wa.me/27764312871?text=Hi%2C%20I%27d%20like%20to%20book%20the%20free%2015-minute%20Lead%20Leak%20Audit." rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200zm4.5-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100a6.700 6.700 0 0 1-3.300-2.900c-.2-.4.200-.4.700-1.300.1-.2 0-.3 0-.5l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.100-.7.300-.3.300-1 1-1 2.400s1 2.800 1.200 3c.1.200 2 3.100 4.900 4.300 1.800.8 2.500.8 3.400.7.500-.1 1.500-.6 1.700-1.200.2-.6.200-1.100.2-1.200-.1-.1-.3-.2-.5-.3z"/></svg>
+          Book a Free 15-Minute Lead Leak Audit
+        </a>
+        <a class="btn btn-ghost" href="#how">See how it works</a>
+      </div>
+      <p class="small">Opens WhatsApp. Reply in minutes during business hours. No obligation.</p>
+    </div>
+
+    <aside class="ledger" aria-label="Illustration of an open quote list">
+      <h3>Your open quotes, as we see them</h3>
+      <div class="row cold"><b>R186,000 · 8.4 kWp hybrid system</b><span class="age">Quoted 34 days ago</span><span class="bar"><span></span></span></div>
+      <div class="row warm"><b>R94,500 · 5 kW inverter + battery</b><span class="age">Quoted 12 days ago</span><span class="bar"><span></span></span></div>
+      <div class="row booked"><b>R248,000 · light commercial roof</b><span class="age">Follow-up sent</span><span class="bar"><span></span></span></div>
+      <small>Illustrative example. Not client data.</small>
+    </aside>
+  </div>
+</section>
+
+<section class="alt" id="leak">
+  <div class="wrap">
+    <h2>Quotes don’t usually get rejected. They get forgotten.</h2>
+    <p>A homeowner gets three quotes, gets busy, and goes quiet. Your team moves on to the next site visit. Nobody follows up the second, third or fourth time, because everyone is busy installing.</p>
+    <p>We take that follow-up off your plate. We aren’t a marketing agency, a lead-gen company or a call centre. We do one job: recover quotes you’ve already sent.</p>
+  </div>
+</section>
+
+<section id="fit">
+  <div class="wrap">
+    <h2>Who this is for</h2>
+    <div class="grid2">
+      <div class="box yes">
+        <h3>A good fit if you…</h3>
+        <ul class="tick">
+          <li>Install residential or light commercial solar in Gauteng, Western Cape or KwaZulu-Natal</li>
+          <li>Send roughly 25–100+ quotes or handle that many enquiries a month</li>
+          <li>Do about R3m–R15m a year in installations</li>
+          <li>Have an owner or sales manager we can work with directly</li>
+          <li>Know quotes age without consistent follow-up</li>
+        </ul>
+      </div>
+      <div class="box no">
+        <h3>Probably not a fit if you…</h3>
+        <ul class="tick no-l">
+          <li>Are a one-person operation with very few quotes</li>
+          <li>Build utility-scale or IPP projects</li>
+          <li>Can’t share quote data with a third party</li>
+          <li>Have a sales team that would resist outside follow-up</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="how">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><h3>15-minute audit</h3><p>We look at your recent open and aged quotes together and show you where they’re going cold.</p></li>
+      <li><h3>Paper first</h3><p>Written agreement and POPIA operator agreement signed before we touch any data.</p></li>
+      <li><h3>We follow up</h3><p>WhatsApp Business and email, with light phone calls. First contact the same or next day, then a 7–14 day sequence.</p></li>
+      <li><h3>You get the call</h3><p>Interested prospects are re-engaged or booked back into your sales process. You close them.</p></li>
+    </ol>
+    <h3 style="margin-top:36px">A report you can read in a minute</h3>
+    <p>Every week you get one page: quotes contacted, replies received, and appointments or re-engagements booked. No dashboards to learn, no vanity numbers.</p>
+  </div>
+</section>
+
+<section id="offer">
+  <div class="wrap">
+    <h2>Start with a 30-day founding pilot</h2>
+    <p>We start narrow: quotes only. The pilot is a fixed fee for a set number of quotes, with clear success measures agreed upfront.</p>
+    <div class="offer">
+      <div class="box featured">
+        <h3>Founding Pilot</h3>
+        <div class="price">R3,500–R5,500 <small>for 30 days</small></div>
+        <ul class="tick">
+          <li>Flat fee, set quote volume</li>
+          <li>Judged on contact rate, replies and appointments booked</li>
+          <li>Founding rate in exchange for a case study and testimonial rights</li>
+          <li>Limited spots while we keep capacity small</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Ongoing Partnership</h3>
+        <div class="price">From R4,500 <small>per month</small></div>
+        <ul class="tick">
+          <li>After a successful pilot</li>
+          <li>3-month initial commitment</li>
+          <li>Defined monthly quote volume, weekly reporting</li>
+          <li>Any performance element is only added with written attribution rules you’ve accepted</li>
+        </ul>
+      </div>
+    </div>
+    <p class="small">Pricing is for a defined quote volume and confirmed after the audit. Closed revenue isn’t a pilot measure: solar sales cycles are too long to judge in 30 days.</p>
+    <div class="cta-row">
+      <a class="btn btn-wa" href="https://wa.me/27764312871?text=Hi%2C%20I%27d%20like%20to%20book%20the%20free%2015-minute%20Lead%20Leak%20Audit." rel="noopener">Book the free audit on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="trust">
+  <div class="wrap grid2">
+    <div>
+      <h2>Handled properly</h2>
+      <ul class="tick">
+        <li>Written client agreement before any work starts</li>
+        <li>POPIA operator agreement before we receive any quote or lead data</li>
+        <li>WhatsApp Business messaging done within the rules, with no spam and no unsolicited blasts</li>
+        <li>Your brand voice, your process, your customer</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Results</h2>
+      <p>We’re taking on our first founding clients now, so we won’t show numbers we haven’t earned. Real pilot results and client case studies will be published here as soon as they exist.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2>Questions installers ask</h2>
+    <details><summary>Will you talk to my customers as if you’re my company?</summary><p>We follow up on your behalf, in a tone agreed with you, and hand interested prospects straight back to your team. We agree the wording and process with you before we start.</p></details>
+    <details><summary>What do you need from me?</summary><p>A list of open and aged quotes (name, contact, system quoted, date, value) and a named person we can hand appointments to. That’s it.</p></details>
+    <details><summary>How do you measure the pilot?</summary><p>Contact rate, replies, and appointments or meaningful re-engagements booked, plus whether you want to continue. We don’t judge it on closed revenue.</p></details>
+    <details><summary>Is this the same as lead generation?</summary><p>No. We don’t find new customers. We work the quotes you’ve already sent. New-lead follow-up may come later, only once the quote service is proven.</p></details>
+    <details><summary>Why a 3-month commitment after the pilot?</summary><p>Follow-up works through consistency over weeks, and solar decisions take time. Three months gives it a fair run.</p></details>
+    <details><summary>Do you work outside Gauteng, Western Cape and KZN?</summary><p>Our focus is those three provinces. Message us and we’ll tell you honestly whether we can help.</p></details>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Find out how many quotes are going cold.</h2>
+    <p>Send us a WhatsApp. We’ll book a 15-minute audit and look at your recent open quotes together.</p>
+    <div class="cta-row">
+      <a class="btn btn-wa" href="https://wa.me/27764312871?text=Hi%2C%20I%27d%20like%20to%20book%20the%20free%2015-minute%20Lead%20Leak%20Audit." rel="noopener">WhatsApp 076 431 2871</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Solar Quote Recovery · South Africa · WhatsApp <a href="https://wa.me/27764312871" rel="noopener">076 431 2871</a></p>
+    <p>We process personal information only as an operator under a written POPIA agreement.</p>
+  </div>
+</footer>
+
+<div class="sticky">
+  <a class="btn btn-wa" href="https://wa.me/27764312871?text=Hi%2C%20I%27d%20like%20to%20book%20the%20free%2015-minute%20Lead%20Leak%20Audit." rel="noopener">Book Free Lead Leak Audit on WhatsApp</a>
+</div>
+
+</body>
+</html>
